@@ -1,0 +1,2077 @@
+---
+title: "Personal attacks decrease user activity in social networking platforms"
+author: ""
+output:
+  pdf_document:
+    number_sections: true
+    df_print: kable 
+    keep_tex: true
+    includes:
+      in_header:
+        - Rafal_latex4.sty
+classoption: dvipsnames
+fontsize: 10pt
+documentclass: scrartcl
+urlcolor: blue
+bibliography: [../references/attacks.bib]
+csl: apa-5th-edition.csl
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+require("knitr")
+#opts_knit$set(root.dir = "../")
+options(knitr.kable.NA = '')
+
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+```
+
+
+
+
+<!--   - "\\normalsize Rafal Urbaniak ([LoPSE research group](http://lopsegdansk.blogspot.com/p/lopse-team.html), University of Gdansk)" -->
+<!--   - "\\normalsize Michał Ptaszyński (Kitami Institute of Technology)" -->
+<!--   - "\\normalsize Patrycja Tempska, Gniewosz Leliwa, Maciej Brochocki, Michał Wroczyński  (Samurai Labs)"  -->
+
+\vspace{-2mm}
+
+\begin{abstract}
+\noindent \textbf{Abstract.} 
+We conduct a large scale data-driven analysis of the effects of online personal attacks on social media user activity. First, we perform a thorough overview of the literature on the influence of social media on user behavior, especially on the impact that negative and aggressive behaviors, such as harassment and cyberbullying, have on users’ engagement in online media platforms. The majority of previous research were  small-scale self-reported studies, which is their limitation. This motivates our data-driven study. We perform a large-scale analysis of messages from Reddit, a discussion website, for a period of two weeks, involving 182,528 posts or comments to posts by 148,317 users. To efficiently collect and analyze the data we apply a high-precision personal attack detection technology. We analyze the obtained data from three perspectives: (i) classical statistical methods, (ii) Bayesian estimation, and (iii) model-theoretic analysis. The three perspectives agree: personal attacks decrease the victims’ activity.
+The results can be interpreted as an important signal to social media platforms and policy makers that leaving personal attacks unmoderated is quite likely to disengage the users and in effect depopulate the platform. On the other hand, application of cyberviolence detection technology in combination with various mitigation techniques could improve and strengthen the user community. As more of our lives is taking place online, keeping the virtual space inclusive for all users becomes an important problem which online media platforms need to face.
+
+
+\vspace{4mm}
+
+
+\noindent \textbf{Keywords:} verbal aggression online, personal attacks, social media, artificial intelligence, online engagement
+
+
+
+\vspace{4mm}
+
+
+\noindent \textbf{Significance.} Despite many efforts put into researching and preventing online aggression, it is still commonplace in cyber-encounters. Experiencing cyberbullying and harassment has been shown to lead to depression, feeling of hopelessness, and social media fatigue. People who experienced online harassment also reported disengagement and stopping using the services in which undesirable behavior occurred. Unfortunately, the existing literature and nearly whole body of research mostly studies the effects of verbal aggression on well-being relying only on self-reported data. Therefore it is often unclear if being subject to verbal aggression extends its effects on the behavioral level beyond the self-reported effects. We observe,  using a large-scale data-driven analysis, that experiencing verbal aggression online in the form of personal attacks indeed substantially decreases the victims’ activity.
+
+\vspace{2mm}
+
+
+\noindent \textbf{Disclaimer.} During the course of the study, we have utilized content that is publicly available on \textsf{Reddit.com} and can be accessed via the \textsf{Reddit} API or other similar technologies. This study was not  interventional research. Moreover,  although Reddit usernames are anonymous and usually do not display any personal information, we have additionally anonymized each one of them.  For these reasons, no informed consent was required (following point 8.05 of the \emph{Ethical Principles of Psychologists and Code of Conduct} of the American Psychological Association).
+\normalsize
+
+\thispagestyle{empty}
+
+\end{abstract}
+
+
+
+
+
+
+\section{Introduction}
+\label{intro}
+
+
+
+
+
+<!-- We conduct a large scale data-driven analysis of the effects of online personal attacks on social media user activity. First, we perform a broad and thorough overview of the literature on the influence of social media on user behavior, especially on the impact  negative and aggressive behaviors encountered online, such as harassment and cyberbullying, have on  users' engagement in online media platforms. As our overview reveals,  the majority of previous research was based on small-scale self-reported studies, which have their limitations. This motivates our data-driven study of  the effect of personal attacks on user activity. We perform an in-depth large-scale analysis of messages from Reddit, a popular social media platform, for a period of two weeks, involving 182,528 posts or comments to posts by 148,317 users. To efficiently collect and analyze the large-scale data we apply a high-precision personal attack detection technology. We analyze the obtained data from three perspectives: (i)  classical statistical methods, (ii) Bayesian estimation with skeptical priors, and (iii) model-theoretic analysis of the effects of personal attacks on user activity. The three perspectives agree:  personal attacks decrease the victims' activity.  -->
+
+<!-- The results can be interpreted as an important signal to social media platforms and policy makers that leaving personal attacks unmoderated is quite likely to disengage the users and in effect  depopulate  the platform, which will directly influence the SNS providers' revenue. On the other hand, application of automated personal attack detection technology, such as  the one applied in this study, in combination with various mitigation techniques, such as empathetic reactions, could improve and strengthen the user community. As more and more of our lives is taking place online, keeping the virtual space inclusive and livable for all users becomes an important problem which all online media platforms will need to face in the near future. -->
+
+
+
+<!-- \textsf{Samurai Labs} contributed 3000 PLN to the funding of this research. \textsf{Samurai Labs} prepared the raw data and results of personal attack recognition, and provided the humanpower to manually check which of 540 outliers  (even after the initial filtering out of bots) were bots. Some computing power was provided by National Science Center research grant number 2016/22/E/HS1/00304. Study design, \textsf{R} code, statistical analyses, their explanation and visualizations are due to Rafal Urbaniak (who has no interest in results going one way or the other, and no incentives related to any specific outcome were involved), theoretical discussion and further editorial work on the manuscript are  joint effort. FUll .Rmd file with analysis code and anonymized datasets is available at \url{add}.\rt{provide once accepted for publication}\,   -->
+
+Recent decade brought an exponential growth of social networking services (SNS) and associated with them social media platforms [@ortiz2019rise;@sheth2020borderless], with Facebook\footnote{\url{https://www.facebook.com/}} closing in on 2.5 billion users (one third of world population), YouTube\footnote{\url{https://www.youtube.com/}} on close to 2 billion, with smaller scale platforms such as Twitter\footnote{\url{https://www.twitter.com/}} and Reddit\footnote{\url{https://www.reddit.com/}} converging on around 350 million (equivalent to the entire population of the United States of America). 
+
+At the same time social media have witnessed an over ten percentage-point drop in growth rate between 2012 and 2018,\footnote{\url{https://www.searchenginejournal.com/growth-social-media-v-3-0-infographic/}} which suggests that the market is reaching over-satiation [@andersen2001satiation] and most social media platforms will struggle for  sustainable growth.
+This leads to a shift from quantity-based to quality-based growth policy, meaning that most social networking platforms will need to focus not on how many new users to invite, but rather on how to keep the existing users from leaving the platform and at the same time keep them actively engaged.
+
+One problem growing within the SNS that  seriously hinders user engagement is  cyberbullying and various forms of Internet harassment [@ptaszynski2018automatic]. The global increase of the numbers of Internet harassment cases has been related to the perceived anonymity and thus the sense of impunity in users [@barlett2015anonymously; @barlett2016predicting]. 
+
+One of the most crude and common forms of cyberbullying are directed personal attacks. In a typical personal attack user-attacker directly verbally attacks user-victim with a harmful comment, or a set of harmful comments, often based on a made-up excuse (e.g. the victim expressed an unpopular opinion). Often the attack not only remains unrestrained, but also it escalates when other users join on either or both sides, causing a wider distress not only to the victim, but also to a larger group of users. 
+
+
+
+
+
+To specify the scale of this distress we study to what extent personal attacks change the dynamics of user engagement in social media. 
+First, we present a thorough overview of the literature  on how social networks are affected by negative and destructive behavior and how this could be mitigated by positive reactions. The literature suggests the hypothesis that aggressive and generally abusive behaviors negatively influence user engagement and therefore general user activity. To quantitatively assess this hypothesis, we performed a large scale user activity analysis on Reddit and drew a number of conclusions useful for SNS moderators and policy makers.
+
+
+The paper is organized as follows.
+Section \ref{literaturereview} presents our review of the research on (1)  factors influencing user behavior in social media in general, (2) specific effects of online harassment on user behavior, and in particular (3) factors that influence users' continuous participation in SNS. 
+Next, in Section \ref{technology} we describe the technology we applied, which is both in line with general accounts of personal attacks present in psychology, and feasible from the technological point of view, and argue that the technology is sufficiently precise for the current study. Section \ref{quantanalysis} contains an in-depth large-scale analysis of Reddit messages and personal attacks  with the help of the technology provided by [\textsf{Samurai Labs}](https://www.samurailabs.ai/). We expand on the findings and discuss their more general meaning and importance, as well as limitations of this study in Section \ref{discussion}. Finally,  we conclude the paper and indicate  further paths to explore.
+
+
+
+
+\section{Literature Review}
+\label{literaturereview}
+
+\subsection{The influence of  social media}
+
+Even since the beginning of the social media popularity burst, studies have indicated that  participation in SNS  influences  the users' well-being and social self-esteem, especially in adolescents. [@valkenburg2006friend], in a small initial survey study (881 users) among young users (10-19 yo.) on a popular Dutch SNS called CU2, already noticed that especially  (1) the frequency  and (2) the tone (positive vs. negative) of the feedback they received had a significant (and correspondingly positive or negative) impact on the well-being and social self-esteem of the users.
+
+Although SNS have the potential to  improve the users' lives, other studies link frequent social media use, especially the one leading to addiction,  to various mental health problems, including low self esteem, anxiety and depression  [@beran2005cyber; @hinduja2008cyberbullying; @campbell2012victims; @woods2016sleepyteens], with similar results obtained all over the world, from the UK [@kelly2018social], Turkey [@kircaburun2016self], to Japan [@kitazawa2018associations], and Poland [@pyzalski2019polish].
+
+[@culpepperexploring] recently studied the relationship between social media use in youth and symptoms of depression and anxiety. The research concluded that the amount of time spent on social media and symptoms of depression were strongly correlated, although not that strong correlation was found between the amount of time spent on social media and the symptoms of anxiety. This suggests that some factors of the social media use might cause the increase of such emotions associated with depression as sadness, or powerlessness.
+
+More detailed studies in this matter link the use of social media to the feeling of \textit{fatigue}, defined as a self-regulated and subjective feeling of tiredness that results from using certain SNS platforms. Especially [@malik2020correlates] investigated whether different aspects of social media use (e.g., online privacy concerns, social comparisons, self-disclosure, intensity of social media use and FOMO, or the \textit{fear of missing out})
+ correlate with social media fatigue and academic performance. Their research hypothesis was that all the aforementioned stressors  trigger various emotional states which can be referred to as \textit{social media fatigue}, which was observed to  correlate with  academic performance decrement. 
+The first group in that study comprised of 1,398 young adults from India who actively used WhatsApp\footnote{\url{https://www.whatsapp.com/}} attending a full-time master's program at the university, while the second group comprised of  472 young adults who were only attending a distance education course. The following stressors led to social media fatigue: social comparisons, self-disclosure, intensity of use (which was the strongest predictor of the fatigue). Social media fatigue was also found to translate into academic performance decrement, while online privacy concerns and FOMO did not yield as high results. 
+
+Although there is some contradicting research on the topic of the relationship between social networking site usage and self-esteem, a meta-analysis performed by [@saiphoo2020social] indicated a small, negative, and significant relationship. In particular, the relationship was stronger in studies investigating problematic SNS use, which could suggest that higher levels of SNS use could be associated with lower levels of self-esteem.
+
+<!-- % CZASAMI SPRZECZNE WYNIKI, NP.niektore badania mowia, ze anxiety wzrasta tak samo jak depression [@beran2005cyber,hinduja2008cyberbullying,campbell2012victims,woods2016sleepyteens], a inne ze wzrasta depression ale nie anxiety [@culpepperexploring]. to wyraznie pokazuje, ze oprocz survey-based studies sa potrzebne dokladne kwantytatywne badania na duza skale. -->
+
+\subsection{Effects of online harassment on user behavior}
+
+Apart from studies on general use of SNS, a wide range of studies focused on how Internet harassment influences user behavior. Such directions of research started even before
+the burst of popularity of SNS such as Twitter or Facebook. For example, [@ybarra2004linkages] already indicated that young Internet users who already had preconditions for 
+depression,
+were more likely to become victims of Internet harassment.
+
+When it comes to other effects of cyberbullying and other forms of Internet harassment on users-victims' mental health, exposure to such hostile behaviors has been argued to cause depression, sadness, hopelessness and powerlessness [@raskauskas2007involvement], loss of confidence and self-esteem [@cross2012virtual], increased levels of fear  [@sourander2010psychosocial], feeling of loneliness, isolation, helplessness, decreased peer relationships and friendships [@nixon2014current], increased the probability of  self-harm or even suicide [@cross2012virtual].
+Being a victim of online harassment also correlates with lower levels of self-perceived subjective well-being. Crucially, younger participants are more likely to become victims of online harassment [@nasi2014association].
+
+Online hate can also leave people \textit{disquieted}, which refers to an emotional state of being disturbed [@savimaki2020disquieted]. The correlation between exposure to online hate and being disquieted was the strongest 
+in women, immigrants, 
+in ``individuals with a higher fear of personal victimization and previous victimization experience", and in those who previously experienced victimization offline, thus supporting the assumption that offline problems reflect online behavior. 
+To
+examine the correlations between online and offline hate, [@williams2020hate] collected data on hate crimes from Twitter and police records over an eight-month period in London and statistically analyzed whether
+a significant association exists. Their results suggested that online hate speech targeting race and religion was positively correlated with all offline racially and religiously aggravated offences, including total number of hate crimes in London over an eight-month period. Thus online hate occurring on Twitter, although not causally linked to offline hate crimes in isolation, could at least be informative about the frequency of such crimes offline.
+
+With regards to online hate against larger groups, 
+[@bilewicz2020hate] found out that hateful and derogatory language ``has severe consequences for human intergroup relations and should be considered a large-scale societal issue that deteriorates living quality, increases aggression, and affects mental health and well-being of minorities," thus affecting behavioral, normative and emotional processes.  Frequent hate speech exposure can change default normative stances from prescriptive anti-discriminatory norms (e.g, telling other users that aggressive language should not be used) to  discriminatory norms learned from others  (e.g., using aggressive language to stop other users' hate speech) or even derogation motivated by leaders (which can later lead to legitimization of such language). Emotional processes based on empathy and emotional arousal can evolve into failure to empathize, schadenfreude or dehumanization. 
+Moreover, frequent exposure to hate speech can increase the level of contemptuous prejudice toward the outgroup, change social norms in regards to the use of hate speech (thus increasing the probability of more frequent use of hate speech) and cause a shift in sensitivity to hate speech: the more frequent the exposure, the less an individual can recognize that the behavior violates existing social norms.
+
+<!-- % Agent-based modelling approach to hate speech studied by [@bilewicz2020hate] shows that ``the potential mechanisms that could inhibit the spread of hate speech are destroyed by hate speech itself -- as the norms and empathic responses become eroded by frequent exposure to derogatory language. The model depicts this epidemic loop that ultimately generates an omnipresence of hate speech in human social environments."  -->
+
+These results are also confirmed by [@rosner2016dangerous], who found out that exposure to uncivil online comments increased aggressive and hostile cognitions (viewing the world as potentially hostile and aggressive) in readers even after reading one single uncivil comment. 
+Negative real-life consequences of mere exposure to the hate speech itself was also indicated by [@weber2020online], who studied how incivility and hateful language inhibit healthy pro-social behaviors. In particular, in [@weber2020online]'s online experiment the participants who read hateful or negative comments about refugees donated less money to 
+a refugee relief aid organization. 
+
+
+\subsection{Key factors  influencing continuous use of SNS}
+
+As social media use started to become one of the important elements of everyday life, studies on how to convince new users to participate and keep the existing users active on the platform emerged.
+
+[@arguello2006talk] argued that ``the foundation of successful individual-group interactions in online communities is [obtaining] the response," and analyzed factors increasing or decreasing the probability of getting a reply. Some of the factors that contributed to a decrease included being a newcomer (4 percent less likely to get a reply), and writing messages with longer sentences and words.
+
+Those which led to an increase included: 
+\begin{itemize}
+    \item posting to multiple groups (9 percent more likely), 
+    \item including testimonials (``method of expressing one's legitimacy to the audience of potential respondents, by explicitly indicating one's connection to the topic of the discussion and to the community"), 
+    \item making requests, asking questions (6 percent more likely to receive a reply),
+    \item adhering to the topic of the group (increased the probability of a reply by about 10 percent),
+    \item using sentences with first person singular pronouns and third person pronouns,
+    \item use of words reflecting mental processes, or
+    \item using words expressing positive or negative emotions.
+\end{itemize}
+Moreover, the results suggested that 
+getting a response influenced whether the user would reappear in the group. 
+
+
+[@wise2006moderation] also investigated the kinds of features of online community that made people more inclined to participate. Both structural and content features where studied.  Structural features comprised the presence of moderation and the length of time passed between new posts. Content features involved the actual words and phrases occurring in a discussion; for instance, interactivity is assessed by asking whether subsequent posts refer to the issues mentioned in the previous ones.  
+Out of all content features, only the presence of moderation elicited greater intent to participate.
+Although participation intent was measured in an attitudinal and not behavioral way (7-point Likert scale was used) other studies also investigated the relation between moderation and participation. [@preece2004top] examined the main motivations of lurkers (those who observe rather than participate in the online community). One of the key reason behind lurking turned out to be aggressive, rude or offensive responses between the community members. Positive effects of moderation in the process of creation of online communities and increasing engagement have 
+been also studied by [@meyer2014moderation] and [@carey2016influences], whereas distributed type of moderation has been proven to be effective in increasing civil participation and enforcing norms [@lampe2014crowdsourcing]. These studies show that effective and efficient moderation is crucial in making the users continue to use the social media, especially for newcomers, for whom the quality of the first several months of SNS experience is important for  establishing long-term participation and commitment to the SNS [@raub2015phenomenological].
+
+
+
+[@sadeque2019predicting] talk about continued participation using the term \textit{churn}, which they define as ``a portmanteau of change and turn --- (\dots) 
+the rate of loss of customers from a company's customer base to another company'' Research on churn has an important motivation for social network service-providing corporations: the loss of customers translates into the loss of revenue, while convincing an existing user/customer to stay is cheaper than finding a new one. Moreover, in social networks, 
+it is the uninterrupted 
+interactions among users that serve as the main underlying driving force of service sustainability.
+
+
+In earlier research, [@pudipeddi2014user] studied factors related to the engagement of users and churn prevention in Q\&A sites.
+The problem was framed as a classification task and aimed at answering the following questions: ``(i) given the first $k$ posts of a user, or (ii) given the first $T$ days activity of a user, how can we predict whether the user is about to churn?" In order to answer the aforementioned questions,
+[@pudipeddi2014user] analyzed a collection of data from StackOverflow,\footnote{\url{https://stackoverflow.com/}}  involving 
+new  and prolific users. 
+Out of various potentially churn-indicative features, the time gap between user posts was the strongest predictor.  Other predictors, such as  answering speed, reputation of those who answer their questions or number of answers received by the user, also played a role.
+
+Becoming acquainted with the predictors of churn and acting upon them can be one of the most critical tasks in the process of improving user experience and earning the loyalty of the community members. 
+However, to act upon a predictor, one needs to be able to manipulate  the variable. 
+As previous research indicated, decreasing frequency of posting might help predict who is most likely to churn. But this information is hardly translatable into a set of preventative actions --- we do not know what exactly influenced a user so that she posts less frequently. Thus one can only randomly test various strategies to prevent churn. On the contrary, knowing that personal attacks decrease user activity can be turned into actionable insight ---  one can hire more moderators or invest in automatic solutions to protect users more effectively.
+
+
+
+A similar research question on \emph{what could be taken into consideration as a predictor of user future continued participation in online social networks} was also posed by [@sadeque2019predicting], who indicate that certain linguistic features can serve as predictors:
+\begin{quote}``the contents, emotional tone, length of the posts and replies the user has posted in a social network (\dots) the responses the user receives from other users can play an important role in the prediction task.''\end{quote}
+As the authors note, the users, as participants of a "Gift Economy" system (driven by expectations of social contents rather than monetary benefits), are more likely to contribute if they are supportive to a community and in turn --- the community is supportive to them. 
+Another relevant aspect are properties of  users activity on social media, such as 
+frequency, timing, purpose, etc, or the status of the user, for instance,  whether she is a newcomer or a forum veteran. 
+Moreover, [@sadeque2019predicting] conclude that 
+in contrast with 
+the telecommunication industry and similar hardware-dependent industries (smart-phone market, etc.), in SNS it is much more difficult to establish a universal  predictive measures of user engagement, due to unique challenges, such as a variety in structure, user base, communication techniques, hierarchy of engagement between users, etc. Moreover, as the users become addicted to the Gift Economy, the lack of positive triggering events additionally makes the prediction more difficult. This also relates to the opposite situation, when the users become annoyed by negative triggering events (such as personal attacks), thus lowering their will to further engage in the SNS community [@barlinska2018slowami].
+
+Another aspect and an essential component of community engagement is  \textit{loyalty}. [@hamilton2017loyalty] explored a large set of Reddit communities to provide a characterization of user loyalty. On a community level, topics reflecting strong external interest (sports, video games) tend to organize people into more loyal communities. 
+Communities  with a higher level of loyalty tend to have denser (more coherent), yet less clustered (more fragmented into subgroups) user-user interaction networks, and contain more bridging ties connecting active and inactive users (e.g.  interaction in the form of commenting). Moreover,  more inclusive and cohesive communities tend to be comparatively more loyal.
+
+This also directly relates to the topic of individual user engagement, as loyal users tend to comment on less popular topics, thus theoretically being more exposed to criticism and personal attacks. A loyal community allows users to feel more secure and  be more verbose.
+
+
+User engagement  has been also studied from the brand perspective as well. [@cvijikj2013online] examined the characteristics of the content created by companies that led to higher levels of user/customer engagement: \textit{entertaining and informative content}, preferably in forms of photos posted on workdays were found to be the most engaging (the study was limited to Facebook brand pages). 
+More recently, [@lemmens2020managing] noticed that as customer acquisition costs continue to rise, managing customer churn has become critically important for the profitability of companies. Although this study was done not in the context of users in a peer to peer SNS community, but rather in the context of customers, it also highlights the growing need to mitigate user churn and the growing difficulty in obtaining new users, which also reflects the \textit{status quo} of social networking services, for which the users are also customers.
+
+The results of the study conducted by [@zong2019social] on 251 respondents --- students, faculty members, and staff members from China who were WeChat\footnote{\url{https://www.wechat.com/}} users --- suggested that "social network fatigue will directly weaken user intention to continue online interaction," which was especially revealed in the relationship between information seeking and continuance intention and between perceived enjoyment and continuance intention. This means that those who experience a high level of social networking fatigue (weakened will to continue using social media) will also heave weakened gratification and perceived enjoyment from the use of  social media). 
+
+This in turn suggests that gratification consists of at least 
+three important determinants influencing the intention to continue using the SNS (perceived through its three dimensions: utilitarian, social and hedonic).   [@zong2019social] mention only certain causes for social media fatigue, while defining it as "a complex, subjective and experiential in nature, (\dots) response of vulnerable individuals to high demands or workload and inability to meet individual goals" that lead to low performance and participation and can be caused by an overload of perceived information, communication, system features or privacy concerns. This also suggests that being a subject to a personal attack, cyberbullying, hate speech or any kind of verbal aggression directed at an individual can contribute to social network fatigue as well.
+
+[@cao2019consequences] investigated specifically the role of cyberbullying and social overload in predicting \textit{SNS exhaustion, distress, and discontinuous usage intention} on the basis of Social Cognitive Theory (SCT) framework. They were able to show that cyberbullying increases social overload, which in turn contributes to distress and SNS exhaustion, while distress and SNS exhaustion have a positive correlation with the intention to discontinue the use  of SNS.
+
+In a nationally representative Pew Research Center survey from 2017, out of 4,248 U.S. adults, 41\% have been personally subjected to harassing behavior online.\footnote{\url{https://www.pewresearch.org/internet/2017/07/11/online-harassment-2017/}} Out of those, 15-30\% reported that they stopped using an online service as a result. Similarly, a survey was conducted within the Habbo game (a virtual world for teens) on 2,515 young people aged 12-25.\footnote{\url{https://www.ditchthelabel.org/wp-content/uploads/2020/05/InGameAbuse.pdf}} Out of 57\% of people who have been bullied, 22\% quit playing an online game because of it, while 24\% considered quitting.
+
+
+In a study conducted by [@mohan2017impact] the relationship between online \emph{toxicity} and \emph{health} of the 180 Reddit communities (subreddits) was examined. Toxicity was defined as "language involving bullying, racism, hate speech, vulgarity, fraud, and, threats," while health as   "a measure of user engagement in Reddit communities or subreddits" --- which in practice was measured as the number of posts and the number of unique authors of these posts.
+They found that the health and toxicity were strongly negatively correlated ($\rho=-0.8$ or higher for more than half of the subreddits). The more the toxicity increased, the more impact it had in terms of its negative influence over 
+the impact it had on the health of a subreddit (although the results suggest that when toxicity is low, other factors determined its health).
+Large increases in toxicity led to health decline, while subreddits with stable levels of toxicity more often witnessed growth in health. Authors concluded that in order to develop healthy and growing community, one needs to maintain a stable or decreasing toxicity level. 
+
+
+The above literature clearly indicates that personal attacks within the social network gradually and consistently decrease user activity and eventually lead to depopulation. The only special situation in which the language of harassment and hate speech could incentivize the users to increase their activity, is when the social network is an environment in which hate speech and extremism are normalized. [@mathew2019temporal] indicate this in their study on Gab.com,\footnote{\url{https://gab.com/}} a social network which prioritizes unrestricted free speech over the comfort of user majority.
+This leads to the emergence of a \textit{group identity} that accepts and values harmful language, which in turn makes some of the most extreme users be perceived in positive light. This also resembles typical mechanisms that occur on extremist (jihadists, far-right activists) forums [@de2008stormfront; @chua2019understanding], and suggest that measures opposite to those functioning on extremist forums should be employed in social networking platforms, which aim at a more civilized and friendly interaction.
+
+
+
+What is crucial to note is that in all the aforementioned studies a five-point Likert scale or similar were used to measure the variables (e.g., ranging from 1="strongly disagree" to 5="strongly agree"), and the studies \textbf{relied on self-reported data}, which, as the authors often mention themselves, \textbf{do not reflect the full scope of actual processes}, indicating that \textbf{more large-scale quantitative research is necessary} when it comes to measuring the behavioral outcomes of negative experiences online, such as cyberbullying, and personal attacks and their influence on SNS discontinuous usage intention in users.
+
+
+
+
+\section{Technology applied for personal attack detection}
+\label{technology}
+
+<!-- \rt{These subsections are too short, I would just leave the section title} -->
+
+<!-- \rt{Tutaj sie nei zgadzamy z Michalem; Mam wrazenie ze jednak wiadomo o co chodzi, a robienie z jednej w sumie strony kilku podsekcji jest chyba przesada; proponuje zeby sprawe rozsadzila Patrycja.:)} -->
+
+<!-- \subsection{Working definition of personal attacks} -->
+<!-- \label{personalattackdefinition} -->
+
+For the need of this research we define \textit{personal attack} as any kind of abusive remark made in relation to a person (\textit{ad hominem}) rather than to the content of the argument expressed by that person in a discussion. The definition of ‘personal attack’ subsumes the use of specific terms which compare other people to animals or objects or making nasty insinuations without providing evidence. Three examples of typical personal attacks are as follows.
+
+\begin{itemize} 
+\item \emph{You are legit mentally retarded homie.}
+\item \emph {Eat a bag of dicks, fuckstick.}
+\item \emph {Fuck off with your sensitivity you douche.} 
+\end{itemize}
+
+<!-- \subsection{Samurai API} -->
+<!-- \label{samuraiapi} -->
+The detection of personal attacks was performed using  Samurai, a proprietary technology of Samurai Labs.^[\url{https://www.samurailabs.ai/}, described in [@ptaszynski2018cyberbullying;@wroczynski2019system].]
+ The technology comprises a combination of symbolic and statistical methods, where each statistical component (e.g., a deep learning model) is governed by a symbolic component utilizing a variety of natural language processing methods (e.g., tokenization, syntactic parsing, etc.). Symbolic components are used to determine if a potentially abusive utterance is not a part of a broader utterance indicating that the first one should not be considered abusive. For example, an utterance "you are an idiot" is potentially abusive, but it really is not, if it appears as a part of some broader utterance such as "I cannot believe he said you are an idiot." Another example of using symbolic components is determining if an abusive phrase is targeted against an interlocutor (e.g. using a linking verb to assign the abusive phrase with a second person as in the "you are an idiot" example).
+
+ Samurai [@wroczynski2019system] employs a  compositional approach, where each problem is divided into a set of corresponding sub-problems represented with language phenomena (e.g., speech acts), and detected independently using highly precise contextual models. For example, personal attacks comprise a high-level category that can be divided into language phenomena (mid-level categories) such as insulting (using abusive terms in relation to other people), comparing other people to animals (e.g., "looks like a pig") or objects (e.g., "smells like an old sock"), or making insinuating remarks (e.g., "I heard she had sex with her students"). Furthermore, each mid-level category can be further decomposed into low-level categories. For example, insulting can be expressed by using a linking verb (e.g., "you are an idiot") or a vocative case (e.g. "stop talking to me, idiot").
+
+Figure \ref{fig:samuraiexample} illustrates how the input text ("ccant believ he sad ur an id10+...!") is processed step-by-step utilizing both statistical and symbolic methods.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{example.eps}
+    \caption{Example of processing of one sentence by the applied Samurai technology.}
+    \label{fig:samuraiexample}
+\end{figure}
+
+
+In practice, it means that a whole variety of constructions can be detected without the need to construct a fixed list of dictionary words defined \textit{a priori}. Due to utilizing symbolic components that oversee statistical components, {\textsf Samurai} recognizes complex linguistic phenomena (such as indirect speech, rhetorical figures or counter-factual expressions) to distinguish personal attacks from normal communication, greatly reducing the number of false alarms as compared to others systems used for violence detection. An example of comparison can be seen in Figure \ref{fig:samuraiexample}, and a full benchmark was presented in [@ptaszynski2018cyberbullying].
+
+<!-- \subsection{Description and evaluation of applied detection models} -->
+
+
+The detection models utilized in this research were designed to detect personal attacks targeted against a second person (e.g. interlocutor, original author of a post) and a third person/group (e.g., other participants in the conversation, people not involved in the conversation, social groups, professional groups), except public figures (e.g. politicians, celebrities). 
+With regards to symbolic component of the system, by "models" we mean separate rules (such as, specifying a candidate for the presence of personal attack, such as the aggressive word "idiot," which is further disambiguated with a syntactic rule of citation, e.g., "[he$\vert$she$\vert$they] said [SUBJECT] [PREDICATE]") or sets of rules, as seen in Figure \ref{fig:samuraiexample}, e.g. normalization model contains rules for transcription normalization, citation detection model contains rules for citation, etc. With regards to the statistical component, by "models" refer to machine learning models trained on large data to classify an entry into one of the categories (e.g., true personal attack, or false positive).
+
+Moreover, the symbolic component of the system uses two types of symbolic rules, namely "narrow rules" and "wide rules." The former have smaller coverage (e.g., are triggered less often), but detect messages containing personal attacks with high precision.\footnote{Precision is defined traditionally as the ratio of correctly detected instances among all detected instances.} The latter, have wider coverage, but their precision is lower. 
+We decided to set apart the "narrow" and "wide" subgroups of the detection models in order to increase the granularity of the analysis. Firstly, we took only the detection models designed to detect personal attacks targeted against second person. Secondly, we used these models on a dataset of 320,000 Reddit comments collected on 2019/05/06.
+Thirdly, we randomly picked at most hundred returned results for each low-level model\footnote{Low-level models are responsible for detecting low-level categories. Similarly, mid-level models detect mid-level categories, by combining several low-level models, etc.} (some models are triggered very often while others rarely, so using all instances would create too much bias). There were 390 low-level models but many of them returned in less than 100 results. We verified them manually with the help of expert annotators trained in detection of personal attacks and selected only those models that achieved at least 90\% of precision. The models with fewer than 100 returned results were excluded from the selection. After this step, the "narrow" subgroup contained 43 out of 390 low-level models. Finally, we tested 
+all of the "narrow" models on a large dataset of 477,851 Reddit comments collected between 2019/06/01 and 2019/08/31 from two subreddits (r/MensRights and r/TooAfraidToAsk). Each result of the "narrow" models was verified manually by a trained annotator and the "narrow" models collectively achieved over 93.3\% of precision. We also tested the rest of the "wide" models on random samples of 100 results for each model (from the previous dataset of 320,000 Reddit comments) and we excluded the models that achieved less than 80\% precision. The models with fewer than 100 results were not excluded from the "wide" group. In this simple setup we detected 24,251 texts containing "wide" attacks, where:
+\begin{itemize}
+\item  5,717 (23.6\%) contained personal attacks against second person detected by the "narrow" models,
+\item  8,837 (36.4\%) contained personal attacks against second person detected by "wide" models
+% the models other than "narrow",
+\item  10,023 (41.3\%) contained personal attacks against third persons / groups.
+The sum exceeds 100\% because some of the comments contained personal attacks against both second person and third person / groups. For example, a comment ``Fu$\ast\ast$ you a$\ast\ast$hole, you know that girls from this school are real bit$\ast\ast$es" contains both types of personal attack.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Large-scale quantitative analysis of impact of personal attacks on
+Reddit user activity}
+\label{quantanalysis}
+
+<!-- The theory under consideration is that being a victim of personal attacks on Social Networking Service (SNS) platforms, such as \textsf{Reddit}, discourages users from participating in discussions  on that platform. We develop and investigate a short-term hypothesis suggested by this theory: that being a victim of personal attacks (as recognized by [\textsf{Samurai Labs}](https://www.samurailabs.ai/) software) decreases one's activity over the week following the offense as compared to the week before. Of course, \emph{prima facie} other options are also possible: perhaps, such an attack (1) causes no change in user activity, or perhaps, it (2) makes the user even more involved in discussions. This study is meant as a step towards understanding which of these is more probable.  -->
+
+
+At this point we move on to the presentation of our observational study. It is crucial to emphasize that due to space limitations  some technical details and methodological decisions have not been fully explained in the publication, but we did our best to expand on such issues in the online documentation of the study.
+
+
+\subsection{Study design and data collection}
+
+
+The raw datasets used have been obtained by \textsf{Samurai Labs}, who were able to collect \textsf{Reddit} posts and comments without \textsf{Reddit} moderation or comment removal. All content was downloaded from the data stream provided by \url{pushshift.io} which enabled full data dump from Reddit in real-time. The advantage of using it was access to unmoderated data.  Further, \textsf{Samurai Labs} deployed their personal attacks recognition algorithms to identify personal attacks.
+
+
+Experimental manipulation of the crucial independent variables (personal attacks of various form)  would be unethical and against the goal of \textsf{Samurai Labs}, which is to detect and \emph{prevent} online violence, so this is an observational study. While this  is a weakness, our sample was both much larger and much more varied than the usual WEIRD (western, educated, and from industrialized, rich, and democratic countries) groups used in psychology (notice, however, that the majority of Reddit users  are males based in the U.S.).^[For instance,  [@wise2006moderation] examined  59 undergraduates from a political science class at a major Midwestern university in the USA, [@zong2019social] studied 251 students and faculty members from China who are users of WeChat, and  [@valkenburg2006friend] surveyed  881 young users (10-19yo.) of a Dutch SNS called CU2.]
+
+
+
+Practical limitations allowed for data collection for  around two continuous weeks (day 0 $\pm$ 7 days). First, we randomly selected one weekend day and one working day. These were June 27, 2020 (Saturday, \textsf{S}) and July 02, 2020 (Thursday, \textsf{R}). The activity on those days was used to   assign users to groups in the following manner. We picked one weekend and one non-weekend day to correct for activity shifts over the weekend (the data indeed revealed slightly higher activity over the weekends, no other week-day related pattern was observed). We could not investigate (or correct for) monthly activity variations, because the access to unmoderated data was limited.   For each of these days, a random sample of 100,000 posts or comments have been drawn from all content posted on \textsf{Reddit}.  Bot removal and cleanup  left us with  92,943 comments or posts by 75,516 users  for \textsf{R} and 89,585 comments by 72,801 users  for \textsf{S}.   On these two  days respectively,  1359 \textsf{R} users ($1.79\%$) received at least one \textsf{narrow} attack, 35 of them received more than one ($0.046\%$). 302 of \textsf{S} users ($0.39\%$) received at least one \textsf{narrow} attack and 3 of them more than one \textsf{narrow} on that day ($0.003\%$). These numbers  are estimates for a single day, and therefore if the chance of obtaining at least one \textsf{narrow} attack in a day is $1.79\%$, assuming the binomial distribution, the estimated probability of obtaining at least one \textsf{narrow} attack in a week is 11.9\% in a week and 43\% in a month. We kept the full  \textsf{wide > 1} or \textsf{narrow > 1} classes comprising 340 users, and  included all of them in the Thursday treatment group (\textsf{Rtreatment}). Other users were randomly sampled from \textsf{wide > 0} and added to \textsf{Rtreatment}, so that the group count was 1000. An analogous strategy was followed for \textsf{S}. 1338 users belonged to \textsf{wide > 0}, 27 to \textsf{wide > 1}, 329 to \textsf{narrow > 0} and 3 to \textsf{narrow > 1}. The total of 344 \textsf{wide > 1} or \textsf{narrow > 1} users was enriched with sampled \textsf{wide > 0} users to obtain the \textsf{Streatment} group of 1000 users.  The preliminary \textsf{Rcontrol}/\textsf{Scontrol}  groups of 1500 users each were constructed by sampling 1500 users who posted comments on the respective days but did not receive any recognized attacks. 
+
+
+
+
+\noindent
+\begin{tabular}{ll}
+\begin{minipage}[c]{0.4\linewidth}
+\begin{table}[H]
+\footnotesize
+```{r, echo=FALSE,eval=TRUE,cache=TRUE}
+#data <- read.csv("data/quittingFinalAnon.csv")[,-1]
+data <- read.csv("quittingFinalAnon.csv")[,-1]
+mykable <- function(object) {kable(object, "latex", booktabs = T) %>% kable_styling(latex_options = "striped",font_size = 9)}
+kable(table(data$group), "latex", booktabs = T, col.names = c("Group", "n")) %>% 
+  kable_styling(latex_options = "striped",font_size = 9)  #"scale_down"
+```
+\caption{Study group sizes.}
+\label{tab:groups}
+\end{table}
+\end{minipage}&   \begin{minipage}[c]{0.53\linewidth}
+For each of these groups new  dataset was prepared, containing all posts or comments made by the users during the period of $\pm 7$ days from the selection day (337,015 for \textsf{Rtreatment}, 149,712 for \textsf{Rcontrol}, 227,980 for \textsf{Streatment} and 196,999 for \textsf{Scontrol}) and all comments made to their posts or comments (621,486 for \textsf{Rtreatment}, 170,422 for \textsf{Rcontrol}, 201,614 for \textsf{Streatment} and 204,456 for \textsf{Scontrol}), after checking for uniqueness these jointly were 951,949 comments for \textsf{Rtreatment}, 318,542 comments for \textsf{Rcontrol}, 404,535 comments for \textsf{Streatment}, and 380,692 comments for \textsf{Scontrol}).  
+\end{minipage}\end{tabular}
+
+\vspace{1mm}
+
+
+We used the boxplot rule to identify  of 534 "powerusers" which we suspected of being bots (even though we already removed users whose names suggested they were bots) --- all of them were manually checked by \textsf{Samurai Labs}. Those identified as bots (only 15 of them) or missing (29 of them) were removed.  A few more unusual data points needed to be removed, because they turned out to be users whose comments contained large numbers of third-person personal attacks which in fact supported them. Since we were interested in the impact of personal attacks directed against a user on the user's activity, such unusual cases would distort the results.   86 users who did not post anything in the \textsf{before} period were also removed.  In the end, \textsf{R} and \textsf{S} were aligned, centering around the selection day (day 8) and the studied group comprised 3673 users (see 
+\mbox{Table \ref{tab:groups}}).
+
+
+
+
+\subsection{Exploration}
+
+
+
+First, we visually explore our dataset by looking at the relationship between the number of received (narrow) attacks vs. the activity change counted as the difference of weekly counts of posts or comments authored  in the second (\textsf{after}) and in the first  week (\textsf{before}) (Fig. \ref{fig:highPlots}).^[Visualizations for \textsf{wide} and \textsf{wide only} attacks, where a weaker, but still negative impact, can be observed can be found in the online documentation.  There, while the tendency is negative for low numbers of attacks,  higher numbers mostly third-person personal attacks seem positively correlated with activity change. This might suggest that while being attacked has negative impact on a user's activity, having your post "supported" by other users' third-person attacks has a more motivating effect. Also keep in mind that  the distinction between wide and narrow pertains only to the choice of attack recognition algorithm and does not directly translate into how offensive an attack was, except that \textsf{wide} attacks also include third-person ones. In what follows, unless indicated otherwise, by attacks we will mean narrow attacks.] 
+
+
+\footnotesize
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300}
+library(ggthemes)
+th <- theme_tufte()
+# data <- read.csv("data/quittingMACanon.csv")[,-1] %>% filter(sumLowBefore <200)
+highPlot <- ggplot(data, aes(x = sumHighBefore, y = activityDiff))+geom_jitter(size=0.8, alpha = 0.3)+
+  geom_smooth(method = "lm",color = "skyblue", fill= "skyblue", 
+              size = 0.7, alpha = 0.8)+
+  scale_x_continuous(breaks = 0:max(data$sumHighBefore),
+  limits = c(-1,max(data$sumHighBefore)))+ylim(c(-300,300))+
+  geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)+   xlab("narrow attacks before")+ ylab("activity change after")+
+labs(title = "Impact of narrow attacks on activity", subtitle = "weekly counts, n=3673")+
+  geom_segment(aes(x = -1, y = -100, xend = 9, yend = -100), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+ 
+  geom_segment(aes(x = -1, y = 100, xend = 9, yend = 100), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+
+  geom_segment(aes(x = -1, y = -100, xend = -1, yend = 100), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+ 
+  geom_segment(aes(x = 9, y = -100, xend = 9, yend = 100), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+th
+
+
+highPlotZoomed <- 
+ggplot(data, aes(x = sumHighBefore, y = activityDiff))+geom_jitter(size=1, alpha = 0.2)+geom_smooth(method = "lm",color = "skyblue", fill= "skyblue", size = 0.7, alpha = 0.8)+th+scale_x_continuous(breaks = 0:max(data$sumHighBefore),limits = c(-1,9))+ylim(c(-100,100))+geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)+ xlab("narrow attacks before")+ ylab("activity change after")+labs(title = "Impact of narrow attacks on activity", subtitle = "weekly counts, zoomed in")+geom_hline(yintercept = 0, col = "red", size = 0.2, lty = 3)
+```
+\normalsize
+
+
+\begin{figure}
+\begin{subfigure}[b]{0.95\textwidth}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+highPlot
+```
+\end{subfigure}
+\caption{Narrow attacks vs. weekly activity change (jittered), with  linear and gam smoothing.}
+\label{fig:highPlots}
+\end{figure}
+
+
+
+
+
+The visualization in Figure \ref{fig:highPlots} should be understood as follows. Each point is a user. The $x$-axis represents a number of attacks they received in the \textsf{before} period (so that, for instance, users with 0 wide attacks are the members of the control group), and  the $y$-axis represents the difference between their activity count \textsf{before} and \textsf{after}. We can see that most of the users received 0 attacks before (these are our control group members), with the rest of the group receiving 1, 2, 3, etc. attacks in the \textsf{before} period with decreasing frequency. The blue line represents linear regression suggesting negative correlation. The gray line is constructed using generalized additive mode (gam) smoothing, which is  a fairly standard smoothing method for large datasets (it is more sensitive to local tendencies and yet avoids overfitting). The parameters of the gam model (including the level of smoothing) are chosen by their predictive accuracy.\footnote{See  the documentation of \textsf{gam} of the \textsf{mgcv} packages for details: \url{https://www.rdocumentation.org/packages/mgcv/versions/1.8-33/topics/gam}.}  Shades indicate the 95\% confidence level interval for predictions from the linear model.   
+
+
+
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+lowPlot <- ggplot(data, aes(x = sumLowBefore, y = activityDiff))+geom_jitter(size=0.8, alpha = 0.3)+geom_smooth(method = "lm",color = "skyblue", fill= "skyblue", size = 0.7, alpha = 0.8)+th+geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)+ xlab("wide attacks before")+ ylab("activity change after")+labs(title = "Impact of wide attacks on activity", subtitle = "weekly counts, n=3673") + geom_segment(aes(x = -1, y = -150, xend = 15, yend = -150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+ geom_segment(aes(x = -1, y = 150, xend = 15, yend = 150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+ geom_segment(aes(x = -1, y = -150, xend = -1, yend = 150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+ geom_segment(aes(x = 15, y = -150, xend = 15, yend = 150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+xlim(c(-1,max(data$sumLowBefore)))
+
+
+
+lowPlotZoomed <- ggplot(data, aes(x = sumLowBefore, y = activityDiff))+geom_jitter(size=1, alpha = 0.2)+geom_smooth(method = "lm",color = "skyblue", fill= "skyblue", size = 0.7, alpha = 0.8)+th+scale_x_continuous(breaks = 0:max(data$sumLowBefore),limits = c(-1,15))+ylim(c(-150,150))+geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)+ xlab("wide attacks before")+ ylab("activity change after")+labs(title = "Impact of wide attacks on activity", subtitle = "weekly counts, zoomed in")+geom_hline(yintercept = 0, col = "red", size = 0.2, lty = 3)
+```
+
+
+<!-- \begin{figure} -->
+<!-- \begin{subfigure}[b]{0.95\textwidth} -->
+<!-- ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE} -->
+<!-- lowPlot -->
+<!-- ``` -->
+<!-- \caption{Full dataset view (area to be zoomed in is marked).} -->
+<!-- \end{subfigure} -->
+
+<!-- \begin{subfigure}[b]{0.95\textwidth} -->
+<!-- ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE} -->
+<!-- lowPlotZoomed -->
+<!-- ``` -->
+<!-- \caption{Restricted to 0-15 attacks and activity change in the range -150-150, central tendency redrawn, with horizontal reference line at 0.} -->
+<!-- \end{subfigure} -->
+<!-- \caption{Wide attacks vs. weekly activity change (jittered), with  linear and gam smoothing.} -->
+<!-- \label{fig:lowPlots} -->
+<!-- \end{figure} -->
+
+
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+lowOnlyPlot <- ggplot(data, aes(x = (sumLowBefore - sumHighBefore), y = activityDiff))+geom_jitter(size=0.8, alpha = 0.3)+geom_smooth(method = "lm",color = "skyblue", fill= "skyblue", size = 0.7, alpha = 0.8)+th+geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)+ xlab("wide only attacks before")+ ylab("activity change after")+labs(title = "Impact of wide only attacks on activity", subtitle = "weekly counts, n=3673") + geom_segment(aes(x = -1, y = -150, xend = 15, yend = -150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+ geom_segment(aes(x = -1, y = 150, xend = 15, yend = 150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+ geom_segment(aes(x = -1, y = -150, xend = -1, yend = 150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+ geom_segment(aes(x = 15, y = -150, xend = 15, yend = 150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+xlim(c(-1,max(data$sumLowBefore)))
+
+
+lowOnlyPlotZoomed <- ggplot(data, aes(x = (sumLowBefore - sumHighBefore), y = activityDiff))+geom_jitter(size=1, alpha = 0.2)+geom_smooth(method = "lm",color = "skyblue", fill= "skyblue", size = 0.7, alpha = 0.8)+th+scale_x_continuous(breaks = 0:max(data$sumLowBefore),limits = c(-1,15))+ylim(c(-150,150))+geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)+ xlab("wide only attacks before")+ ylab("activity change after")+labs(title = "Impact of wide only attacks on activity", subtitle = "weekly counts, zoomed in")+geom_hline(yintercept = 0, col = "red", size = 0.2, lty = 3)
+```
+
+
+<!-- \begin{figure} -->
+<!-- \Centering -->
+<!-- \begin{subfigure}[b]{0.95\textwidth} -->
+<!-- ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE} -->
+<!-- lowOnlyPlot -->
+<!-- ``` -->
+<!-- \caption{Full dataset view (area to be zoomed in is marked).} -->
+<!-- \end{subfigure} -->
+
+<!-- \begin{subfigure}[b]{0.95\textwidth} -->
+<!-- ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE} -->
+<!-- lowOnlyPlotZoomed -->
+<!-- ``` -->
+<!-- \caption{Restricted to 0-15 attacks and activity change in the range -150-150, central tendency redrawn, with horizontal reference line at 0.} -->
+<!-- \end{subfigure} -->
+<!-- \caption{Wide only attacks vs. weekly activity change (jittered), with  linear and gam smoothing.} -->
+<!-- \label{fig:lowOnlyPlots} -->
+<!-- \end{figure} -->
+
+
+
+
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+# rescale <- function(diff,act){
+# exp(diff/act)/(1+exp(diff/act))
+# }
+rescale <- function(diff,act){
+diff/act
+}
+data$activityScore <- rescale(data$activityDiff,data$activityBefore)
+
+propPlotHigh <- ggplot(data, aes(x = sumHighBefore, y = activityScore))+geom_jitter(size=0.8, alpha = 0.3)+geom_smooth(method = "lm",color = "skyblue", fill= "skyblue", size = 0.7, alpha = 0.8)+th + xlab("narrow attacks before")+ ylab("proportional activity change")+labs(title = "Impact of narrow attacks on proportional activity", subtitle = "n=3673")+scale_y_continuous(limits = c(-1,10))+geom_hline(yintercept = 0, col = "red", size = 0.2, lty = 3)+scale_x_continuous(breaks = 1:15, limits = c(-1,10))+geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)
+
+propPlotLow <- ggplot(data, aes(x = sumLowBefore, y = activityScore))+geom_jitter(size=0.8, alpha = 0.3)+geom_smooth(method = "lm",color = "skyblue", fill= "skyblue", size = 0.7, alpha = 0.8)+th + xlab("wide attacks before")+ ylab("proportional activity change")+labs(title = "Impact of wide attacks on proportional activity", subtitle = "n=3673")+scale_y_continuous(limits = c(-1,10))+geom_hline(yintercept = 0, col = "red", size = 0.2, lty = 3)+scale_x_continuous(breaks = 1:15, limits = c(-1,10))+geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)
+
+
+propPlotLowOnly <- ggplot(data, aes(x = sumLowBefore-sumHighBefore, y = activityScore))+geom_jitter(size=0.8, alpha = 0.3)+geom_smooth(method = "lm",color = "skyblue", fill= "skyblue", size = 0.7, alpha = 0.8)+th + xlab("wide only attacks before")+ ylab("proportional activity change")+labs(title = "Impact of wide only attacks on proportional activity", subtitle = "n=3673")+scale_y_continuous(limits = c(-1,10))+geom_hline(yintercept = 0, col = "red", size = 0.2, lty = 3)+scale_x_continuous(breaks = 1:15, limits = c(-1,10))+geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)
+
+```
+
+
+
+
+
+\noindent \begin{tabular}{ll}
+\begin{minipage}[c]{0.58\linewidth}
+\begin{figure}[H]
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+propPlotHigh
+```
+\caption{Impact of attacks  on proportional activity change.}
+\label{fig:propActivity}
+\end{figure}
+\end{minipage} & \begin{minipage}[c]{0.34\linewidth}
+Fig. \ref{fig:highPlots} visualizes the  activity change in terms of weekly counts. However, arguably, a change of -20 for a user who posts 500 times a week has different weight than for a user who posts 30 times. For this reason, we  also need to  look at changes in proportion, calculated by taking $\mathsf{activityScore} =  \nicefrac{\mathsf{activityDifference}}{\mathsf{activityBefore}}$.
+We zoom in to densely populated areas of the plot for \textsf{activityScore} as a function of  attacks in Figure \ref{fig:propActivity}.  The impact is still negative, more so for \textsf{narrow} attacks, and less so for other types. For mathematical reasons the score minimum is -1 (user activity cannot drop more than 100\%).
+\end{minipage}\end{tabular}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Classical estimation}
+
+Next, we focus on the uncertainties involved. One standard way  to estimate them is to use a one-sample t-tests to estimate the means and 95\% confidence intervals for \textsf{activityDifference} for different numbers of attacks (this would be  equivalent to running a paired t-test for activity before and activity after).  Here is the analysis for narrow attacks. There were not enough observations  for attacks above 8 (3, 2, and 2 for 9, 10 and 11 attacks, and single observations for a few higher non-zero counts)  for a t-test to be useful, so  we run the t-test for up to 8 attacks. For each type of attack  we list 9  options of the number of attacks and initiate vectors to which we will save the confidence interval limits (\textsf{low}, \textsf{high}), the estimated mean and the \textsf{p}-value (Table \ref{tab:testimates}). We use the same approach to analyze  the other types of attacks (Tables \ref{tab:testimateswide} and \ref{tab:testimateswideonly}).\footnote{We used t-tests, which one might think assumes normality, to estimate means  for distributions, which in fact  are not normal. However, what t-test assumes is the normality of the sampling distribution, and this condition is much easier to satisfy thanks to the central limit theorem.}
+
+
+
+
+
+
+
+<!-- we initialize a list named \textsf{t} to keep the results of all the t-tests. -->
+<!-- Then, in the for loop, for each option in the number of attacks we run a t-test and save its outcomes to the respective vector. Once this is done, we put them in a table. -->
+
+
+
+
+\footnotesize
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message= FALSE, warning= FALSE}
+attacks <- 0:8 
+max <- max(attacks)
+low <- numeric(max+1)
+high <- numeric(max+1)
+m <- numeric(max+1)
+p <- numeric(max+1)
+t <- list()
+
+for(attacks in attacks){
+t[[attacks+1]] <- t.test(data[data$sumHighBefore == attacks,]$activityDiff)
+
+low[attacks+1] <- t[[attacks+1]]$conf.int[1]
+high[attacks+1] <- t[[attacks+1]]$conf.int[2]
+m[attacks+1] <- t[[attacks+1]]$estimate
+p[attacks+1] <- t[[attacks+1]]$p.value
+}
+highTable<-as.data.frame(round(rbind(0:8,low, m, high, p),3))
+rownames(highTable) <- c("attacks","CIlow","estimated m", "CIhigh", "p-value")
+```
+\normalsize
+
+
+
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+highTableLong <- round(data.frame(attacks = 0:8, low, m, high, p),3)
+
+highTableBar <- ggplot(highTableLong)+ geom_bar(aes(x=attacks,y=m), stat="identity", fill = "skyblue", alpha= 0.5)+
+  geom_errorbar( aes(x=attacks, ymin=low, ymax=high), width=0.4, colour="seashell3", alpha=0.9, size=0.3)+th+xlab("narrow attacks")+ylab("mean activity change")+
+  geom_text(aes(x=attacks, y=low-20,
+                label=p), size = 2)+labs(title = "Mean impact of narrow attacks on  weekly activity", subtitle = "with 95% confidence intervals and p-values")+scale_x_continuous(labels = 0:8, breaks= 0:8)
+
+highTableBar6 <- ggplot(highTableLong[highTableLong$attacks < 6 ,])+ geom_bar(aes(x=attacks,y=m), stat="identity", fill = "skyblue", alpha= 0.5)+
+  geom_errorbar( aes(x=attacks, ymin=low, ymax=high), width=0.4, colour="seashell3", alpha=0.9, size=0.3)+th+xlab("narrow attacks")+ylab("mean activity change")+
+  geom_text(aes(x=attacks, y=low-20,
+                label=p), size = 2)+labs(title = "Mean impact of narrow attacks <6 on  weekly activity", subtitle = "with 95% confidence intervals and p-values")+scale_x_continuous(labels = 0:5, breaks= 0:5)
+
+highTableBar3 <- ggplot(highTableLong[highTableLong$attacks < 3 ,])+ geom_bar(aes(x=attacks,y=m), stat="identity", fill = "skyblue", alpha= 0.5)+
+  geom_errorbar( aes(x=attacks, ymin=low, ymax=high), width=0.4, colour="seashell3", alpha=0.9, size=0.3)+th+xlab("narrow attacks")+ylab("mean activity change")+
+  geom_text(aes(x=attacks, y=low-5,
+                label=p), size = 2)+labs(title = "Mean impact of narrow attacks <3 on  weekly activity", subtitle = "with 95% confidence intervals and p-values")+scale_x_continuous(labels = 0:2, breaks= 0:2)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+\footnotesize
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message= FALSE, warning= FALSE}
+attacks <- 0:8
+max <- max(attacks)
+lowL <- numeric(max+1)
+highL <- numeric(max+1)
+mL <- numeric(max+1)
+pL <- numeric(max+1)
+tL <- list()
+
+for(attacks in attacks){
+tL[[attacks+1]] <- t.test(data[data$sumLowBefore == attacks,]$activityDiff)
+
+lowL[attacks+1] <- t[[attacks+1]]$conf.int[1]
+highL[attacks+1] <- t[[attacks+1]]$conf.int[2]
+mL[attacks+1] <- t[[attacks+1]]$estimate
+pL[attacks+1] <- t[[attacks+1]]$p.value
+}
+lowTable<-as.data.frame(round(rbind(0:8,lowL, mL, highL, pL),3))
+rownames(lowTable) <- c("attacks","CIlow","estimated m", "CIhigh", "p-value")
+
+
+attacks <- 0:8
+max <- max(attacks)
+lowLo <- numeric(max+1)
+highLo <- numeric(max+1)
+mLo <- numeric(max+1)
+pLo <- numeric(max+1)
+tLo <- list()
+
+for(attacks in attacks){
+tLo[[attacks+1]] <- t.test(data[data$sumLowBefore -
+                data$sumHighBefore == attacks,]$activityDiff)
+
+lowLo[attacks+1] <- t[[attacks+1]]$conf.int[1]
+highLo[attacks+1] <- t[[attacks+1]]$conf.int[2]
+mLo[attacks+1] <- t[[attacks+1]]$estimate
+pLo[attacks+1] <- t[[attacks+1]]$p.value
+}
+lowOnlyTable<-as.data.frame(round(rbind(0:8,lowLo, mLo, highLo, pLo),3))
+rownames(lowTable) <- c("attacks","CIlow","estimated m", "CIhigh", "p-value")
+
+```
+\normalsize
+
+
+
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+lowTableLong <- round(data.frame(attacks = 0:8, lowL, mL, highL, pL),3)
+
+lowTableBar <- ggplot(lowTableLong)+ geom_bar(aes(x=attacks,y=m), stat="identity", fill = "skyblue", alpha= 0.5)+
+  geom_errorbar( aes(x=attacks, ymin=low, ymax=high), width=0.4, colour="seashell3", alpha=0.9, size=0.3)+th+xlab("wide attacks")+ylab("mean activity change")+
+  geom_text(aes(x=attacks, y=low-20,
+                label=round(p,3)), size = 2)+labs(title = "Mean impact of wide attacks on  weekly activity", subtitle = "with 95% confidence intervals and p-values")+scale_x_continuous(labels = 0:8, breaks= 0:8)
+
+
+lowOnlyTableLong <- round(data.frame(attacks = 0:8, lowLo, mLo, highLo, pLo),3)
+
+lowOnlyTableBar <- ggplot(lowOnlyTableLong)+ geom_bar(aes(x=attacks,y=m), stat="identity", fill = "skyblue", alpha= 0.5)+
+  geom_errorbar( aes(x=attacks, ymin=low, ymax=high), width=0.4, colour="seashell3", alpha=0.9, size=0.3)+th+xlab("wide only attacks")+ylab("mean activity change")+
+  geom_text(aes(x=attacks, y=low-20,
+                label=round(p,3)), size = 2)+labs(title = "Mean impact of wide only attacks on  weekly activity", subtitle = "with 95% confidence intervals and p-values")+scale_x_continuous(labels = 0:8, breaks= 0:8)
+```
+
+
+
+
+\begin{table}[h!]
+
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+kable(highTable, "latex", booktabs = T, col.names = NULL) %>%
+kable_styling(latex_options = c("striped","scale_down"),font_size = 9)
+```
+
+\caption{T-test based estimates for activity change divided by numbers of narrow attacks received.}
+\label{tab:testimates}
+\end{table}
+
+
+\begin{table}[h!]
+
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+kable(lowTable, "latex", booktabs = T, col.names = NULL) %>%
+kable_styling(latex_options = c("striped","scale_down"),font_size = 9)
+```
+
+
+\caption{T-test based estimates for activity change divided by numbers of wide attacks received.}
+\label{tab:testimateswide}
+\end{table}
+
+\begin{table}[h!]
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+kable(lowOnlyTable, "latex", booktabs = T, col.names = NULL) %>%
+kable_styling(latex_options = c("striped","scale_down"),font_size = 9)
+```
+
+
+
+\caption{T-test based estimates for activity change divided by numbers of wide only attacks  received.}
+\label{tab:testimateswideonly}
+\end{table}
+
+
+\begin{figure}[h!]
+\begin{subfigure}[t]{0.95\textwidth}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+highTableBar
+```
+\end{subfigure}
+\caption{T-test estimation of activity change by narrow attacks received. All available t-tests.}
+\label{fig:highbar}
+\end{figure}
+
+<!-- \begin{figure}[h!] -->
+<!-- \begin{subfigure}[t]{0.95\textwidth} -->
+<!-- ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE} -->
+<!-- highTableBar6 -->
+<!-- ``` -->
+<!-- \end{subfigure} -->
+<!-- \caption{T-test estimation of activity change by narrow attacks received (0-5).} -->
+<!-- \label{fig:highbar6} -->
+<!-- \end{figure} -->
+
+
+
+<!-- \begin{figure}[h!] -->
+<!-- \begin{subfigure}[t]{0.95\textwidth} -->
+<!-- ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE} -->
+<!-- highTableBar3 -->
+<!-- ``` -->
+<!-- \end{subfigure} -->
+<!-- \caption{T-test estimation of activity change by narrow attacks received (0-2).} -->
+<!-- \label{fig:highbar3} -->
+<!-- \end{figure} -->
+
+
+
+
+
+
+
+
+
+<!-- \begin{figure}[h!] -->
+
+<!-- \centering -->
+<!-- \begin{subfigure}[t]{0.75\textwidth} -->
+<!-- ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE} -->
+<!-- lowTableBar -->
+<!-- ``` -->
+<!-- \caption{wide attacks.} -->
+<!-- \end{subfigure} -->
+
+<!-- \begin{subfigure}[t]{0.75\textwidth} -->
+<!-- ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE} -->
+<!-- lowOnlyTableBar -->
+<!-- ``` -->
+<!-- \caption{wide only attacks} -->
+<!-- \end{subfigure} -->
+
+<!-- \caption{Estimated means of activity change by the number of wide and wide only attacks, with 95\% confidence intervals and rounded $p$-values printed.} -->
+<!-- \label{fig:lowerTableBars} -->
+<!-- \end{figure} -->
+
+
+
+
+
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+h6 <- data[data$sumHighBefore == 6,]
+h7 <- data[data$sumHighBefore == 7,]
+h8 <- data[data$sumHighBefore == 8,]
+
+# power for 6 attacks
+a <- mean(data$activityDiff)
+s <- sd(h7$activityDiff)
+n <- 8
+error <- qt(0.975,df=n-1)*s/sqrt(n)
+left <- a-error
+right <- a+error
+assumed <- a - 80
+tleft <- (left-assumed)/(s/sqrt(n))
+tright <- (right-assumed)/(s/sqrt(n))
+p <- pt(tright,df=n-1)-pt(tleft,df=n-1)
+power6 <- 1-p
+
+# power for 7 attacks
+a <- mean(data$activityDiff)
+s <- sd(h7$activityDiff)
+n <- 8
+error <- qt(0.975,df=n-1)*s/sqrt(n)
+left <- a-error
+right <- a+error
+assumed <- a - 80
+tleft <- (left-assumed)/(s/sqrt(n))
+tright <- (right-assumed)/(s/sqrt(n))
+p <- pt(tright,df=n-1)-pt(tleft,df=n-1)
+power7 <-1-p
+
+# power for 8 attacks
+a <- mean(data$activityDiff)
+s <- sd(h8$activityDiff)
+n <- 4
+error <- qt(0.975,df=n-1)*s/sqrt(n)
+left <- a-error
+right <- a+error
+assumed <- a - 80
+tleft <- (left-assumed)/(s/sqrt(n))
+tright <- (right-assumed)/(s/sqrt(n))
+p <- pt(tright,df=n-1)-pt(tleft,df=n-1)
+power8 <- 1-p
+```
+
+
+
+
+It might help to visualize this information using barplots. We do so for narrow attacks. (other visualisations are in the online documentation).  The printed values below bars represent $p$-values, not the estimated means (Fig. \ref{fig:highbar}). Note fairly wide confidence intervals for higher number of attacks. These arise because attacks are quite rare, so the sample sizes for 5, 6, 7 and 8 narrow attacks are  22, 17,  8  and  4 respectively. This might be also the reason why $p$-values are not too low (although still below the usual significance thresholds).\footnote{In fact, power analysis shows that if the real activity difference for those groups equals to the mean for \textsf{narrow = 6}, that is, -80, the probabilities that this effect would be discovered by a single sample t-test for 6, 7, and 8 attacks are `r round(c(power6,power7,power8),3)`, and so tests for higher numbers of attacks are underpowered.} 
+
+
+
+
+
+\noindent \begin{tabular}{ll}
+\begin{minipage}[c]{0.61\linewidth}
+
+ \begin{table}[H]
+\scalebox{0.82}{
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "50%",message=FALSE,warning=FALSE}
+highAnova <- aov(activityDiff ~ as.factor(sumHighBefore), data = data)
+lowAnova <- aov(activityDiff ~ as.factor(sumLowBefore), data = data)
+lowOnlyAnova <- aov(activityDiff ~ as.factor(sumLowBefore-sumHighBefore), data = data)
+
+library(descr,quietly=TRUE)
+library(pander,quietly=TRUE)
+library(papeR,quietly=TRUE)
+sh <- xtable(summary(highAnova))
+rownames(sh) <- c("narrow","residuals")
+sh 
+```
+}
+\caption{ANOVA for activity change vs. narrow \\ attacks received.}
+\label{tab:anovanarrow}
+\end{table}
+\end{minipage} & \begin{minipage}[c]{0.32\linewidth}
+We run single t-tests on different groups to estimate different means and we don't use t-test for hypothesis testing. To alleviate concerns about multiple testing and increased risk of type I error,  we also  performed an  ANOVA tests, which strongly suggest non-random correlation between the numbers of attacks and activity change. 
+\end{minipage} \end{tabular}
+ Furthermore,  80 comparison rows in Tukey's Honest Significance Test [@Tukey1949] have conservatively adjusted p-value below 0.05. Here we display only the ANOVA results for narrow attacks, other calculations are available in the online documentation.  
+
+
+
+
+<!-- \begin{table}[h!] -->
+<!-- ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"} -->
+<!-- sl <- xtable(summary(lowAnova)) -->
+<!-- rownames(sl) <- c("narrow","residuals") -->
+<!-- sl -->
+<!-- ``` -->
+<!-- \caption{ANOVA for activity change vs. wide attacks received.} -->
+<!-- \label{tab:anovawide} -->
+<!-- \end{table} -->
+
+<!-- \begin{table}[h!] -->
+<!-- ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"} -->
+<!-- so <- xtable(summary(lowOnlyAnova)) -->
+<!-- rownames(so) <- c("narrow","residuals") -->
+<!-- so  -->
+<!-- ``` -->
+<!-- \caption{ANOVA for activity change vs. wide only attacks received.} -->
+<!-- \label{tab:anovawideonly} -->
+<!-- \end{table} -->
+
+
+
+ 
+ 
+
+<!-- \footnotesize -->
+<!-- ```{r,echo=TRUE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"} -->
+<!-- if you want to run the Tukey HSD -->
+<!-- library(reshape2) -->
+<!-- library(dplyr) -->
+<!-- library(broom) -->
+<!-- as.data.frame(tidy(TukeyHSD(highAnova))) %>% filter(adj.p.value < .05) -->
+<!-- ``` -->
+
+<!-- \normalsize  -->
+
+<!--  \noindent  (we omit this output here due to length. but the reader can run the command herself.) -->
+ 
+ <!-- (see for instance Figure \ref{fig:sampling}).} -->
+
+<!-- ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",fig.margin=TRUE} -->
+<!-- means <- numeric(10000) -->
+<!-- for(run in 1:10000){ -->
+<!-- means[run] <- mean(sample(data[data$sumHighBefore==2,]$activityDiff,30))  -->
+<!-- } -->
+<!-- distr <- ggplot(data[data$sumHighBefore==2,],aes(x = activityDiff)) + geom_histogram(bins = 100)+th+ggtitle("Distribution of activityDiff for narrow attacks before = 2") -->
+<!-- sampDistr <- ggplot() + geom_histogram(aes(x = means),bins = 100)+th+ggtitle("Simulated sampling distribution for the same  with n=30 and 10 000 runs") -->
+<!-- ``` -->
+
+<!-- \begin{figure} -->
+<!-- \begin{subfigure}[t]{0.4\textwidth} -->
+<!-- ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE} -->
+<!-- distr -->
+<!-- ``` -->
+<!-- \end{subfigure}\hfill -->
+<!-- \begin{subfigure}[t]{0.4\textwidth} -->
+<!-- ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE} -->
+<!-- sampDistr -->
+<!-- ``` -->
+<!-- \end{subfigure} -->
+<!-- \caption{Example of comparison of a distribution and its sampling distribution.} -->
+<!-- \label{fig:sampling} -->
+<!-- \end{figure} -->
+
+
+There are, however, some reasons to be concerned with classical methods:
+
+
+- $p$-values and confidence intervals are hard to interpret intuitively. For instance, a 95\% confidence interval being $(x,y)$ does not mean that the true mean is within $(x,y)$ with probability $0.95$, and the estimated mean being $z$ with $p$-value $0.01$ does not  mean that the true
+population mean is $z$ with probability $0.99$. 
+
+- $p$-values and confidence intervals are sensitive to undesirable factors, such as stopping intention in experiment design [@Kruschke2015].
+
+- Classical hypothesis tests require several assumptions to hold which sometimes do not hold in reality, and the choice of  significance thresholds is arbitrary. 
+
+-  Crucially, probabilities reported in classical analysis are probabilities of the data on the assumption of the null hypothesis (e.g., that the true mean is 0), not the posterior probabilities of the true parameter values given the data. To obtain these, we used Bayesian analysis and studied the impact of skeptical prior probabilities on how the data  impacts the posterior distribution of the parameters at hand. 
+
+
+For these reasons, we also analyze the data from a Bayesian perspective. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Bayesian estimation}
+
+
+
+
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE, message=FALSE}
+library(BEST)
+priorsWide <- list(muM = 0, muSD = 50)
+priorsInformed <- list(muM = -1.11, muSD = 44.47)
+priorsFit <- list(muM = -1.11, muSD = 7.5)
+```
+
+
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE, message=FALSE}
+library(BEST)
+priorsWide <- list(muM = 0, muSD = 50)
+priorsInformed <- list(muM = -1.11, muSD = 44.47)
+priorsFit <- list(muM = -1.11, muSD = 7.5)
+```
+
+
+
+We used Markov Chain Monte Carlo methods^[We employed the \textsf{Bayesian Estimation Supersedes the t-Test} package, \url{https://www.rdocumentation.org/packages/BEST/versions/0.5.2}.]
+ to estimate the posterior probability distribution for mean changes in activity
+in different groups.
+
+<!-- (note you have to have JAGS installed on your computer to run the simulations, and be aware that -->
+<!-- some of the computations are pretty demanding and will take time).  -->
+
+
+\begin{tabular}{ll}
+\begin{minipage}[c]{0.4\linewidth}
+\begin{figure}[H]
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+priorWide <- ggplot(data = data.frame(x = c(-200, 200)), aes(x)) +
+  stat_function(fun = dnorm, args = list(mean = 0, sd = 50)) + ylab("") +
+  scale_y_continuous(breaks = NULL)+th+xlab("expected activity change")+labs(title = "Wide prior", subtitle ="Normal prior with m = 0, sd = 50")
+
+priorWide
+```
+\caption{Wide  skeptical prior for our Bayesian analysis.}
+\label{fig:priors}
+\end{figure}
+\end{minipage}& \begin{minipage}[c]{0.52\linewidth} 
+We did this for  three different fairly skeptical normal prior distributions (which we call 
+\textsf{wide, informed}, and \textsf{fit}). In doing so we  follow the usual practice of running a Bayesian analysis with a range of options: the reader is to judge with prior seems most plausible to them, and then modify their beliefs according to the impact the data has on their prior convictions.  All three distributions are fairly skeptical because they expect the change to be the same for every user, and they expect this change to be near 0.  
+ Here, due to space limitations, we focus on the wide prior (Fig. \ref{fig:priors}) , which is normal with $(\mu = 0, \sigma = 50)$.
+\end{minipage}
+\end{tabular}
+
+
+
+
+\noindent  The impact on other priors  is studied in the online documentation, but the results don't differ too much.\footnote{Their  parameters are respectively $, (\mu = -1.11, \sigma = 44.47)$ and $(\mu = -1.11, \sigma = 7.5)$.   $-1.11$ is the whole sample mean, $44.47$ is the sample standard deviation, and $7.5$ is the standard deviation obtained by  trying to make  theoretical normal distribution similar to the empirical distribution. We did not use  a completely uninformed uniform prior, because it is  not sufficiently skeptical, being more easily impacted by the data, and because it has some undesirable mathematical properties, see \emph{Don’t Use Uniform Priors. They statistically don’t make sense.} at \url{https://towardsdatascience.com/stop-using-uniform-priors-47473bdd0b8a} for an accessible explanation.} 
+
+
+
+
+
+
+
+
+
+<!-- First, it will be convenient to split and extract the data (we will do the Bayesian analysis for narrow attacks: -->
+
+<!-- \footnotesize -->
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+sh0 <- data[data$sumHighBefore==0,]$activityDiff
+sh1 <- data[data$sumHighBefore==1,]$activityDiff
+sh2 <- data[data$sumHighBefore==2,]$activityDiff
+sh3 <- data[data$sumHighBefore==3,]$activityDiff
+sh4 <- data[data$sumHighBefore==4,]$activityDiff
+sh5 <- data[data$sumHighBefore==5,]$activityDiff
+sh6 <- data[data$sumHighBefore==6,]$activityDiff
+sh7 <- data[data$sumHighBefore==7,]$activityDiff
+sh8 <- data[data$sumHighBefore==8,]$activityDiff
+```
+
+\normalsize
+
+
+
+
+\footnotesize
+
+```{r,echo=FALSE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"} 
+mc3w <- BESTmcmc(sh3,priors = priorsWide)
+```
+
+\normalsize
+
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"} 
+#load("analysis/bayesianChains.RData")
+load("bayesianChainsCompatible.RDa")
+```
+
+
+
+
+
+
+
+Here are the results of the Bayesian analysis for 0-9 narrow attacks (and a simulated prior) for the wide prior  and the barplot of the means of posterior distributions (not the means of the data, but a result of a compromise between the  priors and the data) with highest density intervals (\ref{fig:bayesian1}).
+
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center", fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, cache = TRUE, warning = FALSE}
+bayesianWideDF <- data.frame(a2 =mc2w$mu,a3 = mc3w$mu, 
+                             a4 = mc4w$mu, a5 = mc5w$mu, a6 = mc6w$mu, a7 = mc7w$mu,a8 = mc8w$mu)
+
+
+BayesianWideDFLong <- gather(bayesianWideDF)
+
+BayesianWideDFLong$key <- as.factor(BayesianWideDFLong$key)
+
+BayesianWideDensities <- ggplot(BayesianWideDFLong, aes(x=value, group = key,
+                                                        color = key, fill = key))+
+  geom_density(alpha=0.2)+th+xlab("activity change")+scale_fill_discrete(name = "group",
+                                                                         labels = c("2 attacks", "3 attacks", "4 attacks", "5 attacks",
+                                                                                    "6 attacks","7 attacks", "8 attacks")) + 
+  guides(color = FALSE, size = FALSE)+
+  labs(title = "Impact of data on wide prior", 
+       subtitle="narrow attacks vs. activity change")+xlim(c(-80,10))
+
+
+#extract means and HDI limits from the mcmc objects
+wideMeans <- numeric(9)
+wideLow <- numeric(9)
+wideHigh <- numeric(9)
+for (i in 1:9){
+wideMeans[i] <-  eval(parse(text = paste("summary(mc",i-1,"w)[1]",sep="")))
+wideLow[i] <- eval(parse(text = paste("summary(mc",i-1,"w)[21]",sep="")))
+wideHigh[i] <- eval(parse(text = paste("summary(mc",i-1,"w)[26]",sep="")))
+}
+
+#order the data and make the barplot  
+wideBayesTable <- round(data.frame(attacks = 0:8, wideLow, wideMeans,wideHigh),3)
+wideBayesBar <- ggplot(wideBayesTable)+ geom_bar(aes(x=attacks,y=wideMeans), 
+                                        stat="identity", fill = "skyblue", alpha= 0.5)+
+  geom_errorbar( aes(x=attacks, ymin=wideLow, ymax=wideHigh), 
+                 width=0.4, colour="seashell3",
+  alpha=0.9, size=0.3)+th+xlab("narrow attacks")+ylab("activity change")+
+  geom_text(aes(x=attacks+0.24, y=wideMeans-3, label=round(wideMeans,1)), size = 3)+scale_x_continuous(labels = 0:8, breaks= 0:8)
+```
+
+
+
+\begin{figure}[H]
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+BayesianWideDensities
+```
+\caption{Posterior distribution for $\geq 2$ attacks and wide priors (lower number of attacks removed, because their high density would adversely affect visibility, see the barplot below for results).}
+\label{fig:bayesian1}
+
+\end{figure} 
+
+
+
+
+\noindent
+\begin{tabular}{ll}
+\begin{minipage}[c]{0.6\linewidth}
+\begin{figure}[H]
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+wideBayesBar
+```
+\caption{Posterior means and HDI limits for the wide prior.}
+\end{figure}
+\end{minipage} & \begin{minipage}[c]{0.33\linewidth}
+As the number of attacks grows, no matter which prior we start with, the posterior means move left (which agrees with the results we obtained with other methods) and the density plots become wider. 
+\end{minipage}
+\end{tabular}
+
+
+
+
+
+
+
+\normalsize
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Model-theoretic analysis}
+
+\normalsize
+
+
+We analyzed the correlation between attacks received and activity change using classical and bayesian methods.  However, there is a number of  predictors we have not yet used. The impact of some of them, such as the number of attacks on \emph{posts} written by an author, could provide further insight.  More importantly, some of them might be confounding variables. Crucially, since  previous activity seems to be a good predictor of future activity and  since high number of attacks received in the  \textsf{before} period correlates with high activity before, one might be concerned that whatever explaining the value of high attacks before does in our analysis should actually be attributed simply to activity.  
+
+To reach some clarity on such issues, we perform a regression analysis to see how the predictors in best fit models interact, and to use the model parameters to get some comparison of the impact they have.
+We build a number of potentially viable generalized linear regression models meant to predict \textsf{activityAfter} based on a selection of other variables, pick the best one(s) and analyze what they reveal about the  predictors involved.
+
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE,warning=FALSE}
+library(MASS)
+library(vcd)
+library(lmtest)
+library(countreg)
+library(pscl)
+library(stats)
+```
+
+
+
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+activityAfterTab <-table(factor(data$activityAfter,
+                levels = 0:max(data$activityAfter)))
+activityAfterDf <- as.data.frame(activityAfterTab)
+activityAfterDf$Var1 <- as.integer(activityAfterDf$Var1)
+```
+
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+activityDistr <- ggplot(activityAfterDf, aes(x = Var1, y  = Freq))+ geom_bar( stat="identity")+scale_x_continuous(breaks = seq(0,1000, by = 50))+th+labs(title="Distribution of activityAfter")+xlab("activityAfter")+ylab("count")
+
+activityDistrRestr <- ggplot(activityAfterDf, aes(x = Var1, y  = Freq))+ 
+geom_bar( stat="identity")+
+scale_x_continuous(breaks = seq(0,100, by = 10), limits = c(0,100))+th+labs(title="Distribution of activityAfter")+xlab("activityAfter")+ylab("count")
+```
+
+
+
+
+\footnotesize
+```{r,echo=FALSE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
+activityFitPois <- goodfit(activityAfterTab, type = "poisson")
+unlist(activityFitPois$par)
+summary(activityFitPois)
+```
+\normalsize 
+
+
+
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
+activityFitPois <- goodfit(activityAfterTab, type = "poisson")
+poissonFitPlot <- ggplot(activityAfterDf, aes(x = Var1, y  = Freq))+ geom_bar( stat="identity", alpha=0.6)+
+  scale_x_continuous(breaks = seq(0,100, by = 10), 
+                     limits = c(0,100))+th+labs(title="activityAfter with fitted best Poisson model predictions", subtitle = "x restricted to 0-100")+xlab("activityAfter")+ylab("count")+geom_point(aes(x = Var1,y=activityFitPois$fitted), colour="darksalmon", size = 0.5, alpha = 0.5)
+```
+
+
+
+
+\noindent
+\begin{tabular}{ll}
+\begin{minipage}[c]{0.6\linewidth}
+\begin{figure}[H]
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
+poissonFitPlot
+```
+\caption{Poor performance of best-fitting Poisson distribution.}
+\label{fig:poissBad}
+\end{figure}
+\end{minipage} & 
+\begin{minipage}[c]{0.32\linewidth} 
+Our first challenge was finding the right distribution for the outcome variable.
+One potential candidate was the Poisson distribution. We identified the Poisson distribution that best fits the data, used  its $\lambda$ parameter ($\approx 35.69$) to  perform a goodness-of-fit test (with $df=273$, $\chi^2 \approx \infty$ and $P(>\chi^2)\approx 0$), and compare visually the predicted values with the actual ones (Fig: \ref{fig:poissBad}).
+\end{minipage}
+\end{tabular}
+
+
+
+
+
+ There were at least two problems: zero-inflation and overspread. The former means that the model predicts much fewer zeros than there really are in the data, and the latter means that the model predicts fewer higher values than there are in the data. The best fitting $\lambda$ was fairly high and moved the highest values of Poisson too far to the right compared to where they were expected. Over-dispersion could be  handled by moving to a quasi-Poisson distribution, but this would not help us much with the zero counts.
+
+
+
+
+
+\footnotesize
+```{r,echo=FALSE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
+activityFitNbin <- goodfit(activityAfterTab, type = "nbinom")
+summary(activityFitNbin)
+```
+\normalsize 
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
+activityFitNbin <- goodfit(activityAfterTab, type = "nbinom")
+poissonNbinPlot2 <- ggplot(activityAfterDf, aes(x = Var1, y  = Freq))+ geom_bar( stat="identity", alpha = 0.5)+scale_x_continuous(breaks = seq(0,100, by = 10), limits = c(0,100))+th+labs(title="activityAfter with fitted best negative binomial model predictions", subtitle = "x restricted to 0-100")+xlab("activityAfter")+ylab("count")+geom_point(aes(x = Var1,y=activityFitNbin$fitted), colour="darksalmon", size = 0.5, alpha = 0.8)
+```
+
+
+
+
+
+
+
+
+\noindent
+\begin{tabular}{ll}
+\begin{minipage}[c]{0.6\linewidth}
+\begin{figure}[H]
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
+poissonNbinPlot2
+```
+\caption{Somewhat better performance of best-fitting negative binomial distribution.}
+\label{fig:nbinperf}
+\end{figure}
+
+\end{minipage} & 
+\begin{minipage}[c]{0.32\linewidth} 
+
+Another candidate distribution we considered was  negative binomial. 
+ There  still were  problems with zeros although in the opposite direction though), the goodness-of-fit test resulted in $\chi^2 \approx 647$ and $P(>\chi^s)\approx 0$,  but the right side of the Figure \ref{fig:nbinperf} looks better. This suggested that improvements were still needed. 
+\end{minipage}
+\end{tabular}
+
+
+
+
+
+There are two well-known strategies to develop distributions for data with high zero counts: zero-inflated and hurdle models.\footnote{In a zero-inflated Poisson (ZIP) model (Lambert 1992) a distinction is made between   the structural zeros for which the output value  will always be 0, and the rest, sometimes giving random zeros. A  ZIP model is comprised of two components:
+
+\begin{itemize}
+\item  A model for the binary event of membership in the class where 0 is necessary. Typically, this is logistic regression. 
+
+\item  A Poisson (or negative binomial) model for the remaining observed count, potentially including some zeros as well. Typically a log link is used to predict the mean.
+\end{itemize}
+
+
+In hurdle models (proposed initially by Cragg (1971) and developed further by Mullahy (1986)) the idea  is that there may be some special  “hurdle” required to reach a positive count. The model  uses:
+
+\begin{itemize}
+\item A logistic regression  submodel to distinguish counts of zero from larger counts, and
+\item  Truncated Poisson (or negative binomial) regression for the positive counts  excluding the zero counts.
+\end{itemize}}
+We studied these variants. The first observation was that even zero-inflation or hurdling do not improve the  Poisson distribution  much. The second was that once we use negative binomial distribution, improvement is obtained, but it does not seem to make much of a difference whether we use zero-inflation or hurdling. We  investigated this further. One method of comparing such models is the Vuong test which produced $z$-statistic ($2.08$ with $p\approx 0.018$) suggesting the zero-inflated negative binomial model is better than  hurdle negative binomial. However, the differences in log-likelihood (14459 vs. 14527) and AIC (28945 vs. 29081) were not large. 
+
+```{r,echo=FALSE,eval=TRUE, fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE,warning=FALSE}
+data$sumLowOnlyBefore <- data$sumLowBefore - data$sumHighBefore
+
+fullModelZINbin <-zeroinfl(activityAfter~sumLowOnlyBefore+
+    sumHighBefore+sumPlBefore+ sumPhBefore+ activityBefore,
+    data = data, dist = "negbin") 
+
+fullModelHNbin <- hurdle(activityAfter~sumLowOnlyBefore+
+  sumHighBefore+sumPlBefore+ sumPhBefore+ activityBefore,
+  data= data, dist = "negbin") 
+
+fullModelZIpois <-zeroinfl(activityAfter~sumLowOnlyBefore+
+  sumHighBefore+sumPlBefore+ sumPhBefore+ activityBefore,
+  data = data, dist = "poisson") 
+
+fullModelHpois <- hurdle(activityAfter~sumLowOnlyBefore+
+  sumHighBefore+sumPlBefore+ sumPhBefore+ activityBefore, 
+  data = data, dist = "poisson")
+```
+
+
+<!-- (note: this method is applicable for comparing zero-inflated or hurdled models, but not for zero-inflation detection!) -->
+
+\footnotesize
+```{r,echo=FALSE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+ vuong(fullModelZINbin, fullModelHNbin)
+```
+
+\normalsize 
+
+\footnotesize
+```{r,echo=FALSE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", warning = FALSE}
+logLik(fullModelZINbin)
+AIC(fullModelZINbin)
+
+logLik(fullModelHNbin)
+AIC(fullModelHNbin)
+```
+\normalsize
+
+
+<!-- There seem to be some reasons to prefer the zero-inflated model, but the score differences are not too impressive, both likelihood ratios are Akaike scores are very close (note: we want to minimize AIC and maximize log likelihood).  -->
+
+
+<!-- To move on we need to modify  the variables,  because some of the counts included others. This was not a problem so far, but now we will be looking in detail at their roles jointly, and so it is important to not count various things multiple times. -->
+
+\footnotesize
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+#select variables of interest
+dataModeling <- data %>% dplyr::select(sumLowOnlyBefore, sumHighBefore,
+              sumPlBefore, sumPhBefore, activityBefore, activityAfter)
+
+#sum narrow now becomes sum of narrow attacks on comments
+dataModeling$sumHighBefore <- dataModeling$sumHighBefore - 
+  dataModeling$sumPhBefore
+
+#sum wide only now becomes sum of wide only on comments
+dataModeling$sumLowOnlyBefore <- dataModeling$sumLowOnlyBefore -
+  dataModeling$sumPlBefore
+
+#sum of wide on posts now becomes sum of wide only on posts
+dataModeling$sumPlBefore <- dataModeling$sumPlBefore -
+  dataModeling$sumPhBefore
+```
+\normalsize
+
+We build zero-inflated negative binomial and hurdle negative binomial models, one with all variables, and one based on previous activity only.  If we can get equally good predictions using previous activity only and ignoring information about attacks, this would suggest no impact of the other variables.
+
+\footnotesize 
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", warning=FALSE, message= FALSE}
+ZNBfull <- zeroinfl(activityAfter~., 
+                    data = dataModeling, dist = "negbin")
+ZNBactivity <- zeroinfl(activityAfter~activityBefore, 
+                    data = dataModeling, dist = "negbin")
+HNBfull <- hurdle(activityAfter~., 
+                    data = dataModeling, dist = "negbin")
+HNBactivity <- hurdle(activityAfter~activityBefore, 
+                    data = dataModeling, dist = "negbin")
+
+#now take a look at this
+#summary(dataModeling$activityAfter)
+```
+\normalsize
+
+
+```{r,echo=FALSE,include =FALSE, eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+ZNBfullRoot <- countreg::rootogram(ZNBfull,
+          max=40, main="Zero-inflated negative binomial")
+
+ZNBactivityRoot <- countreg::rootogram(ZNBactivity, max=40, main="Hurdle negative binomial")
+
+HNBfullRoot <- countreg::rootogram(HNBfull, max=40, main="Zero-inflated Poisson")
+
+HNBactivityRoot <- countreg::rootogram(HNBactivity, max=40, main="Hurdle Poisson")
+```
+
+
+
+
+
+Zero-inflated models under-predict low non-zero counts, while hurdle models are a bit better in this respect, so  we  focused on them (see the rootograms available in the online documentation for details). We then compared the hurdle models  using likelihood ratio test, which  results in $\chi^2 \approx 20.28$, with $P(>\chi^2)\approx 0.009$.  Wald's test is somewhat similar (ableit more generally applicable). It also indicates that the additional variables are significant ($\chi^2 \approx 24.71$ with $P(>\chi^2)\approx 0.0017$),   which suggests that  variables other than previous activity  are also significant. 
+Finally, Akaike Information Criterion [@Akaike1974model] provides an  estimator of out-of-sample prediction error and penalizes more complex models. As long as we evaluate models with respect to the same data, the ones with lower Akaike score should be chosen.  Even with penalty for the additional variables, the full model receives better score (although the difference is not very large, 29,081 vs. 29,085).
+
+ 
+<!--  First, we can do this in a step-wise manner: -->
+
+
+<!-- \footnotesize  -->
+
+<!-- ```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"} -->
+<!-- library(lmtest) -->
+<!-- likHNBactivity <- logLik(HNBactivity) -->
+<!-- likHNBfull <- logLik(HNBfull) -->
+<!-- (teststat <- -2 * (as.numeric(likHNBactivity)-as.numeric(likHNBfull))) -->
+<!-- df <- 13 - 5 -->
+<!-- (p.val <- pchisq(teststat, df = df, lower.tail = FALSE)) -->
+<!-- ``` -->
+
+<!-- \normalsize -->
+
+<!-- The same result can be achieved more quickly using the following lines: -->
+
+```{r,echo=FALSE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+lrtest(HNBactivity,HNBfull)
+```
+
+
+
+```{r,echo=FALSE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+waldtest(HNBactivity,HNBfull)
+```
+
+
+
+```{r,echo=FALSE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+AIC(HNBactivity)
+AIC(HNBfull)
+```
+
+
+
+
+
+
+<!-- Here's yet another  way to support our decision to include the additional variables. Let's split the dataset into training and testing groups, train the models on the training set, let them make predictions for the testing set, restrict the testing set to activity <40 (because we don't want our decision to be influenced by outliers) and calculate mean squared error for the predictions.  -->
+
+<!-- \footnotesize  -->
+<!-- ```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning= FALSE, message=FALSE} -->
+<!-- #split data -->
+<!-- set.seed(666) -->
+<!-- trainingSize <- ceiling(nrow(dataModeling)/2) -->
+<!-- sampleCodes <- sample(1:nrow(dataModeling), -->
+<!--                       trainingSize, replace = FALSE) -->
+<!-- training <- dataModeling[sampleCodes,] -->
+<!-- test <- dataModeling[-sampleCodes,] -->
+
+<!-- #build models -->
+<!-- HNBtrainingFull <- hurdle(activityAfter~.,  -->
+<!--                           data = training, dist = "negbin") -->
+<!-- HNBtrainingActivity <- hurdle(activityAfter~activityBefore,  -->
+<!--                           data = training, dist = "negbin") -->
+<!-- ZINBtrainingFull <- zeroinfl(activityAfter~.,  -->
+<!--                           data = training, dist = "negbin") -->
+<!-- ZINBtrainingActivity <- zeroinfl(activityAfter~activityBefore,  -->
+<!--                           data = training, dist = "negbin") -->
+
+<!-- #predictions -->
+<!-- test$prHNBfull <- round(predict (HNBtrainingFull, test)) -->
+<!-- test$prHNBactivity <- round(predict (HNBtrainingActivity, test)) -->
+<!-- test$prZINBfull <- round(predict (ZINBtrainingFull, test)) -->
+<!-- test$prZINBactivity <- round(predict (ZINBtrainingActivity, test)) -->
+
+<!-- #restrict dataset and calculate MSE -->
+<!-- testRestr <- test[test$activityAfter < 40,] -->
+<!-- MseHNBfull <- sum((testRestr$prHNBfull -  -->
+<!--                   testRestr$activityAfter)^2)/nrow(test) -->
+<!-- MseHNBactivity <- sum((testRestr$prHNBactivity -  -->
+<!--                   testRestr$activityAfter)^2)/nrow(test) -->
+<!-- MseZINBfull<- sum((testRestr$prZINBfull -  -->
+<!--                   testRestr$activityAfter)^2)/nrow(test) -->
+<!-- MseZINBactivity <- sum((testRestr$prZINBactivity - -->
+<!--                   testRestr$activityAfter)^2)/nrow(test) -->
+
+<!-- Mse <- data.frame(MseHNBfull = MseHNBfull,  -->
+<!--                   MseHNBactivity = MseHNBactivity,  -->
+<!--                   MseZINBfull = MseZINBfull,  -->
+<!--                   MseZINBactivity = MseZINBactivity) -->
+<!-- ``` -->
+
+<!-- \normalsize  -->
+<!-- ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"} -->
+<!-- mykable(Mse) -->
+<!-- ``` -->
+
+
+
+<!-- And the winner is\dots Hurdle negative binomial model again! Great! -->
+
+
+Finally, we can inspect our best fitting  HNB model (Tables  \ref{tab:fhnb_estimates1} and \ref{tab:fhnb_estimates2}) and interpret the result.   The output is split into two submodels: one for predicting zeros, one for the counts. It could be suggested to ignore those variables whose coefficients are not  statistically significant, but given the already discussed reasons to include these variables, we are not going to do this (in fact, attaching too much value to statistical significance thresholds can be pernicious, and also misleading if the predictors are correlated, as attacks on posts and attacks on comments may well be). Moreover, the results of step-wise elimination from the full model are sensitive to the ordering in which we consider variables, and there is no principled reason to prefer any of the orderings. Instead, interpreting  $p$-values we apply the following advice: the closer it is to 1, the more skeptical we should be about the judgment the model makes about its role. 
+
+\noindent
+\begin{tabular}{ll}
+\begin{minipage}[c]{0.48\linewidth}
+\begin{table}[H]
+\scalebox{0.75}{
+\begin{tabular}{@{\extracolsep{5pt}}lc}
+\\[-1.8ex]\hline
+\hline \\[-1.8ex]
+& \multicolumn{1}{c}{\textit{Dependent variable:}} \\
+\cline{2-2}
+\\[-1.8ex] & activityAfter \\
+\hline \\[-1.8ex]
+sumLowOnlyBefore & $-$0.009 \\
+& (0.53) \\
+& \\
+sumHighBefore & $-$0.008 \\
+& (0.7) \\
+& \\
+sumPlBefore & 0.024 \\
+& (0.21) \\
+& \\
+sumPhBefore & $-$0.147 \\
+& (0.07) \\
+& \\
+activityBefore & 0.015$^{***}$ \\
+& (2e-16) \\
+& \\
+Constant & 2.534$^{***}$ \\
+& (2e-16) \\
+& \\
+\hline
+\hline \\[-1.8ex]
+\textit{Note:} & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
+\end{tabular}
+}
+\caption{Estimated parameters of the count part of the  hurdle negative binomial model.}
+\label{tab:fhnb_estimates1}
+\end{table}
+\end{minipage}
+& \begin{minipage}[c]{0.42\linewidth}
+
+
+
+\begin{table}[H]
+\scalebox{0.75}{
+\begin{tabular}{@{\extracolsep{5pt}}lc}
+\\[-1.8ex]\hline
+\hline \\[-1.8ex]
+& \multicolumn{1}{c}{\textit{Dependent variable:}} \\
+\cline{2-2}
+\\[-1.8ex] & activityAfter \\
+\hline \\[-1.8ex]
+sumLowOnlyBefore & $-$0.009 \\
+& (0.53) \\
+& \\
+sumHighBefore & $-$0.008 \\
+& (0.7) \\
+& \\
+sumPlBefore & 0.024 \\
+& (0.21) \\
+& \\
+sumPhBefore & $-$0.147 \\
+& (0.07) \\
+& \\
+activityBefore & 0.015$^{***}$ \\
+& (2e-16) \\
+& \\
+Constant & 2.534$^{***}$ \\
+& (2e-16) \\
+& \\
+\hline
+\hline \\[-1.8ex]
+\textit{Note:} & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
+\end{tabular}}
+\caption{Estimated parameters of the count part of the  hurdle negative binomial model.}
+\label{tab:fhnb_estimates2}
+\end{table}
+\end{minipage}
+\end{tabular}
+
+
+
+
+
+\normalsize
+
+<!-- reading the excellent book titled \emph{The Cult of Statistical Significance: How the Standard Error Costs Us Jobs, Justice, and Lives} by Stephen T. Ziliak and Deirdre N. McCloskey.  -->
+
+\noindent
+\begin{tabular}{ll}
+\begin{minipage}[c]{0.46\linewidth}
+\begin{table}[H]
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+expCoef <- as.data.frame(round((exp(coef((HNBfull)))),3))
+colnames(expCoef) <- c("Odds ratios")
+mykable(expCoef)
+```
+\caption{Exponentiated coefficient of the full hurdle negative binomial model (rounded).}
+\label{tab:exphnb}
+\end{table}
+\end{minipage}  \begin{minipage}[c]{0.48\linewidth}
+The coefficeints  are somewhat difficult to interpret because the models use log link function. Therefore  we first   exponentiate them to obtain odds ratios (Table \ref{tab:exphnb}). Let's interpret the intercepts of the count submodel. 
+The baseline number of posts for those who are not in the zero class is 12.6.  The coefficients indicate that the multiplicative contribution of each unit change.
+\end{minipage}
+\end{tabular}
+
+
+
+ We visualise the effects of selected variables by plotting what activity levels the model predicts for their different values (we focus on 0-40, as the top of this range is already an extrapolation), while keeping other variables fixed at their mean values (Figure \ref{fig:effects}).  
+
+
+\footnotesize
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+sumLowOnlyBefore <- rep(mean(dataModeling$sumLowOnlyBefore),4001)
+sumHighBefore <- rep(mean(dataModeling$sumHighBefore),4001)
+sumPlBefore <- rep(mean(dataModeling$sumPlBefore),4001)
+sumPhBefore <- rep(mean(dataModeling$sumPhBefore),4001)
+activityBefore <- rep(mean(dataModeling$activityBefore),4001)
+activityAfter <- rep(mean(dataModeling$activityAfter),4001)
+
+baseEffDf <- data.frame(sumLowOnlyBefore,sumHighBefore,sumPlBefore,
+                        sumPhBefore,activityBefore,activityAfter)
+
+effSizePlot <- function(columnno,range = 40,by = 5){
+EffDf <- baseEffDf
+EffDf[,columnno] <- 0:4000
+EffDf$prediction <- predict(HNBfull,EffDf)
+ggplot(EffDf, aes(x = EffDf[,columnno], y  = prediction))+
+  geom_smooth(alpha = 0.5, col = "skyblue", se = FALSE)+
+  scale_x_continuous(breaks = seq(0,range, by = by),
+  limits = c(-1,range))+th+ylab("predicted activity")
+}
+
+effLO <- effSizePlot(1,500,50)    #low only
+effH  <- effSizePlot(2,50,5)      #narrow on comments
+effPl <- effSizePlot(3,100,10)    #pl
+effPh <- effSizePlot(4, 50,5)     #ph
+effA  <- effSizePlot(5,200,20)    #abefore
+```
+
+\normalsize
+
+To make sure our choice to use the hurdle model was not crucial for these results, we also provide effect plots for the full zero-inflated model.
+
+
+\begin{figure}[H]
+\begin{subfigure}[b]{0.45\textwidth}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+effLO+ggtitle("Predicted (hurdle) effect of wide only attacks on comments")+xlab("wide only attacks")
+```
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.45\textwidth}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+effH+ggtitle("Predicted (hurdle) effect of narrow attacks on comments")+xlab("narrow attacks")
+```
+\end{subfigure}
+
+\begin{subfigure}[b]{0.45\textwidth}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+effPl+ggtitle("Predicted (hurdle) effect of wide attacks on posts")+xlab("wide attacks")
+```
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.45\textwidth}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+effPh+ggtitle("Predicted (hurdle) effect of narrow attacks on posts")+xlab("narrow attacks")
+```
+\end{subfigure}
+
+\centering
+\begin{subfigure}[t]{0.45\textwidth}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+effA+ggtitle("Predicted (hurdle) effect of previous activity")+xlab("activity before")
+```
+\end{subfigure}
+
+\caption{Predicted effects of selected variables on activity with other variables fixed at their mean values, hurdle model.}
+\label{fig:effects}
+\end{figure}
+
+
+
+\footnotesize
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+effSizePlotZ <- function(columnno,range = 40,by = 5){
+  EffDf <- baseEffDf
+  EffDf[,columnno] <- 0:4000
+  EffDf$prediction <- predict(ZNBfull,EffDf)
+  ggplot(EffDf, aes(x = EffDf[,columnno], y  = prediction))+
+    geom_smooth(alpha = 0.5, col = "skyblue", se = FALSE)+
+    scale_x_continuous(breaks = seq(0,range, by = by),
+                       limits = c(-1,range))+th+ylab("predicted activity")
+}
+
+effLOZ <- effSizePlotZ(1,500,50)    #wide only
+effHZ  <- effSizePlotZ(2,50,5)      #high on comments
+effPlZ <- effSizePlotZ(3,100,10)    #pl
+effPhZ <- effSizePlotZ(4, 50,5)     #ph
+effAZ  <- effSizePlotZ(5,200,20)    #abefore
+
+```
+\normalsize
+
+\begin{figure}[H]
+\begin{subfigure}[b]{0.45\textwidth}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+effLOZ+ggtitle("Predicted (zero-inflated) effect of wide only attacks on comments")+xlab("wide only attacks")
+```
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.45\textwidth}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+effHZ+ggtitle("Predicted (zero-inflated) effect of narrow attacks on comments")+xlab("narrow attacks")
+```
+\end{subfigure}
+
+\begin{subfigure}[b]{0.45\textwidth}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+effPlZ+ggtitle("Predicted (zero-inflated) effect of wide attacks on posts")+xlab("wide attacks")
+```
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.45\textwidth}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+effPhZ+ggtitle("Predicted (zero-inflated) effect of narrow attacks on posts")+xlab("narrow attacks")
+```
+\end{subfigure}
+
+\centering
+\begin{subfigure}[t]{0.45\textwidth}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+effAZ+ggtitle("Predicted (zero-inflated) effect of previous activity")+xlab("activity before")
+```
+\end{subfigure}
+
+\caption{Predicted effects of selected variables on activity with other variables fixed at their mean values, zero-inflated model.}
+\label{fig:effects2}
+\end{figure}
+
+The predictions are  similar, except for the predicted results of wide only attacks on posts. This perhaps can be explained by observing  that  such cases of personal attacks sometimes represent situations in which the users  actually agree with the original post (see our remark in the beginning of the section  about data gathering and selection), and in some cases the attacks are critical of the author, so there is much more variation in this group and precise modeling is harder.\footnote{It should be kept in mind that  the model is built on up to 27 attacks in the \textsf{before} period, with really low number of attacks above 8, so the prediction here is an extrapolation, not an interpolation. Further studies for longer periods are needed to get a more reliable estimate allowing for interpolation in this respect.}  \footnote{One might have reasoned about our previous analyses as follows:  attacks in the before period correlate with activity before, and it is activity before that is the real predictor of activity after. This could be supported by observing that the $p$-value for the hurdle model is really low for activity before.  Pearson correlation coefficient for narrow attacks before and activity before is $r(3671)\approx$ `r round( cor(data$sumHighBefore,data$activityBefore),3)` and   $r(3671)\approx$ 
+`r round(cor(data$sumHighBefore,data$activityAfter),3)` for activity after. However, activity before is a much better correlate of activity after, $r(3671)\approx$ 
+`r round(cor(data$activityBefore,data$activityAfter),3)` --- all correlations with $p$-value $<2.2e-16$, and regression analysis (inspect the effect plots) indicates that activity before and high attacks before actually go in the opposite directions.}  
+
+
+
+
+
+Another way to use this information is to inspect the table of activity counts that the model expects based on the number of personal attacks on a post received in the before period, assuming all the other input variables are kept at their mean values:
+
+
+\begin{table}[H]
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+EffSumHighTable <- baseEffDf[0:20,]
+EffSumHighTable[,4] <- 0:19
+EffSumHighTable$prediction <- predict(HNBfull,EffSumHighTable)
+EffTablePosts <- rbind(EffSumHighTable$sumPhBefore,round(EffSumHighTable$prediction))
+rownames(EffTablePosts) <- c("attacks","expected activity")
+mykable(EffTablePosts) %>% kable_styling(latex_options = "scale_down")
+```
+\caption{Activity counts expected by the model based on personal attacks received, with other variables fixed at their mean level.}
+\end{table}
+
+
+
+\subsection{Concerns and limitations}
+
+The study is observational, which makes any inference to causal connection unreliable, and makes the study susceptible to problems that observational studies usually face. Here we  discuss some concerns that for this reason one might have, and some features of our study in light of Bradford-Hill criteria for causal inference. 
+
+
+
+One problem with observational studies is \textbf{self-selection bias}. Since the groups weren't selected randomly (we could not randomly pick strangers and offend them), there might be some unobserved differences between the subjects that make them end up in the groups they end up in, which causally account for the differences in the outcome variable. In our particular case, this is somewhat limited, because users, strictly speaking, do not self-select to be attacked. However, it is at least possible that users who write more, and especially controversial content are more likely to be attacked, and perhaps whatever causal factors make such users write more of more controversial content makes them decrease their activity the week after, independently of being attacked. 
+
+
+<!-- We spent some time trying to come up with some plausible factors of this sort, and failed. The reader is invited to make suggestions. -->
+
+Another problem plaguing observational studies is \textbf{regression to the mean}. If the probability of any particular message being attacked is fairly low, users who have received an attack are quite likely to have posted more content than the treatment group, and perhaps those who posted more content in the \textsf{before} period are more likely to post less in the \textsf{after} period. This concern might be elevated by the observation that activity before indeed increases with the number of attacks received and that the activity drop increases with \textsf{activity} before.
+
+
+
+
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+h0 <- data[data$sumHighBefore == 0,]
+h1 <- data[data$sumHighBefore == 1,]
+h2 <- data[data$sumHighBefore == 2,]
+h3 <- data[data$sumHighBefore == 3,]
+h4 <- data[data$sumHighBefore == 4,]
+
+distance <- function(x) { x - mean(data$sumHighBefore)}
+```
+
+
+
+\noindent
+\begin{tabular}{ll}
+\begin{minipage}[c]{0.46\linewidth}
+\begin{figure}[H]
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+attacksb <- 0:8 
+maxb <- max(attacks)
+lowb <- numeric(max+1)
+highb <- numeric(max+1)
+mb <- numeric(max+1)
+pb <- numeric(max+1)
+tb <- list()
+
+for(attacks in attacksb){
+  t[[attacks+1]] <- t.test(data[data$sumHighBefore == attacks,]$activityBefore)
+  
+  lowb[attacks+1] <- t[[attacks+1]]$conf.int[1]
+  highb[attacks+1] <- t[[attacks+1]]$conf.int[2]
+  mb[attacks+1] <- t[[attacks+1]]$estimate
+  pb[attacks+1] <- t[[attacks+1]]$p.value
+}
+highTableb<-as.data.frame(round(rbind(0:8,lowb, mb, highb, pb),3))
+rownames(highTableb) <- c("attacks","CIlow","estimatedm", "CIhigh", "p-value")
+
+before <- as.data.frame(t(highTableb))
+
+attacksa <- 0:8 
+maxa <- max(attacksa)
+lowa <- numeric(max+1)
+higha <- numeric(max+1)
+ma <- numeric(max+1)
+pa <- numeric(max+1)
+ta <- list()
+for(attacks in attacksa){
+  ta[[attacks+1]] <- t.test(data[data$sumHighBefore == attacks,]$activityAfter)
+  lowa[attacks+1] <- ta[[attacks+1]]$conf.int[1]
+  higha[attacks+1] <- ta[[attacks+1]]$conf.int[2]
+  ma[attacks+1] <- ta[[attacks+1]]$estimate
+  pa[attacks+1] <- ta[[attacks+1]]$p.value
+}
+highTablea<-as.data.frame(round(rbind(0:8,lowa, ma, higha, pa),3))
+rownames(highTablea) <- c("attacks","CIlow","estimatedm", "CIhigh", "p-value")
+after <- as.data.frame(t(highTablea))
+
+ggplot(before, aes(x = attacks, y = estimatedm))+geom_point()+ geom_errorbar(aes(ymin=CIlow, ymax=CIhigh), width=.2,size=0.2,
+                                                                             position=position_dodge(0.05))+th+xlab("narrow attacks")+ylab("mean activity")+geom_line(data = after, aes(x = attacks, y = estimatedm), color = "skyblue")+geom_errorbar(data = after, aes(ymin=CIlow, ymax=CIhigh), width=.3,size=0.2,color = "skyblue",  position=position_dodge(0.05))
+
+```
+\caption{Mean activity before (black) with 95\% CI error bars and after (blue) , grouped by the number of narrow attacks.}
+\end{figure} \end{minipage}& \begin{minipage}[c]{0.46\linewidth}
+Spearman correlation between the distance from the mean and the activity change is `r round(cor(h0$activityBefore,h0$activityDiff, method = "spearman"),3)`, which is fairly weak. Pearson's $\rho$ is not very different (
+`r round(cor(h0$activityBefore,h0$activityDiff),3)`), but we need to be careful here, because the relation doesn't seem very linear ($p$-values for correlation tests are both $<0.001$). If, however, we follow this line of reasoning,  the distance from the mean would explain only $R^2 =$ 
+`r round(cor(h0$activityBefore,h0$activityDiff)^2,3)` of the variability in  the activity change in the control group.
+\end{minipage}
+\end{tabular}
+
+
+
+
+
+The impression of regression to the mean disappears when we look at \textsf{activityScore}, that is, activity change in proportion to previous activity (Fig. \ref{fig:regression2}).
+
+
+
+\begin{figure}[H]
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+h0 <- data[data$sumHighBefore == 0,]
+h1 <- data[data$sumHighBefore == 1,]
+h2 <- data[data$sumHighBefore == 2,]
+h3 <- data[data$sumHighBefore == 3,]
+h4 <- data[data$sumHighBefore == 4,]
+
+distance <- function(x) { x - mean(data$sumHighBefore)}
+
+library(gridExtra)
+grid.arrange(ggplot(h0, aes(x = distance(activityBefore),y = activityScore))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
+)+ggtitle("0 narrow attacks")+ylab("proportional activity change"),
+ggplot(h2, aes(x = distance(activityBefore),y = activityScore))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
+)+ggtitle("2 narrow attacks")+ylab("proportional activity change"),
+ggplot(h3, aes(x = distance(activityBefore),y = activityScore))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
+)+ggtitle("3 narrow attacks")+ylab("proportional activity change"),
+ggplot(h4, aes(x = distance(activityBefore),y = activityScore))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
+)+ggtitle("4 narrow attacks")+ylab("proportional activity change"))
+```
+\caption{Distance from sample mean vs. activity score, grouped by the number of attacks (plot for 1 narrow attack omitted, as it is visually not too distinct from the one for 0 attacks).}
+\label{fig:regression2}
+\end{figure}
+
+
+
+ Plots for $>0$ attacks with gam smoothing does not suggest regression to the mean: it is not the case that attacked users with higher activity before indeed tend to have lower activity in the second week.
+
+
+
+Next, notice that restricting the dataset to users with similar activity before still results in uneven activity change between the groups. We focus focus on users with \textsf{activityBefore} restricted to the third quartile of the whole sample (44),  narrow attacks in $\{0,1,2,3, 4\} and estimate  their \textsf{activityScore} proportional drop.
+
+
+```{r,echo=FALSE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+iqr0 <- data[data$sumHighBefore == 0 & data$activityBefore <= 44,]
+iqr1 <- data[data$sumHighBefore == 1 & data$activityBefore <= 44,]
+iqr2 <- data[data$sumHighBefore == 2 & data$activityBefore <= 44,]
+iqr3 <- data[data$sumHighBefore == 3 & data$activityBefore <= 44,]
+iqr4 <- data[data$sumHighBefore == 4 & data$activityBefore <= 44,]
+
+t.test(iqr0$activityScore)
+t.test(iqr1$activityScore)
+t.test(iqr2$activityScore)
+t.test(iqr3$activityScore)
+t.test(iqr4$activityScore)
+```
+
+
+\normalsize 
+The estimated means of proportional changes  are $0.05, 0.11, -0.09,-0.35, -0.7$ with decreasing p-values falling below .05 at the number of attacks $=3, 4$ and $p$-value 0.002 for four attacks (that is, 0.01 with Bonferroni correction for multiple testing), despite the group sizes for three and four attacks being fairly low (49 for two, 13 for three, 7 for four).  By the way, note that with this activity restriction, receiving one attack does not seem to have much impact on user's activity.  
+
+
+
+
+\noindent \begin{tabular}{ll}
+\begin{minipage}[c]{0.61\linewidth}
+
+\begin{table}[H]
+\footnotesize
+\scalebox{0.8}{
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+library(rstatix)
+data$fhigh <- as.factor(data$sumHighBefore)
+data %>% anova_test(activityDiff ~ activityBefore + fhigh)
+```
+}
+\normalsize 
+\caption{Results of ANCOVA test of activity difference vs. activity before and the number of narrow attacks received.}
+\end{table}
+\end{minipage} & \begin{minipage}[c]{0.32\linewidth}
+Further, to adjust for regression to the mean, it is sometimes recommended to  use ANCOVA to correct for prior differences in pretest measurements. 
+\end{minipage}
+\end{tabular}
+
+
+\noindent In our case, a statistically significant difference for different number of attacks received remains after correcting for differences  in activity before.
+
+
+Finally, the model-theoretic analysis already corrects for activity before, and estimates the effect size of the other variables keeping activity before fixed at the mean level. So, regression to the mean, while it might play a small part, does not seem to explain the differences. However, the potential effects of regression to the mean have to be kept in mind in future observational studies and replication attempts. 
+
+One reason this somewhat extensive discussion of regression to the mean was needed was our group selection method. Perhaps, one could argue, it would be better to simply randomly pick users and track their fate starting at some particular time. This way, perhaps, we could avoid uneven activity levels in the first week between the groups.  Attacks are fairly rare so it quite likely  that users receiving attacks during the observation period would  still be the more active ones. Moreover, due to the rarity of attacks, by proceeding this way and collecting data for two weeks only we would run a risk of ending up with very small treatment groups, which could render the data useless. However in our planned long-term experiment such a risk is much lower, and we will attempt to replicate our initial results presented in this paper using a different data collection method. 
+
+
+
+
+Another problem that should be mentioned is the  population bias, due to which the results might not be generalizable to populations from other social networking sites. As of 2018, Reddit had 330 million monthly active users \footnote{\url{https://mediakix.com/blog/reddit-statistics-users-demographics/}}, out of which 54\% come from the U.S., 8\% from the UK, and 6.4\% from Canada. 69\% of its users are male. It's also popular among young adults --- people between the ages of 25-34 make up around 45\% of the user base. This is quite a different population than, for instance, the one using  Instagram (with the majority of females and users outside of the U.S.\footnote{\url{https://www.omnicoreagency.com/instagram-statistics/}}).
+
+
+Although models created by Samurai Labs mitigate some existing pitfalls in cyberviolence detection (high false alarm rates), they are not without flaws. Optimizing for precision can lead to the reduction of recall.  Some attacks that occurred during the data collection period could be undetected --- the  control group could have received messages expressing verbal aggression that were not included in the analysis, because they fell outside of the scope of model detection. Also, models were designed to detect online violence only in  English. Attacks expressed in languages other than English would not get detected either. 
+
+
+
+
+\subsection{Causal interpretation}
+
+Clearly, the results are correlational. The question arises: to what extent do they justify a  causal interpretation, according to which receiving personal attacks causes users to be less active? We believe it useful to discuss the result in light of the Bardford Hill criteria for causal inference [@hill1965environment], which are fairly commonly in use in epidemiological studies [@lucas2005association], in a slightly modified up-to-date form [@howick2009evolution] (see however, for instance, [@pearl2018why] for an insightful skeptical stance towards these criteria).
+
+So here's the usual list of criteria whose satisfaction tends to justify the causal interpretation of results, together with our discussion of how they relate to our study.
+
+\vspace{2mm}
+
+\begin{description}
+\item \textbf{Direct evidence.} Here, a few points need to be considered:
+\begin{description}
+\item The effect should \textbf{not be attributable to plausible confounding factors}.  
+
+\textbf{Comment.} We have already discussed confounding factors. At present, we are not aware of plausible confounding factors. If there are any, they are yet to be discovered.
+
+
+\item \textbf{Appropriate temporal and/or spatial proximity.}
+
+
+\textbf{Comment.} Given the nature of the phenomenon, spatial proximity is not relevant. The temporal proximity condition is satisfied: we investigated the activity change within a few days after the attacks.
+
+
+
+
+\item \textbf{Dose responsivenes and reversibility.}
+
+
+\textbf{Comment.} For those numbers of attacks for which the group sizes allowed for a decent power of statistical tests (see our discussion of power in the section on classical analysis), it seems that the activity drop is responsive to the number of attacks received. For higher numbers of attacks, we have insufficient data. Attention needs to be paid to dose responsiveness in a planned long-term study which is likely to collect sufficient data for higher numbers of attacks. Studies on reversibility are yet to be performed and are not easy to design given that there is no clear way of de-offending users.
+
+
+
+\end{description}
+
+
+\item \textbf{Mechanistic evidence.} A plausible mechanism underlying the correlation should not be absent, and preferably the posed mechanism should be supported by independent considerations (\textbf{coherence} with what is currently known).
+
+\textbf{Comment.} The posed mechanism is not too surprising. People, when they receive personal attacks, are less eager to try to communicate, especially to limit the risk of further attacks.  Various forms of verbal aggression such as cyberbullying have been shown to lead to depression, feeling of hopelessness or powerlessness, as well as can contribute to the so-called social media fatigue ---  which can be characterized by  overall exhaustion, distress, and discontinued intention to use. This in turn can be reflected at a behavioral level --- users who receive an attack might post less in order to avoid yet another attack.
+
+
+
+\item \textbf{Parallel evidence.} The study should be replicated, and there should be similar studies showing analogous effects. 
+
+
+\textbf{Comment.} This is a new result, but we plan to test the models obtained in this study on future data, and to perform a long-term study, where part of the data will be used in a replication attempt. However, several studies have already examined the psychological effects as well as the declared actions undertaken by the victims of the attacks. People who fell victim to online harassment or cyberbullying, often  declared leaving or temporarily stopping the use of an internet service as a result of an attack. 
+
+
+
+
+\end{description}
+
+
+  \section{Discussion: potential solutions to personal attacks, verbal aggression and hate speech}
+\label{discussion}
+
+
+
+
+A number of studies have investigated potential means to mitigate social network depopulation caused by personal attacks and other forms of online harassment, with almost all of them pointing to the importance of \textit{efficient moderation}.
+
+One of the strategies that can serve as a potentially effective way to curb verbal abuse is counter-speech. As shown in [@munger2017tweetment] it can lead to a significant reduction of the number of racist tweets, but also, according to [@mivskolci2020countering], can encourage bystander interventions in the form of expressing pro-minority attitude. In a quasi-experimental research design they have used two argumentative strategies: fact-checking and/or personal experience under the posts of politicians' posts from Slovakia related to the topic of the Roma. They found out that when new users entered Facebook discussions with pro-Roma comments, it motivated other followers 
+to join the discussion arguing in favor of the Roma as well.
+
+
+[@johnson2019hidden] proposed a set of policies and interventions based on the mathematical understanding of the online hate dynamics that happen on a cross-platform scale, and found out that "using entirely public data from different social media platforms, countries and languages, (\dots) online hate thrives globally through self-organized, mesoscale clusters that interconnect to form a resilient network-of-networks of hate highways across platforms, countries and languages." 
+
+According to the first proposed policy, reduction of such hate clusters should stem from banning smaller clusters in the first place (banning large clusters first could not yield the desired results, as others of similar size would quickly replace them). According to the second policy, platforms should randomly ban a small fraction of individual users across the online hate population. The reasoning behind this policy was that "choosing a small fraction lowers the risk of multiple lawsuits, and choosing randomly serves the dual role of lowering the risk of banning many from the same cluster, and inciting a large crowd. In the third policy they proposed juxtaposing hate clusters with anti-hate users and communities, as this way hate-cluster can be neutralized with the number of determined anti-hate users.
+
+
+Moreover, simply by displaying the rules, thus making community norms more visible and accessible to all users, [@matias2019preventing] increased newcomer rule compliance by 8 percentage points and increased the participation rate of newcomers in discussions by 70 percent on average of the communities existing on Reddit --- r/science. Thus making the rules visible and accessible influenced how people behaved online and who chose to join. 
+
+The efficacy of moderation, usually in its extreme forms, such as banning users from SNS or even banning whole SNS channels, was also analyzed in the literature, especially by [@chandrasekharan2017you]. They analyzed over hundred million of Reddit posts related to a ban of two Reddit channels (r/fatpeoplehate and r/CoonTown) due to massive violations of Reddit's anti-harassment policy (e.g., hate speech against obese people), and noticed, that an overwhelming majority (more than eighty percent of users) stopped hate speech-related activities whatsoever after the ban. Although the measures taken by Reddit to solve the problem were extreme, this suggests that similar strong statements by the moderators could be effective also for other forms of bullying and hate-speech. The efficacy of such "chilling effects," also with regards to more general and non-directed actions such as implementation and dissemination of laws, regulations, and policies, or state actions like surveillance, was also pointed out by [@penney2017internet].
+
+When it comes to a local moderation, especially on the user-end side, [@navarro2017one] highlight the importance of "guardianship" in, particularly young and adolescent users, and point out that at present the cyberspace lacks any form of effective guardianship. Although by guardianship they mainly mean parents and caregivers of the young users, who should be proactively involved in educating, monitoring the activity and solving problems occurring to their kids online, they also acknowledge that this is difficult to achieve globally and point out that it is also necessary to investigate other, more effective and efficient forms of guardianship within SNS. However, as methods of guardianship based purely on low-level technological solutions, such as filters and software programs were previously found ineffective [@navarro2012going; @navarro2013girls], the need for a combined effort becomes apparent, in which specially designated guardians, such as SNS group and channel moderators, are supported with more sophisticated technology, such as Artificial Intelligence-based methods for the detection of personal attacks. 
+
+
+Another study highlighting the role of moderators for the growth of social networks was done by [@seering2019moderator]. In their study, involving in-depth interviews with fifty six moderators from Twitch, Reddit and Facebook, they conclude that, although it is more effective to have human moderators than purely algorithmic ones, it is crucial to "develop and improve tools that allow moderators to focus their attention where it is needed." In particular, this involves the development of tools providing "predictive suggestions for threads or discussions that might soon devolve." Such tools, combined with user-controlled tools, such as attaching red flags to harmful messages, would be useful as complementary measures. [@seering2019moderator] point out that moderators are an important part of each social network, who help the communities grow, evolve, and become meaningful for its users and thus should be supported in their work for the constant improvement of social media. 
+
+
+
+
+\section{Conclusions and future work}
+\label{conclusions}
+
+In this paper we introduced our study on the effects of personal attacks on users' engagement and continuation of activity in social media. Despite of the existence of a vast literature on this topic,  the previous works were small-scale (up to several hundred subjects), and were based on  self-reporting. With the  growing importance of  social networking services (SNS)  in many people's lives, and with the quickly growing number of online harassment and cyberbullying cases world-wide, there is a clear need for  more direct and quantitative  research. Therefore, we performed a  multifaceted quantitative analysis of how  the activity of users subjected to personal attacks changes after experiencing the attack. To perform the study we applied a high-precision personal attack detection tool \textsf{Samurai,} to a fairly large dataset from Reddit, a popular social media platform. The result was subjected to statistical analysis. The results of our study, based on several hundred thousand posts and comments clearly showed that the activity of users experiencing personal attacks online deteriorates fairly quickly even after  one attack. It is not know whether and to what extent   attacked users  regain their activity --- this needs further research --- but even temporarily frequent exposure to personal attacks will cause disengagement with the platform and arguably lead to its depopulation. 
+
+The negative impact of personal attacks and the mitigating role of moderation jointly suggest that it is in the best interest of SNS providers to efficiently detect and moderate personal attacks and similar cases of harassment and cyberbullying. Moreover, since the reality of information explosion we live today makes it impossible to detect and moderate all of such harmful content manually, it becomes clear that supportive tools, such as the one applied in this research will become more and more necessary for this purpose. 
+
+
+The  literature we discussed provides clear directions to improve social media experience across platforms, by assuring a sufficient number of moderators necessarily supported with sophisticated predictive technologies (such as AI-based tools for automatic cyberbullying detection) empowering the moderators in their work, and making it less stressful and more efficient.
+
+
+Observe also that [@chandrasekharan2017you]  (and also [@pudipeddi2014user], though on a much smaller scale) were  the only studies among the ones we surveyed  that performed a large scale quantitative analysis, and not self-report-based studies. This shows the urgent need for similar studies based on a methodology of large scale quantitative analysis, such as the one we presented. These are important for a conceptual replication of small scale survey-based qualitative studies, and become possible thanks to the development of AI-based tools such as the one used in our study. 
+
+
+
+In the near future we plan to perform a more long-term study on the same social media platform (Reddit) to investigate  the impact personal attacks have in a longer perspective, and how they are related to users completely abandoning the use. This will give us a clear yellow- and red-alert threshold methods useful for SNS providers to triage their moderation efforts in case of being flooded with reports.
+
+We  also plan to  study  situations in which the users have not only regained their activity levels, but their situation improved leading to an even greater engagement. From our research so far, based on anecdotal examples found in the analyzed dataset, we can suspect that such situations are  possible, but for them to take place a helping and proactive activity from other users is necessary, e.g., when a number of users support the victim and oppose the attacker. Moreover, we noticed that when other users are capable of mitigating the conflict, especially with empathetic engagement, it is possible to not only help the victim, but also resolve the conflict, which is the optimal way the events can  unfold. Not only  from the point of view of all the sides of the conflict, but also from the perspective of the SNS providers, as keeping the health of SNS platform in good shape is crucial to assure its sustainable growth and stop depopulation.
+
+Apart from the above, we plan to continue the study on other SNS platforms, including Twitter, Facebook, or Instagram, also in languages other than English, such as Polish and Japanese. Finally, We plan to expand the functionalities of the \textsf{ Samurai} system to  cover various types of attacks, including other types of harassment (sexual, racial, child abuse, etc.), as well as focus  not only on detecting the attacks, but also on the victims' situation, and develop models for detecting suicidal intent in users' messages, to contribute to the improvement of the general health of social media and its users.
+
+
+
+
+
+
+\newpage
+
+\section*{References}
+
+
+
+
+

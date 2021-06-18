@@ -27,6 +27,8 @@ library(knitr)
 library(kableExtra)
 ```
 
+<!-- Discussion of reviews -->
+<!-- https://docs.google.com/document/d/13j9TBuyH_Xr9GR6TIGnb7bTzjyNcPVVGroEbDYleN7o/edit -->
 
 
 
@@ -113,7 +115,7 @@ Next, in Section \ref{technology} we describe the technology we applied, which i
 
 \subsection{The influence of  social media}
 
-Even since the beginning of the social media popularity burst, studies have indicated that  participation in SNS  influences  the users' well-being and social self-esteem, especially in adolescents. [@valkenburg2006friend], in a small initial survey study (881 users) among young users (10-19 yo.) on a popular Dutch SNS called CU2, already noticed that especially  (1) the frequency  and (2) the tone (positive vs. negative) of the feedback they received had a significant (and correspondingly positive or negative) impact on the well-being and social self-esteem of the users.
+Even since the beginning of the social media popularity burst, studies have indicated that  participation in SNS  influences  the users' well-being and social self-esteem, especially in adolescents. @valkenburg2006friend, in a small initial survey study (881 users) among young users (10-19 yo.) on a popular Dutch SNS called CU2, already noticed that especially  (1) the frequency  and (2) the tone (positive vs. negative) of the feedback they received had a significant (and correspondingly positive or negative) impact on the well-being and social self-esteem of the users.
 
 Although SNS have the potential to  improve the users' lives, other studies link frequent social media use, especially the one leading to addiction,  to various mental health problems, including low self esteem, anxiety and depression  [@beran2005cyber; @hinduja2008cyberbullying; @campbell2012victims; @woods2016sleepyteens], with similar results obtained all over the world, from the UK [@kelly2018social], Turkey [@kircaburun2016self], to Japan [@kitazawa2018associations], and Poland [@pyzalski2019polish].
 
@@ -183,7 +185,7 @@ been also studied by [@meyer2014moderation] and [@carey2016influences], whereas 
 
 
 [@sadeque2019predicting] talk about continued participation using the term \textit{churn}, which they define as ``a portmanteau of change and turn --- (\dots) 
-the rate of loss of customers from a company's customer base to another company'' Research on churn has an important motivation for social network service-providing corporations: the loss of customers translates into the loss of revenue, while convincing an existing user/customer to stay is cheaper than finding a new one. Moreover, in social networks, 
+the rate of loss of customers from a company's customer base to another company''. Research on churn has an important motivation for social network service-providing corporations: the loss of customers translates into the loss of revenue, while convincing an existing user/customer to stay is cheaper than finding a new one. Moreover, in social networks, 
 it is the uninterrupted 
 interactions among users that serve as the main underlying driving force of service sustainability.
 
@@ -235,7 +237,7 @@ Large increases in toxicity led to health decline, while subreddits with stable 
 
 
 The above literature clearly indicates that personal attacks within the social network gradually and consistently decrease user activity and eventually lead to depopulation. The only special situation in which the language of harassment and hate speech could incentivize the users to increase their activity, is when the social network is an environment in which hate speech and extremism are normalized. [@mathew2019temporal] indicate this in their study on Gab.com,\footnote{\url{https://gab.com/}} a social network which prioritizes unrestricted free speech over the comfort of user majority.
-This leads to the emergence of a \textit{group identity} that accepts and values harmful language, which in turn makes some of the most extreme users be perceived in positive light. This also resembles typical mechanisms that occur on extremist (jihadists, far-right activists) forums [@de2008stormfront; @chua2019understanding], and suggest that measures opposite to those functioning on extremist forums should be employed in social networking platforms, which aim at a more civilized and friendly interaction.
+This leads to the emergence of a \textit{group identity} that accepts and values harmful language, which in turn makes some of the most extreme users be perceived in positive light. This also resembles typical mechanisms that occur on extremist (jihadists, far-right activists) forums [@de2008stormfront; @chua2019understanding], and suggests that measures opposite to those functioning on extremist forums should be employed in social networking platforms, which aim at a more civilized and friendly interaction.
 
 
 
@@ -273,7 +275,7 @@ Figure \ref{fig:samuraiexample} illustrates how the input text ("ccant believ he
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\linewidth]{example.eps}
+    \includegraphics[width=\linewidth]{../images/example.eps}
     \caption{Example of processing of one sentence by the applied Samurai technology.}
     \label{fig:samuraiexample}
 \end{figure}
@@ -347,10 +349,10 @@ Practical limitations allowed for data collection for  around two continuous wee
 \footnotesize
 ```{r, echo=FALSE,eval=TRUE,cache=TRUE}
 #data <- read.csv("data/quittingFinalAnon.csv")[,-1]
-data <- read.csv("quittingFinalAnon.csv")[,-1]
+data <- read.csv("../datasets/quittingFinalAnon.csv")[,-1]
 mykable <- function(object) {kable(object, "latex", booktabs = T) %>% kable_styling(latex_options = "striped",font_size = 9)}
 kable(table(data$group), "latex", booktabs = T, col.names = c("Group", "n")) %>% 
-  kable_styling(latex_options = "striped",font_size = 9)  #"scale_down"
+  kable_styling(latex_options = c("striped","HOLD_position"),font_size = 9)  #"scale_down"
 ```
 \caption{Study group sizes.}
 \label{tab:groups}
@@ -380,7 +382,6 @@ First, we visually explore our dataset by looking at the relationship between th
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300}
 library(ggthemes)
 th <- theme_tufte()
-# data <- read.csv("data/quittingMACanon.csv")[,-1] %>% filter(sumLowBefore <200)
 highPlot <- ggplot(data, aes(x = sumHighBefore, y = activityDiff))+geom_jitter(size=0.8, alpha = 0.3)+
   geom_smooth(method = "lm",color = "skyblue", fill= "skyblue", 
               size = 0.7, alpha = 0.8)+
@@ -677,7 +678,7 @@ lowOnlyTableBar <- ggplot(lowOnlyTableLong)+ geom_bar(aes(x=attacks,y=m), stat="
 
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 kable(highTable, "latex", booktabs = T, col.names = NULL) %>%
-kable_styling(latex_options = c("striped","scale_down"),font_size = 9)
+kable_styling(latex_options = c("striped","scale_down","HOLD_position"),font_size = 9)
 ```
 
 \caption{T-test based estimates for activity change divided by numbers of narrow attacks received.}
@@ -690,7 +691,7 @@ kable_styling(latex_options = c("striped","scale_down"),font_size = 9)
 
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 kable(lowTable, "latex", booktabs = T, col.names = NULL) %>%
-kable_styling(latex_options = c("striped","scale_down"),font_size = 9)
+kable_styling(latex_options = c("striped","scale_down","HOLD_position"),font_size = 9)
 ```
 
 
@@ -702,7 +703,7 @@ kable_styling(latex_options = c("striped","scale_down"),font_size = 9)
 
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 kable(lowOnlyTable, "latex", booktabs = T, col.names = NULL) %>%
-kable_styling(latex_options = c("striped","scale_down"),font_size = 9)
+kable_styling(latex_options = c("striped","scale_down","HOLD_position"),font_size = 9)
 ```
 
 
@@ -826,7 +827,7 @@ power8 <- 1-p
 
 
 
-It might help to visualize this information using barplots. We do so for narrow attacks. (other visualisations are in the online documentation).  The printed values below bars represent $p$-values, not the estimated means (Fig. \ref{fig:highbar}). Note fairly wide confidence intervals for higher number of attacks. These arise because attacks are quite rare, so the sample sizes for 5, 6, 7 and 8 narrow attacks are  22, 17,  8  and  4 respectively. This might be also the reason why $p$-values are not too low (although still below the usual significance thresholds).\footnote{In fact, power analysis shows that if the real activity difference for those groups equals to the mean for \textsf{narrow = 6}, that is, -80, the probabilities that this effect would be discovered by a single sample t-test for 6, 7, and 8 attacks are `r round(c(power6,power7,power8),3)`, and so tests for higher numbers of attacks are underpowered.} 
+It might help to visualize this information using barplots. We do so for narrow attacks (other visualisations are in the online documentation).  The printed values below bars represent $p$-values, not the estimated means (Fig. \ref{fig:highbar}). Note fairly wide confidence intervals for higher number of attacks. These arise because attacks are quite rare, so the sample sizes for 5, 6, 7 and 8 narrow attacks are  22, 17,  8  and  4 respectively. This might be also the reason why $p$-values are not too low (although still below the usual significance thresholds).\footnote{In fact, power analysis shows that if the real activity difference for those groups equals to the mean for \textsf{narrow = 6}, that is, -80, the probabilities that this effect would be discovered by a single sample t-test for 6, 7, and 8 attacks are `r round(c(power6,power7,power8),3)`, and so tests for higher numbers of attacks are underpowered.} 
 
 
 
@@ -1056,7 +1057,7 @@ mc3w <- BESTmcmc(sh3,priors = priorsWide)
 
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"} 
 #load("analysis/bayesianChains.RData")
-load("bayesianChainsCompatible.RDa")
+load("../datasets/bayesianChainsCompatible.RDa")
 ```
 
 
@@ -1605,7 +1606,7 @@ Constant & 2.534$^{***}$ \\
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 expCoef <- as.data.frame(round((exp(coef((HNBfull)))),3))
 colnames(expCoef) <- c("Odds ratios")
-mykable(expCoef)
+mykable(expCoef) %>%  kable_styling(latex_options = "HOLD_position")
 ```
 \caption{Exponentiated coefficient of the full hurdle negative binomial model (rounded).}
 \label{tab:exphnb}
@@ -1768,7 +1769,7 @@ EffSumHighTable[,4] <- 0:19
 EffSumHighTable$prediction <- predict(HNBfull,EffSumHighTable)
 EffTablePosts <- rbind(EffSumHighTable$sumPhBefore,round(EffSumHighTable$prediction))
 rownames(EffTablePosts) <- c("attacks","expected activity")
-mykable(EffTablePosts) %>% kable_styling(latex_options = "scale_down")
+mykable(EffTablePosts) %>% kable_styling(latex_options = c("scale_down","HOLD_position"))
 ```
 \caption{Activity counts expected by the model based on personal attacks received, with other variables fixed at their mean level.}
 \end{table}
@@ -2060,7 +2061,7 @@ In the near future we plan to perform a more long-term study on the same social 
 
 We  also plan to  study  situations in which the users have not only regained their activity levels, but their situation improved leading to an even greater engagement. From our research so far, based on anecdotal examples found in the analyzed dataset, we can suspect that such situations are  possible, but for them to take place a helping and proactive activity from other users is necessary, e.g., when a number of users support the victim and oppose the attacker. Moreover, we noticed that when other users are capable of mitigating the conflict, especially with empathetic engagement, it is possible to not only help the victim, but also resolve the conflict, which is the optimal way the events can  unfold. Not only  from the point of view of all the sides of the conflict, but also from the perspective of the SNS providers, as keeping the health of SNS platform in good shape is crucial to assure its sustainable growth and stop depopulation.
 
-Apart from the above, we plan to continue the study on other SNS platforms, including Twitter, Facebook, or Instagram, also in languages other than English, such as Polish and Japanese. Finally, We plan to expand the functionalities of the \textsf{ Samurai} system to  cover various types of attacks, including other types of harassment (sexual, racial, child abuse, etc.), as well as focus  not only on detecting the attacks, but also on the victims' situation, and develop models for detecting suicidal intent in users' messages, to contribute to the improvement of the general health of social media and its users.
+Apart from the above, we plan to continue the study on other SNS platforms, including Twitter, Facebook, or Instagram, also in languages other than English, such as Polish and Japanese. Finally, we plan to expand the functionalities of the \textsf{ Samurai} system to  cover various types of attacks, including other types of harassment (sexual, racial, child abuse, etc.), as well as focus  not only on detecting the attacks, but also on the victims' situation, and develop models for detecting suicidal intent in users' messages, to contribute to the improvement of the general health of social media and its users.
 
 
 

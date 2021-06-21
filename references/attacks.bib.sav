@@ -998,4 +998,31 @@ artice{ortiz2019rise,
 },
 }
 
+@Article{Bilewicz2021,
+  author    = {Micha{\l} Bilewicz and Patrycja Tempska and Gniewosz Leliwa and Maria Dowgia{\l}{\l}o and Michalina Ta{\'{n}}ska and Rafa{\l} Urbaniak and Micha{\l} Wroczy{\'{n}}ski},
+  title     = {Artificial intelligence against hate: Intervention reducing verbal aggression in the social network environment},
+  journal   = {Aggressive Behavior},
+  year      = {2021},
+  volume    = {47},
+  number    = {3},
+  pages     = {260--266},
+  month     = jan,
+  doi       = {10.1002/ab.21948},
+  publisher = {Wiley},
+  url       = {https://doi.org/10.1002/ab.21948},
+}
+
+@Article{Ellis2019smartphone,
+  author   = {David A. Ellis and Brittany I. Davidson and Heather Shaw and Kristoffer Geyer},
+  title    = {Do smartphone usage scales predict behavior?},
+  journal  = {International Journal of Human-Computer Studies},
+  year     = {2019},
+  volume   = {130},
+  pages    = {86-92},
+  issn     = {1071-5819},
+  abstract = {Understanding how people use technology remains important, particularly when measuring the impact this might have on individuals and society. However, despite a growing body of resources that can quantify smartphone use, research within psychology and social science overwhelmingly relies on self-reported assessments. These have yet to convincingly demonstrate an ability to predict objective behavior. Here, and for the first time, we compare a variety of smartphone use and ‘addiction’ scales with objective behaviors derived from Apple's Screen Time application. While correlations between psychometric scales and objective behavior are generally poor, single estimates and measures that attempt to frame technology use as habitual rather than ‘addictive’ correlate more favorably with subsequent behavior. We conclude that existing self-report instruments are unlikely to be sensitive enough to accurately predict basic technology use related behaviors. As a result, conclusions regarding the psychological impact of technology are unreliable when relying solely on these measures to quantify typical usage.},
+  doi      = {https://doi.org/10.1016/j.ijhcs.2019.05.004},
+  url      = {https://www.sciencedirect.com/science/article/pii/S1071581919300473},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

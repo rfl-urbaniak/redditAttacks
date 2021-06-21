@@ -350,9 +350,7 @@ Practical limitations allowed for data collection for  around two continuous wee
 
 
 
-\noindent
-\begin{tabular}{ll}
-\begin{minipage}[c]{0.4\linewidth}
+
 \begin{table}[H]
 \footnotesize
 ```{r, echo=FALSE,eval=TRUE,cache=TRUE}
@@ -365,9 +363,9 @@ kable(table(data$group), "latex", booktabs = T, col.names = c("Group", "n")) %>%
 \caption{Study group sizes.}
 \label{tab:groups}
 \end{table}
-\end{minipage}&   \begin{minipage}[c]{0.53\linewidth}
+
 For each of these groups new  dataset was prepared, containing all posts or comments made by the users during the period of $\pm 7$ days from the selection day (337,015 for \textsf{Rtreatment}, 149,712 for \textsf{Rcontrol}, 227,980 for \textsf{Streatment} and 196,999 for \textsf{Scontrol}) and all comments made to their posts or comments (621,486 for \textsf{Rtreatment}, 170,422 for \textsf{Rcontrol}, 201,614 for \textsf{Streatment} and 204,456 for \textsf{Scontrol}), after checking for uniqueness these jointly were 951,949 comments for \textsf{Rtreatment}, 318,542 comments for \textsf{Rcontrol}, 404,535 comments for \textsf{Streatment}, and 380,692 comments for \textsf{Scontrol}).  
-\end{minipage}\end{tabular}
+
 
 \vspace{1mm}
 
@@ -837,8 +835,6 @@ It might help to visualize this information using barplots. We do so for narrow 
 
 
 
-\noindent \begin{tabular}{ll}
-\begin{minipage}[c]{0.61\linewidth}
 
  \begin{table}[H]
 \scalebox{0.82}{
@@ -858,9 +854,9 @@ sh
 \caption{ANOVA for activity change vs. narrow \\ attacks received.}
 \label{tab:anovanarrow}
 \end{table}
-\end{minipage} & \begin{minipage}[c]{0.32\linewidth}
+
 We run single t-tests on different groups to estimate different means and we don't use t-test for hypothesis testing. To alleviate concerns about multiple testing and increased risk of type I error,  we also  performed an  ANOVA tests, which strongly suggest non-random correlation between the numbers of attacks and activity change. 
-\end{minipage} \end{tabular}
+
  Furthermore,  80 comparison rows in Tukey's Honest Significance Test [@Tukey1949] have conservatively adjusted p-value below 0.05. Here we display only the ANOVA results for narrow attacks, other calculations are available in the online documentation.  
 
 

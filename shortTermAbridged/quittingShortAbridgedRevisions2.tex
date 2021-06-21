@@ -861,10 +861,6 @@ users. The preliminary \textsf{Rcontrol}/\textsf{Scontrol} groups of
 comments on the respective days but did not receive any recognized
 attacks.
 
-\noindent
-
-\begin{tabular}{ll}
-\begin{minipage}[c]{0.4\linewidth}
 \begin{table}[H]
 \footnotesize
 \begin{table}[H]
@@ -885,9 +881,18 @@ Streatment & 921\\
 \caption{Study group sizes.}
 \label{tab:groups}
 \end{table}
-\end{minipage}&   \begin{minipage}[c]{0.53\linewidth}
-For each of these groups new  dataset was prepared, containing all posts or comments made by the users during the period of $\pm 7$ days from the selection day (337,015 for \textsf{Rtreatment}, 149,712 for \textsf{Rcontrol}, 227,980 for \textsf{Streatment} and 196,999 for \textsf{Scontrol}) and all comments made to their posts or comments (621,486 for \textsf{Rtreatment}, 170,422 for \textsf{Rcontrol}, 201,614 for \textsf{Streatment} and 204,456 for \textsf{Scontrol}), after checking for uniqueness these jointly were 951,949 comments for \textsf{Rtreatment}, 318,542 comments for \textsf{Rcontrol}, 404,535 comments for \textsf{Streatment}, and 380,692 comments for \textsf{Scontrol}).  
-\end{minipage}\end{tabular}
+
+For each of these groups new dataset was prepared, containing all posts
+or comments made by the users during the period of \(\pm 7\) days from
+the selection day (337,015 for \textsf{Rtreatment}, 149,712 for
+\textsf{Rcontrol}, 227,980 for \textsf{Streatment} and 196,999 for
+\textsf{Scontrol}) and all comments made to their posts or comments
+(621,486 for \textsf{Rtreatment}, 170,422 for \textsf{Rcontrol}, 201,614
+for \textsf{Streatment} and 204,456 for \textsf{Scontrol}), after
+checking for uniqueness these jointly were 951,949 comments for
+\textsf{Rtreatment}, 318,542 comments for \textsf{Rcontrol}, 404,535
+comments for \textsf{Streatment}, and 380,692 comments for
+\textsf{Scontrol}).
 
 \vspace{1mm}
 
@@ -1091,12 +1096,7 @@ and 4 respectively. This might be also the reason why \(p\)-values are
 not too low (although still below the usual significance
 thresholds).\footnote{In fact, power analysis shows that if the real activity difference for those groups equals to the mean for \textsf{narrow = 6}, that is, -80, the probabilities that this effect would be discovered by a single sample t-test for 6, 7, and 8 attacks are 0.737, 0.737, 0.309, and so tests for higher numbers of attacks are underpowered.}
 
-\noindent 
-
-\begin{tabular}{ll}
-\begin{minipage}[c]{0.61\linewidth}
-
- \begin{table}[H]
+\begin{table}[H]
 \scalebox{0.82}{
 
 \begin{tabular}{l|r|r|r|r|r}
@@ -1112,9 +1112,12 @@ residuals & 3652 & 5730212 & 1569.061 &  & \\
 \caption{ANOVA for activity change vs. narrow \\ attacks received.}
 \label{tab:anovanarrow}
 \end{table}
-\end{minipage} & \begin{minipage}[c]{0.32\linewidth}
-We run single t-tests on different groups to estimate different means and we don't use t-test for hypothesis testing. To alleviate concerns about multiple testing and increased risk of type I error,  we also  performed an  ANOVA tests, which strongly suggest non-random correlation between the numbers of attacks and activity change. 
-\end{minipage} \end{tabular}
+
+We run single t-tests on different groups to estimate different means
+and we don't use t-test for hypothesis testing. To alleviate concerns
+about multiple testing and increased risk of type I error, we also
+performed an ANOVA tests, which strongly suggest non-random correlation
+between the numbers of attacks and activity change.
 
 Furthermore, 80 comparison rows in Tukey's Honest Significance Test
 (Tukey, 1949) have conservatively adjusted p-value below 0.05. Here we

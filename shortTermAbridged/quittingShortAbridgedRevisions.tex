@@ -959,20 +959,25 @@ accuracy.\footnote{See  the documentation of \textsf{gam} of the \textsf{mgcv} p
 Shades indicate the 95\% confidence level interval for predictions from
 the linear model.
 
-\noindent 
-
-\begin{tabular}{ll}
-\begin{minipage}[c]{0.58\linewidth}
 \begin{figure}[H]
 
 \begin{center}\includegraphics[width=1\linewidth]{quittingShortAbridgedRevisions_files/figure-latex/unnamed-chunk-7-1} \end{center}
 \caption{Impact of attacks  on proportional activity change.}
 \label{fig:propActivity}
 \end{figure}
-\end{minipage} & \begin{minipage}[c]{0.34\linewidth}
-Fig. \ref{fig:highPlots} visualizes the  activity change in terms of weekly counts. However, arguably, a change of -20 for a user who posts 500 times a week has different weight than for a user who posts 30 times. For this reason, we  also need to  look at changes in proportion, calculated by taking $\mathsf{activityScore} =  \nicefrac{\mathsf{activityDifference}}{\mathsf{activityBefore}}$.
-We zoom in to densely populated areas of the plot for \textsf{activityScore} as a function of  attacks in Figure \ref{fig:propActivity}.  The impact is still negative, more so for \textsf{narrow} attacks, and less so for other types. For mathematical reasons the score minimum is -1 (user activity cannot drop more than 100\%).
-\end{minipage}\end{tabular}
+
+Fig. \ref{fig:highPlots} visualizes the activity change in terms of
+weekly counts. However, arguably, a change of -20 for a user who posts
+500 times a week has different weight than for a user who posts 30
+times. For this reason, we also need to look at changes in proportion,
+calculated by taking
+\(\mathsf{activityScore} = \nicefrac{\mathsf{activityDifference}}{\mathsf{activityBefore}}\).
+We zoom in to densely populated areas of the plot for
+\textsf{activityScore} as a function of attacks in Figure
+\ref{fig:propActivity}. The impact is still negative, more so for
+\textsf{narrow} attacks, and less so for other types. For mathematical
+reasons the score minimum is -1 (user activity cannot drop more than
+100\%).
 
 \subsection{Classical estimation}
 
@@ -1158,20 +1163,23 @@ We used Markov Chain Monte Carlo methods\footnote{We employed the
 estimate the posterior probability distribution for mean changes in
 activity in different groups.
 
-\begin{tabular}{ll}
-\begin{minipage}[c]{0.4\linewidth}
 \begin{figure}[H]
 
 \begin{center}\includegraphics[width=1\linewidth]{quittingShortAbridgedRevisions_files/figure-latex/unnamed-chunk-20-1} \end{center}
 \caption{Wide  skeptical prior for our Bayesian analysis.}
 \label{fig:priors}
 \end{figure}
-\end{minipage}& \begin{minipage}[c]{0.52\linewidth} 
-We did this for  three different fairly skeptical normal prior distributions (which we call 
-\textsf{wide, informed}, and \textsf{fit}). In doing so we  follow the usual practice of running a Bayesian analysis with a range of options: the reader is to judge with prior seems most plausible to them, and then modify their beliefs according to the impact the data has on their prior convictions.  All three distributions are fairly skeptical because they expect the change to be the same for every user, and they expect this change to be near 0.  
- Here, due to space limitations, we focus on the wide prior (Fig. \ref{fig:priors}) , which is normal with $(\mu = 0, \sigma = 50)$.
-\end{minipage}
-\end{tabular}
+
+We did this for three different fairly skeptical normal prior
+distributions (which we call \textsf{wide, informed}, and \textsf{fit}).
+In doing so we follow the usual practice of running a Bayesian analysis
+with a range of options: the reader is to judge with prior seems most
+plausible to them, and then modify their beliefs according to the impact
+the data has on their prior convictions. All three distributions are
+fairly skeptical because they expect the change to be the same for every
+user, and they expect this change to be near 0.\\
+Here, due to space limitations, we focus on the wide prior (Fig.
+\ref{fig:priors}) , which is normal with \((\mu = 0, \sigma = 50)\).
 
 \noindent  The impact on other priors is studied in the online
 documentation, but the results don't differ too
@@ -1197,19 +1205,15 @@ intervals (\ref{fig:bayesian1}).
 
 \end{figure}
 
-\noindent
-
-\begin{tabular}{ll}
-\begin{minipage}[c]{0.6\linewidth}
 \begin{figure}[H]
 
 \begin{center}\includegraphics[width=1\linewidth]{quittingShortAbridgedRevisions_files/figure-latex/unnamed-chunk-26-1} \end{center}
 \caption{Posterior means and HDI limits for the wide prior.}
 \end{figure}
-\end{minipage} & \begin{minipage}[c]{0.33\linewidth}
-As the number of attacks grows, no matter which prior we start with, the posterior means move left (which agrees with the results we obtained with other methods) and the density plots become wider. 
-\end{minipage}
-\end{tabular}
+
+As the number of attacks grows, no matter which prior we start with, the
+posterior means move left (which agrees with the results we obtained
+with other methods) and the density plots become wider.
 
 \normalsize
 
@@ -1241,22 +1245,20 @@ the predictors involved.
 
 \normalsize 
 
-\noindent
-
-\begin{tabular}{ll}
-\begin{minipage}[c]{0.6\linewidth}
 \begin{figure}[H]
 
 \begin{center}\includegraphics[width=1\linewidth]{quittingShortAbridgedRevisions_files/figure-latex/unnamed-chunk-32-1} \end{center}
 \caption{Poor performance of best-fitting Poisson distribution.}
 \label{fig:poissBad}
 \end{figure}
-\end{minipage} & 
-\begin{minipage}[c]{0.32\linewidth} 
-Our first challenge was finding the right distribution for the outcome variable.
-One potential candidate was the Poisson distribution. We identified the Poisson distribution that best fits the data, used  its $\lambda$ parameter ($\approx 35.69$) to  perform a goodness-of-fit test (with $df=273$, $\chi^2 \approx \infty$ and $P(>\chi^2)\approx 0$), and compare visually the predicted values with the actual ones (Fig: \ref{fig:poissBad}).
-\end{minipage}
-\end{tabular}
+
+Our first challenge was finding the right distribution for the outcome
+variable. One potential candidate was the Poisson distribution. We
+identified the Poisson distribution that best fits the data, used its
+\(\lambda\) parameter (\(\approx 35.69\)) to perform a goodness-of-fit
+test (with \(df=273\), \(\chi^2 \approx \infty\) and
+\(P(>\chi^2)\approx 0\)), and compare visually the predicted values with
+the actual ones (Fig: \ref{fig:poissBad}).
 
 There were at least two problems: zero-inflation and overspread. The
 former means that the model predicts much fewer zeros than there really
@@ -1271,10 +1273,6 @@ help us much with the zero counts.
 
 \normalsize 
 
-\noindent
-
-\begin{tabular}{ll}
-\begin{minipage}[c]{0.6\linewidth}
 \begin{figure}[H]
 
 \begin{center}\includegraphics[width=1\linewidth]{quittingShortAbridgedRevisions_files/figure-latex/unnamed-chunk-35-1} \end{center}
@@ -1282,13 +1280,12 @@ help us much with the zero counts.
 \label{fig:nbinperf}
 \end{figure}
 
-\end{minipage} & 
-\begin{minipage}[c]{0.32\linewidth} 
-
-Another candidate distribution we considered was  negative binomial. 
- There  still were  problems with zeros although in the opposite direction though), the goodness-of-fit test resulted in $\chi^2 \approx 647$ and $P(>\chi^s)\approx 0$,  but the right side of the Figure \ref{fig:nbinperf} looks better. This suggested that improvements were still needed. 
-\end{minipage}
-\end{tabular}
+Another candidate distribution we considered was negative binomial.
+There still were problems with zeros although in the opposite direction
+though), the goodness-of-fit test resulted in \(\chi^2 \approx 647\) and
+\(P(>\chi^s)\approx 0\), but the right side of the Figure
+\ref{fig:nbinperf} looks better. This suggested that improvements were
+still needed.
 
 There are two well-known strategies to develop distributions for data
 with high zero counts: zero-inflated and hurdle
@@ -1508,28 +1505,34 @@ these results, we also provide effect plots for the full zero-inflated
 model.
 
 \begin{figure}[H]
-\begin{subfigure}[b]{0.45\textwidth}
+\centering
+\begin{subfigure}[b]{0.85\textwidth}
 
 \begin{center}\includegraphics[width=1\linewidth]{quittingShortAbridgedRevisions_files/figure-latex/unnamed-chunk-47-1} \end{center}
 \end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.45\textwidth}
+
+
+\begin{subfigure}[b]{0.85\textwidth}
 
 \begin{center}\includegraphics[width=1\linewidth]{quittingShortAbridgedRevisions_files/figure-latex/unnamed-chunk-48-1} \end{center}
 \end{subfigure}
 
-\begin{subfigure}[b]{0.45\textwidth}
+\begin{subfigure}[b]{0.85\textwidth}
 
 \begin{center}\includegraphics[width=1\linewidth]{quittingShortAbridgedRevisions_files/figure-latex/unnamed-chunk-49-1} \end{center}
 \end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.45\textwidth}
+\caption{Predicted effects of selected variables on activity with other variables fixed at their mean values, hurdle model.}
+\end{figure}
+
+\begin{figure}[H]
+\ContinuedFloat
+\begin{subfigure}[b]{0.85\textwidth}
 
 \begin{center}\includegraphics[width=1\linewidth]{quittingShortAbridgedRevisions_files/figure-latex/unnamed-chunk-50-1} \end{center}
 \end{subfigure}
 
 \centering
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.85\textwidth}
 
 \begin{center}\includegraphics[width=1\linewidth]{quittingShortAbridgedRevisions_files/figure-latex/unnamed-chunk-51-1} \end{center}
 \end{subfigure}
@@ -1543,28 +1546,34 @@ model.
 \normalsize
 
 \begin{figure}[H]
-\begin{subfigure}[b]{0.45\textwidth}
+\centering
+\begin{subfigure}[b]{0.85\textwidth}
 
 \begin{center}\includegraphics[width=1\linewidth]{quittingShortAbridgedRevisions_files/figure-latex/unnamed-chunk-53-1} \end{center}
 \end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.45\textwidth}
+
+\begin{subfigure}[b]{0.85\textwidth}
 
 \begin{center}\includegraphics[width=1\linewidth]{quittingShortAbridgedRevisions_files/figure-latex/unnamed-chunk-54-1} \end{center}
 \end{subfigure}
 
-\begin{subfigure}[b]{0.45\textwidth}
+\begin{subfigure}[b]{0.85\textwidth}
 
 \begin{center}\includegraphics[width=1\linewidth]{quittingShortAbridgedRevisions_files/figure-latex/unnamed-chunk-55-1} \end{center}
 \end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.45\textwidth}
+
+\caption{Predicted effects of selected variables on activity with other variables fixed at their mean values, zero-inflated model.}
+\end{figure}
+
+\begin{figure}[H]
+\ContinuedFloat \centering
+\begin{subfigure}[b]{0.85\textwidth}
 
 \begin{center}\includegraphics[width=1\linewidth]{quittingShortAbridgedRevisions_files/figure-latex/unnamed-chunk-56-1} \end{center}
 \end{subfigure}
 
 \centering
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.85\textwidth}
 
 \begin{center}\includegraphics[width=1\linewidth]{quittingShortAbridgedRevisions_files/figure-latex/unnamed-chunk-57-1} \end{center}
 \end{subfigure}
@@ -1636,20 +1645,19 @@ might be elevated by the observation that activity before indeed
 increases with the number of attacks received and that the activity drop
 increases with \textsf{activity} before.
 
-\noindent
-
-\begin{tabular}{ll}
-\begin{minipage}[c]{0.46\linewidth}
 \begin{figure}[H]
 
 \begin{center}\includegraphics[width=1\linewidth]{quittingShortAbridgedRevisions_files/figure-latex/unnamed-chunk-60-1} \end{center}
 \caption{Mean activity before (black) with 95\% CI error bars and after (blue) , grouped by the number of narrow attacks.}
-\end{figure} \end{minipage}& \begin{minipage}[c]{0.46\linewidth}
-Spearman correlation between the distance from the mean and the activity change is -0.269, which is fairly weak. Pearson's $\rho$ is not very different (
--0.255), but we need to be careful here, because the relation doesn't seem very linear ($p$-values for correlation tests are both $<0.001$). If, however, we follow this line of reasoning,  the distance from the mean would explain only $R^2 =$ 
-0.065 of the variability in  the activity change in the control group.
-\end{minipage}
-\end{tabular}
+\end{figure}
+
+Spearman correlation between the distance from the mean and the activity
+change is -0.269, which is fairly weak. Pearson's \(\rho\) is not very
+different ( -0.255), but we need to be careful here, because the
+relation doesn't seem very linear (\(p\)-values for correlation tests
+are both \(<0.001\)). If, however, we follow this line of reasoning, the
+distance from the mean would explain only \(R^2 =\) 0.065 of the
+variability in the activity change in the control group.
 
 The impression of regression to the mean disappears when we look at
 \textsf{activityScore}, that is, activity change in proportion to

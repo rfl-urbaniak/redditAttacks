@@ -27,3 +27,6 @@ countreg
 pscl
 gridExtra
 rstatix
+scales
+viridisLite
+viridis

@@ -25,6 +25,14 @@ options(knitr.kable.NA = '')
 library(tidyverse)
 library(knitr)
 library(kableExtra)
+library(viridis)
+
+titleSize <- 16
+subtitleSize <- 14
+axisSize <- 13
+sizes <-  theme(plot.title = element_text(size=titleSize), 
+                plot.subtitle = element_text(size=subtitleSize),
+                axis.title=element_text(size=axisSize))
 ```
 
 <!-- Discussion of reviews -->
@@ -404,7 +412,7 @@ ggplot(data, aes(x = sumHighBefore, y = activityDiff))+geom_jitter(size=1, alpha
 \begin{figure}
 \begin{subfigure}[b]{0.95\textwidth}
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
-highPlot
+highPlot+ sizes
 ```
 \end{subfigure}
 \caption{Narrow attacks vs. weekly activity change (jittered), with  linear and gam smoothing.}
@@ -502,19 +510,19 @@ propPlotLowOnly <- ggplot(data, aes(x = sumLowBefore-sumHighBefore, y = activity
 
 
 
-\noindent \begin{tabular}{ll}
-\begin{minipage}[c]{0.58\linewidth}
+<!-- \noindent \begin{tabular}{ll} -->
+<!-- \begin{minipage}[c]{0.58\linewidth} -->
 \begin{figure}[H]
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
-propPlotHigh
+propPlotHigh + sizes
 ```
 \caption{Impact of attacks  on proportional activity change.}
 \label{fig:propActivity}
 \end{figure}
-\end{minipage} & \begin{minipage}[c]{0.34\linewidth}
+<!-- \end{minipage} & \begin{minipage}[c]{0.34\linewidth} -->
 Fig. \ref{fig:highPlots} visualizes the  activity change in terms of weekly counts. However, arguably, a change of -20 for a user who posts 500 times a week has different weight than for a user who posts 30 times. For this reason, we  also need to  look at changes in proportion, calculated by taking $\mathsf{activityScore} =  \nicefrac{\mathsf{activityDifference}}{\mathsf{activityBefore}}$.
 We zoom in to densely populated areas of the plot for \textsf{activityScore} as a function of  attacks in Figure \ref{fig:propActivity}.  The impact is still negative, more so for \textsf{narrow} attacks, and less so for other types. For mathematical reasons the score minimum is -1 (user activity cannot drop more than 100\%).
-\end{minipage}\end{tabular}
+<!-- \end{minipage}\end{tabular} -->
 
 
 
@@ -716,7 +724,7 @@ kable_styling(latex_options = c("striped","scale_down","HOLD_position"),font_siz
 \begin{figure}[h!]
 \begin{subfigure}[t]{0.95\textwidth}
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
-highTableBar
+highTableBar +sizes
 ```
 \end{subfigure}
 \caption{T-test estimation of activity change by narrow attacks received. All available t-tests.}
@@ -992,25 +1000,25 @@ in different groups.
 <!-- some of the computations are pretty demanding and will take time).  -->
 
 
-\begin{tabular}{ll}
-\begin{minipage}[c]{0.4\linewidth}
+<!-- \begin{tabular}{ll} -->
+<!-- \begin{minipage}[c]{0.4\linewidth} -->
 \begin{figure}[H]
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
 priorWide <- ggplot(data = data.frame(x = c(-200, 200)), aes(x)) +
   stat_function(fun = dnorm, args = list(mean = 0, sd = 50)) + ylab("") +
   scale_y_continuous(breaks = NULL)+th+xlab("expected activity change")+labs(title = "Wide prior", subtitle ="Normal prior with m = 0, sd = 50")
 
-priorWide
+priorWide+sizes
 ```
 \caption{Wide  skeptical prior for our Bayesian analysis.}
 \label{fig:priors}
 \end{figure}
-\end{minipage}& \begin{minipage}[c]{0.52\linewidth} 
+<!-- \end{minipage}& \begin{minipage}[c]{0.52\linewidth}  -->
 We did this for  three different fairly skeptical normal prior distributions (which we call 
 \textsf{wide, informed}, and \textsf{fit}). In doing so we  follow the usual practice of running a Bayesian analysis with a range of options: the reader is to judge with prior seems most plausible to them, and then modify their beliefs according to the impact the data has on their prior convictions.  All three distributions are fairly skeptical because they expect the change to be the same for every user, and they expect this change to be near 0.  
  Here, due to space limitations, we focus on the wide prior (Fig. \ref{fig:priors}) , which is normal with $(\mu = 0, \sigma = 50)$.
-\end{minipage}
-\end{tabular}
+<!-- \end{minipage} -->
+<!-- \end{tabular} -->
 
 
 
@@ -1080,9 +1088,14 @@ BayesianWideDFLong$key <- as.factor(BayesianWideDFLong$key)
 
 BayesianWideDensities <- ggplot(BayesianWideDFLong, aes(x=value, group = key,
                                                         color = key, fill = key))+
-  geom_density(alpha=0.2)+th+xlab("activity change")+scale_fill_discrete(name = "group",
-                                                                         labels = c("2 attacks", "3 attacks", "4 attacks", "5 attacks",
-                                                                                    "6 attacks","7 attacks", "8 attacks")) + 
+  geom_density(alpha=0.2)+th+xlab("activity change")+scale_fill_viridis(option="magma", discrete = TRUE,
+                                      name = "group",
+                                      labels = c("2 attacks", "3 attacks", "4 attacks", "5 attacks",
+                                      "6 attacks","7 attacks", "8 attacks")) + 
+  scale_color_viridis(option="magma", discrete = TRUE,
+                                      name = "group",
+                                      labels = c("2 attacks", "3 attacks", "4 attacks", "5 attacks",
+                                      "6 attacks","7 attacks", "8 attacks")) + 
   guides(color = FALSE, size = FALSE)+
   labs(title = "Impact of data on wide prior", 
        subtitle="narrow attacks vs. activity change")+xlim(c(-80,10))
@@ -1112,7 +1125,7 @@ wideBayesBar <- ggplot(wideBayesTable)+ geom_bar(aes(x=attacks,y=wideMeans),
 
 \begin{figure}[H]
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
-BayesianWideDensities
+BayesianWideDensities+sizes
 ```
 \caption{Posterior distribution for $\geq 2$ attacks and wide priors (lower number of attacks removed, because their high density would adversely affect visibility, see the barplot below for results).}
 \label{fig:bayesian1}
@@ -1122,19 +1135,19 @@ BayesianWideDensities
 
 
 
-\noindent
-\begin{tabular}{ll}
-\begin{minipage}[c]{0.6\linewidth}
+<!-- \noindent -->
+<!-- \begin{tabular}{ll} -->
+<!-- \begin{minipage}[c]{0.6\linewidth} -->
 \begin{figure}[H]
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
-wideBayesBar
+wideBayesBar+sizes
 ```
 \caption{Posterior means and HDI limits for the wide prior.}
 \end{figure}
-\end{minipage} & \begin{minipage}[c]{0.33\linewidth}
+<!-- \end{minipage} & \begin{minipage}[c]{0.33\linewidth} -->
 As the number of attacks grows, no matter which prior we start with, the posterior means move left (which agrees with the results we obtained with other methods) and the density plots become wider. 
-\end{minipage}
-\end{tabular}
+<!-- \end{minipage} -->
+<!-- \end{tabular} -->
 
 
 
@@ -1223,22 +1236,23 @@ poissonFitPlot <- ggplot(activityAfterDf, aes(x = Var1, y  = Freq))+ geom_bar( s
 
 
 
-\noindent
-\begin{tabular}{ll}
-\begin{minipage}[c]{0.6\linewidth}
+<!-- \noindent -->
+<!-- \begin{tabular}{ll} -->
+<!-- \begin{minipage}[c]{0.6\linewidth} -->
+
 \begin{figure}[H]
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
-poissonFitPlot
+poissonFitPlot +sizes
 ```
 \caption{Poor performance of best-fitting Poisson distribution.}
 \label{fig:poissBad}
 \end{figure}
-\end{minipage} & 
-\begin{minipage}[c]{0.32\linewidth} 
+<!-- \end{minipage} &  -->
+<!-- \begin{minipage}[c]{0.32\linewidth}  -->
 Our first challenge was finding the right distribution for the outcome variable.
 One potential candidate was the Poisson distribution. We identified the Poisson distribution that best fits the data, used  its $\lambda$ parameter ($\approx 35.69$) to  perform a goodness-of-fit test (with $df=273$, $\chi^2 \approx \infty$ and $P(>\chi^2)\approx 0$), and compare visually the predicted values with the actual ones (Fig: \ref{fig:poissBad}).
-\end{minipage}
-\end{tabular}
+<!-- \end{minipage} -->
+<!-- \end{tabular} -->
 
 
 
@@ -1269,24 +1283,24 @@ poissonNbinPlot2 <- ggplot(activityAfterDf, aes(x = Var1, y  = Freq))+ geom_bar(
 
 
 
-\noindent
-\begin{tabular}{ll}
-\begin{minipage}[c]{0.6\linewidth}
+<!-- \noindent -->
+<!-- \begin{tabular}{ll} -->
+<!-- \begin{minipage}[c]{0.6\linewidth} -->
 \begin{figure}[H]
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
-poissonNbinPlot2
+poissonNbinPlot2 +sizes
 ```
 \caption{Somewhat better performance of best-fitting negative binomial distribution.}
 \label{fig:nbinperf}
 \end{figure}
 
-\end{minipage} & 
-\begin{minipage}[c]{0.32\linewidth} 
+<!-- \end{minipage} &  -->
+<!-- \begin{minipage}[c]{0.32\linewidth}  -->
 
 Another candidate distribution we considered was  negative binomial. 
  There  still were  problems with zeros although in the opposite direction though), the goodness-of-fit test resulted in $\chi^2 \approx 647$ and $P(>\chi^s)\approx 0$,  but the right side of the Figure \ref{fig:nbinperf} looks better. This suggested that improvements were still needed. 
-\end{minipage}
-\end{tabular}
+<!-- \end{minipage} -->
+<!-- \end{tabular} -->
 
 
 
@@ -1657,34 +1671,40 @@ To make sure our choice to use the hurdle model was not crucial for these result
 
 
 \begin{figure}[H]
-\begin{subfigure}[b]{0.45\textwidth}
+\centering
+\begin{subfigure}[b]{0.85\textwidth}
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
-effLO+ggtitle("Predicted (hurdle) effect of wide only attacks on comments")+xlab("wide only attacks")
-```
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.45\textwidth}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
-effH+ggtitle("Predicted (hurdle) effect of narrow attacks on comments")+xlab("narrow attacks")
+effLO+ggtitle("Predicted (hurdle) effect of wide only attacks on comments")+xlab("wide only attacks")+sizes
 ```
 \end{subfigure}
 
-\begin{subfigure}[b]{0.45\textwidth}
+
+\begin{subfigure}[b]{0.85\textwidth}
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
-effPl+ggtitle("Predicted (hurdle) effect of wide attacks on posts")+xlab("wide attacks")
+effH+ggtitle("Predicted (hurdle) effect of narrow attacks on comments")+xlab("narrow attacks")+sizes
 ```
 \end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.45\textwidth}
+
+\begin{subfigure}[b]{0.85\textwidth}
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
-effPh+ggtitle("Predicted (hurdle) effect of narrow attacks on posts")+xlab("narrow attacks")
+effPl+ggtitle("Predicted (hurdle) effect of wide attacks on posts")+xlab("wide attacks")+sizes
+```
+\end{subfigure}
+\caption{Predicted effects of selected variables on activity with other variables fixed at their mean values, hurdle model.}
+\end{figure}
+
+\begin{figure}[H]
+\ContinuedFloat
+\begin{subfigure}[b]{0.85\textwidth}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+effPh+ggtitle("Predicted (hurdle) effect of narrow attacks on posts")+xlab("narrow attacks")+sizes
 ```
 \end{subfigure}
 
 \centering
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.85\textwidth}
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
-effA+ggtitle("Predicted (hurdle) effect of previous activity")+xlab("activity before")
+effA+ggtitle("Predicted (hurdle) effect of previous activity")+xlab("activity before")+sizes
 ```
 \end{subfigure}
 
@@ -1716,34 +1736,40 @@ effAZ  <- effSizePlotZ(5,200,20)    #abefore
 \normalsize
 
 \begin{figure}[H]
-\begin{subfigure}[b]{0.45\textwidth}
+\centering
+\begin{subfigure}[b]{0.85\textwidth}
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
-effLOZ+ggtitle("Predicted (zero-inflated) effect of wide only attacks on comments")+xlab("wide only attacks")
-```
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.45\textwidth}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
-effHZ+ggtitle("Predicted (zero-inflated) effect of narrow attacks on comments")+xlab("narrow attacks")
+effLOZ+ggtitle("Predicted (zero-inflated) effect of wide only attacks on comments")+xlab("wide only attacks")+sizes
 ```
 \end{subfigure}
 
-\begin{subfigure}[b]{0.45\textwidth}
+\begin{subfigure}[b]{0.85\textwidth}
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
-effPlZ+ggtitle("Predicted (zero-inflated) effect of wide attacks on posts")+xlab("wide attacks")
+effHZ+ggtitle("Predicted (zero-inflated) effect of narrow attacks on comments")+xlab("narrow attacks")+sizes
 ```
 \end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.45\textwidth}
+
+\begin{subfigure}[b]{0.85\textwidth}
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
-effPhZ+ggtitle("Predicted (zero-inflated) effect of narrow attacks on posts")+xlab("narrow attacks")
+effPlZ+ggtitle("Predicted (zero-inflated) effect of wide attacks on posts")+xlab("wide attacks")+sizes
+```
+\end{subfigure}
+
+\caption{Predicted effects of selected variables on activity with other variables fixed at their mean values, zero-inflated model.}
+\end{figure}
+
+\begin{figure}[H]
+\ContinuedFloat \centering
+\begin{subfigure}[b]{0.85\textwidth}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+effPhZ+ggtitle("Predicted (zero-inflated) effect of narrow attacks on posts")+xlab("narrow attacks")+sizes
 ```
 \end{subfigure}
 
 \centering
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{subfigure}[t]{0.85\textwidth}
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
-effAZ+ggtitle("Predicted (zero-inflated) effect of previous activity")+xlab("activity before")
+effAZ+ggtitle("Predicted (zero-inflated) effect of previous activity")+xlab("activity before")+sizes
 ```
 \end{subfigure}
 
@@ -1805,9 +1831,9 @@ distance <- function(x) { x - mean(data$sumHighBefore)}
 
 
 
-\noindent
-\begin{tabular}{ll}
-\begin{minipage}[c]{0.46\linewidth}
+<!-- \noindent -->
+<!-- \begin{tabular}{ll} -->
+<!-- \begin{minipage}[c]{0.46\linewidth} -->
 \begin{figure}[H]
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
 attacksb <- 0:8 
@@ -1850,16 +1876,17 @@ rownames(highTablea) <- c("attacks","CIlow","estimatedm", "CIhigh", "p-value")
 after <- as.data.frame(t(highTablea))
 
 ggplot(before, aes(x = attacks, y = estimatedm))+geom_point()+ geom_errorbar(aes(ymin=CIlow, ymax=CIhigh), width=.2,size=0.2,
-                                                                             position=position_dodge(0.05))+th+xlab("narrow attacks")+ylab("mean activity")+geom_line(data = after, aes(x = attacks, y = estimatedm), color = "skyblue")+geom_errorbar(data = after, aes(ymin=CIlow, ymax=CIhigh), width=.3,size=0.2,color = "skyblue",  position=position_dodge(0.05))
+                                                                             position=position_dodge(0.05))+th+xlab("narrow attacks")+ylab("mean activity")+geom_line(data = after, aes(x = attacks, y = estimatedm), color = "skyblue")+geom_errorbar(data = after, aes(ymin=CIlow, ymax=CIhigh), width=.3,size=0.2,color = "skyblue",  position=position_dodge(0.05))+sizes
 
 ```
 \caption{Mean activity before (black) with 95\% CI error bars and after (blue) , grouped by the number of narrow attacks.}
-\end{figure} \end{minipage}& \begin{minipage}[c]{0.46\linewidth}
+\end{figure} 
+<!-- \end{minipage}& \begin{minipage}[c]{0.46\linewidth} -->
 Spearman correlation between the distance from the mean and the activity change is `r round(cor(h0$activityBefore,h0$activityDiff, method = "spearman"),3)`, which is fairly weak. Pearson's $\rho$ is not very different (
 `r round(cor(h0$activityBefore,h0$activityDiff),3)`), but we need to be careful here, because the relation doesn't seem very linear ($p$-values for correlation tests are both $<0.001$). If, however, we follow this line of reasoning,  the distance from the mean would explain only $R^2 =$ 
 `r round(cor(h0$activityBefore,h0$activityDiff)^2,3)` of the variability in  the activity change in the control group.
-\end{minipage}
-\end{tabular}
+<!-- \end{minipage} -->
+<!-- \end{tabular} -->
 
 
 
@@ -1881,13 +1908,13 @@ distance <- function(x) { x - mean(data$sumHighBefore)}
 
 library(gridExtra)
 grid.arrange(ggplot(h0, aes(x = distance(activityBefore),y = activityScore))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
-)+ggtitle("0 narrow attacks")+ylab("proportional activity change"),
+)+ggtitle("0 narrow attacks")+ylab("proportional activity change")+sizes,
 ggplot(h2, aes(x = distance(activityBefore),y = activityScore))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
-)+ggtitle("2 narrow attacks")+ylab("proportional activity change"),
+)+ggtitle("2 narrow attacks")+ylab("proportional activity change")+sizes,
 ggplot(h3, aes(x = distance(activityBefore),y = activityScore))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
-)+ggtitle("3 narrow attacks")+ylab("proportional activity change"),
+)+ggtitle("3 narrow attacks")+ylab("proportional activity change")+sizes,
 ggplot(h4, aes(x = distance(activityBefore),y = activityScore))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
-)+ggtitle("4 narrow attacks")+ylab("proportional activity change"))
+)+ggtitle("4 narrow attacks")+ylab("proportional activity change")+sizes)
 ```
 \caption{Distance from sample mean vs. activity score, grouped by the number of attacks (plot for 1 narrow attack omitted, as it is visually not too distinct from the one for 0 attacks).}
 \label{fig:regression2}

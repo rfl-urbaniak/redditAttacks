@@ -720,11 +720,9 @@ kable_styling(latex_options = c("striped","scale_down","HOLD_position"),font_siz
 
 
 \begin{figure}[h!]
-\begin{subfigure}[t]{0.95\textwidth}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "95%", dpi = 300, message = FALSE, warning = FALSE}
 highTableBar +sizes
 ```
-\end{subfigure}
 \caption{T-test estimation of activity change by narrow attacks received. All available t-tests.}
 \label{fig:highbar}
 \end{figure}
@@ -1668,43 +1666,39 @@ effA  <- effSizePlot(5,200,20)    #abefore
 To make sure our choice to use the hurdle model was not crucial for these results, we also provide effect plots for the full zero-inflated model.
 
 
-\begin{figure}[H]
+\begin{figure}
 \centering
-\begin{subfigure}[b]{0.85\textwidth}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effLO+ggtitle("Predicted (hurdle) effect of wide only attacks on comments")+xlab("wide only attacks")+sizes
 ```
-\end{subfigure}
-
-
-\begin{subfigure}[b]{0.85\textwidth}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
-effH+ggtitle("Predicted (hurdle) effect of narrow attacks on comments")+xlab("narrow attacks")+sizes
-```
-\end{subfigure}
-
-\begin{subfigure}[b]{0.85\textwidth}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
-effPl+ggtitle("Predicted (hurdle) effect of wide attacks on posts")+xlab("wide attacks")+sizes
-```
-\end{subfigure}
-\caption{Predicted effects of selected variables on activity with other variables fixed at their mean values, hurdle model.}
 \end{figure}
 
-\begin{figure}[H]
-\ContinuedFloat
-\begin{subfigure}[b]{0.85\textwidth}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+
+\begin{figure}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
+effH+ggtitle("Predicted (hurdle) effect of narrow attacks on comments")+xlab("narrow attacks")+sizes
+```
+\end{figure}
+
+\begin{figure}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
+effPl+ggtitle("Predicted (hurdle) effect of wide attacks on posts")+xlab("wide attacks")+sizes
+```
+\end{figure}
+
+\begin{figure}
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effPh+ggtitle("Predicted (hurdle) effect of narrow attacks on posts")+xlab("narrow attacks")+sizes
 ```
-\end{subfigure}
+\end{figure}
 
 \centering
-\begin{subfigure}[t]{0.85\textwidth}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+\begin{figure}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effA+ggtitle("Predicted (hurdle) effect of previous activity")+xlab("activity before")+sizes
 ```
-\end{subfigure}
 
 \caption{Predicted effects of selected variables on activity with other variables fixed at their mean values, hurdle model.}
 \label{fig:effects}
@@ -1733,47 +1727,41 @@ effAZ  <- effSizePlotZ(5,200,20)    #abefore
 ```
 \normalsize
 
-\begin{figure}[H]
+\begin{figure}
 \centering
-\begin{subfigure}[b]{0.85\textwidth}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effLOZ+ggtitle("Predicted (zero-inflated) effect of wide only attacks on comments")+xlab("wide only attacks")+sizes
 ```
-\end{subfigure}
-
-\begin{subfigure}[b]{0.85\textwidth}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
-effHZ+ggtitle("Predicted (zero-inflated) effect of narrow attacks on comments")+xlab("narrow attacks")+sizes
-```
-\end{subfigure}
-
-\begin{subfigure}[b]{0.85\textwidth}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
-effPlZ+ggtitle("Predicted (zero-inflated) effect of wide attacks on posts")+xlab("wide attacks")+sizes
-```
-\end{subfigure}
-
-\caption{Predicted effects of selected variables on activity with other variables fixed at their mean values, zero-inflated model.}
 \end{figure}
 
-\begin{figure}[H]
-\ContinuedFloat \centering
-\begin{subfigure}[b]{0.85\textwidth}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+\begin{figure}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
+effHZ+ggtitle("Predicted (zero-inflated) effect of narrow attacks on comments")+xlab("narrow attacks")+sizes
+```
+\end{figure}
+
+\begin{figure}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
+effPlZ+ggtitle("Predicted (zero-inflated) effect of wide attacks on posts")+xlab("wide attacks")+sizes
+```
+\end{figure}
+
+\begin{figure}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effPhZ+ggtitle("Predicted (zero-inflated) effect of narrow attacks on posts")+xlab("narrow attacks")+sizes
 ```
-\end{subfigure}
+\end{figure}
 
-\centering
-\begin{subfigure}[t]{0.85\textwidth}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+\begin{figure}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effAZ+ggtitle("Predicted (zero-inflated) effect of previous activity")+xlab("activity before")+sizes
 ```
-\end{subfigure}
-
 \caption{Predicted effects of selected variables on activity with other variables fixed at their mean values, zero-inflated model.}
 \label{fig:effects2}
 \end{figure}
+
+
 
 The predictions are  similar, except for the predicted results of wide only attacks on posts. This perhaps can be explained by observing  that  such cases of personal attacks sometimes represent situations in which the users  actually agree with the original post (see our remark in the beginning of the section  about data gathering and selection), and in some cases the attacks are critical of the author, so there is much more variation in this group and precise modeling is harder.\footnote{It should be kept in mind that  the model is built on up to 27 attacks in the \textsf{before} period, with really low number of attacks above 8, so the prediction here is an extrapolation, not an interpolation. Further studies for longer periods are needed to get a more reliable estimate allowing for interpolation in this respect.}  \footnote{One might have reasoned about our previous analyses as follows:  attacks in the before period correlate with activity before, and it is activity before that is the real predictor of activity after. This could be supported by observing that the $p$-value for the hurdle model is really low for activity before.  Pearson correlation coefficient for narrow attacks before and activity before is $r(3671)\approx$ `r round( cor(data$sumHighBefore,data$activityBefore),3)` and   $r(3671)\approx$ 
 `r round(cor(data$sumHighBefore,data$activityAfter),3)` for activity after. However, activity before is a much better correlate of activity after, $r(3671)\approx$ 

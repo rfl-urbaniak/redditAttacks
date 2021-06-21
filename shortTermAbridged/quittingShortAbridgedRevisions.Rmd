@@ -410,11 +410,9 @@ ggplot(data, aes(x = sumHighBefore, y = activityDiff))+geom_jitter(size=1, alpha
 
 
 \begin{figure}
-\begin{subfigure}[b]{0.95\textwidth}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%", dpi = 300, message = FALSE, warning = FALSE}
 highPlot+ sizes
 ```
-\end{subfigure}
 \caption{Narrow attacks vs. weekly activity change (jittered), with  linear and gam smoothing.}
 \label{fig:highPlots}
 \end{figure}

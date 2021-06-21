@@ -1516,9 +1516,7 @@ AIC(HNBfull)
 
 Finally, we can inspect our best fitting  HNB model (Tables  \ref{tab:fhnb_estimates1} and \ref{tab:fhnb_estimates2}) and interpret the result.   The output is split into two submodels: one for predicting zeros, one for the counts. It could be suggested to ignore those variables whose coefficients are not  statistically significant, but given the already discussed reasons to include these variables, we are not going to do this (in fact, attaching too much value to statistical significance thresholds can be pernicious, and also misleading if the predictors are correlated, as attacks on posts and attacks on comments may well be). Moreover, the results of step-wise elimination from the full model are sensitive to the ordering in which we consider variables, and there is no principled reason to prefer any of the orderings. Instead, interpreting  $p$-values we apply the following advice: the closer it is to 1, the more skeptical we should be about the judgment the model makes about its role. 
 
-\noindent
-\begin{tabular}{ll}
-\begin{minipage}[c]{0.48\linewidth}
+
 \begin{table}[H]
 \scalebox{0.75}{
 \begin{tabular}{@{\extracolsep{5pt}}lc}
@@ -1554,8 +1552,8 @@ Constant & 2.534$^{***}$ \\
 \caption{Estimated parameters of the count part of the  hurdle negative binomial model.}
 \label{tab:fhnb_estimates1}
 \end{table}
-\end{minipage}
-& \begin{minipage}[c]{0.42\linewidth}
+
+
 
 
 
@@ -1593,8 +1591,7 @@ Constant & 2.534$^{***}$ \\
 \caption{Estimated parameters of the count part of the  hurdle negative binomial model.}
 \label{tab:fhnb_estimates2}
 \end{table}
-\end{minipage}
-\end{tabular}
+
 
 
 
@@ -1604,9 +1601,7 @@ Constant & 2.534$^{***}$ \\
 
 <!-- reading the excellent book titled \emph{The Cult of Statistical Significance: How the Standard Error Costs Us Jobs, Justice, and Lives} by Stephen T. Ziliak and Deirdre N. McCloskey.  -->
 
-\noindent
-\begin{tabular}{ll}
-\begin{minipage}[c]{0.46\linewidth}
+
 \begin{table}[H]
 
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
@@ -1617,11 +1612,11 @@ mykable(expCoef) %>%  kable_styling(latex_options = "HOLD_position")
 \caption{Exponentiated coefficient of the full hurdle negative binomial model (rounded).}
 \label{tab:exphnb}
 \end{table}
-\end{minipage}  \begin{minipage}[c]{0.48\linewidth}
+
+
 The coefficeints  are somewhat difficult to interpret because the models use log link function. Therefore  we first   exponentiate them to obtain odds ratios (Table \ref{tab:exphnb}). Let's interpret the intercepts of the count submodel. 
 The baseline number of posts for those who are not in the zero class is 12.6.  The coefficients indicate that the multiplicative contribution of each unit change.
-\end{minipage}
-\end{tabular}
+
 
 
 
@@ -1932,8 +1927,6 @@ The estimated means of proportional changes  are $0.05, 0.11, -0.09,-0.35, -0.7$
 
 
 
-\noindent \begin{tabular}{ll}
-\begin{minipage}[c]{0.61\linewidth}
 
 \begin{table}[H]
 \footnotesize
@@ -1947,10 +1940,9 @@ data %>% anova_test(activityDiff ~ activityBefore + fhigh)
 \normalsize 
 \caption{Results of ANCOVA test of activity difference vs. activity before and the number of narrow attacks received.}
 \end{table}
-\end{minipage} & \begin{minipage}[c]{0.32\linewidth}
+
 Further, to adjust for regression to the mean, it is sometimes recommended to  use ANCOVA to correct for prior differences in pretest measurements. 
-\end{minipage}
-\end{tabular}
+
 
 
 \noindent In our case, a statistically significant difference for different number of attacks received remains after correcting for differences  in activity before.

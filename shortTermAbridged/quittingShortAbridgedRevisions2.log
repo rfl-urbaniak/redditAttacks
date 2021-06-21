@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.7.16)  21 JUN 2021 11:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.7.16)  21 JUN 2021 11:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2159,27 +2159,7 @@ amed-chunk-35-1.pdf  used on input line 1277.
 (pdftex.def)             Requested size: 380.70013pt x 265.05508pt.
 [17 <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-32-1.pd
 f>] [18 <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-35-
-1.pdf>]
-Overfull \hbox (10.75415pt too wide) in paragraph at lines 1444--1445
-[][] 
- []
-
-
-Underfull \hbox (badness 1642) in paragraph at lines 1445--1445
-[][][]|\T1/ptm/m/n/10 (+20) Es-ti-mated pa-ram-e-ters of the
- []
-
-
-Underfull \hbox (badness 1264) in paragraph at lines 1484--1484
-[][][]|\T1/ptm/m/n/10 (+20) Ex-po-nen-ti-ated co-ef-fi-cient of the
- []
-
-
-Overfull \hbox (1.65904pt too wide) in paragraph at lines 1455--1492
-[][] 
- []
-
-[19]
+1.pdf>] [19]
 <quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-47-1.pdf, id=
 378, 451.6875pt x 316.18124pt>
 File: quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-47-1.pdf
@@ -2187,7 +2167,7 @@ File: quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-47-1.pdf
 <use quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-47-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions2_files/figure-latex/unn
-amed-chunk-47-1.pdf  used on input line 1510.
+amed-chunk-47-1.pdf  used on input line 1498.
 (pdftex.def)             Requested size: 323.61575pt x 226.53102pt.
 <quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-48-1.pdf, id=
 379, 449.68pt x 316.18124pt>
@@ -2196,7 +2176,7 @@ File: quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-48-1.pdf
 <use quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-48-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions2_files/figure-latex/unn
-amed-chunk-48-1.pdf  used on input line 1515.
+amed-chunk-48-1.pdf  used on input line 1503.
 (pdftex.def)             Requested size: 323.61153pt x 227.53935pt.
 <quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-49-1.pdf, id=
 380, 451.6875pt x 316.18124pt>
@@ -2205,7 +2185,7 @@ File: quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-49-1.pdf
 <use quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-49-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions2_files/figure-latex/unn
-amed-chunk-49-1.pdf  used on input line 1520.
+amed-chunk-49-1.pdf  used on input line 1508.
 (pdftex.def)             Requested size: 323.61575pt x 226.53102pt.
 <quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-50-1.pdf, id=
 381, 449.68pt x 316.18124pt>
@@ -2214,7 +2194,7 @@ File: quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-50-1.pdf
 <use quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-50-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions2_files/figure-latex/unn
-amed-chunk-50-1.pdf  used on input line 1526.
+amed-chunk-50-1.pdf  used on input line 1514.
 (pdftex.def)             Requested size: 323.61153pt x 227.53935pt.
 <quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-51-1.pdf, id=
 382, 451.6875pt x 316.18124pt>
@@ -2223,7 +2203,7 @@ File: quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-51-1.pdf
 <use quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-51-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions2_files/figure-latex/unn
-amed-chunk-51-1.pdf  used on input line 1533.
+amed-chunk-51-1.pdf  used on input line 1521.
 (pdftex.def)             Requested size: 323.61575pt x 226.53102pt.
 <quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-53-1.pdf, id=
 383, 458.71375pt x 316.18124pt>
@@ -2232,7 +2212,7 @@ File: quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-53-1.pdf
 <use quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-53-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions2_files/figure-latex/unn
-amed-chunk-53-1.pdf  used on input line 1547.
+amed-chunk-53-1.pdf  used on input line 1535.
 (pdftex.def)             Requested size: 323.61021pt x 223.05736pt.
 <quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-54-1.pdf, id=
 384, 449.68pt x 316.18124pt>
@@ -2241,7 +2221,7 @@ File: quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-54-1.pdf
 <use quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-54-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions2_files/figure-latex/unn
-amed-chunk-54-1.pdf  used on input line 1552.
+amed-chunk-54-1.pdf  used on input line 1540.
 (pdftex.def)             Requested size: 323.61153pt x 227.53935pt.
 <quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-55-1.pdf, id=
 385, 451.6875pt x 316.18124pt>
@@ -2250,7 +2230,7 @@ File: quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-55-1.pdf
 <use quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-55-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions2_files/figure-latex/unn
-amed-chunk-55-1.pdf  used on input line 1557.
+amed-chunk-55-1.pdf  used on input line 1545.
 (pdftex.def)             Requested size: 323.61575pt x 226.53102pt.
 <quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-56-1.pdf, id=
 386, 449.68pt x 316.18124pt>
@@ -2259,7 +2239,7 @@ File: quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-56-1.pdf
 <use quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-56-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions2_files/figure-latex/unn
-amed-chunk-56-1.pdf  used on input line 1562.
+amed-chunk-56-1.pdf  used on input line 1550.
 (pdftex.def)             Requested size: 323.61153pt x 227.53935pt.
 <quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-57-1.pdf, id=
 387, 451.6875pt x 316.18124pt>
@@ -2268,59 +2248,60 @@ File: quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-57-1.pdf
 <use quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-57-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions2_files/figure-latex/unn
-amed-chunk-57-1.pdf  used on input line 1567.
+amed-chunk-57-1.pdf  used on input line 1555.
 (pdftex.def)             Requested size: 323.61575pt x 226.53102pt.
-[20 <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-47-1.pd
-f>] [21 <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-48-
-1.pdf> <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-49-1
-.pdf>] [22 <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-
-50-1.pdf> <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-5
-1-1.pdf>] [23 <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chu
-nk-53-1.pdf> <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chun
-k-54-1.pdf>] [24 <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-
-chunk-55-1.pdf> <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-c
-hunk-56-1.pdf>] [25 <./quittingShortAbridgedRevisions2_files/figure-latex/unnam
+[20] [21 <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-47
+-1.pdf> <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-48-
+1.pdf>] [22 <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk
+-49-1.pdf> <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-
+50-1.pdf>] [23 <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-ch
+unk-51-1.pdf> <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chu
+nk-53-1.pdf>] [24 <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed
+-chunk-54-1.pdf> <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-
+chunk-55-1.pdf>] [25 <./quittingShortAbridgedRevisions2_files/figure-latex/unna
+med-chunk-56-1.pdf> <./quittingShortAbridgedRevisions2_files/figure-latex/unnam
 ed-chunk-57-1.pdf>]
 <quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-60-1.pdf, id=
-502, 445.665pt x 303.1325pt>
+498, 445.665pt x 303.1325pt>
 File: quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-60-1.pdf
  Graphic file (type pdf)
 <use quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-60-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions2_files/figure-latex/unn
-amed-chunk-60-1.pdf  used on input line 1637.
+amed-chunk-60-1.pdf  used on input line 1625.
 (pdftex.def)             Requested size: 380.70071pt x 258.94508pt.
+[26]
 <quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-61-1.pdf, id=
-504, 457.71pt x 317.185pt>
+508, 457.71pt x 317.185pt>
 File: quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-61-1.pdf
  Graphic file (type pdf)
 <use quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-61-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions2_files/figure-latex/unn
-amed-chunk-61-1.pdf  used on input line 1655.
+amed-chunk-61-1.pdf  used on input line 1643.
 (pdftex.def)             Requested size: 380.70937pt x 263.82489pt.
-[26 <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-60-1.pd
-f>] [27 <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-61-
-1.pdf>] [28] [29] [30] [31] [32] [33] [34] [35]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2373.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2373.
+[27 <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-60-1.pd
+f>] [28 <./quittingShortAbridgedRevisions2_files/figure-latex/unnamed-chunk-61-
+1.pdf>] [29] [30] [31] [32] [33] [34] [35] [36]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2356.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2356.
 (./quittingShortAbridgedRevisions2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2373.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2373.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2356.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2356.
 
 Package rerunfilecheck Info: File `quittingShortAbridgedRevisions2.out' has not
  changed.
 (rerunfilecheck)             Checksum: C25F332AC8E63BEC6EB1EB81B048193B;3738.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2373.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2356.
  ) 
 Here is how much of TeX's memory you used:
- 30360 strings out of 492982
- 527860 string characters out of 6134896
+ 30361 strings out of 492982
+ 527867 string characters out of 6134896
  691651 words of memory out of 5000000
  32835 multiletter control sequences out of 15000+600000
  110553 words of font info for 386 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,21n,77p,8862b,560s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 73i,12n,77p,8862b,513s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{/u
 sr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
@@ -2334,11 +2315,11 @@ e/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
 mes/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb
 >
-Output written on quittingShortAbridgedRevisions2.pdf (35 pages, 1462489 bytes)
+Output written on quittingShortAbridgedRevisions2.pdf (36 pages, 1462624 bytes)
 .
 PDF statistics:
- 729 PDF objects out of 1000 (max. 8388607)
- 610 compressed objects within 7 object streams
- 184 named destinations out of 1000 (max. 500000)
+ 733 PDF objects out of 1000 (max. 8388607)
+ 613 compressed objects within 7 object streams
+ 185 named destinations out of 1000 (max. 500000)
  35062 words of extra memory for PDF output out of 35830 (max. 10000000)
 

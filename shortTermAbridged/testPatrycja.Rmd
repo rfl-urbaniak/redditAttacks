@@ -1,0 +1,115 @@
+---
+title: "Personal attacks decrease user activity in social networking platforms"
+author: ""
+output:
+  pdf_document:
+    number_sections: true
+    df_print: kable 
+    keep_tex: true
+    includes:
+      in_header:
+        - Rafal_latex4.sty
+classoption: dvipsnames
+fontsize: 10pt
+documentclass: scrartcl
+urlcolor: blue
+bibliography: [../references/attacks.bib]
+csl: apa-5th-edition.csl
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+require("knitr")
+#opts_knit$set(root.dir = "../")
+options(knitr.kable.NA = '')
+
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(viridis)
+
+titleSize <- 16
+subtitleSize <- 14
+axisSize <- 13
+sizes <-  theme(plot.title = element_text(size=titleSize), 
+                plot.subtitle = element_text(size=subtitleSize),
+                axis.title=element_text(size=axisSize))
+```
+
+<!-- Discussion of reviews -->
+<!-- https://docs.google.com/document/d/13j9TBuyH_Xr9GR6TIGnb7bTzjyNcPVVGroEbDYleN7o/edit -->
+
+
+
+<!--   - "\\normalsize Rafal Urbaniak ([LoPSE research group](http://lopsegdansk.blogspot.com/p/lopse-team.html), University of Gdansk)" -->
+<!--   - "\\normalsize Michał Ptaszyński (Kitami Institute of Technology)" -->
+<!--   - "\\normalsize Patrycja Tempska, Gniewosz Leliwa, Maciej Brochocki, Michał Wroczyński  (Samurai Labs)"  -->
+
+\vspace{-2mm}
+
+\begin{abstract}
+\noindent \textbf{Abstract.} 
+We conduct a large scale data-driven analysis of the effects of online personal attacks on social media user activity. First, we perform a thorough overview of the literature on the influence of social media on user behavior, especially on the impact that negative and aggressive behaviors, such as harassment and cyberbullying, have on users’ engagement in online media platforms. The majority of previous research were  small-scale self-reported studies, which is their limitation. This motivates our data-driven study. We perform a large-scale analysis of messages from Reddit, a discussion website, for a period of two weeks, involving 182,528 posts or comments to posts by 148,317 users. To efficiently collect and analyze the data we apply a high-precision personal attack detection technology. We analyze the obtained data from three perspectives: (i) classical statistical methods, (ii) Bayesian estimation, and (iii) model-theoretic analysis. The three perspectives agree: personal attacks decrease the victims’ activity.
+The results can be interpreted as an important signal to social media platforms and policy makers that leaving personal attacks unmoderated is quite likely to disengage the users and in effect depopulate the platform. On the other hand, application of cyberviolence detection technology in combination with various mitigation techniques could improve and strengthen the user community. As more of our lives is taking place online, keeping the virtual space inclusive for all users becomes an important problem which online media platforms need to face.
+
+
+\vspace{4mm}
+
+
+\noindent \textbf{Keywords:} verbal aggression online, personal attacks, social media, artificial intelligence, online engagement
+
+
+
+\vspace{4mm}
+
+
+\noindent \textbf{Significance.} Despite many efforts put into researching and preventing online aggression, it is still commonplace in cyber-encounters. Experiencing cyberbullying and harassment has been shown to lead to depression, feeling of hopelessness, and social media fatigue. People who experienced online harassment also reported disengagement and stopping using the services in which undesirable behavior occurred. Unfortunately, the existing literature and nearly whole body of research mostly studies the effects of verbal aggression on well-being relying only on self-reported data. Therefore it is often unclear if being subject to verbal aggression extends its effects on the behavioral level beyond the self-reported effects. We observe,  using a large-scale data-driven analysis, that experiencing verbal aggression online in the form of personal attacks indeed substantially decreases the victims’ activity.
+
+\vspace{2mm}
+
+
+\noindent \textbf{Disclaimer.} During the course of the study, we have utilized content that is publicly available on \textsf{Reddit.com} and can be accessed via the \textsf{Reddit} API or other similar technologies. This study was not  interventional research. Moreover,  although Reddit usernames are anonymous and usually do not display any personal information, we have additionally anonymized each one of them.  For these reasons, no informed consent was required (following point 8.05 of the \emph{Ethical Principles of Psychologists and Code of Conduct} of the American Psychological Association).
+\normalsize
+
+\thispagestyle{empty}
+
+\end{abstract}
+
+
+
+
+
+
+\section{Introduction}
+\label{intro}
+
+
+
+
+
+<!-- We conduct a large scale data-driven analysis of the effects of online personal attacks on social media user activity. First, we perform a broad and thorough overview of the literature on the influence of social media on user behavior, especially on the impact  negative and aggressive behaviors encountered online, such as harassment and cyberbullying, have on  users' engagement in online media platforms. As our overview reveals,  the majority of previous research was based on small-scale self-reported studies, which have their limitations. This motivates our data-driven study of  the effect of personal attacks on user activity. We perform an in-depth large-scale analysis of messages from Reddit, a popular social media platform, for a period of two weeks, involving 182,528 posts or comments to posts by 148,317 users. To efficiently collect and analyze the large-scale data we apply a high-precision personal attack detection technology. We analyze the obtained data from three perspectives: (i)  classical statistical methods, (ii) Bayesian estimation with skeptical priors, and (iii) model-theoretic analysis of the effects of personal attacks on user activity. The three perspectives agree:  personal attacks decrease the victims' activity.  -->
+
+<!-- The results can be interpreted as an important signal to social media platforms and policy makers that leaving personal attacks unmoderated is quite likely to disengage the users and in effect  depopulate  the platform, which will directly influence the SNS providers' revenue. On the other hand, application of automated personal attack detection technology, such as  the one applied in this study, in combination with various mitigation techniques, such as empathetic reactions, could improve and strengthen the user community. As more and more of our lives is taking place online, keeping the virtual space inclusive and livable for all users becomes an important problem which all online media platforms will need to face in the near future. -->
+
+
+
+<!-- \textsf{Samurai Labs} contributed 3000 PLN to the funding of this research. \textsf{Samurai Labs} prepared the raw data and results of personal attack recognition, and provided the humanpower to manually check which of 540 outliers  (even after the initial filtering out of bots) were bots. Some computing power was provided by National Science Center research grant number 2016/22/E/HS1/00304. Study design, \textsf{R} code, statistical analyses, their explanation and visualizations are due to Rafal Urbaniak (who has no interest in results going one way or the other, and no incentives related to any specific outcome were involved), theoretical discussion and further editorial work on the manuscript are  joint effort. FUll .Rmd file with analysis code and anonymized datasets is available at \url{add}.\rt{provide once accepted for publication}\,   -->
+
+Recent decade brought an exponential growth of social networking services (SNS) and associated with them social media platforms [@ortiz2019rise;@sheth2020borderless], with Facebook\footnote{\url{https://www.facebook.com/}} closing in on 2.5 billion users (one third of world population), YouTube\footnote{\url{https://www.youtube.com/}} on close to 2 billion, with smaller scale platforms such as Twitter\footnote{\url{https://www.twitter.com/}} and Reddit\footnote{\url{https://www.reddit.com/}} converging on around 350 million (equivalent to the entire population of the United States of America). 
+
+At the same time social media have witnessed an over ten percentage-point drop in growth rate between 2012 and 2018,\footnote{\url{https://www.searchenginejournal.com/growth-social-media-v-3-0-infographic/}} which suggests that the market is reaching over-satiation [@andersen2001satiation] and most social media platforms will struggle for  sustainable growth.
+This leads to a shift from quantity-based to quality-based growth policy, meaning that most social networking platforms will need to focus not on how many new users to invite, but rather on how to keep the existing users from leaving the platform and at the same time keep them actively engaged.
+
+One problem growing within the SNS that  seriously hinders user engagement is  cyberbullying and various forms of Internet harassment [@ptaszynski2018automatic]. The global increase of the numbers of Internet harassment cases has been related to the perceived anonymity and thus the sense of impunity in users [@barlett2015anonymously; @barlett2016predicting]. 
+
+One of the most crude and common forms of cyberbullying are directed personal attacks. In a typical personal attack user-attacker directly verbally attacks user-victim with a harmful comment, or a set of harmful comments, often based on a made-up excuse (e.g. the victim expressed an unpopular opinion). Often the attack not only remains unrestrained, but also it escalates when other users join on either or both sides, causing a wider distress not only to the victim, but also to a larger group of users. 
+
+
+
+\newpage
+
+\section*{References}
+
+
+
+
+

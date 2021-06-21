@@ -1,0 +1,290 @@
+\documentclass[10pt,dvipsnames]{scrartcl}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage[unicode=true]{hyperref}
+\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
+\hypersetup{
+            pdftitle={Personal attacks decrease user activity in social networking platforms},
+            colorlinks=true,
+            linkcolor=Maroon,
+            citecolor=Blue,
+            urlcolor=blue,
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+%\documentclass{article}
+
+% %packages
+ \usepackage{booktabs}
+ \usepackage[sort&compress]{natbib}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{ragged2e}
+\usepackage{etex}
+%\usepackage{yfonts}
+\usepackage{marvosym}
+\usepackage[notextcomp]{kpfonts}
+\usepackage{nicefrac}
+\newcommand*{\QED}{\hfill \footnotesize {\sc Q.e.d.}}
+\usepackage{multicol} 
+%\usepackage[textsize=footnotesize]{todonotes}
+%\linespread{1.5}
+
+\usepackage{float}
+
+\usepackage{xcolor}
+
+\setlength{\parindent}{10pt}
+\setlength{\parskip}{1pt}
+
+
+%language
+%\usepackage{times}
+\usepackage{mathptmx}
+\usepackage[scaled=0.88]{helvet}
+
+\usepackage{t1enc}
+%\usepackage[utf8x]{inputenc}
+%\usepackage[polish]{babel}
+%\usepackage{polski}
+
+\usepackage{subcaption}
+
+
+%AMS
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+
+%\usepackage{geometry}
+ %\geometry{a4paper,left=35mm,top=20mm,}
+
+%abbreviations
+\newcommand{\ra}{\rangle}
+\newcommand{\la}{\langle}
+\newcommand{\n}{\neg}
+\newcommand{\et}{\wedge}
+\newcommand{\jt}{\rightarrow}
+\newcommand{\ko}[1]{\forall  #1\,}
+\newcommand{\ro}{\leftrightarrow}
+\newcommand{\exi}[1]{\exists\, {_{#1}}}
+\newcommand{\pr}{\mathsf{P}}
+\newcommand{\odds}{\mathsf{Odds}}
+\newcommand{\ind}{\mathsf{Ind}}
+\newcommand{\nf}[2]{\nicefrac{#1\,}{#2}}
+\newcommand{\R}[1]{\texttt{#1}}
+
+\newtheorem{q}{\color{blue}Question}
+
+
+%% Rafal's stuff
+\usepackage[margin=1.5in,top=1in]{geometry}
+\usepackage[textsize=scriptsize, textwidth = 3cm]{todonotes}
+% This is my own comment shading, keep \todo for general stuff, feel free to define your own separate comment colors (usually useful if you use margin comments at tall) For instance, I defined one for Patrycja
+\newcommand{\rt}[1]{\todo[color = orange!40]{#1}}
+\newcommand{\pt}[1]{\todo[color = blue!40]{#1}}
+
+
+
+
+\newtheorem*{reply*}{Reply}
+\usepackage{enumitem}
+\newcommand{\question}[1]{\begin{enumerate}[resume,leftmargin=0cm,labelsep=0cm,align=left]
+\item #1
+\end{enumerate}}
+
+\usepackage{float}
+
+% \setbeamertemplate{blocks}[rounded][shadow=true]
+% \setbeamertemplate{itemize items}[ball]
+% \AtBeginPart{}
+% \AtBeginSection{}
+% \AtBeginSubsection{}
+% \AtBeginSubsubsection{}
+% \setlength{\emergencystretch}{0em}
+% \setlength{\parskip}{0pt}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+\title{Personal attacks decrease user activity in social networking platforms}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\vspace{-2mm}
+
+\begin{abstract}
+\noindent \textbf{Abstract.} 
+We conduct a large scale data-driven analysis of the effects of online personal attacks on social media user activity. First, we perform a thorough overview of the literature on the influence of social media on user behavior, especially on the impact that negative and aggressive behaviors, such as harassment and cyberbullying, have on users’ engagement in online media platforms. The majority of previous research were  small-scale self-reported studies, which is their limitation. This motivates our data-driven study. We perform a large-scale analysis of messages from Reddit, a discussion website, for a period of two weeks, involving 182,528 posts or comments to posts by 148,317 users. To efficiently collect and analyze the data we apply a high-precision personal attack detection technology. We analyze the obtained data from three perspectives: (i) classical statistical methods, (ii) Bayesian estimation, and (iii) model-theoretic analysis. The three perspectives agree: personal attacks decrease the victims’ activity.
+The results can be interpreted as an important signal to social media platforms and policy makers that leaving personal attacks unmoderated is quite likely to disengage the users and in effect depopulate the platform. On the other hand, application of cyberviolence detection technology in combination with various mitigation techniques could improve and strengthen the user community. As more of our lives is taking place online, keeping the virtual space inclusive for all users becomes an important problem which online media platforms need to face.
+
+
+\vspace{4mm}
+
+
+\noindent \textbf{Keywords:} verbal aggression online, personal attacks, social media, artificial intelligence, online engagement
+
+
+
+\vspace{4mm}
+
+
+\noindent \textbf{Significance.} Despite many efforts put into researching and preventing online aggression, it is still commonplace in cyber-encounters. Experiencing cyberbullying and harassment has been shown to lead to depression, feeling of hopelessness, and social media fatigue. People who experienced online harassment also reported disengagement and stopping using the services in which undesirable behavior occurred. Unfortunately, the existing literature and nearly whole body of research mostly studies the effects of verbal aggression on well-being relying only on self-reported data. Therefore it is often unclear if being subject to verbal aggression extends its effects on the behavioral level beyond the self-reported effects. We observe,  using a large-scale data-driven analysis, that experiencing verbal aggression online in the form of personal attacks indeed substantially decreases the victims’ activity.
+
+\vspace{2mm}
+
+
+\noindent \textbf{Disclaimer.} During the course of the study, we have utilized content that is publicly available on \textsf{Reddit.com} and can be accessed via the \textsf{Reddit} API or other similar technologies. This study was not  interventional research. Moreover,  although Reddit usernames are anonymous and usually do not display any personal information, we have additionally anonymized each one of them.  For these reasons, no informed consent was required (following point 8.05 of the \emph{Ethical Principles of Psychologists and Code of Conduct} of the American Psychological Association).
+\normalsize
+
+\thispagestyle{empty}
+
+\end{abstract}
+
+\section{Introduction}
+\label{intro}
+
+Recent decade brought an exponential growth of social networking
+services (SNS) and associated with them social media platforms
+(Ortiz-Ospina, 2019; Sheth, 2020), with
+Facebook\footnote{\url{https://www.facebook.com/}} closing in on 2.5
+billion users (one third of world population),
+YouTube\footnote{\url{https://www.youtube.com/}} on close to 2 billion,
+with smaller scale platforms such as
+Twitter\footnote{\url{https://www.twitter.com/}} and
+Reddit\footnote{\url{https://www.reddit.com/}} converging on around 350
+million (equivalent to the entire population of the United States of
+America).
+
+At the same time social media have witnessed an over ten
+percentage-point drop in growth rate between 2012 and
+2018,\footnote{\url{https://www.searchenginejournal.com/growth-social-media-v-3-0-infographic/}}
+which suggests that the market is reaching over-satiation (Andersen,
+2001) and most social media platforms will struggle for sustainable
+growth. This leads to a shift from quantity-based to quality-based
+growth policy, meaning that most social networking platforms will need
+to focus not on how many new users to invite, but rather on how to keep
+the existing users from leaving the platform and at the same time keep
+them actively engaged.
+
+One problem growing within the SNS that seriously hinders user
+engagement is cyberbullying and various forms of Internet harassment
+(Ptaszynski \& Masui, 2018). The global increase of the numbers of
+Internet harassment cases has been related to the perceived anonymity
+and thus the sense of impunity in users (Barlett, 2015; Barlett,
+Gentile, \& Chew, 2016).
+
+One of the most crude and common forms of cyberbullying are directed
+personal attacks. In a typical personal attack user-attacker directly
+verbally attacks user-victim with a harmful comment, or a set of harmful
+comments, often based on a made-up excuse (e.g.~the victim expressed an
+unpopular opinion). Often the attack not only remains unrestrained, but
+also it escalates when other users join on either or both sides, causing
+a wider distress not only to the victim, but also to a larger group of
+users.
+
+\newpage
+
+\section*{References}
+
+\hypertarget{refs}{}
+\hypertarget{ref-andersen2001satiation}{}
+Andersen, E. S. (2001). Satiation in an evolutionary model of structural
+economic dynamics. In \emph{Escaping satiation} (pp. 165--186).
+Springer.
+
+\hypertarget{ref-barlett2015anonymously}{}
+Barlett, C. P. (2015). Anonymously hurting others online: The effect of
+anonymity on cyberbullying frequency. \emph{Psychology of Popular Media
+Culture}, \emph{4}(2), 70. Educational Publishing Foundation.
+
+\hypertarget{ref-barlett2016predicting}{}
+Barlett, C. P., Gentile, D. A., \& Chew, C. (2016). Predicting
+cyberbullying from anonymity. \emph{Psychology of Popular Media
+Culture}, \emph{5}(2), 171. Educational Publishing Foundation.
+
+\hypertarget{ref-ortiz2019rise}{}
+Ortiz-Ospina, E. (2019). The rise of social media. \emph{Our World in
+Data}, \emph{18}. Retrieved from
+\href{/url\%7Bhttps://ourworldindata.org/rise-of-social-media\%7D}{\textbackslash{}url\{https://ourworldindata.org/rise-of-social-media\}}
+
+\hypertarget{ref-ptaszynski2018automatic}{}
+Ptaszynski, M. E., \& Masui, F. (2018). \emph{Automatic cyberbullying
+detection: Emerging research and opportunities: Emerging research and
+opportunities}. IGI Global.
+
+\hypertarget{ref-sheth2020borderless}{}
+Sheth, J. N. (2020). Borderless media: Rethinking international
+marketing. \emph{Journal of International Marketing}, \emph{28}(1),
+3--12. SAGE Publications Sage CA: Los Angeles, CA.
+
+\end{document}

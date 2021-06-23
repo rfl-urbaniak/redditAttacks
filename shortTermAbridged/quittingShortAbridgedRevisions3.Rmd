@@ -14,7 +14,7 @@ fontsize: 10pt
 documentclass: scrartcl
 urlcolor: blue
 bibliography: [../references/attacks.bib]
-csl: apa-5th-edition.csl
+csl: apa-6th-edition.csl
 ---
 
 ```{r setup, include=FALSE, echo=FALSE}
@@ -67,8 +67,10 @@ The results can be interpreted as an important signal to social media platforms 
 \vspace{2mm}
 
 
-\noindent \textbf{Disclaimer.} During the course of the study, we have utilized content that is publicly available on \textsf{Reddit.com} and can be accessed via the \textsf{Reddit} API or other similar technologies. This study was not  interventional research. Moreover,  although Reddit usernames are anonymous and usually do not display any personal information, we have additionally anonymized each one of them.  For these reasons, no informed consent was required (following point 8.05 of the \emph{Ethical Principles of Psychologists and Code of Conduct} of the American Psychological Association).
+\noindent \textbf{Disclaimer.} During the course of the study, we have utilized content that is publicly available on \textsf{Reddit.com} and can be accessed via the \textsf{Reddit} API or other similar technologies. This study was not  interventional research. Moreover,  although Reddit usernames are anonymous and usually do not display any personal information, we have additionally anonymized each one of them.  For these reasons, no informed consent was required (following point 8.05 of the \emph{Ethical Principles of Psychologists and Code of Conduct} of the American Psychological Association).\footnote{\textbf{Interests and authorship Disclaimer.}   \textsf{Samurai Labs} contributed 3000 PLN to the funding of this research. \textsf{Samurai Labs} prepared the raw data and results of personal attack recognition, and provided the humanpower to manually check which of 540 outliers  (even after the initial filtering out of bots) were bots. Some computing power was provided by National Science Center research grant number 2016/22/E/HS1/00304. Study design, \textsf{R} code, statistical analyses, their explanation and visualizations are due to Rafal Urbaniak (who has no interest in results going one way or the other, and no incentives related to any specific outcome were involved), theoretical discussion and further editorial work on the manuscript are  joint effort. Full .Rmd file with analysis code and anonymized datasets is available at \href{https://rfl-urbaniak.github.io/redditAttacks/}{https://rfl-urbaniak.github.io/redditAttacks/}.}
 \normalsize
+
+
 
 \thispagestyle{empty}
 
@@ -127,20 +129,20 @@ Even since the beginning of the social media popularity burst, studies have indi
 
 Although SNS have the potential to  improve the users' lives, other studies link frequent social media use, especially the one leading to addiction,  to various mental health problems, including low self esteem, anxiety and depression  [@beran2005cyber; @hinduja2008cyberbullying; @campbell2012victims; @woods2016sleepyteens], with similar results obtained all over the world, from the UK [@kelly2018social], Turkey [@kircaburun2016self], to Japan [@kitazawa2018associations], and Poland [@pyzalski2019polish].
 
-[@culpepperexploring] recently studied the relationship between social media use in youth and symptoms of depression and anxiety. The research concluded that the amount of time spent on social media and symptoms of depression were strongly correlated, although not that strong correlation was found between the amount of time spent on social media and the symptoms of anxiety. This suggests that some factors of the social media use might cause the increase of such emotions associated with depression as sadness, or powerlessness.
+@culpepperexploring recently studied the relationship between social media use in youth and symptoms of depression and anxiety. The research concluded that the amount of time spent on social media and symptoms of depression were strongly correlated, although not that strong correlation was found between the amount of time spent on social media and the symptoms of anxiety. This suggests that some factors of the social media use might cause the increase of such emotions associated with depression as sadness, or powerlessness.
 
-More detailed studies in this matter link the use of social media to the feeling of \textit{fatigue}, defined as a self-regulated and subjective feeling of tiredness that results from using certain SNS platforms. Especially [@malik2020correlates] investigated whether different aspects of social media use (e.g., online privacy concerns, social comparisons, self-disclosure, intensity of social media use and FOMO, or the \textit{fear of missing out})
+More detailed studies in this matter link the use of social media to the feeling of \textit{fatigue}, defined as a self-regulated and subjective feeling of tiredness that results from using certain SNS platforms. Especially @malik2020correlates investigated whether different aspects of social media use (e.g., online privacy concerns, social comparisons, self-disclosure, intensity of social media use and FOMO, or the \textit{fear of missing out})
  correlate with social media fatigue and academic performance. Their research hypothesis was that all the aforementioned stressors  trigger various emotional states which can be referred to as \textit{social media fatigue}, which was observed to  correlate with  academic performance decrement. 
 The first group in that study comprised of 1,398 young adults from India who actively used WhatsApp\footnote{\url{https://www.whatsapp.com/}} attending a full-time master's program at the university, while the second group comprised of  472 young adults who were only attending a distance education course. The following stressors led to social media fatigue: social comparisons, self-disclosure, intensity of use (which was the strongest predictor of the fatigue). Social media fatigue was also found to translate into academic performance decrement, while online privacy concerns and FOMO did not yield as high results. 
 
-Although there is some contradicting research on the topic of the relationship between social networking site usage and self-esteem, a meta-analysis performed by [@saiphoo2020social] indicated a small, negative, and significant relationship. In particular, the relationship was stronger in studies investigating problematic SNS use, which could suggest that higher levels of SNS use could be associated with lower levels of self-esteem.
+Although there is some contradicting research on the topic of the relationship between social networking site usage and self-esteem, a meta-analysis performed by @saiphoo2020social indicated a small, negative, and significant relationship. In particular, the relationship was stronger in studies investigating problematic SNS use, which could suggest that higher levels of SNS use could be associated with lower levels of self-esteem.
 
 <!-- % CZASAMI SPRZECZNE WYNIKI, NP.niektore badania mowia, ze anxiety wzrasta tak samo jak depression [@beran2005cyber,hinduja2008cyberbullying,campbell2012victims,woods2016sleepyteens], a inne ze wzrasta depression ale nie anxiety [@culpepperexploring]. to wyraznie pokazuje, ze oprocz survey-based studies sa potrzebne dokladne kwantytatywne badania na duza skale. -->
 
 \subsection{Effects of online harassment on user behavior}
 
 Apart from studies on general use of SNS, a wide range of studies focused on how Internet harassment influences user behavior. Such directions of research started even before
-the burst of popularity of SNS such as Twitter or Facebook. For example, [@ybarra2004linkages] already indicated that young Internet users who already had preconditions for 
+the burst of popularity of SNS such as Twitter or Facebook. For example, @ybarra2004linkages already indicated that young Internet users who already had preconditions for 
 depression,
 were more likely to become victims of Internet harassment.
 
@@ -151,17 +153,17 @@ Online hate can also leave people \textit{disquieted}, which refers to an emotio
 in women, immigrants, 
 in ``individuals with a higher fear of personal victimization and previous victimization experience", and in those who previously experienced victimization offline, thus supporting the assumption that offline problems reflect online behavior. 
 To
-examine the correlations between online and offline hate, [@williams2020hate] collected data on hate crimes from Twitter and police records over an eight-month period in London and statistically analyzed whether
+examine the correlations between online and offline hate, @williams2020hate collected data on hate crimes from Twitter and police records over an eight-month period in London and statistically analyzed whether
 a significant association exists. Their results suggested that online hate speech targeting race and religion was positively correlated with all offline racially and religiously aggravated offences, including total number of hate crimes in London over an eight-month period. Thus online hate occurring on Twitter, although not causally linked to offline hate crimes in isolation, could at least be informative about the frequency of such crimes offline.
 
 With regards to online hate against larger groups, 
-[@bilewicz2020hate] found out that hateful and derogatory language ``has severe consequences for human intergroup relations and should be considered a large-scale societal issue that deteriorates living quality, increases aggression, and affects mental health and well-being of minorities," thus affecting behavioral, normative and emotional processes.  Frequent hate speech exposure can change default normative stances from prescriptive anti-discriminatory norms (e.g, telling other users that aggressive language should not be used) to  discriminatory norms learned from others  (e.g., using aggressive language to stop other users' hate speech) or even derogation motivated by leaders (which can later lead to legitimization of such language). Emotional processes based on empathy and emotional arousal can evolve into failure to empathize, schadenfreude or dehumanization. 
+@bilewicz2020hate found out that hateful and derogatory language ``has severe consequences for human intergroup relations and should be considered a large-scale societal issue that deteriorates living quality, increases aggression, and affects mental health and well-being of minorities," thus affecting behavioral, normative and emotional processes.  Frequent hate speech exposure can change default normative stances from prescriptive anti-discriminatory norms (e.g, telling other users that aggressive language should not be used) to  discriminatory norms learned from others  (e.g., using aggressive language to stop other users' hate speech) or even derogation motivated by leaders (which can later lead to legitimization of such language). Emotional processes based on empathy and emotional arousal can evolve into failure to empathize, schadenfreude or dehumanization. 
 Moreover, frequent exposure to hate speech can increase the level of contemptuous prejudice toward the outgroup, change social norms in regards to the use of hate speech (thus increasing the probability of more frequent use of hate speech) and cause a shift in sensitivity to hate speech: the more frequent the exposure, the less an individual can recognize that the behavior violates existing social norms.
 
 <!-- % Agent-based modelling approach to hate speech studied by [@bilewicz2020hate] shows that ``the potential mechanisms that could inhibit the spread of hate speech are destroyed by hate speech itself -- as the norms and empathic responses become eroded by frequent exposure to derogatory language. The model depicts this epidemic loop that ultimately generates an omnipresence of hate speech in human social environments."  -->
 
-These results are also confirmed by [@rosner2016dangerous], who found out that exposure to uncivil online comments increased aggressive and hostile cognitions (viewing the world as potentially hostile and aggressive) in readers even after reading one single uncivil comment. 
-Negative real-life consequences of mere exposure to the hate speech itself was also indicated by [@weber2020online], who studied how incivility and hateful language inhibit healthy pro-social behaviors. In particular, in [@weber2020online]'s online experiment the participants who read hateful or negative comments about refugees donated less money to 
+These results are also confirmed by @rosner2016dangerous, who found out that exposure to uncivil online comments increased aggressive and hostile cognitions (viewing the world as potentially hostile and aggressive) in readers even after reading one single uncivil comment. 
+Negative real-life consequences of mere exposure to the hate speech itself was also indicated by @weber2020online, who studied how incivility and hateful language inhibit healthy pro-social behaviors. In particular, in the online experiment the participants who read hateful or negative comments about refugees donated less money to 
 a refugee relief aid organization. 
 
 
@@ -169,7 +171,7 @@ a refugee relief aid organization.
 
 As social media use started to become one of the important elements of everyday life, studies on how to convince new users to participate and keep the existing users active on the platform emerged.
 
-[@arguello2006talk] argued that ``the foundation of successful individual-group interactions in online communities is [obtaining] the response," and analyzed factors increasing or decreasing the probability of getting a reply. Some of the factors that contributed to a decrease included being a newcomer (4 percent less likely to get a reply), and writing messages with longer sentences and words.
+@arguello2006talk argued that ``the foundation of successful individual-group interactions in online communities is [obtaining] the response," and analyzed factors increasing or decreasing the probability of getting a reply. Some of the factors that contributed to a decrease included being a newcomer (4 percent less likely to get a reply), and writing messages with longer sentences and words.
 
 Those which led to an increase included: 
 \begin{itemize}
@@ -185,22 +187,22 @@ Moreover, the results suggested that
 getting a response influenced whether the user would reappear in the group. 
 
 
-[@wise2006moderation] also investigated the kinds of features of online community that made people more inclined to participate. Both structural and content features where studied.  Structural features comprised the presence of moderation and the length of time passed between new posts. Content features involved the actual words and phrases occurring in a discussion; for instance, interactivity is assessed by asking whether subsequent posts refer to the issues mentioned in the previous ones.  
+@wise2006moderation also investigated the kinds of features of online community that made people more inclined to participate. Both structural and content features where studied.  Structural features comprised the presence of moderation and the length of time passed between new posts. Content features involved the actual words and phrases occurring in a discussion; for instance, interactivity is assessed by asking whether subsequent posts refer to the issues mentioned in the previous ones.  
 Out of all content features, only the presence of moderation elicited greater intent to participate.
-Although participation intent was measured in an attitudinal and not behavioral way (7-point Likert scale was used) other studies also investigated the relation between moderation and participation. [@preece2004top] examined the main motivations of lurkers (those who observe rather than participate in the online community). One of the key reason behind lurking turned out to be aggressive, rude or offensive responses between the community members. Positive effects of moderation in the process of creation of online communities and increasing engagement have 
-been also studied by [@meyer2014moderation] and [@carey2016influences], whereas distributed type of moderation has been proven to be effective in increasing civil participation and enforcing norms [@lampe2014crowdsourcing]. These studies show that effective and efficient moderation is crucial in making the users continue to use the social media, especially for newcomers, for whom the quality of the first several months of SNS experience is important for  establishing long-term participation and commitment to the SNS [@raub2015phenomenological].
+Although participation intent was measured in an attitudinal and not behavioral way (7-point Likert scale was used) other studies also investigated the relation between moderation and participation. @preece2004top examined the main motivations of lurkers (those who observe rather than participate in the online community). One of the key reason behind lurking turned out to be aggressive, rude or offensive responses between the community members. Positive effects of moderation in the process of creation of online communities and increasing engagement have 
+been also studied by @meyer2014moderation and @carey2016influences, whereas distributed type of moderation has been proven to be effective in increasing civil participation and enforcing norms [@lampe2014crowdsourcing]. These studies show that effective and efficient moderation is crucial in making the users continue to use the social media, especially for newcomers, for whom the quality of the first several months of SNS experience is important for  establishing long-term participation and commitment to the SNS [@raub2015phenomenological].
 
 
 
-[@sadeque2019predicting] talk about continued participation using the term \textit{churn}, which they define as ``a portmanteau of change and turn --- (\dots) 
+@sadeque2019predicting talk about continued participation using the term \textit{churn}, which they define as ``a portmanteau of change and turn --- (\dots) 
 the rate of loss of customers from a company's customer base to another company''. Research on churn has an important motivation for social network service-providing corporations: the loss of customers translates into the loss of revenue, while convincing an existing user/customer to stay is cheaper than finding a new one. Moreover, in social networks, 
 it is the uninterrupted 
 interactions among users that serve as the main underlying driving force of service sustainability.
 
 
-In earlier research, [@pudipeddi2014user] studied factors related to the engagement of users and churn prevention in Q\&A sites.
+In earlier research, @pudipeddi2014user studied factors related to the engagement of users and churn prevention in Q\&A sites.
 The problem was framed as a classification task and aimed at answering the following questions: ``(i) given the first $k$ posts of a user, or (ii) given the first $T$ days activity of a user, how can we predict whether the user is about to churn?" In order to answer the aforementioned questions,
-[@pudipeddi2014user] analyzed a collection of data from StackOverflow,\footnote{\url{https://stackoverflow.com/}}  involving 
+@pudipeddi2014user analyzed a collection of data from StackOverflow,\footnote{\url{https://stackoverflow.com/}}  involving 
 new  and prolific users. 
 Out of various potentially churn-indicative features, the time gap between user posts was the strongest predictor.  Other predictors, such as  answering speed, reputation of those who answer their questions or number of answers received by the user, also played a role.
 
@@ -210,35 +212,35 @@ As previous research indicated, decreasing frequency of posting might help predi
 
 
 
-A similar research question on \emph{what could be taken into consideration as a predictor of user future continued participation in online social networks} was also posed by [@sadeque2019predicting], who indicate that certain linguistic features can serve as predictors:
+A similar research question on \emph{what could be taken into consideration as a predictor of user future continued participation in online social networks} was also posed by @sadeque2019predicting, who indicate that certain linguistic features can serve as predictors:
 \begin{quote}``the contents, emotional tone, length of the posts and replies the user has posted in a social network (\dots) the responses the user receives from other users can play an important role in the prediction task.''\end{quote}
 As the authors note, the users, as participants of a "Gift Economy" system (driven by expectations of social contents rather than monetary benefits), are more likely to contribute if they are supportive to a community and in turn --- the community is supportive to them. 
 Another relevant aspect are properties of  users activity on social media, such as 
 frequency, timing, purpose, etc, or the status of the user, for instance,  whether she is a newcomer or a forum veteran. 
-Moreover, [@sadeque2019predicting] conclude that 
+Moreover, @sadeque2019predicting conclude that 
 in contrast with 
 the telecommunication industry and similar hardware-dependent industries (smart-phone market, etc.), in SNS it is much more difficult to establish a universal  predictive measures of user engagement, due to unique challenges, such as a variety in structure, user base, communication techniques, hierarchy of engagement between users, etc. Moreover, as the users become addicted to the Gift Economy, the lack of positive triggering events additionally makes the prediction more difficult. This also relates to the opposite situation, when the users become annoyed by negative triggering events (such as personal attacks), thus lowering their will to further engage in the SNS community [@barlinska2018slowami].
 
-Another aspect and an essential component of community engagement is  \textit{loyalty}. [@hamilton2017loyalty] explored a large set of Reddit communities to provide a characterization of user loyalty. On a community level, topics reflecting strong external interest (sports, video games) tend to organize people into more loyal communities. 
+Another aspect and an essential component of community engagement is  \textit{loyalty}. @hamilton2017loyalty explored a large set of Reddit communities to provide a characterization of user loyalty. On a community level, topics reflecting strong external interest (sports, video games) tend to organize people into more loyal communities. 
 Communities  with a higher level of loyalty tend to have denser (more coherent), yet less clustered (more fragmented into subgroups) user-user interaction networks, and contain more bridging ties connecting active and inactive users (e.g.  interaction in the form of commenting). Moreover,  more inclusive and cohesive communities tend to be comparatively more loyal.
 
 This also directly relates to the topic of individual user engagement, as loyal users tend to comment on less popular topics, thus theoretically being more exposed to criticism and personal attacks. A loyal community allows users to feel more secure and  be more verbose.
 
 
-User engagement  has been also studied from the brand perspective as well. [@cvijikj2013online] examined the characteristics of the content created by companies that led to higher levels of user/customer engagement: \textit{entertaining and informative content}, preferably in forms of photos posted on workdays were found to be the most engaging (the study was limited to Facebook brand pages). 
-More recently, [@lemmens2020managing] noticed that as customer acquisition costs continue to rise, managing customer churn has become critically important for the profitability of companies. Although this study was done not in the context of users in a peer to peer SNS community, but rather in the context of customers, it also highlights the growing need to mitigate user churn and the growing difficulty in obtaining new users, which also reflects the \textit{status quo} of social networking services, for which the users are also customers.
+User engagement  has been also studied from the brand perspective as well. @cvijikj2013online examined the characteristics of the content created by companies that led to higher levels of user/customer engagement: \textit{entertaining and informative content}, preferably in forms of photos posted on workdays were found to be the most engaging (the study was limited to Facebook brand pages). 
+More recently, @lemmens2020managing noticed that as customer acquisition costs continue to rise, managing customer churn has become critically important for the profitability of companies. Although this study was done not in the context of users in a peer to peer SNS community, but rather in the context of customers, it also highlights the growing need to mitigate user churn and the growing difficulty in obtaining new users, which also reflects the \textit{status quo} of social networking services, for which the users are also customers.
 
-The results of the study conducted by [@zong2019social] on 251 respondents --- students, faculty members, and staff members from China who were WeChat\footnote{\url{https://www.wechat.com/}} users --- suggested that "social network fatigue will directly weaken user intention to continue online interaction," which was especially revealed in the relationship between information seeking and continuance intention and between perceived enjoyment and continuance intention. This means that those who experience a high level of social networking fatigue (weakened will to continue using social media) will also heave weakened gratification and perceived enjoyment from the use of  social media). 
+The results of the study conducted by @zong2019social on 251 respondents --- students, faculty members, and staff members from China who were WeChat\footnote{\url{https://www.wechat.com/}} users --- suggested that "social network fatigue will directly weaken user intention to continue online interaction," which was especially revealed in the relationship between information seeking and continuance intention and between perceived enjoyment and continuance intention. This means that those who experience a high level of social networking fatigue (weakened will to continue using social media) will also heave weakened gratification and perceived enjoyment from the use of  social media). 
 
 This in turn suggests that gratification consists of at least 
-three important determinants influencing the intention to continue using the SNS (perceived through its three dimensions: utilitarian, social and hedonic).   [@zong2019social] mention only certain causes for social media fatigue, while defining it as "a complex, subjective and experiential in nature, (\dots) response of vulnerable individuals to high demands or workload and inability to meet individual goals" that lead to low performance and participation and can be caused by an overload of perceived information, communication, system features or privacy concerns. This also suggests that being a subject to a personal attack, cyberbullying, hate speech or any kind of verbal aggression directed at an individual can contribute to social network fatigue as well.
+three important determinants influencing the intention to continue using the SNS (perceived through its three dimensions: utilitarian, social and hedonic).   @zong2019social mention only certain causes for social media fatigue, while defining it as "a complex, subjective and experiential in nature, (\dots) response of vulnerable individuals to high demands or workload and inability to meet individual goals" that lead to low performance and participation and can be caused by an overload of perceived information, communication, system features or privacy concerns. This also suggests that being a subject to a personal attack, cyberbullying, hate speech or any kind of verbal aggression directed at an individual can contribute to social network fatigue as well.
 
-[@cao2019consequences] investigated specifically the role of cyberbullying and social overload in predicting \textit{SNS exhaustion, distress, and discontinuous usage intention} on the basis of Social Cognitive Theory (SCT) framework. They were able to show that cyberbullying increases social overload, which in turn contributes to distress and SNS exhaustion, while distress and SNS exhaustion have a positive correlation with the intention to discontinue the use  of SNS.
+@cao2019consequences investigated specifically the role of cyberbullying and social overload in predicting \textit{SNS exhaustion, distress, and discontinuous usage intention} on the basis of Social Cognitive Theory (SCT) framework. They were able to show that cyberbullying increases social overload, which in turn contributes to distress and SNS exhaustion, while distress and SNS exhaustion have a positive correlation with the intention to discontinue the use  of SNS.
 
 In a nationally representative Pew Research Center survey from 2017, out of 4,248 U.S. adults, 41\% have been personally subjected to harassing behavior online.\footnote{\url{https://www.pewresearch.org/internet/2017/07/11/online-harassment-2017/}} Out of those, 15-30\% reported that they stopped using an online service as a result. Similarly, a survey was conducted within the Habbo game (a virtual world for teens) on 2,515 young people aged 12-25.\footnote{\url{https://www.ditchthelabel.org/wp-content/uploads/2020/05/InGameAbuse.pdf}} Out of 57\% of people who have been bullied, 22\% quit playing an online game because of it, while 24\% considered quitting.
 
 
-In a study conducted by [@mohan2017impact] the relationship between online \emph{toxicity} and \emph{health} of the 180 Reddit communities (subreddits) was examined. Toxicity was defined as "language involving bullying, racism, hate speech, vulgarity, fraud, and, threats," while health as   "a measure of user engagement in Reddit communities or subreddits" --- which in practice was measured as the number of posts and the number of unique authors of these posts.
+In a study conducted by @mohan2017impact the relationship between online \emph{toxicity} and \emph{health} of the 180 Reddit communities (subreddits) was examined. Toxicity was defined as "language involving bullying, racism, hate speech, vulgarity, fraud, and, threats," while health as   "a measure of user engagement in Reddit communities or subreddits" --- which in practice was measured as the number of posts and the number of unique authors of these posts.
 They found that the health and toxicity were strongly negatively correlated ($\rho=-0.8$ or higher for more than half of the subreddits). The more the toxicity increased, the more impact it had in terms of its negative influence over 
 the impact it had on the health of a subreddit (although the results suggest that when toxicity is low, other factors determined its health).
 Large increases in toxicity led to health decline, while subreddits with stable levels of toxicity more often witnessed growth in health. Authors concluded that in order to develop healthy and growing community, one needs to maintain a stable or decreasing toxicity level. 
@@ -329,7 +331,7 @@ At this point we move on to the presentation of our observational study. It is c
 The raw datasets used have been obtained by \textsf{Samurai Labs}, who were able to collect \textsf{Reddit} posts and comments without \textsf{Reddit} moderation or comment removal. All content was downloaded from the data stream provided by \url{pushshift.io} which enabled full data dump from Reddit in real-time. The advantage of using it was access to unmoderated data.  Further, \textsf{Samurai Labs} deployed their personal attacks recognition algorithms to identify personal attacks.
 
 
-Experimental manipulation of the crucial independent variables (personal attacks of various form)  would be unethical and against the goal of \textsf{Samurai Labs}, which is to detect and \emph{prevent} online violence, so this is an observational study. While this  is a weakness, our sample was both much larger and much more varied than the usual WEIRD (western, educated, and from industrialized, rich, and democratic countries) groups used in psychology (notice, however, that the majority of Reddit users  are males based in the U.S.).^[For instance,  [@wise2006moderation] examined  59 undergraduates from a political science class at a major Midwestern university in the USA, [@zong2019social] studied 251 students and faculty members from China who are users of WeChat, and  [@valkenburg2006friend] surveyed  881 young users (10-19yo.) of a Dutch SNS called CU2.]
+Experimental manipulation of the crucial independent variables (personal attacks of various form)  would be unethical and against the goal of \textsf{Samurai Labs}, which is to detect and \emph{prevent} online violence, so this is an observational study. While this  is a weakness, our sample was both much larger and much more varied than the usual WEIRD (western, educated, and from industrialized, rich, and democratic countries) groups used in psychology (notice, however, that the majority of Reddit users  are males based in the U.S.).^[For instance,  @wise2006moderation examined  59 undergraduates from a political science class at a major Midwestern university in the USA, @zong2019social studied 251 students and faculty members from China who are users of WeChat, and  @valkenburg2006friend surveyed  881 young users (10-19yo.) of a Dutch SNS called CU2.]
 
 
 
@@ -1635,7 +1637,6 @@ To make sure our choice to use the hurdle model was not crucial for these result
 
 \begin{figure}
 \centering
-
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effLO+ggtitle("Predicted (hurdle) effect of wide only attacks on comments")+xlab("wide only attacks")+sizes
 ```
@@ -1643,26 +1644,29 @@ effLO+ggtitle("Predicted (hurdle) effect of wide only attacks on comments")+xlab
 
 
 \begin{figure}
+\centering
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effH+ggtitle("Predicted (hurdle) effect of narrow attacks on comments")+xlab("narrow attacks")+sizes
 ```
 \end{figure}
 
 \begin{figure}
+\centering
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effPl+ggtitle("Predicted (hurdle) effect of wide attacks on posts")+xlab("wide attacks")+sizes
 ```
 \end{figure}
 
 \begin{figure}
-
+\centering
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effPh+ggtitle("Predicted (hurdle) effect of narrow attacks on posts")+xlab("narrow attacks")+sizes
 ```
 \end{figure}
 
-\centering
 \begin{figure}
+
+\centering
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effA+ggtitle("Predicted (hurdle) effect of previous activity")+xlab("activity before")+sizes
 ```
@@ -1995,23 +1999,23 @@ So here's the usual list of criteria whose satisfaction tends to justify the cau
 
 A number of studies have investigated potential means to mitigate social network depopulation caused by personal attacks and other forms of online harassment, with almost all of them pointing to the importance of \textit{efficient moderation}.
 
-One of the strategies that can serve as a potentially effective way to curb verbal abuse is counter-speech. As shown in [@munger2017tweetment] it can lead to a significant reduction of the number of racist tweets, but also, according to [@mivskolci2020countering], can encourage bystander interventions in the form of expressing pro-minority attitude. In a quasi-experimental research design they have used two argumentative strategies: fact-checking and/or personal experience under the posts of politicians' posts from Slovakia related to the topic of the Roma. They found out that when new users entered Facebook discussions with pro-Roma comments, it motivated other followers 
+One of the strategies that can serve as a potentially effective way to curb verbal abuse is counter-speech. As shown in [@munger2017tweetment] it can lead to a significant reduction of the number of racist tweets, but also, according to @mivskolci2020countering, can encourage bystander interventions in the form of expressing pro-minority attitude. In a quasi-experimental research design they have used two argumentative strategies: fact-checking and/or personal experience under the posts of politicians' posts from Slovakia related to the topic of the Roma. They found out that when new users entered Facebook discussions with pro-Roma comments, it motivated other followers 
 to join the discussion arguing in favor of the Roma as well.
 
 
-[@johnson2019hidden] proposed a set of policies and interventions based on the mathematical understanding of the online hate dynamics that happen on a cross-platform scale, and found out that "using entirely public data from different social media platforms, countries and languages, (\dots) online hate thrives globally through self-organized, mesoscale clusters that interconnect to form a resilient network-of-networks of hate highways across platforms, countries and languages." 
+@johnson2019hidden proposed a set of policies and interventions based on the mathematical understanding of the online hate dynamics that happen on a cross-platform scale, and found out that "using entirely public data from different social media platforms, countries and languages, (\dots) online hate thrives globally through self-organized, mesoscale clusters that interconnect to form a resilient network-of-networks of hate highways across platforms, countries and languages." 
 
 According to the first proposed policy, reduction of such hate clusters should stem from banning smaller clusters in the first place (banning large clusters first could not yield the desired results, as others of similar size would quickly replace them). According to the second policy, platforms should randomly ban a small fraction of individual users across the online hate population. The reasoning behind this policy was that "choosing a small fraction lowers the risk of multiple lawsuits, and choosing randomly serves the dual role of lowering the risk of banning many from the same cluster, and inciting a large crowd. In the third policy they proposed juxtaposing hate clusters with anti-hate users and communities, as this way hate-cluster can be neutralized with the number of determined anti-hate users.
 
 
-Moreover, simply by displaying the rules, thus making community norms more visible and accessible to all users, [@matias2019preventing] increased newcomer rule compliance by 8 percentage points and increased the participation rate of newcomers in discussions by 70 percent on average of the communities existing on Reddit --- r/science. Thus making the rules visible and accessible influenced how people behaved online and who chose to join. 
+Moreover, simply by displaying the rules, thus making community norms more visible and accessible to all users, @matias2019preventing increased newcomer rule compliance by 8 percentage points and increased the participation rate of newcomers in discussions by 70 percent on average of the communities existing on Reddit --- r/science. Thus making the rules visible and accessible influenced how people behaved online and who chose to join. 
 
-The efficacy of moderation, usually in its extreme forms, such as banning users from SNS or even banning whole SNS channels, was also analyzed in the literature, especially by [@chandrasekharan2017you]. They analyzed over hundred million of Reddit posts related to a ban of two Reddit channels (r/fatpeoplehate and r/CoonTown) due to massive violations of Reddit's anti-harassment policy (e.g., hate speech against obese people), and noticed, that an overwhelming majority (more than eighty percent of users) stopped hate speech-related activities whatsoever after the ban. Although the measures taken by Reddit to solve the problem were extreme, this suggests that similar strong statements by the moderators could be effective also for other forms of bullying and hate-speech. The efficacy of such "chilling effects," also with regards to more general and non-directed actions such as implementation and dissemination of laws, regulations, and policies, or state actions like surveillance, was also pointed out by [@penney2017internet].
+The efficacy of moderation, usually in its extreme forms, such as banning users from SNS or even banning whole SNS channels, was also analyzed in the literature, especially by @chandrasekharan2017you. They analyzed over hundred million of Reddit posts related to a ban of two Reddit channels (r/fatpeoplehate and r/CoonTown) due to massive violations of Reddit's anti-harassment policy (e.g., hate speech against obese people), and noticed, that an overwhelming majority (more than eighty percent of users) stopped hate speech-related activities whatsoever after the ban. Although the measures taken by Reddit to solve the problem were extreme, this suggests that similar strong statements by the moderators could be effective also for other forms of bullying and hate-speech. The efficacy of such "chilling effects," also with regards to more general and non-directed actions such as implementation and dissemination of laws, regulations, and policies, or state actions like surveillance, was also pointed out by @penney2017internet.
 
-When it comes to a local moderation, especially on the user-end side, [@navarro2017one] highlight the importance of "guardianship" in, particularly young and adolescent users, and point out that at present the cyberspace lacks any form of effective guardianship. Although by guardianship they mainly mean parents and caregivers of the young users, who should be proactively involved in educating, monitoring the activity and solving problems occurring to their kids online, they also acknowledge that this is difficult to achieve globally and point out that it is also necessary to investigate other, more effective and efficient forms of guardianship within SNS. However, as methods of guardianship based purely on low-level technological solutions, such as filters and software programs were previously found ineffective [@navarro2012going; @navarro2013girls], the need for a combined effort becomes apparent, in which specially designated guardians, such as SNS group and channel moderators, are supported with more sophisticated technology, such as Artificial Intelligence-based methods for the detection of personal attacks. 
+When it comes to a local moderation, especially on the user-end side, @navarro2017one highlight the importance of "guardianship" in, particularly young and adolescent users, and point out that at present the cyberspace lacks any form of effective guardianship. Although by guardianship they mainly mean parents and caregivers of the young users, who should be proactively involved in educating, monitoring the activity and solving problems occurring to their kids online, they also acknowledge that this is difficult to achieve globally and point out that it is also necessary to investigate other, more effective and efficient forms of guardianship within SNS. However, as methods of guardianship based purely on low-level technological solutions, such as filters and software programs were previously found ineffective [@navarro2012going; @navarro2013girls], the need for a combined effort becomes apparent, in which specially designated guardians, such as SNS group and channel moderators, are supported with more sophisticated technology, such as Artificial Intelligence-based methods for the detection of personal attacks. 
 
 
-Another study highlighting the role of moderators for the growth of social networks was done by [@seering2019moderator]. In their study, involving in-depth interviews with fifty six moderators from Twitch, Reddit and Facebook, they conclude that, although it is more effective to have human moderators than purely algorithmic ones, it is crucial to "develop and improve tools that allow moderators to focus their attention where it is needed." In particular, this involves the development of tools providing "predictive suggestions for threads or discussions that might soon devolve." Such tools, combined with user-controlled tools, such as attaching red flags to harmful messages, would be useful as complementary measures. [@seering2019moderator] point out that moderators are an important part of each social network, who help the communities grow, evolve, and become meaningful for its users and thus should be supported in their work for the constant improvement of social media. 
+Another study highlighting the role of moderators for the growth of social networks was done by @seering2019moderator. In their study, involving in-depth interviews with fifty six moderators from Twitch, Reddit and Facebook, they conclude that, although it is more effective to have human moderators than purely algorithmic ones, it is crucial to "develop and improve tools that allow moderators to focus their attention where it is needed." In particular, this involves the development of tools providing "predictive suggestions for threads or discussions that might soon devolve." Such tools, combined with user-controlled tools, such as attaching red flags to harmful messages, would be useful as complementary measures. @seering2019moderator point out that moderators are an important part of each social network, who help the communities grow, evolve, and become meaningful for its users and thus should be supported in their work for the constant improvement of social media. 
 
 
 
@@ -2043,13 +2047,13 @@ Apart from the above, we plan to continue the study on other SNS platforms, incl
 
 
 
-
-
-
-
 \newpage
 
 \section*{References}
+
+
+
+
 
 
 

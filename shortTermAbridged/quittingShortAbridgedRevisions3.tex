@@ -1,52 +1,38 @@
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
-\PassOptionsToPackage{hyphens}{url}
-\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
-%
-\documentclass[
-  10pt,
-  dvipsnames]{scrartcl}
-\usepackage{amsmath,amssymb}
+\documentclass[10pt,dvipsnames]{scrartcl}
 \usepackage{lmodern}
+\usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \fi
-% Use upquote if available, for straight quotes in verbatim environments
+% use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[]{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\makeatletter
-\@ifundefined{KOMAClassName}{% if non-KOMA class
-  \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
-  }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
-}{% if KOMA class
-  \KOMAoptions{parskip=half}}
-\makeatother
-\usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage[unicode=true]{hyperref}
+\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
 \hypersetup{
-  pdftitle={Personal attacks decrease user activity in social networking platforms},
-  colorlinks=true,
-  linkcolor=Maroon,
-  filecolor=Maroon,
-  citecolor=Blue,
-  urlcolor=blue,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
-\usepackage{graphicx}
+            pdftitle={Personal attacks decrease user activity in social networking platforms},
+            colorlinks=true,
+            linkcolor=Maroon,
+            citecolor=Blue,
+            urlcolor=blue,
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -55,14 +41,31 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-% Set default figure placement to htbp
-\makeatletter
-\def\fps@figure{htbp}
-\makeatother
-\setlength{\emergencystretch}{3em} % prevent overfull lines
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
 %\documentclass{article}
 
 % %packages
@@ -155,12 +158,6 @@
 % \AtBeginSubsubsection{}
 % \setlength{\emergencystretch}{0em}
 % \setlength{\parskip}{0pt}
-
-
-
-
-
-
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -175,32 +172,8 @@
 \usepackage[normalem]{ulem}
 \usepackage{makecell}
 \usepackage{xcolor}
-\ifluatex
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
-  % set entry spacing
-  \ifnum #2 > 0
-  \setlength{\parskip}{#2\baselineskip}
-  \fi
- }%
- {}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
-\title{Personal attacks decrease user activity in social networking
-platforms}
+\title{Personal attacks decrease user activity in social networking platforms}
 \author{}
 \date{\vspace{-2.5em}}
 
@@ -230,8 +203,10 @@ The results can be interpreted as an important signal to social media platforms 
 \vspace{2mm}
 
 
-\noindent \textbf{Disclaimer.} During the course of the study, we have utilized content that is publicly available on \textsf{Reddit.com} and can be accessed via the \textsf{Reddit} API or other similar technologies. This study was not  interventional research. Moreover,  although Reddit usernames are anonymous and usually do not display any personal information, we have additionally anonymized each one of them.  For these reasons, no informed consent was required (following point 8.05 of the \emph{Ethical Principles of Psychologists and Code of Conduct} of the American Psychological Association).
+\noindent \textbf{Disclaimer.} During the course of the study, we have utilized content that is publicly available on \textsf{Reddit.com} and can be accessed via the \textsf{Reddit} API or other similar technologies. This study was not  interventional research. Moreover,  although Reddit usernames are anonymous and usually do not display any personal information, we have additionally anonymized each one of them.  For these reasons, no informed consent was required (following point 8.05 of the \emph{Ethical Principles of Psychologists and Code of Conduct} of the American Psychological Association).\footnote{\textbf{Interests and authorship Disclaimer.}   \textsf{Samurai Labs} contributed 3000 PLN to the funding of this research. \textsf{Samurai Labs} prepared the raw data and results of personal attack recognition, and provided the humanpower to manually check which of 540 outliers  (even after the initial filtering out of bots) were bots. Some computing power was provided by National Science Center research grant number 2016/22/E/HS1/00304. Study design, \textsf{R} code, statistical analyses, their explanation and visualizations are due to Rafal Urbaniak (who has no interest in results going one way or the other, and no incentives related to any specific outcome were involved), theoretical discussion and further editorial work on the manuscript are  joint effort. Full .Rmd file with analysis code and anonymized datasets is available at \href{https://rfl-urbaniak.github.io/redditAttacks/}{https://rfl-urbaniak.github.io/redditAttacks/}.}
 \normalsize
+
+
 
 \thispagestyle{empty}
 
@@ -328,10 +303,10 @@ anxiety and depression (Beran \& Li, 2005; Campbell, Spears, Slee,
 Butler, \& Kift, 2012; Hinduja \& Patchin, 2008; Woods \& Scott, 2016),
 with similar results obtained all over the world, from the UK (Kelly,
 Zilanawala, Booker, \& Sacker, 2018), Turkey (Kircaburun, 2016), to
-Japan (Kitazawa et al., 2018), and Poland (Pyżalski, Zdrodowska,
+Japan (Kitazawa et al., 2018), and Poland (J. Pyżalski, Zdrodowska,
 Tomczyk, \& Abramczuk, 2019).
 
-(Culpepper, 2020) recently studied the relationship between social media
+Culpepper (2020) recently studied the relationship between social media
 use in youth and symptoms of depression and anxiety. The research
 concluded that the amount of time spent on social media and symptoms of
 depression were strongly correlated, although not that strong
@@ -343,7 +318,7 @@ with depression as sadness, or powerlessness.
 More detailed studies in this matter link the use of social media to the
 feeling of \textit{fatigue}, defined as a self-regulated and subjective
 feeling of tiredness that results from using certain SNS platforms.
-Especially (Malik, Dhir, Kaur, \& Johri, 2020) investigated whether
+Especially Malik, Dhir, Kaur, \& Johri (2020) investigated whether
 different aspects of social media use (e.g., online privacy concerns,
 social comparisons, self-disclosure, intensity of social media use and
 FOMO, or the \textit{fear of missing out}) correlate with social media
@@ -363,8 +338,8 @@ did not yield as high results.
 
 Although there is some contradicting research on the topic of the
 relationship between social networking site usage and self-esteem, a
-meta-analysis performed by (Saiphoo, Halevi, \& Vahedi, 2020) indicated
-a small, negative, and significant relationship. In particular, the
+meta-analysis performed by Saiphoo, Halevi, \& Vahedi (2020) indicated a
+small, negative, and significant relationship. In particular, the
 relationship was stronger in studies investigating problematic SNS use,
 which could suggest that higher levels of SNS use could be associated
 with lower levels of self-esteem.
@@ -374,7 +349,7 @@ with lower levels of self-esteem.
 Apart from studies on general use of SNS, a wide range of studies
 focused on how Internet harassment influences user behavior. Such
 directions of research started even before the burst of popularity of
-SNS such as Twitter or Facebook. For example, (Ybarra, 2004) already
+SNS such as Twitter or Facebook. For example, Ybarra (2004) already
 indicated that young Internet users who already had preconditions for
 depression, were more likely to become victims of Internet harassment.
 
@@ -386,21 +361,20 @@ confidence and self-esteem (Cross, Piggin, Douglas, \& Vonkaenel-Flatt,
 2012), increased levels of fear (Sourander et al., 2010), feeling of
 loneliness, isolation, helplessness, decreased peer relationships and
 friendships (Nixon, 2014), increased the probability of self-harm or
-even suicide (Cross, Piggin, Douglas, \& Vonkaenel-Flatt, 2012). Being a
-victim of online harassment also correlates with lower levels of
-self-perceived subjective well-being. Crucially, younger participants
-are more likely to become victims of online harassment (Näsi et al.,
-2014).
+even suicide (Cross et al., 2012). Being a victim of online harassment
+also correlates with lower levels of self-perceived subjective
+well-being. Crucially, younger participants are more likely to become
+victims of online harassment (Näsi et al., 2014).
 
 Online hate can also leave people \textit{disquieted}, which refers to
 an emotional state of being disturbed (Savimäki, Kaakinen, Räsänen, \&
 Oksanen, 2020). The correlation between exposure to online hate and
 being disquieted was the strongest in women, immigrants, in
 ``individuals with a higher fear of personal victimization and previous
-victimization experience", and in those who previously experienced
+victimization experience``, and in those who previously experienced
 victimization offline, thus supporting the assumption that offline
 problems reflect online behavior. To examine the correlations between
-online and offline hate, (Williams, Burnap, Javed, Liu, \& Ozalp, 2020)
+online and offline hate, Williams, Burnap, Javed, Liu, \& Ozalp (2020)
 collected data on hate crimes from Twitter and police records over an
 eight-month period in London and statistically analyzed whether a
 significant association exists. Their results suggested that online hate
@@ -411,8 +385,8 @@ hate occurring on Twitter, although not causally linked to offline hate
 crimes in isolation, could at least be informative about the frequency
 of such crimes offline.
 
-With regards to online hate against larger groups, (Bilewicz \& Soral,
-2020) found out that hateful and derogatory language ``has severe
+With regards to online hate against larger groups, Bilewicz \& Soral
+(2020) found out that hateful and derogatory language ``has severe
 consequences for human intergroup relations and should be considered a
 large-scale societal issue that deteriorates living quality, increases
 aggression, and affects mental health and well-being of minorities,"
@@ -432,17 +406,16 @@ cause a shift in sensitivity to hate speech: the more frequent the
 exposure, the less an individual can recognize that the behavior
 violates existing social norms.
 
-These results are also confirmed by (Rösner, Winter, \& Krämer, 2016),
+These results are also confirmed by Rösner, Winter, \& Krämer (2016),
 who found out that exposure to uncivil online comments increased
 aggressive and hostile cognitions (viewing the world as potentially
 hostile and aggressive) in readers even after reading one single uncivil
 comment. Negative real-life consequences of mere exposure to the hate
-speech itself was also indicated by (Weber, Viehmann, Ziegele, \&
-Schemer, 2020), who studied how incivility and hateful language inhibit
-healthy pro-social behaviors. In particular, in (Weber, Viehmann,
-Ziegele, \& Schemer, 2020)'s online experiment the participants who read
-hateful or negative comments about refugees donated less money to a
-refugee relief aid organization.
+speech itself was also indicated by Weber, Viehmann, Ziegele, \& Schemer
+(2020), who studied how incivility and hateful language inhibit healthy
+pro-social behaviors. In particular, in the online experiment the
+participants who read hateful or negative comments about refugees
+donated less money to a refugee relief aid organization.
 
 \subsection{Key factors  influencing continuous use of SNS}
 
@@ -450,7 +423,7 @@ As social media use started to become one of the important elements of
 everyday life, studies on how to convince new users to participate and
 keep the existing users active on the platform emerged.
 
-(Arguello et al., 2006) argued that ``the foundation of successful
+Arguello et al. (2006) argued that ``the foundation of successful
 individual-group interactions in online communities is {[}obtaining{]}
 the response," and analyzed factors increasing or decreasing the
 probability of getting a reply. Some of the factors that contributed to
@@ -472,7 +445,7 @@ Those which led to an increase included:
 Moreover, the results suggested that getting a response influenced
 whether the user would reappear in the group.
 
-(Wise, Hamman, \& Thorson, 2006) also investigated the kinds of features
+Wise, Hamman, \& Thorson (2006) also investigated the kinds of features
 of online community that made people more inclined to participate. Both
 structural and content features where studied. Structural features
 comprised the presence of moderation and the length of time passed
@@ -484,13 +457,13 @@ Out of all content features, only the presence of moderation elicited
 greater intent to participate. Although participation intent was
 measured in an attitudinal and not behavioral way (7-point Likert scale
 was used) other studies also investigated the relation between
-moderation and participation. (Preece, Nonnecke, \& Andrews, 2004)
+moderation and participation. Preece, Nonnecke, \& Andrews (2004)
 examined the main motivations of lurkers (those who observe rather than
 participate in the online community). One of the key reason behind
 lurking turned out to be aggressive, rude or offensive responses between
 the community members. Positive effects of moderation in the process of
 creation of online communities and increasing engagement have been also
-studied by (Meyer \& Carey, 2014) and (Carey \& Meyer, 2016), whereas
+studied by Meyer \& Carey (2014) and Carey \& Meyer (2016), whereas
 distributed type of moderation has been proven to be effective in
 increasing civil participation and enforcing norms (Lampe, Zube, Lee,
 Park, \& Johnston, 2014). These studies show that effective and
@@ -499,31 +472,29 @@ social media, especially for newcomers, for whom the quality of the
 first several months of SNS experience is important for establishing
 long-term participation and commitment to the SNS (Raub, 2015).
 
-(Sadeque \& Bethard, 2019) talk about continued participation using the
+Sadeque \& Bethard (2019) talk about continued participation using the
 term \textit{churn}, which they define as ``a portmanteau of change and
 turn --- (\dots) the rate of loss of customers from a company's customer
-base to another company'\,'. Research on churn has an important
-motivation for social network service-providing corporations: the loss
-of customers translates into the loss of revenue, while convincing an
-existing user/customer to stay is cheaper than finding a new one.
-Moreover, in social networks, it is the uninterrupted interactions among
-users that serve as the main underlying driving force of service
-sustainability.
+base to another company''. Research on churn has an important motivation
+for social network service-providing corporations: the loss of customers
+translates into the loss of revenue, while convincing an existing
+user/customer to stay is cheaper than finding a new one. Moreover, in
+social networks, it is the uninterrupted interactions among users that
+serve as the main underlying driving force of service sustainability.
 
-In earlier research, (Pudipeddi, Akoglu, \& Tong, 2014) studied factors
+In earlier research, Pudipeddi, Akoglu, \& Tong (2014) studied factors
 related to the engagement of users and churn prevention in Q\&A sites.
 The problem was framed as a classification task and aimed at answering
 the following questions: ``(i) given the first \(k\) posts of a user, or
 (ii) given the first \(T\) days activity of a user, how can we predict
 whether the user is about to churn?" In order to answer the
-aforementioned questions, (Pudipeddi, Akoglu, \& Tong, 2014) analyzed a
-collection of data from
-StackOverflow,\footnote{\url{https://stackoverflow.com/}} involving new
-and prolific users. Out of various potentially churn-indicative
-features, the time gap between user posts was the strongest predictor.
-Other predictors, such as answering speed, reputation of those who
-answer their questions or number of answers received by the user, also
-played a role.
+aforementioned questions, Pudipeddi et al. (2014) analyzed a collection
+of data from StackOverflow,\footnote{\url{https://stackoverflow.com/}}
+involving new and prolific users. Out of various potentially
+churn-indicative features, the time gap between user posts was the
+strongest predictor. Other predictors, such as answering speed,
+reputation of those who answer their questions or number of answers
+received by the user, also played a role.
 
 Becoming acquainted with the predictors of churn and acting upon them
 can be one of the most critical tasks in the process of improving user
@@ -540,7 +511,7 @@ invest in automatic solutions to protect users more effectively.
 
 A similar research question on
 \emph{what could be taken into consideration as a predictor of user future continued participation in online social networks}
-was also posed by (Sadeque \& Bethard, 2019), who indicate that certain
+was also posed by Sadeque \& Bethard (2019), who indicate that certain
 linguistic features can serve as predictors:
 
 \begin{quote}``the contents, emotional tone, length of the posts and replies the user has posted in a social network (\dots) the responses the user receives from other users can play an important role in the prediction task.''\end{quote}
@@ -552,7 +523,7 @@ community and in turn --- the community is supportive to them. Another
 relevant aspect are properties of users activity on social media, such
 as frequency, timing, purpose, etc, or the status of the user, for
 instance, whether she is a newcomer or a forum veteran. Moreover,
-(Sadeque \& Bethard, 2019) conclude that in contrast with the
+Sadeque \& Bethard (2019) conclude that in contrast with the
 telecommunication industry and similar hardware-dependent industries
 (smart-phone market, etc.), in SNS it is much more difficult to
 establish a universal predictive measures of user engagement, due to
@@ -566,16 +537,16 @@ thus lowering their will to further engage in the SNS community
 (Barlińska, Plichta, Pyżalski, \& Szuster, 2018).
 
 Another aspect and an essential component of community engagement is
-\textit{loyalty}. (Hamilton, Zhang, Danescu-Niculescu-Mizil, Jurafsky,
-\& Leskovec, 2017) explored a large set of Reddit communities to provide
-a characterization of user loyalty. On a community level, topics
+\textit{loyalty}. Hamilton, Zhang, Danescu-Niculescu-Mizil, Jurafsky, \&
+Leskovec (2017) explored a large set of Reddit communities to provide a
+characterization of user loyalty. On a community level, topics
 reflecting strong external interest (sports, video games) tend to
 organize people into more loyal communities. Communities with a higher
 level of loyalty tend to have denser (more coherent), yet less clustered
 (more fragmented into subgroups) user-user interaction networks, and
-contain more bridging ties connecting active and inactive users
-(e.g.~interaction in the form of commenting). Moreover, more inclusive
-and cohesive communities tend to be comparatively more loyal.
+contain more bridging ties connecting active and inactive users (e.g.
+interaction in the form of commenting). Moreover, more inclusive and
+cohesive communities tend to be comparatively more loyal.
 
 This also directly relates to the topic of individual user engagement,
 as loyal users tend to comment on less popular topics, thus
@@ -583,12 +554,12 @@ theoretically being more exposed to criticism and personal attacks. A
 loyal community allows users to feel more secure and be more verbose.
 
 User engagement has been also studied from the brand perspective as
-well. (Cvijikj \& Michahelles, 2013) examined the characteristics of the
+well. Cvijikj \& Michahelles (2013) examined the characteristics of the
 content created by companies that led to higher levels of user/customer
 engagement: \textit{entertaining and informative content}, preferably in
 forms of photos posted on workdays were found to be the most engaging
-(the study was limited to Facebook brand pages). More recently, (Lemmens
-\& Gupta, 2020) noticed that as customer acquisition costs continue to
+(the study was limited to Facebook brand pages). More recently, Lemmens
+\& Gupta (2020) noticed that as customer acquisition costs continue to
 rise, managing customer churn has become critically important for the
 profitability of companies. Although this study was done not in the
 context of users in a peer to peer SNS community, but rather in the
@@ -597,7 +568,7 @@ user churn and the growing difficulty in obtaining new users, which also
 reflects the \textit{status quo} of social networking services, for
 which the users are also customers.
 
-The results of the study conducted by (Zong, Yang, \& Bao, 2019) on 251
+The results of the study conducted by Zong, Yang, \& Bao (2019) on 251
 respondents --- students, faculty members, and staff members from China
 who were WeChat\footnote{\url{https://www.wechat.com/}} users ---
 suggested that ``social network fatigue will directly weaken user
@@ -612,8 +583,8 @@ media).
 This in turn suggests that gratification consists of at least three
 important determinants influencing the intention to continue using the
 SNS (perceived through its three dimensions: utilitarian, social and
-hedonic). (Zong, Yang, \& Bao, 2019) mention only certain causes for
-social media fatigue, while defining it as ``a complex, subjective and
+hedonic). Zong et al. (2019) mention only certain causes for social
+media fatigue, while defining it as ``a complex, subjective and
 experiential in nature, (\dots) response of vulnerable individuals to
 high demands or workload and inability to meet individual goals'' that
 lead to low performance and participation and can be caused by an
@@ -623,7 +594,7 @@ attack, cyberbullying, hate speech or any kind of verbal aggression
 directed at an individual can contribute to social network fatigue as
 well.
 
-(Cao, Khan, Ali, \& Khan, 2019) investigated specifically the role of
+Cao, Khan, Ali, \& Khan (2019) investigated specifically the role of
 cyberbullying and social overload in predicting
 \textit{SNS exhaustion, distress, and discontinuous usage intention} on
 the basis of Social Cognitive Theory (SCT) framework. They were able to
@@ -643,7 +614,7 @@ virtual world for teens) on 2,515 young people aged
 Out of 57\% of people who have been bullied, 22\% quit playing an online
 game because of it, while 24\% considered quitting.
 
-In a study conducted by (Mohan et al., 2017) the relationship between
+In a study conducted by Mohan et al. (2017) the relationship between
 online \emph{toxicity} and \emph{health} of the 180 Reddit communities
 (subreddits) was examined. Toxicity was defined as ``language involving
 bullying, racism, hate speech, vulgarity, fraud, and, threats,'' while
@@ -736,11 +707,11 @@ old sock''), or making insinuating remarks (e.g., ``I heard she had sex
 with her students''). Furthermore, each mid-level category can be
 further decomposed into low-level categories. For example, insulting can
 be expressed by using a linking verb (e.g., ``you are an idiot'') or a
-vocative case (e.g.~``stop talking to me, idiot'').
+vocative case (e.g. ``stop talking to me, idiot'').
 
 Figure \ref{fig:samuraiexample} illustrates how the input text (``ccant
-believ he sad ur an id10+\ldots!'') is processed step-by-step utilizing
-both statistical and symbolic methods.
+believ he sad ur an id10+\ldots{}!'') is processed step-by-step
+utilizing both statistical and symbolic methods.
 
 \begin{figure}[h]
     \centering
@@ -758,7 +729,7 @@ counter-factual expressions) to distinguish personal attacks from normal
 communication, greatly reducing the number of false alarms as compared
 to others systems used for violence detection. An example of comparison
 can be seen in Figure \ref{fig:samuraiexample}, and a full benchmark was
-presented in (Ptaszyński, Leliwa, Piech, \& Smywiński-Pohl, 2018).
+presented in (Ptaszyński et al., 2018).
 
 The detection models utilized in this research were designed to detect
 personal attacks targeted against a second person (e.g.~interlocutor,
@@ -849,12 +820,11 @@ our sample was both much larger and much more varied than the usual
 WEIRD (western, educated, and from industrialized, rich, and democratic
 countries) groups used in psychology (notice, however, that the majority
 of Reddit users are males based in the U.S.).\footnote{For instance,
-  (Wise, Hamman, \& Thorson, 2006) examined 59 undergraduates from a
-  political science class at a major Midwestern university in the USA,
-  (Zong, Yang, \& Bao, 2019) studied 251 students and faculty members
-  from China who are users of WeChat, and (Valkenburg, Peter, \&
-  Schouten, 2006) surveyed 881 young users (10-19yo.) of a Dutch SNS
-  called CU2.}
+  Wise et al. (2006) examined 59 undergraduates from a political science
+  class at a major Midwestern university in the USA, Zong et al. (2019)
+  studied 251 students and faculty members from China who are users of
+  WeChat, and Valkenburg et al. (2006) surveyed 881 young users
+  (10-19yo.) of a Dutch SNS called CU2.}
 
 Practical limitations allowed for data collection for around two
 continuous weeks (day 0 \(\pm\) 7 days). First, we randomly selected one
@@ -1274,7 +1244,7 @@ the predictors involved.
 
 \footnotesize
 
-\normalsize
+\normalsize 
 
 \begin{figure}[H]
 
@@ -1302,7 +1272,7 @@ help us much with the zero counts.
 
 \footnotesize
 
-\normalsize
+\normalsize 
 
 \begin{figure}[H]
 
@@ -1347,7 +1317,7 @@ hurdle negative binomial. However, the differences in log-likelihood
 
 \footnotesize
 
-\normalsize
+\normalsize 
 
 \footnotesize
 
@@ -1363,7 +1333,7 @@ If we can get equally good predictions using previous activity only and
 ignoring information about attacks, this would suggest no impact of the
 other variables.
 
-\footnotesize
+\footnotesize 
 
 \normalsize
 
@@ -1526,28 +1496,30 @@ model.
 \begin{figure}
 \centering
 
-
 \begin{center}\includegraphics[width=0.85\linewidth]{quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-47-1} \end{center}
 \end{figure}
 
 \begin{figure}
+\centering
 
 \begin{center}\includegraphics[width=0.85\linewidth]{quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-48-1} \end{center}
 \end{figure}
 
 \begin{figure}
+\centering
 
 \begin{center}\includegraphics[width=0.85\linewidth]{quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-49-1} \end{center}
 \end{figure}
 
 \begin{figure}
-
+\centering
 
 \begin{center}\includegraphics[width=0.85\linewidth]{quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-50-1} \end{center}
 \end{figure}
 
-\centering
 \begin{figure}
+
+\centering
 
 \begin{center}\includegraphics[width=0.85\linewidth]{quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-51-1} \end{center}
 
@@ -1686,9 +1658,7 @@ focus focus on users with \textsf{activityBefore} restricted to the
 third quartile of the whole sample (44), narrow attacks in \$\{0,1,2,3,
 4\} and estimate their \textsf{activityScore} proportional drop.
 
-\normalsize
-
-The estimated means of proportional changes are
+\normalsize  The estimated means of proportional changes are
 \(0.05, 0.11, -0.09,-0.35, -0.7\) with decreasing p-values falling below
 .05 at the number of attacks \(=3, 4\) and \(p\)-value 0.002 for four
 attacks (that is, 0.01 with Bonferroni correction for multiple testing),
@@ -1838,7 +1808,7 @@ online harassment, with almost all of them pointing to the importance of
 One of the strategies that can serve as a potentially effective way to
 curb verbal abuse is counter-speech. As shown in (Munger, 2017) it can
 lead to a significant reduction of the number of racist tweets, but
-also, according to (Miškolci, Kováčová, \& Rigová, 2020), can encourage
+also, according to Miškolci, Kováčová, \& Rigová (2020), can encourage
 bystander interventions in the form of expressing pro-minority attitude.
 In a quasi-experimental research design they have used two argumentative
 strategies: fact-checking and/or personal experience under the posts of
@@ -1847,7 +1817,7 @@ found out that when new users entered Facebook discussions with pro-Roma
 comments, it motivated other followers to join the discussion arguing in
 favor of the Roma as well.
 
-(Johnson et al., 2019) proposed a set of policies and interventions
+N. Johnson et al. (2019) proposed a set of policies and interventions
 based on the mathematical understanding of the online hate dynamics that
 happen on a cross-platform scale, and found out that ``using entirely
 public data from different social media platforms, countries and
@@ -1862,7 +1832,7 @@ large clusters first could not yield the desired results, as others of
 similar size would quickly replace them). According to the second
 policy, platforms should randomly ban a small fraction of individual
 users across the online hate population. The reasoning behind this
-policy was that "choosing a small fraction lowers the risk of multiple
+policy was that ``choosing a small fraction lowers the risk of multiple
 lawsuits, and choosing randomly serves the dual role of lowering the
 risk of banning many from the same cluster, and inciting a large crowd.
 In the third policy they proposed juxtaposing hate clusters with
@@ -1870,7 +1840,7 @@ anti-hate users and communities, as this way hate-cluster can be
 neutralized with the number of determined anti-hate users.
 
 Moreover, simply by displaying the rules, thus making community norms
-more visible and accessible to all users, (Matias, 2019) increased
+more visible and accessible to all users, Matias (2019) increased
 newcomer rule compliance by 8 percentage points and increased the
 participation rate of newcomers in discussions by 70 percent on average
 of the communities existing on Reddit --- r/science. Thus making the
@@ -1879,22 +1849,22 @@ who chose to join.
 
 The efficacy of moderation, usually in its extreme forms, such as
 banning users from SNS or even banning whole SNS channels, was also
-analyzed in the literature, especially by (Chandrasekharan et al.,
-2017). They analyzed over hundred million of Reddit posts related to a
-ban of two Reddit channels (r/fatpeoplehate and r/CoonTown) due to
-massive violations of Reddit's anti-harassment policy (e.g., hate speech
-against obese people), and noticed, that an overwhelming majority (more
-than eighty percent of users) stopped hate speech-related activities
+analyzed in the literature, especially by Chandrasekharan et al. (2017).
+They analyzed over hundred million of Reddit posts related to a ban of
+two Reddit channels (r/fatpeoplehate and r/CoonTown) due to massive
+violations of Reddit's anti-harassment policy (e.g., hate speech against
+obese people), and noticed, that an overwhelming majority (more than
+eighty percent of users) stopped hate speech-related activities
 whatsoever after the ban. Although the measures taken by Reddit to solve
 the problem were extreme, this suggests that similar strong statements
 by the moderators could be effective also for other forms of bullying
 and hate-speech. The efficacy of such ``chilling effects,'' also with
 regards to more general and non-directed actions such as implementation
 and dissemination of laws, regulations, and policies, or state actions
-like surveillance, was also pointed out by (Penney, 2017).
+like surveillance, was also pointed out by Penney (2017).
 
 When it comes to a local moderation, especially on the user-end side,
-(Navarro, Clevenger, Beasley, \& Jackson, 2017) highlight the importance
+Navarro, Clevenger, Beasley, \& Jackson (2017) highlight the importance
 of ``guardianship'' in, particularly young and adolescent users, and
 point out that at present the cyberspace lacks any form of effective
 guardianship. Although by guardianship they mainly mean parents and
@@ -1912,7 +1882,7 @@ more sophisticated technology, such as Artificial Intelligence-based
 methods for the detection of personal attacks.
 
 Another study highlighting the role of moderators for the growth of
-social networks was done by (Seering, Wang, Yoon, \& Kaufman, 2019). In
+social networks was done by Seering, Wang, Yoon, \& Kaufman (2019). In
 their study, involving in-depth interviews with fifty six moderators
 from Twitch, Reddit and Facebook, they conclude that, although it is
 more effective to have human moderators than purely algorithmic ones, it
@@ -1921,11 +1891,11 @@ their attention where it is needed.'' In particular, this involves the
 development of tools providing ``predictive suggestions for threads or
 discussions that might soon devolve.'' Such tools, combined with
 user-controlled tools, such as attaching red flags to harmful messages,
-would be useful as complementary measures. (Seering, Wang, Yoon, \&
-Kaufman, 2019) point out that moderators are an important part of each
-social network, who help the communities grow, evolve, and become
-meaningful for its users and thus should be supported in their work for
-the constant improvement of social media.
+would be useful as complementary measures. Seering et al. (2019) point
+out that moderators are an important part of each social network, who
+help the communities grow, evolve, and become meaningful for its users
+and thus should be supported in their work for the constant improvement
+of social media.
 
 \section{Conclusions and future work}
 \label{conclusions}
@@ -1968,15 +1938,15 @@ technologies (such as AI-based tools for automatic cyberbullying
 detection) empowering the moderators in their work, and making it less
 stressful and more efficient.
 
-Observe also that (Chandrasekharan et al., 2017) (and also (Pudipeddi,
-Akoglu, \& Tong, 2014), though on a much smaller scale) were the only
-studies among the ones we surveyed that performed a large scale
-quantitative analysis, and not self-report-based studies. This shows the
-urgent need for similar studies based on a methodology of large scale
-quantitative analysis, such as the one we presented. These are important
-for a conceptual replication of small scale survey-based qualitative
-studies, and become possible thanks to the development of AI-based tools
-such as the one used in our study.
+Observe also that (Chandrasekharan et al., 2017) (and also (Pudipeddi et
+al., 2014), though on a much smaller scale) were the only studies among
+the ones we surveyed that performed a large scale quantitative analysis,
+and not self-report-based studies. This shows the urgent need for
+similar studies based on a methodology of large scale quantitative
+analysis, such as the one we presented. These are important for a
+conceptual replication of small scale survey-based qualitative studies,
+and become possible thanks to the development of AI-based tools such as
+the one used in our study.
 
 In the near future we plan to perform a more long-term study on the same
 social media platform (Reddit) to investigate the impact personal
@@ -2015,376 +1985,386 @@ improvement of the general health of social media and its users.
 \section*{References}
 
 \hypertarget{refs}{}
-\begin{CSLReferences}{1}{0}
-\leavevmode\hypertarget{ref-Akaike1974model}{}%
+\hypertarget{ref-Akaike1974model}{}
 Akaike, H. (1974). A new look at the statistical model identification.
 \emph{IEEE Transactions on Automatic Control}, \emph{19}(6), 716--723.
+\url{https://doi.org/10.1109/TAC.1974.1100705}
 
-\leavevmode\hypertarget{ref-andersen2001satiation}{}%
+\hypertarget{ref-andersen2001satiation}{}
 Andersen, E. S. (2001). Satiation in an evolutionary model of structural
-economic dynamics. \emph{Escaping satiation} (pp. 165--186). Springer.
+economic dynamics. In \emph{Escaping satiation} (pp. 165--186).
+Springer. \url{https://doi.org/10.1007/978-3-662-04528-2_10}
 
-\leavevmode\hypertarget{ref-arguello2006talk}{}%
+\hypertarget{ref-arguello2006talk}{}
 Arguello, J., Butler, B. S., Joyce, E., Kraut, R., Ling, K. S., Rosé,
 C., \& Wang, X. (2006). Talk to me: Foundations for successful
 individual-group interactions in online communities. \emph{Proceedings
-of the SIGCHI conference on human factors in computing systems} (pp.
-959--968).
+of the Sigchi Conference on Human Factors in Computing Systems},
+959--968. \url{https://doi.org/10.1145/1124772.1124916}
 
-\leavevmode\hypertarget{ref-barlett2015anonymously}{}%
+\hypertarget{ref-barlett2015anonymously}{}
 Barlett, C. P. (2015). Anonymously hurting others online: The effect of
 anonymity on cyberbullying frequency. \emph{Psychology of Popular Media
-Culture}, \emph{4}(2), 70. Educational Publishing Foundation.
+Culture}, \emph{4}(2), 70. \url{https://doi.org/10.1037/a0034335}
 
-\leavevmode\hypertarget{ref-barlett2016predicting}{}%
+\hypertarget{ref-barlett2016predicting}{}
 Barlett, C. P., Gentile, D. A., \& Chew, C. (2016). Predicting
 cyberbullying from anonymity. \emph{Psychology of Popular Media
-Culture}, \emph{5}(2), 171. Educational Publishing Foundation.
+Culture}, \emph{5}(2), 171. \url{https://doi.org/10.1037/ppm0000055}
 
-\leavevmode\hypertarget{ref-barlinska2018slowami}{}%
+\hypertarget{ref-barlinska2018slowami}{}
 Barlińska, J., Plichta, P., Pyżalski, J., \& Szuster, A. (2018). Ich
-s{ł}owami--obraz pomocy w sytuacjach cyberprzemocy r{ó}wie{ś}niczej z
-perspektywy uczni{ó}w. \emph{Dziecko krzywdzone. Teoria, badania,
-praktyka}, \emph{17}(4), 82--115.
+słowami---obraz pomocy w sytuacjach cyberprzemocy rówieśniczej z
+perspektywy uczniów. \emph{Dziecko Krzywdzone. Teoria, Badania,
+Praktyka}, \emph{17}(4), 82--115.
 
-\leavevmode\hypertarget{ref-beran2005cyber}{}%
+\hypertarget{ref-beran2005cyber}{}
 Beran, T., \& Li, Q. (2005). Cyber-harassment: A study of a new method
-for an old behavior. \emph{Journal of educational computing research},
-\emph{32}(3), 265. BAYWOOD PUBLISHING COMPANY.
+for an old behavior. \emph{Journal of Educational Computing Research},
+\emph{32}(3), 265.
 
-\leavevmode\hypertarget{ref-bilewicz2020hate}{}%
-Bilewicz, M., \& Soral, W. (2020). Hate speech epidemic. The dynamic
+\hypertarget{ref-bilewicz2020hate}{}
+Bilewicz, M., \& Soral, W. (2020). Hate speech epidemic. the dynamic
 effects of derogatory language on intergroup relations and political
-radicalization. \emph{Political Psychology}. Wiley Online Library.
+radicalization. \emph{Political Psychology}.
+\url{https://doi.org/10.1111/pops.12670}
 
-\leavevmode\hypertarget{ref-campbell2012victims}{}%
+\hypertarget{ref-campbell2012victims}{}
 Campbell, M., Spears, B., Slee, P., Butler, D., \& Kift, S. (2012).
 Victims' perceptions of traditional and cyberbullying, and the
 psychosocial correlates of their victimisation. \emph{Emotional and
-Behavioural Difficulties}, \emph{17}(3-4), 389--401. Taylor \& Francis.
+Behavioural Difficulties}, \emph{17}(3-4), 389--401.
+\url{https://doi.org/10.1080/13632752.2012.704316}
 
-\leavevmode\hypertarget{ref-cao2019consequences}{}%
+\hypertarget{ref-cao2019consequences}{}
 Cao, X., Khan, A. N., Ali, A., \& Khan, N. A. (2019). Consequences of
 cyberbullying and social overload while using SNSs: A study of users'
 discontinuous usage behavior in SNSs. \emph{Information Systems
-Frontiers}, 1--14. Springer.
+Frontiers}, 1--14. \url{https://doi.org/10.1007/s10796-019-09936-8}
 
-\leavevmode\hypertarget{ref-carey2016influences}{}%
+\hypertarget{ref-carey2016influences}{}
 Carey, M. C., \& Meyer, H. K. (2016). The influences of participation
 and moderation on the development of a sense of virtual community.
 \emph{International Journal of Web Based Communities}, \emph{12}(4),
-326--341. Inderscience Publishers (IEL).
+326--341. \url{https://doi.org/10.1504/ijwbc.2016.080812}
 
-\leavevmode\hypertarget{ref-chandrasekharan2017you}{}%
+\hypertarget{ref-chandrasekharan2017you}{}
 Chandrasekharan, E., Pavalanathan, U., Srinivasan, A., Glynn, A.,
 Eisenstein, J., \& Gilbert, E. (2017). You can't stay here: The efficacy
-of reddit's 2015 ban examined through hate speech. \emph{Proceedings of
-the ACM on Human-Computer Interaction}, \emph{1}(CSCW), 1--22. ACM New
-York, NY, USA.
+of Reddit's 2015 ban examined through hate speech. \emph{Proceedings of
+the ACM on Human-Computer Interaction}, \emph{1}(CSCW), 1--22.
 
-\leavevmode\hypertarget{ref-chua2019understanding}{}%
+\hypertarget{ref-chua2019understanding}{}
 Chua, Y. T. (2019). \emph{Understanding radicalization process in online
-far-right extremist forums using social influence model {[}PhD
-thesis{]}}. Michigan State University.
+far-right extremist forums using social influence model}. Michigan State
+University.
 
-\leavevmode\hypertarget{ref-cross2012virtual}{}%
+\hypertarget{ref-cross2012virtual}{}
 Cross, E., Piggin, R., Douglas, T., \& Vonkaenel-Flatt, J. (2012).
 Virtual violence II: Progress and challenges in the fight against
 cyberbullying. \emph{London: Beatbullying}.
 
-\leavevmode\hypertarget{ref-culpepperexploring}{}%
-Culpepper, M. (2020). Exploring the relationships of social media usage
-and symptoms of anxiety and depression in adolescents. \emph{MSc
-Thesis}. Abilene Christian University.
+\hypertarget{ref-culpepperexploring}{}
+Culpepper, M. (2020). \emph{Exploring the relationships of social media
+usage and symptoms of anxiety and depression in adolescents}. Abilene
+Christian University.
 
-\leavevmode\hypertarget{ref-cvijikj2013online}{}%
+\hypertarget{ref-cvijikj2013online}{}
 Cvijikj, I. P., \& Michahelles, F. (2013). Online engagement factors on
-facebook brand pages. \emph{Social network analysis and mining},
-\emph{3}(4), 843--861. Springer.
+Facebook brand pages. \emph{Social Network Analysis and Mining},
+\emph{3}(4), 843--861. \url{https://doi.org/10.1007/s13278-013-0098-8}
 
-\leavevmode\hypertarget{ref-de2008stormfront}{}%
-De Koster, W., \& Houtman, D. (2008). {`STORMFRONT IS LIKE a SECOND HOME
-TO ME'} on virtual community formation by right-wing extremists.
+\hypertarget{ref-de2008stormfront}{}
+De Koster, W., \& Houtman, D. (2008). ``STORMFRONT is like a second home
+to me'' on virtual community formation by right-wing extremists.
 \emph{Information, Communication \& Society}, \emph{11}(8), 1155--1176.
-Taylor \& Francis.
+\url{https://doi.org/10.1080/13691180802266665}
 
-\leavevmode\hypertarget{ref-hamilton2017loyalty}{}%
+\hypertarget{ref-hamilton2017loyalty}{}
 Hamilton, W. L., Zhang, J., Danescu-Niculescu-Mizil, C., Jurafsky, D.,
 \& Leskovec, J. (2017). Loyalty in online communities. \emph{Proceedings
-of the... International AAAI conference on weblogs and social media.
-International AAAI conference on weblogs and social media} (Vol. 2017,
-p. 540). NIH Public Access.
+of the International AAAI Conference on Weblogs and Social Media},
+\emph{2017}, 540. NIH Public Access.
 
-\leavevmode\hypertarget{ref-hill1965environment}{}%
-Hill, A. B. (1965). The environment and disease: Association or
-causation? Sage Publications.
+\hypertarget{ref-hill1965environment}{}
+Hill, A. B. (1965). \emph{The environment and disease: Association or
+causation?} Sage Publications.
+\url{https://doi.org/10.1177/003591576505800503}
 
-\leavevmode\hypertarget{ref-hinduja2008cyberbullying}{}%
+\hypertarget{ref-hinduja2008cyberbullying}{}
 Hinduja, S., \& Patchin, J. W. (2008). Cyberbullying: An exploratory
 analysis of factors related to offending and victimization.
-\emph{Deviant behavior}, \emph{29}(2), 129--156. Taylor \& Francis.
+\emph{Deviant Behavior}, \emph{29}(2), 129--156.
+\url{https://doi.org/10.1080/01639620701457816}
 
-\leavevmode\hypertarget{ref-howick2009evolution}{}%
+\hypertarget{ref-howick2009evolution}{}
 Howick, J., Glasziou, P., \& Aronson, J. K. (2009). The evolution of
-evidence hierarchies: What can bradford hill's `guidelines for
+evidence hierarchies: What can Bradford Hill's `guidelines for
 causation'contribute? \emph{Journal of the Royal Society of Medicine},
-\emph{102}(5), 186--194. SAGE Publications Sage UK: London, England.
+\emph{102}(5), 186--194.
 
-\leavevmode\hypertarget{ref-johnson2019hidden}{}%
-Johnson, N., Leahy, R., Restrepo, N. J., Velasquez, N., Zheng, M.,
-Manrique, P., Devkota, P., et al. (2019). Hidden resilience and adaptive
-dynamics of the global online hate ecology. \emph{Nature},
-\emph{573}(7773), 261--265. Nature Publishing Group.
+\hypertarget{ref-johnson2019hidden}{}
+Johnson, N., Leahy, R., Restrepo, N., Johnson, Velasquez, N., Zheng, M.,
+\ldots{} Wuchty, S. (2019). Hidden resilience and adaptive dynamics of
+the global online hate ecology. \emph{Nature}, \emph{573}(7773),
+261--265. \url{https://doi.org/10.1038/s41586-019-1494-7}
 
-\leavevmode\hypertarget{ref-kelly2018social}{}%
+\hypertarget{ref-kelly2018social}{}
 Kelly, Y., Zilanawala, A., Booker, C., \& Sacker, A. (2018). Social
-media use and adolescent mental health: Findings from the UK millennium
-cohort study. \emph{EClinicalMedicine}, \emph{6}, 59--68. Elsevier.
+media use and adolescent mental health: Findings from the uk millennium
+cohort study. \emph{EClinicalMedicine}, \emph{6}, 59--68.
+\url{https://doi.org/10.1016/j.eclinm.2018.12.005}
 
-\leavevmode\hypertarget{ref-kircaburun2016self}{}%
-Kircaburun, K. (2016). Self-esteem, daily internet use and social media
-addiction as predictors of depression among turkish adolescents.
-\emph{Journal of Education and Practice}, \emph{7}(24), 64--72. ERIC.
+\hypertarget{ref-kircaburun2016self}{}
+Kircaburun, K. (2016). Self-esteem, daily Internet use and social media
+addiction as predictors of depression among Turkish adolescents.
+\emph{Journal of Education and Practice}, \emph{7}(24), 64--72.
 
-\leavevmode\hypertarget{ref-kitazawa2018associations}{}%
+\hypertarget{ref-kitazawa2018associations}{}
 Kitazawa, M., Yoshimura, M., Murata, M., Sato-Fujimoto, Y., Hitokoto,
-H., Mimura, M., Tsubota, K., et al. (2018). Associations between
+H., Mimura, M., \ldots{} Kishimoto, T. (2018). Associations between
 problematic internet use and psychiatric symptoms among university
-students in japan. \emph{Psychiatry and clinical neurosciences},
-\emph{72}(7), 531--539. Wiley Online Library.
+students in Japan. \emph{Psychiatry and Clinical Neurosciences},
+\emph{72}(7), 531--539. \url{https://doi.org/10.1111/pcn.12662}
 
-\leavevmode\hypertarget{ref-Kruschke2015}{}%
-Kruschke, J. K. (2015). \emph{Doing {B}ayesian data analysis; a tutorial
-with {r}, {JAGS}, and {stan}}.
+\hypertarget{ref-Kruschke2015}{}
+Kruschke, J. (2015). \emph{Doing Bayesian data analysis; a tutorial with
+R, JAGS, and Stan}.
 
-\leavevmode\hypertarget{ref-lampe2014crowdsourcing}{}%
+\hypertarget{ref-lampe2014crowdsourcing}{}
 Lampe, C., Zube, P., Lee, J., Park, C. H., \& Johnston, E. (2014).
 Crowdsourcing civility: A natural experiment examining the effects of
 distributed moderation in online forums. \emph{Government Information
-Quarterly}, \emph{31}(2), 317--326. Elsevier.
+Quarterly}, \emph{31}(2), 317--326.
+\url{https://doi.org/10.1016/j.giq.2013.11.005}
 
-\leavevmode\hypertarget{ref-lemmens2020managing}{}%
+\hypertarget{ref-lemmens2020managing}{}
 Lemmens, A., \& Gupta, S. (2020). Managing churn to maximize profits.
 \emph{Marketing Science, Forthcoming}.
+\url{https://doi.org/10.2139/ssrn.2964906}
 
-\leavevmode\hypertarget{ref-lucas2005association}{}%
+\hypertarget{ref-lucas2005association}{}
 Lucas, R. M., \& McMichael, A. J. (2005). Association or causation:
-Evaluating links between" environment and disease". \emph{Bulletin of
-the World Health Organization}, \emph{83}, 792--795. SciELO Public
-Health.
+Evaluating links between ``environment and disease''. \emph{Bulletin of
+the World Health Organization}, \emph{83}, 792--795.
 
-\leavevmode\hypertarget{ref-malik2020correlates}{}%
+\hypertarget{ref-malik2020correlates}{}
 Malik, A., Dhir, A., Kaur, P., \& Johri, A. (2020). Correlates of social
 media fatigue and academic performance decrement. \emph{Information
-Technology \& People}. Emerald Publishing Limited.
+Technology \& People}. \url{https://doi.org/10.1108/itp-06-2019-0289}
 
-\leavevmode\hypertarget{ref-mathew2019temporal}{}%
+\hypertarget{ref-mathew2019temporal}{}
 Mathew, B., Illendula, A., Saha, P., Sarkar, S., Goyal, P., \&
 Mukherjee, A. (2019). Temporal effects of unmoderated hate speech in
-gab. \emph{arXiv preprint arXiv:1909.10966}.
+gab. \emph{arXiv Preprint arXiv:1909.10966}.
 
-\leavevmode\hypertarget{ref-matias2019preventing}{}%
+\hypertarget{ref-matias2019preventing}{}
 Matias, J. N. (2019). Preventing harassment and increasing group
 participation through social norms in 2,190 online science discussions.
 \emph{Proceedings of the National Academy of Sciences}, \emph{116}(20),
-9785--9789. National Acad Sciences.
+9785--9789. \url{https://doi.org/10.1073/pnas.1813486116}
 
-\leavevmode\hypertarget{ref-meyer2014moderation}{}%
+\hypertarget{ref-meyer2014moderation}{}
 Meyer, H. K., \& Carey, M. C. (2014). In moderation: Examining how
 journalists' attitudes toward online comments affect the creation of
-community. \emph{Journalism Practice}, \emph{8}(2), 213--228. Taylor \&
-Francis.
+community. \emph{Journalism Practice}, \emph{8}(2), 213--228.
+\url{https://doi.org/10.1080/17512786.2013.859838}
 
-\leavevmode\hypertarget{ref-mivskolci2020countering}{}%
+\hypertarget{ref-mivskolci2020countering}{}
 Miškolci, J., Kováčová, L., \& Rigová, E. (2020). Countering hate speech
-on facebook: The case of the roma minority in slovakia. \emph{Social
-Science Computer Review}, \emph{38}(2), 128--146. SAGE Publications Sage
-CA: Los Angeles, CA.
+on Facebook: The case of the Roma minority in Slovakia. \emph{Social
+Science Computer Review}, \emph{38}(2), 128--146.
+\url{https://doi.org/10.1177/0894439318791786}
 
-\leavevmode\hypertarget{ref-mohan2017impact}{}%
+\hypertarget{ref-mohan2017impact}{}
 Mohan, S., Guha, A., Harris, M., Popowich, F., Schuster, A., \& Priebe,
-C. (2017). The impact of toxic language on the health of reddit
-communities. \emph{Canadian conference on artificial intelligence} (pp.
-51--56). Springer.
+C. (2017). The impact of toxic language on the health of Reddit
+communities. \emph{Canadian Conference on Artificial Intelligence},
+51--56. Springer. \url{https://doi.org/10.1007/978-3-319-57351-9_6}
 
-\leavevmode\hypertarget{ref-munger2017tweetment}{}%
+\hypertarget{ref-munger2017tweetment}{}
 Munger, K. (2017). Tweetment effects on the tweeted: Experimentally
 reducing racist harassment. \emph{Political Behavior}, \emph{39}(3),
-629--649. Springer.
+629--649. \url{https://doi.org/10.1007/s11109-016-9373-5}
 
-\leavevmode\hypertarget{ref-navarro2017one}{}%
-Navarro, J. N., Clevenger, S., Beasley, M. E., \& Jackson, L. K. (2017).
-One step forward, two steps back: Cyberbullying within social networking
-sites. \emph{Security Journal}, \emph{30}(3), 844--858. Springer.
-
-\leavevmode\hypertarget{ref-navarro2012going}{}%
-Navarro, J. N., \& Jasinski, J. L. (2012). Going cyber: Using routine
-activities theory to predict cyberbullying experiences.
-\emph{Sociological Spectrum}, \emph{32}(1), 81--94. Taylor \& Francis.
-
-\leavevmode\hypertarget{ref-navarro2013girls}{}%
-Navarro, J. N., \& Jasinski, J. L. (2013). Why girls? Using routine
-activities theory to predict cyberbullying experiences between girls and
-boys. \emph{Women \& Criminal Justice}, \emph{23}(4), 286--303. Taylor
-\& Francis.
-
-\leavevmode\hypertarget{ref-nasi2014association}{}%
+\hypertarget{ref-nasi2014association}{}
 Näsi, M., Räsänen, P., Oksanen, A., Hawdon, J., Keipi, T., \& Holkeri,
 E. (2014). Association between online harassment and exposure to harmful
 online content: A cross-national comparison between the united states
 and finland. \emph{Computers in Human Behavior}, \emph{41}, 137--145.
-Elsevier.
+\url{https://doi.org/10.1016/j.chb.2014.09.019}
 
-\leavevmode\hypertarget{ref-nixon2014current}{}%
+\hypertarget{ref-navarro2012going}{}
+Navarro, J. N., \& Jasinski, J. L. (2012). Going cyber: Using routine
+activities theory to predict cyberbullying experiences.
+\emph{Sociological Spectrum}, \emph{32}(1), 81--94.
+\url{https://doi.org/10.1080/02732173.2012.628560}
+
+\hypertarget{ref-navarro2013girls}{}
+Navarro, J. N., \& Jasinski, J. L. (2013). Why girls? Using routine
+activities theory to predict cyberbullying experiences between girls and
+boys. \emph{Women \& Criminal Justice}, \emph{23}(4), 286--303.
+\url{https://doi.org/10.1080/08974454.2013.784225}
+
+\hypertarget{ref-navarro2017one}{}
+Navarro, J. N., Clevenger, S., Beasley, M. E., \& Jackson, L. K. (2017).
+One step forward, two steps back: Cyberbullying within social networking
+sites. \emph{Security Journal}, \emph{30}(3), 844--858.
+\url{https://doi.org/10.1057/sj.2015.19}
+
+\hypertarget{ref-nixon2014current}{}
 Nixon, C. L. (2014). Current perspectives: The impact of cyberbullying
-on adolescent health. \emph{Adolescent health, medicine and
-therapeutics}, \emph{5}, 143. Dove Press.
+on adolescent health. \emph{Adolescent Health, Medicine and
+Therapeutics}, \emph{5}, 143. \url{https://doi.org/10.2147/ahmt.s36456}
 
-\leavevmode\hypertarget{ref-ortiz2019rise}{}%
+\hypertarget{ref-ortiz2019rise}{}
 Ortiz-Ospina, E. (2019). The rise of social media. \emph{Our World in
 Data}, \emph{18}. Retrieved from
-\url{/url\%7Bhttps://ourworldindata.org/rise-of-social-media\%7D}
+\url{https://ourworldindata.org/rise-of-social-media}
 
-\leavevmode\hypertarget{ref-pearl2018why}{}%
+\hypertarget{ref-pearl2018why}{}
 Pearl, J., \& Mackenzie, D. (2018). \emph{The book of why: The new
 science of cause and effect} (1st ed.). USA: Basic Books, Inc.
+\url{https://doi.org/10.1080/01621459.2020.1721245}
 
-\leavevmode\hypertarget{ref-penney2017internet}{}%
+\hypertarget{ref-penney2017internet}{}
 Penney, J. W. (2017). Internet surveillance, regulation, and chilling
 effects online: A comparative case study. \emph{Internet Policy Review},
-\emph{6}(2).
+\emph{6}(2). \url{https://doi.org/10.14763/2017.2.692}
 
-\leavevmode\hypertarget{ref-preece2004top}{}%
+\hypertarget{ref-preece2004top}{}
 Preece, J., Nonnecke, B., \& Andrews, D. (2004). The top five reasons
 for lurking: Improving community experiences for everyone.
-\emph{Computers in human behavior}, \emph{20}(2), 201--223. Elsevier.
+\emph{Computers in Human Behavior}, \emph{20}(2), 201--223.
+\url{https://doi.org/10.1016/j.chb.2003.10.015}
 
-\leavevmode\hypertarget{ref-ptaszynski2018automatic}{}%
+\hypertarget{ref-ptaszynski2018automatic}{}
 Ptaszynski, M. E., \& Masui, F. (2018). \emph{Automatic cyberbullying
 detection: Emerging research and opportunities: Emerging research and
 opportunities}. IGI Global.
 
-\leavevmode\hypertarget{ref-ptaszynski2018cyberbullying}{}%
+\hypertarget{ref-ptaszynski2018cyberbullying}{}
 Ptaszyński, M., Leliwa, G., Piech, M., \& Smywiński-Pohl, A. (2018).
-Cyberbullying detection--technical report 2/2018, department of computer
-science AGH, university of science and technology. \emph{arXiv preprint
+Cyberbullying detection--technical report 2/2018, Department of Computer
+Science AGH, University of Science and Technology. \emph{arXiv Preprint
 arXiv:1808.00926}.
 
-\leavevmode\hypertarget{ref-pudipeddi2014user}{}%
+\hypertarget{ref-pudipeddi2014user}{}
 Pudipeddi, J. S., Akoglu, L., \& Tong, H. (2014). User churn in focused
 question answering sites: Characterizations and prediction.
-\emph{Proceedings of the 23rd international conference on world wide
-web} (pp. 469--474).
+\emph{Proceedings of the 23rd International Conference on World Wide
+Web}, 469--474. \url{https://doi.org/10.1145/2567948.2576965}
 
-\leavevmode\hypertarget{ref-pyzalski2019polish}{}%
+\hypertarget{ref-pyzalski2019polish}{}
 Pyżalski, J., Zdrodowska, A., Tomczyk, Ł., \& Abramczuk, K. (2019).
-Polish research EU KIDS ONLINE. The most important results and
-conclusions. \emph{Pozna{ń}: Wydaw. Uniwersytet Adama Mickiewicza}.
+Polish research EU KIDS ONLINE. the most important results and
+conclusions. \emph{Poznań: Wydaw. Uniwersytet Adama Mickiewicza}.
 
-\leavevmode\hypertarget{ref-raskauskas2007involvement}{}%
+\hypertarget{ref-raskauskas2007involvement}{}
 Raskauskas, J., \& Stoltz, A. D. (2007). Involvement in traditional and
-electronic bullying among adolescents. \emph{Developmental psychology},
-\emph{43}(3), 564. American Psychological Association.
+electronic bullying among adolescents. \emph{Developmental Psychology},
+\emph{43}(3), 564. \url{https://doi.org/10.1037/0012-1649.43.3.564}
 
-\leavevmode\hypertarget{ref-raub2015phenomenological}{}%
-Raub, K. (2015). \emph{A phenomenological inquiry into facebook newcomer
+\hypertarget{ref-raub2015phenomenological}{}
+Raub, K. (2015). \emph{A phenomenological inquiry into Facebook newcomer
 motivations for participatory activities} (PhD thesis). Nova
 Southeastern University.
 
-\leavevmode\hypertarget{ref-rosner2016dangerous}{}%
+\hypertarget{ref-rosner2016dangerous}{}
 Rösner, L., Winter, S., \& Krämer, N. C. (2016). Dangerous minds?
 Effects of uncivil online comments on aggressive cognitions, emotions,
 and behavior. \emph{Computers in Human Behavior}, \emph{58}, 461--470.
-Elsevier.
+\url{https://doi.org/10.1016/j.chb.2016.01.022}
 
-\leavevmode\hypertarget{ref-sadeque2019predicting}{}%
+\hypertarget{ref-sadeque2019predicting}{}
 Sadeque, F., \& Bethard, S. (2019). Predicting engagement in online
-social networks: Challenges and opportunities. \emph{arXiv preprint
+social networks: Challenges and opportunities. \emph{arXiv Preprint
 arXiv:1907.05442}.
 
-\leavevmode\hypertarget{ref-saiphoo2020social}{}%
+\hypertarget{ref-saiphoo2020social}{}
 Saiphoo, A. N., Halevi, L. D., \& Vahedi, Z. (2020). Social networking
 site use and self-esteem: A meta-analytic review. \emph{Personality and
-Individual Differences}, \emph{153}, 109639. Elsevier.
+Individual Differences}, \emph{153}, 109639.
+\url{https://doi.org/10.1016/j.paid.2019.109639}
 
-\leavevmode\hypertarget{ref-savimaki2020disquieted}{}%
+\hypertarget{ref-savimaki2020disquieted}{}
 Savimäki, T., Kaakinen, M., Räsänen, P., \& Oksanen, A. (2020).
 Disquieted by online hate: Negative experiences of finnish adolescents
 and young adults. \emph{European Journal on Criminal Policy and
-Research}, \emph{26}(1), 23--37. Springer.
+Research}, \emph{26}(1), 23--37.
+\url{https://doi.org/10.1007/s10610-018-9393-2}
 
-\leavevmode\hypertarget{ref-seering2019moderator}{}%
+\hypertarget{ref-seering2019moderator}{}
 Seering, J., Wang, T., Yoon, J., \& Kaufman, G. (2019). Moderator
 engagement and community development in the age of algorithms. \emph{New
-Media \& Society}, \emph{21}(7), 1417--1443. SAGE Publications Sage UK:
-London, England.
+Media \& Society}, \emph{21}(7), 1417--1443.
+\url{https://doi.org/10.1177/1461444818821316}
 
-\leavevmode\hypertarget{ref-sheth2020borderless}{}%
+\hypertarget{ref-sheth2020borderless}{}
 Sheth, J. N. (2020). Borderless media: Rethinking international
 marketing. \emph{Journal of International Marketing}, \emph{28}(1),
-3--12. SAGE Publications Sage CA: Los Angeles, CA.
+3--12. \url{https://doi.org/10.1177/1069031x19897044}
 
-\leavevmode\hypertarget{ref-sourander2010psychosocial}{}%
-Sourander, A., Klomek, A. B., Ikonen, M., Lindroos, J., Luntamo, T.,
-Koskelainen, M., Ristkari, T., et al. (2010). Psychosocial risk factors
+\hypertarget{ref-sourander2010psychosocial}{}
+Sourander, A., Klomek, A., Ikonen, M., Lindroos, J., Luntamo, T.,
+Koskelainen, M., \ldots{} Helenius, H. (2010). Psychosocial risk factors
 associated with cyberbullying among adolescents: A population-based
-study. \emph{Archives of general psychiatry}, \emph{67}(7), 720--728.
-American Medical Association.
+study. \emph{Archives of General Psychiatry}, \emph{67}(7), 720--728.
+\url{https://doi.org/10.1001/archgenpsychiatry.2010.79}
 
-\leavevmode\hypertarget{ref-Tukey1949}{}%
+\hypertarget{ref-Tukey1949}{}
 Tukey, J. W. (1949). Comparing individual means in the analysis of
-variance. \emph{Biometrics}, \emph{5}(2), 99. {JSTOR}. Retrieved from
+variance. \emph{Biometrics}, \emph{5}(2), 99.
 \url{https://doi.org/10.2307/3001913}
 
-\leavevmode\hypertarget{ref-valkenburg2006friend}{}%
+\hypertarget{ref-valkenburg2006friend}{}
 Valkenburg, P. M., Peter, J., \& Schouten, A. P. (2006). Friend
 networking sites and their relationship to adolescents' well-being and
-social self-esteem. \emph{CyberPsychology \& behavior}, \emph{9}(5),
-584--590. Mary Ann Liebert, Inc. 2 Madison Avenue Larchmont, NY 10538
-USA.
+social self-esteem. \emph{CyberPsychology \& Behavior}, \emph{9}(5),
+584--590. \url{https://doi.org/10.1089/cpb.2006.9.584}
 
-\leavevmode\hypertarget{ref-weber2020online}{}%
+\hypertarget{ref-weber2020online}{}
 Weber, M., Viehmann, C., Ziegele, M., \& Schemer, C. (2020). Online hate
 does not stay online--how implicit and explicit attitudes mediate the
 effect of civil negativity and hate in user comments on prosocial
 behavior. \emph{Computers in Human Behavior}, \emph{104}, 106192.
-Elsevier.
+\url{https://doi.org/10.1016/j.chb.2019.106192}
 
-\leavevmode\hypertarget{ref-williams2020hate}{}%
+\hypertarget{ref-williams2020hate}{}
 Williams, M. L., Burnap, P., Javed, A., Liu, H., \& Ozalp, S. (2020).
 Hate in the machine: Anti-black and anti-muslim social media posts as
 predictors of offline racially and religiously aggravated crime.
-\emph{The British Journal of Criminology}, \emph{60}(1), 93--117. Oxford
-University Press UK.
+\emph{The British Journal of Criminology}, \emph{60}(1), 93--117.
+\url{https://doi.org/10.1093/bjc/azz049}
 
-\leavevmode\hypertarget{ref-wise2006moderation}{}%
+\hypertarget{ref-wise2006moderation}{}
 Wise, K., Hamman, B., \& Thorson, K. (2006). Moderation, response rate,
 and message interactivity: Features of online communities and their
 effects on intent to participate. \emph{Journal of Computer-Mediated
-Communication}, \emph{12}(1), 24--41. Oxford University Press Oxford,
-UK.
+Communication}, \emph{12}(1), 24--41.
+\url{https://doi.org/10.1111/j.1083-6101.2006.00313.x}
 
-\leavevmode\hypertarget{ref-woods2016sleepyteens}{}%
-Woods, H. C., \& Scott, H. (2016). \# sleepyteens: Social media use in
+\hypertarget{ref-woods2016sleepyteens}{}
+Woods, H. C., \& Scott, H. (2016). \# Sleepyteens: Social media use in
 adolescence is associated with poor sleep quality, anxiety, depression
-and low self-esteem. \emph{Journal of adolescence}, \emph{51}, 41--49.
-Elsevier.
+and low self-esteem. \emph{Journal of Adolescence}, \emph{51}, 41--49.
+\url{https://doi.org/10.1016/j.adolescence.2016.05.008}
 
-\leavevmode\hypertarget{ref-wroczynski2019system}{}%
-Wroczynski, M., \& Leliwa, G. (2019). System and method for detecting
-undesirable and potentially harmful online behavior. Google Patents.
+\hypertarget{ref-wroczynski2019system}{}
+Wroczynski, M., \& Leliwa, G. (2019). \emph{System and method for
+detecting undesirable and potentially harmful online behavior}. Google
+Patents.
 
-\leavevmode\hypertarget{ref-ybarra2004linkages}{}%
+\hypertarget{ref-ybarra2004linkages}{}
 Ybarra, M. L. (2004). Linkages between depressive symptomatology and
 internet harassment among young regular internet users.
-\emph{CyberPsychology \& Behavior}, \emph{7}(2), 247--257. Mary Ann
-Liebert, Inc.
+\emph{CyberPsychology \& Behavior}, \emph{7}(2), 247--257.
+\url{https://doi.org/10.1089/109493104323024500}
 
-\leavevmode\hypertarget{ref-zong2019social}{}%
+\hypertarget{ref-zong2019social}{}
 Zong, W., Yang, J., \& Bao, Z. (2019). Social network fatigue affecting
 continuance intention of social networking services. \emph{Data
-Technologies and Applications}. Emerald Publishing Limited.
-
-\end{CSLReferences}
+Technologies and Applications}.
+\url{https://doi.org/10.1108/dta-06-2018-0054}
 
 \end{document}

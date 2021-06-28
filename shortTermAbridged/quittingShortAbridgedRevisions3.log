@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.28)  28 JUN 2021 14:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.28)  28 JUN 2021 15:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1805,13 +1805,13 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 233.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 7.04004pt on input line 233.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 12.67206pt on input line 242.
 [1
 
 
 {/Users/patrycjatempska/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdfte
 x.map}]
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 12.67206pt on input line 242.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 10.56006pt on input line 314.
 [2] [3] [4]
@@ -1835,257 +1835,257 @@ Package epstopdf Info: Source file: <../images/example.eps>
 (epstopdf)                    size: 557720 bytes
 (epstopdf)             Command: <repstopdf --outfile=../images/example-eps-conv
 erted-to.pdf ../images/example.eps>
-(epstopdf)             \includegraphics on input line 799.
+(epstopdf)             \includegraphics on input line 808.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ../images/example-eps-converted-to.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../images/example-eps-converted-to.pdf, id=125, 1927.2pt x 1084.05pt>
+<../images/example-eps-converted-to.pdf, id=129, 1927.2pt x 1084.05pt>
 File: ../images/example-eps-converted-to.pdf Graphic file (type pdf)
 <use ../images/example-eps-converted-to.pdf>
 Package pdftex.def Info: ../images/example-eps-converted-to.pdf  used on input 
-line 799.
+line 808.
 (pdftex.def)             Requested size: 380.6987pt x 214.14302pt.
 [9 <../images/example-eps-converted-to.pdf>] [10]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 952.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 961.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 952.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 961.
 [11]
 <quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-3-1.pdf, id=1
-61, 449.68pt x 316.18124pt>
+63, 449.68pt x 316.18124pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-3-1.pdf 
 Graphic file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/unn
-amed-chunk-3-1.pdf  used on input line 1024.
+amed-chunk-3-1.pdf  used on input line 1033.
 (pdftex.def)             Requested size: 323.61153pt x 227.53935pt.
-[12 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-3-1.pdf
->]
 <quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-7-1.pdf, id=1
-86, 463.7325pt x 316.18124pt>
+67, 463.7325pt x 316.18124pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-7-1.pdf 
 Graphic file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-7-1.pdf>
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/unn
-amed-chunk-7-1.pdf  used on input line 1050.
+amed-chunk-7-1.pdf  used on input line 1059.
 (pdftex.def)             Requested size: 380.70181pt x 259.56941pt.
+[12]
 LaTeX Font Info:    Trying to load font information for OT1+jkpss on input line
- 1060.
+ 1069.
 
 (/Users/patrycjatempska/Library/TinyTeX/texmf-dist/tex/latex/kpfonts/ot1jkpss.f
 d
 File: ot1jkpss.fd 2007/07/16 Fontinst v1.928 font definitions for OT1/jkpss.
-) [13 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-7-1.p
-df>]
+) [13 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-3-1.p
+df> <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-7-1.pdf
+>]
 <quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-15-1.pdf, id=
-217, 445.665pt x 316.18124pt>
+220, 445.665pt x 316.18124pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-15-1.pdf
  Graphic file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-15-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/unn
-amed-chunk-15-1.pdf  used on input line 1167.
+amed-chunk-15-1.pdf  used on input line 1176.
 (pdftex.def)             Requested size: 361.6667pt x 256.58784pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[14]
+[14] [15 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-15
+-1.pdf>]
 <quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-20-1.pdf, id=
-236, 431.6125pt x 316.18124pt>
+257, 431.6125pt x 316.18124pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-20-1.pdf
  Graphic file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-20-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/unn
-amed-chunk-20-1.pdf  used on input line 1250.
+amed-chunk-20-1.pdf  used on input line 1259.
 (pdftex.def)             Requested size: 380.70926pt x 278.89166pt.
-[15 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-15-1.pd
+[16 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-20-1.pd
 f>]
 <quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-25-1.pdf, id=
-261, 453.695pt x 316.18124pt>
+278, 453.695pt x 316.18124pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-25-1.pdf
  Graphic file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-25-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/unn
-amed-chunk-25-1.pdf  used on input line 1284.
+amed-chunk-25-1.pdf  used on input line 1293.
 (pdftex.def)             Requested size: 380.69968pt x 265.31061pt.
-[16 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-20-1.pd
-f>]
 <quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-26-1.pdf, id=
-276, 447.6725pt x 316.18124pt>
+279, 447.6725pt x 316.18124pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-26-1.pdf
  Graphic file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-26-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/unn
-amed-chunk-26-1.pdf  used on input line 1292.
+amed-chunk-26-1.pdf  used on input line 1301.
 (pdftex.def)             Requested size: 380.70786pt x 268.88557pt.
 [17 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-25-1.pd
-f> <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-26-1.pdf
->]
+f>]
 <quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-32-1.pdf, id=
-304, 445.665pt x 315.1775pt>
+295, 445.665pt x 315.1775pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-32-1.pdf
  Graphic file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-32-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/unn
-amed-chunk-32-1.pdf  used on input line 1332.
+amed-chunk-32-1.pdf  used on input line 1341.
 (pdftex.def)             Requested size: 380.70071pt x 269.23428pt.
+[18 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-26-1.pd
+f>]
 <quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-35-1.pdf, id=
-306, 452.69125pt x 315.1775pt>
+315, 452.69125pt x 315.1775pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-35-1.pdf
  Graphic file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-35-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/unn
-amed-chunk-35-1.pdf  used on input line 1360.
+amed-chunk-35-1.pdf  used on input line 1369.
 (pdftex.def)             Requested size: 380.70013pt x 265.05508pt.
-[18 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-32-1.pd
-f>] [19 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-35-
-1.pdf>] [20]
+[19 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-32-1.pd
+f>] [20 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-35-
+1.pdf>] [21]
 <quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-47-1.pdf, id=
-357, 451.6875pt x 316.18124pt>
+365, 451.6875pt x 316.18124pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-47-1.pdf
  Graphic file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-47-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/unn
-amed-chunk-47-1.pdf  used on input line 1580.
+amed-chunk-47-1.pdf  used on input line 1589.
 (pdftex.def)             Requested size: 323.61575pt x 226.53102pt.
 <quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-48-1.pdf, id=
-358, 449.68pt x 316.18124pt>
+366, 449.68pt x 316.18124pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-48-1.pdf
  Graphic file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-48-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/unn
-amed-chunk-48-1.pdf  used on input line 1586.
+amed-chunk-48-1.pdf  used on input line 1595.
 (pdftex.def)             Requested size: 323.61153pt x 227.53935pt.
 <quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-49-1.pdf, id=
-359, 451.6875pt x 316.18124pt>
+367, 451.6875pt x 316.18124pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-49-1.pdf
  Graphic file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-49-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/unn
-amed-chunk-49-1.pdf  used on input line 1592.
+amed-chunk-49-1.pdf  used on input line 1601.
 (pdftex.def)             Requested size: 323.61575pt x 226.53102pt.
 <quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-50-1.pdf, id=
-360, 449.68pt x 316.18124pt>
+368, 449.68pt x 316.18124pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-50-1.pdf
  Graphic file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-50-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/unn
-amed-chunk-50-1.pdf  used on input line 1598.
+amed-chunk-50-1.pdf  used on input line 1607.
 (pdftex.def)             Requested size: 323.61153pt x 227.53935pt.
 <quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-51-1.pdf, id=
-361, 451.6875pt x 316.18124pt>
+369, 451.6875pt x 316.18124pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-51-1.pdf
  Graphic file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-51-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/unn
-amed-chunk-51-1.pdf  used on input line 1605.
+amed-chunk-51-1.pdf  used on input line 1614.
 (pdftex.def)             Requested size: 323.61575pt x 226.53102pt.
 <quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-53-1.pdf, id=
-362, 458.71375pt x 316.18124pt>
+370, 458.71375pt x 316.18124pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-53-1.pdf
  Graphic file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-53-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/unn
-amed-chunk-53-1.pdf  used on input line 1619.
+amed-chunk-53-1.pdf  used on input line 1628.
 (pdftex.def)             Requested size: 323.61021pt x 223.05736pt.
 <quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-54-1.pdf, id=
-363, 449.68pt x 316.18124pt>
+371, 449.68pt x 316.18124pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-54-1.pdf
  Graphic file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-54-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/unn
-amed-chunk-54-1.pdf  used on input line 1624.
+amed-chunk-54-1.pdf  used on input line 1633.
 (pdftex.def)             Requested size: 323.61153pt x 227.53935pt.
 <quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-55-1.pdf, id=
-364, 451.6875pt x 316.18124pt>
+372, 451.6875pt x 316.18124pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-55-1.pdf
  Graphic file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-55-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/unn
-amed-chunk-55-1.pdf  used on input line 1629.
+amed-chunk-55-1.pdf  used on input line 1638.
 (pdftex.def)             Requested size: 323.61575pt x 226.53102pt.
 <quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-56-1.pdf, id=
-365, 449.68pt x 316.18124pt>
+373, 449.68pt x 316.18124pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-56-1.pdf
  Graphic file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-56-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/unn
-amed-chunk-56-1.pdf  used on input line 1634.
+amed-chunk-56-1.pdf  used on input line 1643.
 (pdftex.def)             Requested size: 323.61153pt x 227.53935pt.
 <quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-57-1.pdf, id=
-366, 451.6875pt x 316.18124pt>
+374, 451.6875pt x 316.18124pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-57-1.pdf
  Graphic file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-57-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/unn
-amed-chunk-57-1.pdf  used on input line 1639.
+amed-chunk-57-1.pdf  used on input line 1648.
 (pdftex.def)             Requested size: 323.61575pt x 226.53102pt.
-[21] [22 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-47
+[22] [23 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-47
 -1.pdf> <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-48-
-1.pdf>] [23 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk
+1.pdf>] [24 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk
 -49-1.pdf> <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-
-50-1.pdf>] [24 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-ch
+50-1.pdf>] [25 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-ch
 unk-51-1.pdf> <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chu
-nk-53-1.pdf>] [25 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed
+nk-53-1.pdf>] [26 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed
 -chunk-54-1.pdf> <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-
-chunk-55-1.pdf>] [26 <./quittingShortAbridgedRevisions3_files/figure-latex/unna
+chunk-55-1.pdf>] [27 <./quittingShortAbridgedRevisions3_files/figure-latex/unna
 med-chunk-56-1.pdf> <./quittingShortAbridgedRevisions3_files/figure-latex/unnam
 ed-chunk-57-1.pdf>]
 <quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-60-1.pdf, id=
-478, 445.665pt x 303.1325pt>
+486, 445.665pt x 303.1325pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-60-1.pdf
  Graphic file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-60-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/unn
-amed-chunk-60-1.pdf  used on input line 1709.
+amed-chunk-60-1.pdf  used on input line 1718.
 (pdftex.def)             Requested size: 380.70071pt x 258.94508pt.
-[27]
+[28]
 <quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-61-1.pdf, id=
-488, 457.71pt x 317.185pt>
+496, 457.71pt x 317.185pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-61-1.pdf
  Graphic file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-61-1.pdf>
 
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/unn
-amed-chunk-61-1.pdf  used on input line 1727.
+amed-chunk-61-1.pdf  used on input line 1736.
 (pdftex.def)             Requested size: 380.70937pt x 263.82489pt.
-[28 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-60-1.pd
-f>] [29 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-61-
-1.pdf>] [30] [31] [32] [33] [34] [35]
-Underfull \hbox (badness 2334) in paragraph at lines 2304--2308
+[29 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-60-1.pd
+f>] [30 <./quittingShortAbridgedRevisions3_files/figure-latex/unnamed-chunk-61-
+1.pdf>] [31] [32] [33] [34] [35] [36]
+Underfull \hbox (badness 2334) in paragraph at lines 2313--2317
 [][]\T1/ptm/m/n/10 Nixon, C. L. (2014). Cur-rent per-spec-tives: The im-pact of
  cy-ber-bul-ly-ing on ado-
  []
 
 
-Underfull \hbox (badness 2418) in paragraph at lines 2304--2308
+Underfull \hbox (badness 2418) in paragraph at lines 2313--2317
 \T1/ptm/m/n/10 les-cent health. \T1/ptm/m/it/10 Ado-les-cent Health, Medicine a
 nd Ther-a-peu-tics\T1/ptm/m/n/10 , \T1/ptm/m/it/10 5\T1/ptm/m/n/10 , 143. [][]$
 https :
  []
 
-[36] [37] (./quittingShortAbridgedRevisions3.aux) ) 
+[37] [38] (./quittingShortAbridgedRevisions3.aux) ) 
 Here is how much of TeX's memory you used:
- 29966 strings out of 480479
- 560211 string characters out of 5897638
+ 29967 strings out of 480479
+ 560218 string characters out of 5897638
  1004081 words of memory out of 5000000
  46837 multiletter control sequences out of 15000+600000
  499492 words of font info for 187 fonts, out of 8000000 for 9000
@@ -2108,11 +2108,11 @@ Users/patrycjatempska/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.p
 fb></Users/patrycjatempska/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utm
 r8a.pfb></Users/patrycjatempska/Library/TinyTeX/texmf-dist/fonts/type1/urw/time
 s/utmri8a.pfb>
-Output written on quittingShortAbridgedRevisions3.pdf (37 pages, 1479203 bytes)
+Output written on quittingShortAbridgedRevisions3.pdf (38 pages, 1480017 bytes)
 .
 PDF statistics:
- 852 PDF objects out of 1000 (max. 8388607)
- 718 compressed objects within 8 object streams
- 195 named destinations out of 1000 (max. 500000)
+ 860 PDF objects out of 1000 (max. 8388607)
+ 725 compressed objects within 8 object streams
+ 196 named destinations out of 1000 (max. 500000)
  254 words of extra memory for PDF output out of 10000 (max. 10000000)
 

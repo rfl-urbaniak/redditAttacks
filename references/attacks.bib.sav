@@ -1123,4 +1123,42 @@ artice{ortiz2019rise,
   url      = {https://www.sciencedirect.com/science/article/pii/S1071581919300473},
 }
 
+@Article{John2018Cyberbullying,
+  author    = {Ann John and Alexander Charles Glendenning and Amanda Marchant and Paul Montgomery and Anne Stewart and Sophie Wood and Keith Lloyd and Keith Hawton},
+  title     = {Self-Harm, Suicidal Behaviours, and Cyberbullying in Children and Young People: Systematic Review},
+  journal   = {Journal of Medical Internet Research},
+  year      = {2018},
+  volume    = {20},
+  number    = {4},
+  pages     = {e129},
+  month     = apr,
+  doi       = {10.2196/jmir.9044},
+  publisher = {{JMIR} Publications Inc.},
+  url       = {https://doi.org/10.2196/jmir.9044},
+}
+
+@Article{Parry2021discrepancies,
+  author    = {Douglas A. Parry and Brittany I. Davidson and Craig J. R. Sewall and Jacob T. Fisher and Hannah Mieczkowski and Daniel S. Quintana},
+  title     = {A systematic review and meta-analysis of discrepancies between logged and self-reported digital media use},
+  journal   = {Nature Human Behaviour},
+  year      = {2021},
+  month     = may,
+  doi       = {10.31234/osf.io/f6xvz},
+  publisher = {Springer Science and Business Media {LLC}},
+  url       = {https://doi.org/10.1038/s41562-021-01117-5},
+}
+
+@Article{Ellis2019smartphoneScales,
+  author    = {David A. Ellis and Brittany I. Davidson and Heather Shaw and Kristoffer Geyer},
+  title     = {Do smartphone usage scales predict behavior?},
+  journal   = {International Journal of Human-Computer Studies},
+  year      = {2019},
+  volume    = {130},
+  pages     = {86--92},
+  month     = oct,
+  doi       = {10.1016/j.ijhcs.2019.05.004},
+  publisher = {Elsevier {BV}},
+  url       = {https://doi.org/10.1016/j.ijhcs.2019.05.004},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

@@ -1,0 +1,678 @@
+\begin{thebibliography}{72}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Afful and Akrong(2020)}]{Afful2020}
+\bibinfo{author}{Afful, B.}, \bibinfo{author}{Akrong, R.},
+  \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Whatsapp and academic performance among undergraduate
+  students in ghana: Evidence from the university of cape coast}.
+\newblock \bibinfo{journal}{Journal of Education for Business}
+  \bibinfo{volume}{95}, \bibinfo{pages}{288--296}.
+\newblock \URLprefix \url{https://doi.org/10.1080/08832323.2019.1644276},
+  \DOIprefix\doi{10.1080/08832323.2019.1644276},
+  \href{http://arxiv.org/abs/https://doi.org/10.1080/08832323.2019.1644276}{\tt
+  arXiv:https://doi.org/10.1080/08832323.2019.1644276}.
+%Type = Article
+\bibitem[{{Akaike}(1974)}]{Akaike1974model}
+\bibinfo{author}{{Akaike}, H.}, \bibinfo{year}{1974}.
+\newblock \bibinfo{title}{A new look at the statistical model identification}.
+\newblock \bibinfo{journal}{IEEE Transactions on Automatic Control}
+  \bibinfo{volume}{19}, \bibinfo{pages}{716--723}.
+\newblock \DOIprefix\doi{10.1109/TAC.1974.1100705}.
+%Type = Article
+\bibitem[{Alkhalaf et~al.(2018)Alkhalaf, Tekian and Park}]{Alkhalaf2018}
+\bibinfo{author}{Alkhalaf, A.M.}, \bibinfo{author}{Tekian, A.},
+  \bibinfo{author}{Park, Y.S.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{The impact of {WhatsApp} use on academic achievement
+  among saudi medical students}.
+\newblock \bibinfo{journal}{Medical Teacher} \bibinfo{volume}{40},
+  \bibinfo{pages}{S10--S14}.
+\newblock \URLprefix \url{https://doi.org/10.1080/0142159x.2018.1464652},
+  \DOIprefix\doi{10.1080/0142159x.2018.1464652}.
+%Type = Inproceedings
+\bibitem[{Arguello et~al.(2006)Arguello, Butler, Joyce, Kraut, Ling, Ros{\'e}
+  and Wang}]{arguello2006talk}
+\bibinfo{author}{Arguello, J.}, \bibinfo{author}{Butler, B.S.},
+  \bibinfo{author}{Joyce, E.}, \bibinfo{author}{Kraut, R.},
+  \bibinfo{author}{Ling, K.S.}, \bibinfo{author}{Ros{\'e}, C.},
+  \bibinfo{author}{Wang, X.}, \bibinfo{year}{2006}.
+\newblock \bibinfo{title}{Talk to me: foundations for successful
+  individual-group interactions in online communities}, in:
+  \bibinfo{booktitle}{Proceedings of the SIGCHI conference on Human Factors in
+  computing systems}, pp. \bibinfo{pages}{959--968}.
+\newblock \DOIprefix\doi{10.1145/1124772.1124916}.
+%Type = Article
+\bibitem[{Barlett(2015)}]{barlett2015anonymously}
+\bibinfo{author}{Barlett, C.P.}, \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{Anonymously hurting others online: The effect of
+  anonymity on cyberbullying frequency.}
+\newblock \bibinfo{journal}{Psychology of Popular Media Culture}
+  \bibinfo{volume}{4}, \bibinfo{pages}{70}.
+\newblock \DOIprefix\doi{10.1037/a0034335}.
+%Type = Article
+\bibitem[{Barlett et~al.(2016)Barlett, Gentile and
+  Chew}]{barlett2016predicting}
+\bibinfo{author}{Barlett, C.P.}, \bibinfo{author}{Gentile, D.A.},
+  \bibinfo{author}{Chew, C.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Predicting cyberbullying from anonymity.}
+\newblock \bibinfo{journal}{Psychology of Popular Media Culture}
+  \bibinfo{volume}{5}, \bibinfo{pages}{171}.
+\newblock \DOIprefix\doi{10.1037/ppm0000055}.
+%Type = Article
+\bibitem[{Barli{\'n}ska et~al.(2018)Barli{\'n}ska, Plichta, Py{\.z}alski and
+  Szuster}]{barlinska2018slowami}
+\bibinfo{author}{Barli{\'n}ska, J.}, \bibinfo{author}{Plichta, P.},
+  \bibinfo{author}{Py{\.z}alski, J.}, \bibinfo{author}{Szuster, A.},
+  \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Ich s{\l}owami---obraz pomocy w sytuacjach
+  cyberprzemocy r{\'o}wie{\'s}niczej z perspektywy uczni{\'o}w}.
+\newblock \bibinfo{journal}{Dziecko krzywdzone. Teoria, badania, praktyka}
+  \bibinfo{volume}{17}, \bibinfo{pages}{82--115}.
+%Type = Article
+\bibitem[{Beran and Li(2005)}]{beran2005cyber}
+\bibinfo{author}{Beran, T.}, \bibinfo{author}{Li, Q.}, \bibinfo{year}{2005}.
+\newblock \bibinfo{title}{Cyber-harassment: A study of a new method for an old
+  behavior}.
+\newblock \bibinfo{journal}{Journal of educational computing research}
+  \bibinfo{volume}{32}, \bibinfo{pages}{265}.
+%Type = Article
+\bibitem[{Bilewicz and Soral(2020)}]{bilewicz2020hate}
+\bibinfo{author}{Bilewicz, M.}, \bibinfo{author}{Soral, W.},
+  \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Hate speech epidemic. the dynamic effects of
+  derogatory language on intergroup relations and political radicalization}.
+\newblock \bibinfo{journal}{Political Psychology}
+  \DOIprefix\doi{10.1111/pops.12670}.
+%Type = Article
+\bibitem[{Campbell et~al.(2012)Campbell, Spears, Slee, Butler and
+  Kift}]{campbell2012victims}
+\bibinfo{author}{Campbell, M.}, \bibinfo{author}{Spears, B.},
+  \bibinfo{author}{Slee, P.}, \bibinfo{author}{Butler, D.},
+  \bibinfo{author}{Kift, S.}, \bibinfo{year}{2012}.
+\newblock \bibinfo{title}{Victims’ perceptions of traditional and
+  cyberbullying, and the psychosocial correlates of their victimisation}.
+\newblock \bibinfo{journal}{Emotional and Behavioural Difficulties}
+  \bibinfo{volume}{17}, \bibinfo{pages}{389--401}.
+\newblock \DOIprefix\doi{10.1080/13632752.2012.704316}.
+%Type = Article
+\bibitem[{Cao et~al.(2019)Cao, Khan, Ali and Khan}]{cao2019consequences}
+\bibinfo{author}{Cao, X.}, \bibinfo{author}{Khan, A.N.}, \bibinfo{author}{Ali,
+  A.}, \bibinfo{author}{Khan, N.A.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Consequences of cyberbullying and social overload
+  while using {SNSs}: A study of users’ discontinuous usage behavior in
+  {SNSs}}.
+\newblock \bibinfo{journal}{Information Systems Frontiers} ,
+  \bibinfo{pages}{1--14}\DOIprefix\doi{10.1007/s10796-019-09936-8}.
+%Type = Article
+\bibitem[{Carey and Meyer(2016)}]{carey2016influences}
+\bibinfo{author}{Carey, M.C.}, \bibinfo{author}{Meyer, H.K.},
+  \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{The influences of participation and moderation on the
+  development of a sense of virtual community}.
+\newblock \bibinfo{journal}{International Journal of Web Based Communities}
+  \bibinfo{volume}{12}, \bibinfo{pages}{326--341}.
+\newblock \DOIprefix\doi{10.1504/ijwbc.2016.080812}.
+%Type = Article
+\bibitem[{Chandrasekharan et~al.(2017)Chandrasekharan, Pavalanathan,
+  Srinivasan, Glynn, Eisenstein and Gilbert}]{chandrasekharan2017you}
+\bibinfo{author}{Chandrasekharan, E.}, \bibinfo{author}{Pavalanathan, U.},
+  \bibinfo{author}{Srinivasan, A.}, \bibinfo{author}{Glynn, A.},
+  \bibinfo{author}{Eisenstein, J.}, \bibinfo{author}{Gilbert, E.},
+  \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{You can't stay here: The efficacy of {R}eddit's 2015
+  ban examined through hate speech}.
+\newblock \bibinfo{journal}{Proceedings of the ACM on Human-Computer
+  Interaction} \bibinfo{volume}{1}, \bibinfo{pages}{1--22}.
+%Type = Book
+\bibitem[{Chua(2019)}]{chua2019understanding}
+\bibinfo{author}{Chua, Y.T.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Understanding Radicalization Process in Online
+  Far-right Extremist Forums Using Social Influence Model}.
+\newblock \bibinfo{publisher}{Michigan State University}.
+\newblock \bibinfo{note}{[PhD Thesis]}.
+%Type = Article
+\bibitem[{Cross et~al.(2012)Cross, Piggin, Douglas and
+  Vonkaenel-Flatt}]{cross2012virtual}
+\bibinfo{author}{Cross, E.}, \bibinfo{author}{Piggin, R.},
+  \bibinfo{author}{Douglas, T.}, \bibinfo{author}{Vonkaenel-Flatt, J.},
+  \bibinfo{year}{2012}.
+\newblock \bibinfo{title}{Virtual violence {II}: Progress and challenges in the
+  fight against cyberbullying}.
+\newblock \bibinfo{journal}{London: Beatbullying} .
+%Type = Misc
+\bibitem[{Culpepper(2020)}]{culpepperexploring}
+\bibinfo{author}{Culpepper, M.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Exploring the relationships of social media usage and
+  symptoms of anxiety and depression in adolescents}.
+\newblock \bibinfo{note}{[MSc Thesis]}.
+%Type = Article
+\bibitem[{Cvijikj and Michahelles(2013)}]{cvijikj2013online}
+\bibinfo{author}{Cvijikj, I.P.}, \bibinfo{author}{Michahelles, F.},
+  \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{Online engagement factors on {F}acebook brand pages}.
+\newblock \bibinfo{journal}{Social network analysis and mining}
+  \bibinfo{volume}{3}, \bibinfo{pages}{843--861}.
+\newblock \DOIprefix\doi{10.1007/s13278-013-0098-8}.
+%Type = Article
+\bibitem[{De~Koster and Houtman(2008)}]{de2008stormfront}
+\bibinfo{author}{De~Koster, W.}, \bibinfo{author}{Houtman, D.},
+  \bibinfo{year}{2008}.
+\newblock \bibinfo{title}{‘stormfront is like a second home to me’ on
+  virtual community formation by right-wing extremists}.
+\newblock \bibinfo{journal}{Information, Communication \& Society}
+  \bibinfo{volume}{11}, \bibinfo{pages}{1155--1176}.
+\newblock \DOIprefix\doi{10.1080/13691180802266665}.
+%Type = Article
+\bibitem[{Ellis et~al.(2019)Ellis, Davidson, Shaw and
+  Geyer}]{Ellis2019smartphoneScales}
+\bibinfo{author}{Ellis, D.A.}, \bibinfo{author}{Davidson, B.I.},
+  \bibinfo{author}{Shaw, H.}, \bibinfo{author}{Geyer, K.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Do smartphone usage scales predict behavior?}
+\newblock \bibinfo{journal}{International Journal of Human-Computer Studies}
+  \bibinfo{volume}{130}, \bibinfo{pages}{86--92}.
+\newblock \URLprefix \url{https://doi.org/10.1016/j.ijhcs.2019.05.004},
+  \DOIprefix\doi{10.1016/j.ijhcs.2019.05.004}.
+%Type = Inproceedings
+\bibitem[{Hamilton et~al.(2017)Hamilton, Zhang, Danescu-Niculescu-Mizil,
+  Jurafsky and Leskovec}]{hamilton2017loyalty}
+\bibinfo{author}{Hamilton, W.L.}, \bibinfo{author}{Zhang, J.},
+  \bibinfo{author}{Danescu-Niculescu-Mizil, C.}, \bibinfo{author}{Jurafsky,
+  D.}, \bibinfo{author}{Leskovec, J.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Loyalty in online communities}, in:
+  \bibinfo{booktitle}{Proceedings of the International {AAAI Conference on
+  Weblogs and Social Media}}, \bibinfo{organization}{NIH Public Access}. p.
+  \bibinfo{pages}{540}.
+%Type = Misc
+\bibitem[{Hill(1965)}]{hill1965environment}
+\bibinfo{author}{Hill, A.B.}, \bibinfo{year}{1965}.
+\newblock \bibinfo{title}{The environment and disease: association or
+  causation?}
+\newblock \DOIprefix\doi{10.1177/003591576505800503}.
+%Type = Article
+\bibitem[{Hinduja and Patchin(2008)}]{hinduja2008cyberbullying}
+\bibinfo{author}{Hinduja, S.}, \bibinfo{author}{Patchin, J.W.},
+  \bibinfo{year}{2008}.
+\newblock \bibinfo{title}{Cyberbullying: An exploratory analysis of factors
+  related to offending and victimization}.
+\newblock \bibinfo{journal}{Deviant behavior} \bibinfo{volume}{29},
+  \bibinfo{pages}{129--156}.
+\newblock \DOIprefix\doi{10.1080/01639620701457816}.
+%Type = Article
+\bibitem[{Howick et~al.(2009)Howick, Glasziou and
+  Aronson}]{howick2009evolution}
+\bibinfo{author}{Howick, J.}, \bibinfo{author}{Glasziou, P.},
+  \bibinfo{author}{Aronson, J.K.}, \bibinfo{year}{2009}.
+\newblock \bibinfo{title}{The evolution of evidence hierarchies: what can
+  {Bradford Hill's} ‘guidelines for causation’contribute?}
+\newblock \bibinfo{journal}{Journal of the Royal Society of Medicine}
+  \bibinfo{volume}{102}, \bibinfo{pages}{186--194}.
+%Type = Article
+\bibitem[{John et~al.(2018)John, Glendenning, Marchant, Montgomery, Stewart,
+  Wood, Lloyd and Hawton}]{John2018Cyberbullying}
+\bibinfo{author}{John, A.}, \bibinfo{author}{Glendenning, A.C.},
+  \bibinfo{author}{Marchant, A.}, \bibinfo{author}{Montgomery, P.},
+  \bibinfo{author}{Stewart, A.}, \bibinfo{author}{Wood, S.},
+  \bibinfo{author}{Lloyd, K.}, \bibinfo{author}{Hawton, K.},
+  \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Self-harm, suicidal behaviours, and cyberbullying in
+  children and young people: Systematic review}.
+\newblock \bibinfo{journal}{Journal of Medical Internet Research}
+  \bibinfo{volume}{20}, \bibinfo{pages}{e129}.
+\newblock \URLprefix \url{https://doi.org/10.2196/jmir.9044},
+  \DOIprefix\doi{10.2196/jmir.9044}.
+%Type = Article
+\bibitem[{Johnson et~al.(2019)Johnson, Leahy, Restrepo, Johnson, Velasquez,
+  Zheng, Manrique, Devkota and Wuchty}]{johnson2019hidden}
+\bibinfo{author}{Johnson, N.}, \bibinfo{author}{Leahy, R.},
+  \bibinfo{author}{Restrepo, N.}, \bibinfo{author}{Johnson},
+  \bibinfo{author}{Velasquez, N.}, \bibinfo{author}{Zheng, M.},
+  \bibinfo{author}{Manrique, P.}, \bibinfo{author}{Devkota, P.},
+  \bibinfo{author}{Wuchty, S.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Hidden resilience and adaptive dynamics of the global
+  online hate ecology}.
+\newblock \bibinfo{journal}{Nature} \bibinfo{volume}{573},
+  \bibinfo{pages}{261--265}.
+\newblock \DOIprefix\doi{10.1038/s41586-019-1494-7}.
+%Type = Article
+\bibitem[{Kelly et~al.(2018)Kelly, Zilanawala, Booker and
+  Sacker}]{kelly2018social}
+\bibinfo{author}{Kelly, Y.}, \bibinfo{author}{Zilanawala, A.},
+  \bibinfo{author}{Booker, C.}, \bibinfo{author}{Sacker, A.},
+  \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Social media use and adolescent mental health:
+  Findings from the uk millennium cohort study}.
+\newblock \bibinfo{journal}{EClinicalMedicine} \bibinfo{volume}{6},
+  \bibinfo{pages}{59--68}.
+\newblock \DOIprefix\doi{10.1016/j.eclinm.2018.12.005}.
+%Type = Article
+\bibitem[{Kircaburun(2016)}]{kircaburun2016self}
+\bibinfo{author}{Kircaburun, K.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Self-esteem, daily {I}nternet use and social media
+  addiction as predictors of depression among {T}urkish adolescents.}
+\newblock \bibinfo{journal}{Journal of Education and Practice}
+  \bibinfo{volume}{7}, \bibinfo{pages}{64--72}.
+%Type = Article
+\bibitem[{Kitazawa et~al.(2018)Kitazawa, Yoshimura, Murata, Sato-Fujimoto,
+  Hitokoto, Mimura, Tsubota and Kishimoto}]{kitazawa2018associations}
+\bibinfo{author}{Kitazawa, M.}, \bibinfo{author}{Yoshimura, M.},
+  \bibinfo{author}{Murata, M.}, \bibinfo{author}{Sato-Fujimoto, Y.},
+  \bibinfo{author}{Hitokoto, H.}, \bibinfo{author}{Mimura, M.},
+  \bibinfo{author}{Tsubota, K.}, \bibinfo{author}{Kishimoto, T.},
+  \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Associations between problematic internet use and
+  psychiatric symptoms among university students in {J}apan}.
+\newblock \bibinfo{journal}{Psychiatry and clinical neurosciences}
+  \bibinfo{volume}{72}, \bibinfo{pages}{531--539}.
+\newblock \DOIprefix\doi{10.1111/pcn.12662}.
+%Type = Book
+\bibitem[{Kruschke(2015)}]{Kruschke2015}
+\bibinfo{author}{Kruschke, J.}, \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{Doing {B}ayesian Data Analysis; A Tutorial with
+  \textsf{R}, \textsf{JAGS}, and \textsf{Stan}}.
+%Type = Article
+\bibitem[{Lampe et~al.(2014)Lampe, Zube, Lee, Park and
+  Johnston}]{lampe2014crowdsourcing}
+\bibinfo{author}{Lampe, C.}, \bibinfo{author}{Zube, P.}, \bibinfo{author}{Lee,
+  J.}, \bibinfo{author}{Park, C.H.}, \bibinfo{author}{Johnston, E.},
+  \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{Crowdsourcing civility: A natural experiment
+  examining the effects of distributed moderation in online forums}.
+\newblock \bibinfo{journal}{Government Information Quarterly}
+  \bibinfo{volume}{31}, \bibinfo{pages}{317--326}.
+\newblock \DOIprefix\doi{10.1016/j.giq.2013.11.005}.
+%Type = Article
+\bibitem[{Lemmens and Gupta(2020)}]{lemmens2020managing}
+\bibinfo{author}{Lemmens, A.}, \bibinfo{author}{Gupta, S.},
+  \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Managing churn to maximize profits}.
+\newblock \bibinfo{journal}{Marketing Science, Forthcoming}
+  \DOIprefix\doi{10.2139/ssrn.2964906}.
+%Type = Article
+\bibitem[{Lucas and McMichael(2005)}]{lucas2005association}
+\bibinfo{author}{Lucas, R.M.}, \bibinfo{author}{McMichael, A.J.},
+  \bibinfo{year}{2005}.
+\newblock \bibinfo{title}{Association or causation: evaluating links between
+  "environment and disease"}.
+\newblock \bibinfo{journal}{Bulletin of the World Health Organization}
+  \bibinfo{volume}{83}, \bibinfo{pages}{792--795}.
+%Type = Article
+\bibitem[{Malik et~al.(2020)Malik, Dhir, Kaur and Johri}]{malik2020correlates}
+\bibinfo{author}{Malik, A.}, \bibinfo{author}{Dhir, A.}, \bibinfo{author}{Kaur,
+  P.}, \bibinfo{author}{Johri, A.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Correlates of social media fatigue and academic
+  performance decrement}.
+\newblock \bibinfo{journal}{Information Technology \& People}
+  \DOIprefix\doi{10.1108/itp-06-2019-0289}.
+%Type = Article
+\bibitem[{Mathew et~al.(2019)Mathew, Illendula, Saha, Sarkar, Goyal and
+  Mukherjee}]{mathew2019temporal}
+\bibinfo{author}{Mathew, B.}, \bibinfo{author}{Illendula, A.},
+  \bibinfo{author}{Saha, P.}, \bibinfo{author}{Sarkar, S.},
+  \bibinfo{author}{Goyal, P.}, \bibinfo{author}{Mukherjee, A.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Temporal effects of unmoderated hate speech in gab}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:1909.10966} .
+%Type = Article
+\bibitem[{Matias(2019)}]{matias2019preventing}
+\bibinfo{author}{Matias, J.N.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Preventing harassment and increasing group
+  participation through social norms in 2,190 online science discussions}.
+\newblock \bibinfo{journal}{Proceedings of the National Academy of Sciences}
+  \bibinfo{volume}{116}, \bibinfo{pages}{9785--9789}.
+\newblock \DOIprefix\doi{10.1073/pnas.1813486116}.
+%Type = Article
+\bibitem[{Meyer and Carey(2014)}]{meyer2014moderation}
+\bibinfo{author}{Meyer, H.K.}, \bibinfo{author}{Carey, M.C.},
+  \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{In moderation: Examining how journalists' attitudes
+  toward online comments affect the creation of community}.
+\newblock \bibinfo{journal}{Journalism Practice} \bibinfo{volume}{8},
+  \bibinfo{pages}{213--228}.
+\newblock \DOIprefix\doi{10.1080/17512786.2013.859838}.
+%Type = Article
+\bibitem[{Mi{\v{s}}kolci et~al.(2020)Mi{\v{s}}kolci, Kov{\'a}{\v{c}}ov{\'a} and
+  Rigov{\'a}}]{mivskolci2020countering}
+\bibinfo{author}{Mi{\v{s}}kolci, J.}, \bibinfo{author}{Kov{\'a}{\v{c}}ov{\'a},
+  L.}, \bibinfo{author}{Rigov{\'a}, E.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Countering hate speech on {F}acebook: The case of the
+  {R}oma minority in {S}lovakia}.
+\newblock \bibinfo{journal}{Social Science Computer Review}
+  \bibinfo{volume}{38}, \bibinfo{pages}{128--146}.
+\newblock \DOIprefix\doi{10.1177/0894439318791786}.
+%Type = Inproceedings
+\bibitem[{Mohan et~al.(2017)Mohan, Guha, Harris, Popowich, Schuster and
+  Priebe}]{mohan2017impact}
+\bibinfo{author}{Mohan, S.}, \bibinfo{author}{Guha, A.},
+  \bibinfo{author}{Harris, M.}, \bibinfo{author}{Popowich, F.},
+  \bibinfo{author}{Schuster, A.}, \bibinfo{author}{Priebe, C.},
+  \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{The impact of toxic language on the health of
+  {R}eddit communities}, in: \bibinfo{booktitle}{Canadian Conference on
+  Artificial Intelligence}, \bibinfo{organization}{Springer}. pp.
+  \bibinfo{pages}{51--56}.
+\newblock \DOIprefix\doi{10.1007/978-3-319-57351-9_6}.
+%Type = Article
+\bibitem[{Munger(2017)}]{munger2017tweetment}
+\bibinfo{author}{Munger, K.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Tweetment effects on the tweeted: Experimentally
+  reducing racist harassment}.
+\newblock \bibinfo{journal}{Political Behavior} \bibinfo{volume}{39},
+  \bibinfo{pages}{629--649}.
+\newblock \DOIprefix\doi{10.1007/s11109-016-9373-5}.
+%Type = Article
+\bibitem[{N{\"a}si et~al.(2014)N{\"a}si, R{\"a}s{\"a}nen, Oksanen, Hawdon,
+  Keipi and Holkeri}]{nasi2014association}
+\bibinfo{author}{N{\"a}si, M.}, \bibinfo{author}{R{\"a}s{\"a}nen, P.},
+  \bibinfo{author}{Oksanen, A.}, \bibinfo{author}{Hawdon, J.},
+  \bibinfo{author}{Keipi, T.}, \bibinfo{author}{Holkeri, E.},
+  \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{Association between online harassment and exposure to
+  harmful online content: A cross-national comparison between the united states
+  and finland}.
+\newblock \bibinfo{journal}{Computers in Human Behavior} \bibinfo{volume}{41},
+  \bibinfo{pages}{137--145}.
+\newblock \DOIprefix\doi{10.1016/j.chb.2014.09.019}.
+%Type = Article
+\bibitem[{Navarro et~al.(2017)Navarro, Clevenger, Beasley and
+  Jackson}]{navarro2017one}
+\bibinfo{author}{Navarro, J.N.}, \bibinfo{author}{Clevenger, S.},
+  \bibinfo{author}{Beasley, M.E.}, \bibinfo{author}{Jackson, L.K.},
+  \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{One step forward, two steps back: Cyberbullying
+  within social networking sites}.
+\newblock \bibinfo{journal}{Security Journal} \bibinfo{volume}{30},
+  \bibinfo{pages}{844--858}.
+\newblock \DOIprefix\doi{10.1057/sj.2015.19}.
+%Type = Article
+\bibitem[{Navarro and Jasinski(2012)}]{navarro2012going}
+\bibinfo{author}{Navarro, J.N.}, \bibinfo{author}{Jasinski, J.L.},
+  \bibinfo{year}{2012}.
+\newblock \bibinfo{title}{Going cyber: Using routine activities theory to
+  predict cyberbullying experiences}.
+\newblock \bibinfo{journal}{Sociological Spectrum} \bibinfo{volume}{32},
+  \bibinfo{pages}{81--94}.
+\newblock \DOIprefix\doi{10.1080/02732173.2012.628560}.
+%Type = Article
+\bibitem[{Navarro and Jasinski(2013)}]{navarro2013girls}
+\bibinfo{author}{Navarro, J.N.}, \bibinfo{author}{Jasinski, J.L.},
+  \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{Why girls? using routine activities theory to predict
+  cyberbullying experiences between girls and boys}.
+\newblock \bibinfo{journal}{Women \& Criminal Justice} \bibinfo{volume}{23},
+  \bibinfo{pages}{286--303}.
+\newblock \DOIprefix\doi{10.1080/08974454.2013.784225}.
+%Type = Article
+\bibitem[{Nixon(2014)}]{nixon2014current}
+\bibinfo{author}{Nixon, C.L.}, \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{Current perspectives: the impact of cyberbullying on
+  adolescent health}.
+\newblock \bibinfo{journal}{Adolescent health, medicine and therapeutics}
+  \bibinfo{volume}{5}, \bibinfo{pages}{143}.
+\newblock \DOIprefix\doi{10.2147/ahmt.s36456}.
+%Type = Article
+\bibitem[{Ortiz-Ospina(2019)}]{ortiz2019rise}
+\bibinfo{author}{Ortiz-Ospina, E.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{The rise of social media}.
+\newblock \bibinfo{journal}{Our World in Data} \bibinfo{volume}{18}.
+\newblock \URLprefix \url{https://ourworldindata.org/rise-of-social-media}.
+%Type = Article
+\bibitem[{Parry et~al.(2021)Parry, Davidson, Sewall, Fisher, Mieczkowski and
+  Quintana}]{Parry2021discrepancies}
+\bibinfo{author}{Parry, D.A.}, \bibinfo{author}{Davidson, B.I.},
+  \bibinfo{author}{Sewall, C.J.R.}, \bibinfo{author}{Fisher, J.T.},
+  \bibinfo{author}{Mieczkowski, H.}, \bibinfo{author}{Quintana, D.S.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{A systematic review and meta-analysis of
+  discrepancies between logged and self-reported digital media use}.
+\newblock \bibinfo{journal}{Nature Human Behaviour} \URLprefix
+  \url{https://doi.org/10.1038/s41562-021-01117-5},
+  \DOIprefix\doi{10.31234/osf.io/f6xvz}.
+%Type = Book
+\bibitem[{Pearl and Mackenzie(2018)}]{pearl2018why}
+\bibinfo{author}{Pearl, J.}, \bibinfo{author}{Mackenzie, D.},
+  \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{The Book of Why: The New Science of Cause and
+  Effect}.
+\newblock \bibinfo{edition}{1st} ed., \bibinfo{publisher}{Basic Books, Inc.},
+  \bibinfo{address}{USA}.
+\newblock \DOIprefix\doi{10.1080/01621459.2020.1721245}.
+%Type = Article
+\bibitem[{Penney(2017)}]{penney2017internet}
+\bibinfo{author}{Penney, J.W.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Internet surveillance, regulation, and chilling
+  effects online: a comparative case study}.
+\newblock \bibinfo{journal}{Internet Policy Review} \bibinfo{volume}{6}.
+\newblock \DOIprefix\doi{10.14763/2017.2.692}.
+%Type = Article
+\bibitem[{Preece et~al.(2004)Preece, Nonnecke and Andrews}]{preece2004top}
+\bibinfo{author}{Preece, J.}, \bibinfo{author}{Nonnecke, B.},
+  \bibinfo{author}{Andrews, D.}, \bibinfo{year}{2004}.
+\newblock \bibinfo{title}{The top five reasons for lurking: improving community
+  experiences for everyone}.
+\newblock \bibinfo{journal}{Computers in human behavior} \bibinfo{volume}{20},
+  \bibinfo{pages}{201--223}.
+\newblock \DOIprefix\doi{10.1016/j.chb.2003.10.015}.
+%Type = Article
+\bibitem[{Ptaszy{\'n}ski et~al.(2018)Ptaszy{\'n}ski, Leliwa, Piech and
+  Smywi{\'n}ski-Pohl}]{ptaszynski2018cyberbullying}
+\bibinfo{author}{Ptaszy{\'n}ski, M.}, \bibinfo{author}{Leliwa, G.},
+  \bibinfo{author}{Piech, M.}, \bibinfo{author}{Smywi{\'n}ski-Pohl, A.},
+  \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Cyberbullying detection--technical report 2/2018,
+  {Department of Computer Science AGH, University of Science and Technology}}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:1808.00926} .
+%Type = Book
+\bibitem[{Ptaszynski and Masui(2018)}]{ptaszynski2018automatic}
+\bibinfo{author}{Ptaszynski, M.E.}, \bibinfo{author}{Masui, F.},
+  \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Automatic Cyberbullying Detection: Emerging Research
+  and Opportunities: Emerging Research and Opportunities}.
+\newblock \bibinfo{publisher}{IGI Global}.
+%Type = Inproceedings
+\bibitem[{Pudipeddi et~al.(2014)Pudipeddi, Akoglu and Tong}]{pudipeddi2014user}
+\bibinfo{author}{Pudipeddi, J.S.}, \bibinfo{author}{Akoglu, L.},
+  \bibinfo{author}{Tong, H.}, \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{User churn in focused question answering sites:
+  characterizations and prediction}, in: \bibinfo{booktitle}{Proceedings of the
+  23rd International Conference on World Wide Web}, pp.
+  \bibinfo{pages}{469--474}.
+\newblock \DOIprefix\doi{10.1145/2567948.2576965}.
+%Type = Article
+\bibitem[{Py{\.z}alski et~al.(2019)Py{\.z}alski, Zdrodowska, Tomczyk and
+  Abramczuk}]{pyzalski2019polish}
+\bibinfo{author}{Py{\.z}alski, J.}, \bibinfo{author}{Zdrodowska, A.},
+  \bibinfo{author}{Tomczyk, {\L}.}, \bibinfo{author}{Abramczuk, K.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Polish research {EU KIDS ONLINE}. the most important
+  results and conclusions}.
+\newblock \bibinfo{journal}{Pozna{\'n}: Wydaw. Uniwersytet Adama Mickiewicza} .
+%Type = Article
+\bibitem[{Raskauskas and Stoltz(2007)}]{raskauskas2007involvement}
+\bibinfo{author}{Raskauskas, J.}, \bibinfo{author}{Stoltz, A.D.},
+  \bibinfo{year}{2007}.
+\newblock \bibinfo{title}{Involvement in traditional and electronic bullying
+  among adolescents.}
+\newblock \bibinfo{journal}{Developmental psychology} \bibinfo{volume}{43},
+  \bibinfo{pages}{564}.
+\newblock \DOIprefix\doi{10.1037/0012-1649.43.3.564}.
+%Type = Phdthesis
+\bibitem[{Raub(2015)}]{raub2015phenomenological}
+\bibinfo{author}{Raub, K.}, \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{A Phenomenological Inquiry into {F}acebook Newcomer
+  Motivations for Participatory Activities}.
+\newblock Ph.D. thesis. Nova Southeastern University.
+%Type = Article
+\bibitem[{R{\"o}sner et~al.(2016)R{\"o}sner, Winter and
+  Kr{\"a}mer}]{rosner2016dangerous}
+\bibinfo{author}{R{\"o}sner, L.}, \bibinfo{author}{Winter, S.},
+  \bibinfo{author}{Kr{\"a}mer, N.C.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Dangerous minds? effects of uncivil online comments
+  on aggressive cognitions, emotions, and behavior}.
+\newblock \bibinfo{journal}{Computers in Human Behavior} \bibinfo{volume}{58},
+  \bibinfo{pages}{461--470}.
+\newblock \DOIprefix\doi{10.1016/j.chb.2016.01.022}.
+%Type = Article
+\bibitem[{Sadeque and Bethard(2019)}]{sadeque2019predicting}
+\bibinfo{author}{Sadeque, F.}, \bibinfo{author}{Bethard, S.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Predicting engagement in online social networks:
+  Challenges and opportunities}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:1907.05442} .
+%Type = Article
+\bibitem[{Saiphoo et~al.(2020)Saiphoo, Halevi and Vahedi}]{saiphoo2020social}
+\bibinfo{author}{Saiphoo, A.N.}, \bibinfo{author}{Halevi, L.D.},
+  \bibinfo{author}{Vahedi, Z.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Social networking site use and self-esteem: A
+  meta-analytic review}.
+\newblock \bibinfo{journal}{Personality and Individual Differences}
+  \bibinfo{volume}{153}, \bibinfo{pages}{109639}.
+\newblock \DOIprefix\doi{10.1016/j.paid.2019.109639}.
+%Type = Article
+\bibitem[{Savim{\"a}ki et~al.(2020)Savim{\"a}ki, Kaakinen, R{\"a}s{\"a}nen and
+  Oksanen}]{savimaki2020disquieted}
+\bibinfo{author}{Savim{\"a}ki, T.}, \bibinfo{author}{Kaakinen, M.},
+  \bibinfo{author}{R{\"a}s{\"a}nen, P.}, \bibinfo{author}{Oksanen, A.},
+  \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Disquieted by online hate: Negative experiences of
+  finnish adolescents and young adults}.
+\newblock \bibinfo{journal}{European Journal on Criminal Policy and Research}
+  \bibinfo{volume}{26}, \bibinfo{pages}{23--37}.
+\newblock \DOIprefix\doi{10.1007/s10610-018-9393-2}.
+%Type = Article
+\bibitem[{Seering et~al.(2019)Seering, Wang, Yoon and
+  Kaufman}]{seering2019moderator}
+\bibinfo{author}{Seering, J.}, \bibinfo{author}{Wang, T.},
+  \bibinfo{author}{Yoon, J.}, \bibinfo{author}{Kaufman, G.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Moderator engagement and community development in the
+  age of algorithms}.
+\newblock \bibinfo{journal}{New Media \& Society} \bibinfo{volume}{21},
+  \bibinfo{pages}{1417--1443}.
+\newblock \DOIprefix\doi{10.1177/1461444818821316}.
+%Type = Article
+\bibitem[{Sheth(2020)}]{sheth2020borderless}
+\bibinfo{author}{Sheth, J.N.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Borderless media: Rethinking international
+  marketing}.
+\newblock \bibinfo{journal}{Journal of International Marketing}
+  \bibinfo{volume}{28}, \bibinfo{pages}{3--12}.
+\newblock \DOIprefix\doi{10.1177/1069031x19897044}.
+%Type = Article
+\bibitem[{Sourander et~al.(2010)Sourander, Klomek, Ikonen, Lindroos, Luntamo,
+  Koskelainen, Ristkari and Helenius}]{sourander2010psychosocial}
+\bibinfo{author}{Sourander, A.}, \bibinfo{author}{Klomek, A.},
+  \bibinfo{author}{Ikonen, M.}, \bibinfo{author}{Lindroos, J.},
+  \bibinfo{author}{Luntamo, T.}, \bibinfo{author}{Koskelainen, M.},
+  \bibinfo{author}{Ristkari, T.}, \bibinfo{author}{Helenius, H.},
+  \bibinfo{year}{2010}.
+\newblock \bibinfo{title}{Psychosocial risk factors associated with
+  cyberbullying among adolescents: A population-based study}.
+\newblock \bibinfo{journal}{Archives of general psychiatry}
+  \bibinfo{volume}{67}, \bibinfo{pages}{720--728}.
+\newblock \DOIprefix\doi{10.1001/archgenpsychiatry.2010.79}.
+%Type = Article
+\bibitem[{Tukey(1949)}]{Tukey1949}
+\bibinfo{author}{Tukey, J.W.}, \bibinfo{year}{1949}.
+\newblock \bibinfo{title}{Comparing individual means in the analysis of
+  variance}.
+\newblock \bibinfo{journal}{Biometrics} \bibinfo{volume}{5},
+  \bibinfo{pages}{99}.
+\newblock \URLprefix \url{https://doi.org/10.2307/3001913},
+  \DOIprefix\doi{10.2307/3001913}.
+%Type = Article
+\bibitem[{Valkenburg et~al.(2006)Valkenburg, Peter and
+  Schouten}]{valkenburg2006friend}
+\bibinfo{author}{Valkenburg, P.M.}, \bibinfo{author}{Peter, J.},
+  \bibinfo{author}{Schouten, A.P.}, \bibinfo{year}{2006}.
+\newblock \bibinfo{title}{Friend networking sites and their relationship to
+  adolescents' well-being and social self-esteem}.
+\newblock \bibinfo{journal}{CyberPsychology \& behavior} \bibinfo{volume}{9},
+  \bibinfo{pages}{584--590}.
+\newblock \DOIprefix\doi{10.1089/cpb.2006.9.584}.
+%Type = Article
+\bibitem[{Weber et~al.(2020)Weber, Viehmann, Ziegele and
+  Schemer}]{weber2020online}
+\bibinfo{author}{Weber, M.}, \bibinfo{author}{Viehmann, C.},
+  \bibinfo{author}{Ziegele, M.}, \bibinfo{author}{Schemer, C.},
+  \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Online hate does not stay online--how implicit and
+  explicit attitudes mediate the effect of civil negativity and hate in user
+  comments on prosocial behavior}.
+\newblock \bibinfo{journal}{Computers in Human Behavior} \bibinfo{volume}{104},
+  \bibinfo{pages}{106192}.
+\newblock \DOIprefix\doi{10.1016/j.chb.2019.106192}.
+%Type = Article
+\bibitem[{Williams et~al.(2020)Williams, Burnap, Javed, Liu and
+  Ozalp}]{williams2020hate}
+\bibinfo{author}{Williams, M.L.}, \bibinfo{author}{Burnap, P.},
+  \bibinfo{author}{Javed, A.}, \bibinfo{author}{Liu, H.},
+  \bibinfo{author}{Ozalp, S.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Hate in the machine: anti-black and anti-muslim
+  social media posts as predictors of offline racially and religiously
+  aggravated crime}.
+\newblock \bibinfo{journal}{The British Journal of Criminology}
+  \bibinfo{volume}{60}, \bibinfo{pages}{93--117}.
+\newblock \DOIprefix\doi{10.1093/bjc/azz049}.
+%Type = Article
+\bibitem[{Wise et~al.(2006)Wise, Hamman and Thorson}]{wise2006moderation}
+\bibinfo{author}{Wise, K.}, \bibinfo{author}{Hamman, B.},
+  \bibinfo{author}{Thorson, K.}, \bibinfo{year}{2006}.
+\newblock \bibinfo{title}{Moderation, response rate, and message interactivity:
+  Features of online communities and their effects on intent to participate}.
+\newblock \bibinfo{journal}{Journal of Computer-Mediated Communication}
+  \bibinfo{volume}{12}, \bibinfo{pages}{24--41}.
+\newblock \DOIprefix\doi{10.1111/j.1083-6101.2006.00313.x}.
+%Type = Article
+\bibitem[{Woods and Scott(2016)}]{woods2016sleepyteens}
+\bibinfo{author}{Woods, H.C.}, \bibinfo{author}{Scott, H.},
+  \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{\# sleepyteens: Social media use in adolescence is
+  associated with poor sleep quality, anxiety, depression and low self-esteem}.
+\newblock \bibinfo{journal}{Journal of adolescence} \bibinfo{volume}{51},
+  \bibinfo{pages}{41--49}.
+\newblock \DOIprefix\doi{10.1016/j.adolescence.2016.05.008}.
+%Type = Misc
+\bibitem[{Wroczynski and Leliwa(2019)}]{wroczynski2019system}
+\bibinfo{author}{Wroczynski, M.}, \bibinfo{author}{Leliwa, G.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{System and method for detecting undesirable and
+  potentially harmful online behavior}.
+\newblock \bibinfo{note}{US Patent App. 16/289,881}.
+%Type = Article
+\bibitem[{Ybarra(2004)}]{ybarra2004linkages}
+\bibinfo{author}{Ybarra, M.L.}, \bibinfo{year}{2004}.
+\newblock \bibinfo{title}{Linkages between depressive symptomatology and
+  internet harassment among young regular internet users}.
+\newblock \bibinfo{journal}{CyberPsychology \& Behavior} \bibinfo{volume}{7},
+  \bibinfo{pages}{247--257}.
+\newblock \DOIprefix\doi{10.1089/109493104323024500}.
+%Type = Article
+\bibitem[{Yeboah and Ewur(2014)}]{yeboah2014impact}
+\bibinfo{author}{Yeboah, J.}, \bibinfo{author}{Ewur, G.D.},
+  \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{The impact of whatsapp messenger usage on students
+  performance in tertiary institutions in ghana}.
+\newblock \bibinfo{journal}{Journal of Education and practice}
+  \bibinfo{volume}{5}, \bibinfo{pages}{157--164}.
+%Type = Article
+\bibitem[{Zong et~al.(2019)Zong, Yang and Bao}]{zong2019social}
+\bibinfo{author}{Zong, W.}, \bibinfo{author}{Yang, J.}, \bibinfo{author}{Bao,
+  Z.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Social network fatigue affecting continuance
+  intention of social networking services}.
+\newblock \bibinfo{journal}{Data Technologies and Applications}
+  \DOIprefix\doi{10.1108/dta-06-2018-0054}.
+
+\end{thebibliography}

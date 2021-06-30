@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: redditAttacksCAS.aux
+The style file: cas-model2-names.bst
+Database file #1: attacks.bib.bib
+Repeated entry---line 832 of file attacks.bib.bib
+ : @article{Sheth2020Borderless
+ :                             ,
+I'm skipping whatever remains of this entry
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 72 entries,
+            2990 wiz_defined-function locations,
+            1231 strings with 23133 characters,
+and the built_in function-call counts, 48323 in all, are:
+= -- 3747
+> -- 1944
+< -- 39
++ -- 771
+- -- 675
+* -- 5336
+:= -- 7063
+add.period$ -- 258
+call.type$ -- 72
+change.case$ -- 584
+chr.to.int$ -- 72
+cite$ -- 72
+duplicate$ -- 3591
+empty$ -- 3452
+format.name$ -- 897
+if$ -- 8949
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 696
+newline$ -- 417
+num.names$ -- 288
+pop$ -- 1232
+preamble$ -- 1
+purify$ -- 513
+quote$ -- 0
+skip$ -- 1070
+stack$ -- 0
+substring$ -- 1922
+swap$ -- 2601
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 636
+warning$ -- 0
+while$ -- 311
+width$ -- 0
+write$ -- 1108
+(There was 1 error message)

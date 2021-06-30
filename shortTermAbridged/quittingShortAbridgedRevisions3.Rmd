@@ -67,7 +67,9 @@ The results can be interpreted as an important signal to social media platforms 
 \vspace{2mm}
 
 
-\noindent \textbf{Disclaimer.} During the course of the study, we have utilized content that is publicly available on \textsf{Reddit.com} and can be accessed via the \textsf{Reddit} API or other similar technologies. This study was not  interventional research. Moreover,  although Reddit usernames are anonymous and usually do not display any personal information, we have additionally anonymized each one of them.  For these reasons, no informed consent was required (following point 8.05 of the \emph{Ethical Principles of Psychologists and Code of Conduct} of the American Psychological Association).\footnote{\textbf{Interests and authorship Disclaimer.}   \textsf{Samurai Labs} contributed 3000 PLN to the funding of this research. \textsf{Samurai Labs} prepared the raw data and results of personal attack recognition, and provided the humanpower to manually check which of 540 outliers  (even after the initial filtering out of bots) were bots. Some computing power was provided by National Science Center research grant number 2016/22/E/HS1/00304. Study design, \textsf{R} code, statistical analyses, their explanation and visualizations are due to Rafal Urbaniak (who has no interest in results going one way or the other, and no incentives related to any specific outcome were involved), theoretical discussion and further editorial work on the manuscript are  joint effort. Full .Rmd file with analysis code and anonymized datasets is available at \href{https://rfl-urbaniak.github.io/redditAttacks/}{https://rfl-urbaniak.github.io/redditAttacks/}.}
+\noindent \textbf{Disclaimer.} During the course of the study, we have utilized content that is publicly available on \textsf{Reddit.com} and can be accessed via the \textsf{Reddit} API or other similar technologies. This study was not  interventional research. Moreover,  although Reddit usernames are anonymous and usually do not display any personal information, we have additionally anonymized each one of them.  For these reasons, no informed consent was required (following point 8.05 of the \emph{Ethical Principles of Psychologists and Code of Conduct} of the American Psychological Association).
+
+\textsf{Samurai Labs} contributed 3000 PLN to the funding of this research. \textsf{Samurai Labs} prepared the raw data and results of personal attack recognition, and provided the humanpower to manually check which of 540 outliers  (even after the initial filtering out of bots) were bots. Some computing power was provided by National Science Center research grant number 2016/22/E/HS1/00304. Study design, \textsf{R} code, statistical analyses, their explanation and visualizations are due to Rafal Urbaniak (who has no interest in results going one way or the other, and no incentives related to any specific outcome were involved), theoretical discussion and further editorial work on the manuscript are  joint effort. Full .Rmd file with analysis code and anonymized datasets is available at \href{https://rfl-urbaniak.github.io/redditAttacks/}{https://rfl-urbaniak.github.io/redditAttacks/}.}
 \normalsize
 
 
@@ -131,14 +133,11 @@ Although SNS have the potential to  improve the users' lives, other studies link
 
 @culpepperexploring recently studied the relationship between social media use in youth and symptoms of depression and anxiety. The research concluded that the amount of time spent on social media and symptoms of depression were strongly correlated, although not that strong correlation was found between the amount of time spent on social media and the symptoms of anxiety. This suggests that some factors of the social media use might cause the increase of such emotions associated with depression as sadness, or powerlessness.
 
-More detailed studies in this matter link the use of social media to the feeling of \textit{fatigue}, defined as a self-regulated and subjective feeling of tiredness that results from using certain SNS platforms. Especially @malik2020correlates investigated whether different aspects of social media use (e.g., online privacy concerns, social comparisons, self-disclosure, intensity of social media use and FOMO, or the \textit{fear of missing out})
- correlate with social media fatigue and academic performance. Their research hypothesis was that all the aforementioned stressors  trigger various emotional states which can be referred to as \textit{social media fatigue}, which was observed to  correlate with  academic performance decrement. 
+More detailed studies on this matter link the use of social media to the feeling of \textit{fatigue}, defined as a self-regulated and subjective feeling of tiredness that results from using certain SNS platforms. Especially @malik2020correlates investigated whether different aspects of social media use (e.g., online privacy concerns, social comparisons, self-disclosure, intensity of social media use and FOMO, or the \textit{fear of missing out})
+ correlate with social media fatigue and academic performance. Their research hypothesis was that all these  stressors  trigger various emotional states which can be referred to as \textit{social media fatigue}, which was observed to  correlate with  academic performance decrement. 
 The first group in that study comprised of 1,398 young adults from India who actively used WhatsApp\footnote{\url{https://www.whatsapp.com/}} attending a full-time master's program at the university, while the second group comprised of  472 young adults who were only attending a distance education course. The following stressors led to social media fatigue: social comparisons, self-disclosure, intensity of use (which was the strongest predictor of the fatigue). Social media fatigue was also found to translate into academic performance decrement, while online privacy concerns and FOMO did not yield as high results.
 
-WhatsApp usage on academic performance was also studied by X, Y, Z\todo{citations, all titles are below this paragraph} with varying conclusions. X reports that there is no significant association between academic performance (students’ GPA) and the usage of WhatsApp. Y found that the influence is positive as long as the dominant use is for study-related purposes. On the contrary, in a study conducted by Z, most students perceive WhatsApp as harming their performance, although here no objective measure of performance was being examined (e.g. GPA), but students’ subjective perception.
-X - The impact of WhatsApp use on academic achievement among Saudi medical students.
-Y - WhatsApp and academic performance among undergraduate students in Ghana
-Z - The impact of WhatsApp messenger usage on students performance in Tertiary Institutions in Ghana.
+WhatsApp usage on academic performance was also studied by @Alkhalaf2018, @Afful2020, and @yeboah2014impact with varying conclusions. @Alkhalaf2018 report that there is no significant association between academic performance (students’ GPA) and the usage of WhatsApp. @Afful2020 found that the influence is positive as long as the dominant use is for study-related purposes. On the contrary, in a study conducted by @yeboah2014impact, most students perceive WhatsApp as harming their performance, although here  students’ subjective perception and  not an objective measure of performance (such as  GPA) was being examined.
 
 
 Although there is some contradicting research on the topic of the relationship between social networking site usage and self-esteem, a meta-analysis performed by @saiphoo2020social indicated a small, negative, and significant relationship. In particular, the relationship was stronger in studies investigating problematic SNS use, which could suggest that higher levels of SNS use could be associated with lower levels of self-esteem.
@@ -251,23 +250,24 @@ They found that the health and toxicity were strongly negatively correlated ($\r
 the impact it had on the health of a subreddit (although the results suggest that when toxicity is low, other factors determined its health).
 Large increases in toxicity led to health decline, while subreddits with stable levels of toxicity more often witnessed growth in health. Authors concluded that in order to develop healthy and growing community, one needs to maintain a stable or decreasing toxicity level. 
 
-\subsection{Other consequences of verbal aggression online}\todo{new section, perhaps to check whether it makes sense}
-Various forms of verbal aggression can also lead to serious legal consequences. Depending on a country or state legislation, cyberbullying is addressed under civil law or criminal law.\footnote{\url{https://www.prevnet.ca/bullying/cyber-bullying/legal-consequences}} In Ontario, Safe School Acts have been changed and now students can be expelled or suspended for cyberbullying (even if the act occurs outside of the school).
-In recent years we have seen more situations in which parents, schools/school districts, perpetrators, or even social media companies were sued and held liable for cyberbullying. In some of the most extreme cases, targeted harassment led to suicide, which calls for even greater responsibility and accountability on all sides.\footnote{\url{https://www.jmir.org/2018/4/e129/}}  
+\subsection{Other consequences of verbal aggression online}
+
+Various forms of verbal aggression can also lead to serious legal consequences. Depending on a country or state legislation, cyberbullying is addressed under civil law or criminal law.\footnote{\url{https://www.prevnet.ca/bullying/cyber-bullying/legal-consequences}} In Ontario, Safe School Acts have been changed and now students can be expelled or suspended for cyberbullying (even if the act occurs outside of the school). 
+In recent years we have seen more situations in which parents, schools or school districts, perpetrators, or even social media companies were sued and held liable for cyberbullying. In some of the most extreme cases, targeted harassment led to suicide, which calls for even greater responsibility and accountability on all sides [@John2018Cyberbullying]. 
 Social media companies can be also now fined up to 50 million euros for failing to remove reported hate speech or other unlawful content within 24 hours.\footnote{\url{https://www.bmjv.de/DE/Themen/FokusThemen/NetzDG/NetzDG_EN_node.html}} Similar laws have been unveiled in the U.K. and France. 
 Also in the business realm, social media companies are facing a loss in profit from advertisement. Big companies unwilling to have their products displayed next to derogatory, extremist, or conspiracy content, are pulling their ads from Facebook or Youtube. This resulted in the alleged loss of millions for Youtube in 2017, when Verizon, Walmart, and other major brands withdrew their ads.\footnote{\url{https://www.theguardian.com/technology/2017/mar/25/google-youtube-advertising-extremist-content-att-verizon}} More recently in 2020 Facebook has been boycotted for the same reason.\footnote{\url{https://www.reuters.com/article/us-facebook-ads-boycott-idUSKBN2424GS}} Although Facebook hires more than 15,000 content moderators who review more than 3 million reports per day,\footnote{\url{https://www.forbes.com/sites/johnkoetsier/2020/06/09/300000-facebook-content-moderation-mistakes-daily-report-says/?sh=3d006d8a54d0 }} as of 2021 brands are still unintentionally placing their ads next to hate speech. In a recent analysis by Nielsen,\footnote{\url{https://www.nielsen.com/us/en/insights/article/2021/offering-hope-not-funding-hate/}} 1,200 URLs have been identified containing hate speech against Asian Americans. There were 5K occurrences of ads being displayed right next to derogatory content. 
 
 
+\subsection{Motiviations for our study}
 
 
-
-The above literature clearly indicates that personal attacks within the social network gradually and consistently decrease user activity and eventually lead to depopulation. The only special situation in which the language of harassment and hate speech could incentivize the users to increase their activity, is when the social network is an environment in which hate speech and extremism are normalized. [@mathew2019temporal] indicate this in their study on Gab.com,\footnote{\url{https://gab.com/}} a social network which prioritizes unrestricted free speech over the comfort of user majority.
-This leads to the emergence of a \textit{group identity} that accepts and values harmful language, which in turn makes some of the most extreme users be perceived in positive light. This also resembles typical mechanisms that occur on extremist (jihadists, far-right activists) forums [@de2008stormfront; @chua2019understanding], and suggests that measures opposite to those functioning on extremist forums should be employed in social networking platforms, which aim at a more civilized and friendly interaction.
+The above literature survey strongly suggests that personal attacks within a social network gradually and consistently decrease user activity and eventually lead to its depopulation. The only special situation in which the language of harassment and hate speech could incentivize the users to increase their activity, is when the social network is an environment in which hate speech and extremism are normalized. [@mathew2019temporal] indicate this in their study on Gab.com,\footnote{\url{https://gab.com/}} a social network which prioritizes unrestricted free speech over the comfort of user majority.
+This leads to the emergence of a \textit{group identity} that accepts and values harmful language, which in turn makes some of the most extreme users be perceived in positive light. This also resembles typical mechanisms that occur on extremist (jihadist, far-right activist) forums [@de2008stormfront; @chua2019understanding], and suggests that measures opposite to those functioning on extremist forums should be employed in social networking platforms, which aim at a more civilized and friendly interaction.
 
 
 
 What is crucial to note is that in all the aforementioned studies a five-point Likert scale or similar were used to measure the variables (e.g., ranging from 1="strongly disagree" to 5="strongly agree"), and the studies \textbf{relied on self-reported data}, which, as the authors often mention themselves, \textbf{do not reflect the full scope of actual processes}, indicating that \textbf{more large-scale quantitative research is necessary} when it comes to measuring the behavioral outcomes of negative experiences online, such as cyberbullying, and personal attacks and their influence on SNS discontinuous usage intention in users.
-As research shows, there is often a discrepancy between declarative data and the actual logged digital media use. (CYTUJEMY https://www.nature.com/articles/s41562-021-01117-5#access-options oraz https://www.sciencedirect.com/science/article/abs/pii/S1071581919300473?via%3Dihub) \todo{citations} Self-reports are contingent on various cognitive biases including social desirability (people are prone to make a socially desirable answer rather than being honest), different interpretations of questions being asked, as well as limited ability of truthful introspection.
+As research shows, there is often a discrepancy between declarative data and the actual logged digital media use [@Parry2021discrepancies; @Ellis2019smartphoneScales].  Self-reports are contingent on various cognitive biases including social desirability (people are prone to make a socially desirable answer rather than being honest), different interpretations of questions being asked, as well as limited ability of truthful introspection.
 
 
 
@@ -299,6 +299,8 @@ The detection of personal attacks was performed using  Samurai, a proprietary te
 
 Figure \ref{fig:samuraiexample} illustrates how the input text ("ccant believ he sad ur an id10+...!") is processed step-by-step utilizing both statistical and symbolic methods.
 
+
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=\linewidth]{../images/example.eps}
@@ -307,7 +309,7 @@ Figure \ref{fig:samuraiexample} illustrates how the input text ("ccant believ he
 \end{figure}
 
 
-In practice, it means that a whole variety of constructions can be detected without the need to construct a fixed list of dictionary words defined \textit{a priori}. Due to utilizing symbolic components that oversee statistical components, {\textsf Samurai} recognizes complex linguistic phenomena (such as indirect speech, rhetorical figures or counter-factual expressions) to distinguish personal attacks from normal communication, greatly reducing the number of false alarms as compared to others systems used for violence detection. An example of comparison can be seen in Figure \ref{fig:samuraiexample}, and a full benchmark was presented in [@ptaszynski2018cyberbullying].
+In practice, it means that a whole variety of constructions can be detected without the need to construct a fixed list of dictionary words defined \textit{a priori}. By to utilizing symbolic components that oversee statistical components, \textsf{Samurai} recognizes complex linguistic phenomena (such as indirect speech, rhetorical figures or counter-factual expressions) to distinguish personal attacks from normal communication, greatly reducing the number of false alarms as compared to other systems used for verbal violence detection. An example of comparison can be seen in Figure \ref{fig:samuraiexample}, and a full benchmark was presented in [@ptaszynski2018cyberbullying].
 
 <!-- \subsection{Description and evaluation of applied detection models} -->
 
@@ -320,8 +322,8 @@ We decided to set apart the "narrow" and "wide" subgroups of the detection model
 Thirdly, we randomly picked at most hundred returned results for each low-level model\footnote{Low-level models are responsible for detecting low-level categories. Similarly, mid-level models detect mid-level categories, by combining several low-level models, etc.} (some models are triggered very often while others rarely, so using all instances would create too much bias). There were 390 low-level models but many of them returned in less than 100 results. We verified them manually with the help of expert annotators trained in detection of personal attacks and selected only those models that achieved at least 90\% of precision. The models with fewer than 100 returned results were excluded from the selection. After this step, the "narrow" subgroup contained 43 out of 390 low-level models. Finally, we tested 
 all of the "narrow" models on a large dataset of 477,851 Reddit comments collected between 2019/06/01 and 2019/08/31 from two subreddits (r/MensRights and r/TooAfraidToAsk). Each result of the "narrow" models was verified manually by a trained annotator and the "narrow" models collectively achieved over 93.3\% of precision. We also tested the rest of the "wide" models on random samples of 100 results for each model (from the previous dataset of 320,000 Reddit comments) and we excluded the models that achieved less than 80\% precision. The models with fewer than 100 results were not excluded from the "wide" group. In this simple setup we detected 24,251 texts containing "wide" attacks, where:
 \begin{itemize}
-\item  5,717 (23.6\%) contained personal attacks against second person detected by the "narrow" models,
-\item  8,837 (36.4\%) contained personal attacks against second person detected by "wide" models
+\item  5,717 (23.6\%) contained personal attacks against a second person detected by the "narrow" models,
+\item  8,837 (36.4\%) contained personal attacks against a second person detected by "wide" models
 % the models other than "narrow",
 \item  10,023 (41.3\%) contained personal attacks against third persons / groups.
 The sum exceeds 100\% because some of the comments contained personal attacks against both second person and third person / groups. For example, a comment ``Fu$\ast\ast$ you a$\ast\ast$hole, you know that girls from this school are real bit$\ast\ast$es" contains both types of personal attack.
@@ -338,7 +340,7 @@ Reddit user activity}
 <!-- The theory under consideration is that being a victim of personal attacks on Social Networking Service (SNS) platforms, such as \textsf{Reddit}, discourages users from participating in discussions  on that platform. We develop and investigate a short-term hypothesis suggested by this theory: that being a victim of personal attacks (as recognized by [\textsf{Samurai Labs}](https://www.samurailabs.ai/) software) decreases one's activity over the week following the offense as compared to the week before. Of course, \emph{prima facie} other options are also possible: perhaps, such an attack (1) causes no change in user activity, or perhaps, it (2) makes the user even more involved in discussions. This study is meant as a step towards understanding which of these is more probable.  -->
 
 
-At this point we move on to the presentation of our observational study. It is crucial to emphasize that due to space limitations  some technical details and methodological decisions have not been fully explained in the publication, but we did our best to expand on such issues in the online documentation of the study.
+At this point we move on to the presentation of our observational study. It is crucial to emphasize that due to space limitations  some technical details and methodological decisions have not been fully explained in the publication, but we did our best to expand on such issues in the online documentation of the study available at \href{https://rfl-urbaniak.github.io/redditAttacks/}{https://rfl-urbaniak.github.io/redditAttacks/}.
 
 
 \subsection{Study design and data collection}
@@ -394,7 +396,7 @@ First, we visually explore our dataset by looking at the relationship between th
 
 \footnotesize
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300}
+```{r hihgplot,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300}
 library(ggthemes)
 th <- theme_tufte()
 highPlot <- ggplot(data, aes(x = sumHighBefore, y = activityDiff))+geom_jitter(size=0.8, alpha = 0.3)+
@@ -417,7 +419,7 @@ ggplot(data, aes(x = sumHighBefore, y = activityDiff))+geom_jitter(size=1, alpha
 
 
 \begin{figure}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%", dpi = 300, message = FALSE, warning = FALSE}
+```{r hihgplot2,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%", dpi = 300, message = FALSE, warning = FALSE}
 highPlot+ sizes
 ```
 \caption{Narrow attacks vs. weekly activity change (jittered), with  linear and gam smoothing.}
@@ -517,7 +519,7 @@ propPlotLowOnly <- ggplot(data, aes(x = sumLowBefore-sumHighBefore, y = activity
 <!-- \noindent \begin{tabular}{ll} -->
 <!-- \begin{minipage}[c]{0.58\linewidth} -->
 \begin{figure}[H]
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+```{r propPlotHigh,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
 propPlotHigh + sizes
 ```
 \caption{Impact of attacks  on proportional activity change.}
@@ -717,7 +719,7 @@ kable_styling(latex_options = c("striped","scale_down","HOLD_position"),font_siz
 
 
 \begin{figure}[h!]
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "95%", dpi = 300, message = FALSE, warning = FALSE}
+```{r highTableBar,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "95%", dpi = 300, message = FALSE, warning = FALSE}
 highTableBar +sizes
 ```
 \caption{T-test estimation of activity change by narrow attacks received. All available t-tests.}
@@ -994,7 +996,7 @@ in different groups.
 <!-- \begin{tabular}{ll} -->
 <!-- \begin{minipage}[c]{0.4\linewidth} -->
 \begin{figure}[H]
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+```{r priorWide,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
 priorWide <- ggplot(data = data.frame(x = c(-200, 200)), aes(x)) +
   stat_function(fun = dnorm, args = list(mean = 0, sd = 50)) + ylab("") +
   scale_y_continuous(breaks = NULL)+th+xlab("expected activity change")+labs(title = "Wide prior", subtitle ="Normal prior with m = 0, sd = 50")
@@ -1114,7 +1116,7 @@ wideBayesBar <- ggplot(wideBayesTable)+ geom_bar(aes(x=attacks,y=wideMeans),
 
 
 \begin{figure}[H]
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+```{r BayesianWideDensities,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
 BayesianWideDensities+sizes
 ```
 \caption{Posterior distribution for $\geq 2$ attacks and wide priors (lower number of attacks removed, because their high density would adversely affect visibility, see the barplot below for results).}
@@ -1128,7 +1130,7 @@ BayesianWideDensities+sizes
 <!-- \begin{tabular}{ll} -->
 <!-- \begin{minipage}[c]{0.6\linewidth} -->
 \begin{figure}[H]
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+```{r wideBayesBar,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
 wideBayesBar+sizes
 ```
 \caption{Posterior means and HDI limits for the wide prior.}
@@ -1230,7 +1232,7 @@ poissonFitPlot <- ggplot(activityAfterDf, aes(x = Var1, y  = Freq))+ geom_bar( s
 <!-- \begin{minipage}[c]{0.6\linewidth} -->
 
 \begin{figure}[H]
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
+```{r poissonFitPlot,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
 poissonFitPlot +sizes
 ```
 \caption{Poor performance of best-fitting Poisson distribution.}
@@ -1275,7 +1277,7 @@ poissonNbinPlot2 <- ggplot(activityAfterDf, aes(x = Var1, y  = Freq))+ geom_bar(
 <!-- \begin{tabular}{ll} -->
 <!-- \begin{minipage}[c]{0.6\linewidth} -->
 \begin{figure}[H]
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
+```{r poissonNbinPlot2,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
 poissonNbinPlot2 +sizes
 ```
 \caption{Somewhat better performance of best-fitting negative binomial distribution.}
@@ -1653,7 +1655,7 @@ To make sure our choice to use the hurdle model was not crucial for these result
 
 \begin{figure}
 \centering
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
+```{r effLO,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effLO+ggtitle("Predicted (hurdle) effect of wide only attacks on comments")+xlab("wide only attacks")+sizes
 ```
 \end{figure}
@@ -1661,21 +1663,21 @@ effLO+ggtitle("Predicted (hurdle) effect of wide only attacks on comments")+xlab
 
 \begin{figure}
 \centering
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
+```{r effH,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effH+ggtitle("Predicted (hurdle) effect of narrow attacks on comments")+xlab("narrow attacks")+sizes
 ```
 \end{figure}
 
 \begin{figure}
 \centering
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
+```{r effPl,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effPl+ggtitle("Predicted (hurdle) effect of wide attacks on posts")+xlab("wide attacks")+sizes
 ```
 \end{figure}
 
 \begin{figure}
 \centering
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
+```{r effPh,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effPh+ggtitle("Predicted (hurdle) effect of narrow attacks on posts")+xlab("narrow attacks")+sizes
 ```
 \end{figure}
@@ -1683,7 +1685,7 @@ effPh+ggtitle("Predicted (hurdle) effect of narrow attacks on posts")+xlab("narr
 \begin{figure}
 
 \centering
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
+```{r effA,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effA+ggtitle("Predicted (hurdle) effect of previous activity")+xlab("activity before")+sizes
 ```
 
@@ -1716,31 +1718,31 @@ effAZ  <- effSizePlotZ(5,200,20)    #abefore
 \begin{figure}
 \centering
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
+```{r effLOZ,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effLOZ+ggtitle("Predicted (zero-inflated) effect of wide only attacks on comments")+xlab("wide only attacks")+sizes
 ```
 \end{figure}
 
 \begin{figure}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
+```{r effHZ,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effHZ+ggtitle("Predicted (zero-inflated) effect of narrow attacks on comments")+xlab("narrow attacks")+sizes
 ```
 \end{figure}
 
 \begin{figure}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
+```{r effPlZ,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effPlZ+ggtitle("Predicted (zero-inflated) effect of wide attacks on posts")+xlab("wide attacks")+sizes
 ```
 \end{figure}
 
 \begin{figure}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
+```{r effPhZ,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effPhZ+ggtitle("Predicted (zero-inflated) effect of narrow attacks on posts")+xlab("narrow attacks")+sizes
 ```
 \end{figure}
 
 \begin{figure}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
+```{r effAZ,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "85%",message=FALSE, warning= FALSE}
 effAZ+ggtitle("Predicted (zero-inflated) effect of previous activity")+xlab("activity before")+sizes
 ```
 \caption{Predicted effects of selected variables on activity with other variables fixed at their mean values, zero-inflated model.}
@@ -1806,7 +1808,7 @@ distance <- function(x) { x - mean(data$sumHighBefore)}
 <!-- \begin{tabular}{ll} -->
 <!-- \begin{minipage}[c]{0.46\linewidth} -->
 \begin{figure}[H]
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+```{r before,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
 attacksb <- 0:8 
 maxb <- max(attacks)
 lowb <- numeric(max+1)
@@ -1867,7 +1869,7 @@ The impression of regression to the mean disappears when we look at \textsf{acti
 
 
 \begin{figure}[H]
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+```{r distance,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
 h0 <- data[data$sumHighBefore == 0,]
 h1 <- data[data$sumHighBefore == 1,]
 h2 <- data[data$sumHighBefore == 2,]
@@ -2051,7 +2053,7 @@ Observe also that [@chandrasekharan2017you]  (and also [@pudipeddi2014user], tho
 
 
 
-In the near future we plan to perform a more long-term study on the same social media platform (Reddit) to investigate  the impact personal attacks have in a longer perspective, and how they are related to users completely abandoning the use. This will give us a clear yellow- and red-alert threshold methods useful for SNS providers to triage their moderation efforts in case of being flooded with reports. Another examination will be based on psycholinguistic and other types of features of users' comments before and after the attacks were received. As we suspect, there might be a difference not only in the frequency of comments being posted but also in its characteristics (e.g. topic, sentiment, etc.). \todo{new - added to future work, perhaps to check whether it makes sense}
+In the near future we plan to perform a longer-term study on the same social media platform (Reddit) to investigate  the impact personal attacks have in a longer perspective, and how they are related to users completely abandoning the use. This will give us a clear yellow- and red-alert threshold methods useful for SNS providers to triage their moderation efforts in case of being flooded with reports. Another examination will be based on psycholinguistic and other types of features of users' comments before and after the attacks were received. As we suspect, there might be a difference not only in the frequency of comments being posted but also in its characteristics (e.g. topic, sentiment, etc.). 
 
 We  also plan to  study  situations in which the users have not only regained their activity levels, but their situation improved leading to an even greater engagement. From our research so far, based on anecdotal examples found in the analyzed dataset, we can suspect that such situations are  possible, but for them to take place a helping and proactive activity from other users is necessary, e.g., when a number of users support the victim and oppose the attacker. Moreover, we noticed that when other users are capable of mitigating the conflict, especially with empathetic engagement, it is possible to not only help the victim, but also resolve the conflict, which is the optimal way the events can  unfold. Not only  from the point of view of all the sides of the conflict, but also from the perspective of the SNS providers, as keeping the health of SNS platform in good shape is crucial to assure its sustainable growth and stop depopulation.
 

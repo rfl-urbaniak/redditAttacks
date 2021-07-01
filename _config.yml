@@ -24,7 +24,7 @@ plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-t
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 title:		           'Personal attacks on Reddit'
 description:	       '</br> A study of their impact on user activity </br>'
-author:              'Rafal Urbaniak'
+author:              'Rafal Urbaniak, Michał Ptaszyński, Patrycja Tempska, Gniewosz Leliwa, Maciej Brochocki, Michał Wroczyński'
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
 #feed:

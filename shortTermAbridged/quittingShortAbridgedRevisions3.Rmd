@@ -525,6 +525,8 @@ propPlotHigh + sizes
 \caption{Impact of attacks  on proportional activity change.}
 \label{fig:propActivity}
 \end{figure}
+
+
 <!-- \end{minipage} & \begin{minipage}[c]{0.34\linewidth} -->
 Fig. \ref{fig:highPlots} visualizes the  activity change in terms of weekly counts. However, arguably, a change of -20 for a user who posts 500 times a week has different weight than for a user who posts 30 times. For this reason, we  also need to  look at changes in proportion, calculated by taking $\mathsf{activityScore} =  \nicefrac{\mathsf{activityDifference}}{\mathsf{activityBefore}}$.
 We zoom in to densely populated areas of the plot for \textsf{activityScore} as a function of  attacks in Figure \ref{fig:propActivity}.  The impact is still negative, more so for \textsf{narrow} attacks, and less so for other types. For mathematical reasons the score minimum is -1 (user activity cannot drop more than 100\%).
@@ -1870,6 +1872,12 @@ The impression of regression to the mean disappears when we look at \textsf{acti
 
 \begin{figure}[H]
 ```{r distance,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+titleSize <- 11
+subtitleSize <- 10
+axisSize <- 9
+sizes <-  theme(plot.title = element_text(size=titleSize), 
+                plot.subtitle = element_text(size=subtitleSize),
+                axis.title=element_text(size=axisSize))
 h0 <- data[data$sumHighBefore == 0,]
 h1 <- data[data$sumHighBefore == 1,]
 h2 <- data[data$sumHighBefore == 2,]
@@ -1887,6 +1895,12 @@ ggplot(h3, aes(x = distance(activityBefore),y = activityScore))+geom_point(alpha
 )+ggtitle("3 narrow attacks")+ylab("proportional activity change")+sizes,
 ggplot(h4, aes(x = distance(activityBefore),y = activityScore))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
 )+ggtitle("4 narrow attacks")+ylab("proportional activity change")+sizes)
+titleSize <- 16
+subtitleSize <- 14
+axisSize <- 13
+sizes <-  theme(plot.title = element_text(size=titleSize), 
+                plot.subtitle = element_text(size=subtitleSize),
+                axis.title=element_text(size=axisSize))
 ```
 \caption{Distance from sample mean vs. activity score, grouped by the number of attacks (plot for 1 narrow attack omitted, as it is visually not too distinct from the one for 0 attacks).}
 \label{fig:regression2}

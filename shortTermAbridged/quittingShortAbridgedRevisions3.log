@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.7.16)  30 JUN 2021 08:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.7.16)  1 JUL 2021 07:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2257,14 +2257,14 @@ Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/bef
 ore-1.pdf  used on input line 1734.
 (pdftex.def)             Requested size: 380.70071pt x 258.94508pt.
 [27]
-<quittingShortAbridgedRevisions3_files/figure-latex/distance-1.pdf, id=542, 457
-.71pt x 317.185pt>
+<quittingShortAbridgedRevisions3_files/figure-latex/distance-1.pdf, id=542, 456
+.70625pt x 316.18124pt>
 File: quittingShortAbridgedRevisions3_files/figure-latex/distance-1.pdf Graphic
  file (type pdf)
 <use quittingShortAbridgedRevisions3_files/figure-latex/distance-1.pdf>
 Package pdftex.def Info: quittingShortAbridgedRevisions3_files/figure-latex/dis
 tance-1.pdf  used on input line 1752.
-(pdftex.def)             Requested size: 380.70937pt x 263.82489pt.
+(pdftex.def)             Requested size: 380.71071pt x 263.56895pt.
 [28 <./quittingShortAbridgedRevisions3_files/figure-latex/before-1.pdf>] [29 <.
 /quittingShortAbridgedRevisions3_files/figure-latex/distance-1.pdf>] [30] [31] 
 [32] [33] [34] [35] [36] [37]
@@ -2282,7 +2282,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2518.
 Here is how much of TeX's memory you used:
  30414 strings out of 492982
  527882 string characters out of 6134896
- 693652 words of memory out of 5000000
+ 693651 words of memory out of 5000000
  32837 multiletter control sequences out of 15000+600000
  113053 words of font info for 410 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2300,7 +2300,7 @@ e/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
 mes/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb
 >
-Output written on quittingShortAbridgedRevisions3.pdf (37 pages, 1477651 bytes)
+Output written on quittingShortAbridgedRevisions3.pdf (37 pages, 1477281 bytes)
 .
 PDF statistics:
  854 PDF objects out of 1000 (max. 8388607)

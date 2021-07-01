@@ -28,6 +28,7 @@
 %\usepackage[authoryear]{natbib}
 \usepackage[scaled=0.86]{helvet}
 \usepackage{nicefrac}
+\usepackage[utf8]{inputenc}
 \usepackage[authoryear,longnamesfirst]{natbib}
 
 %%%Author macros
@@ -65,8 +66,9 @@
 % eg: \tnotetext[1]{Title footnote text}
 \tnotetext[1]{During the course of the study, we have utilized content that is publicly available on \textsf{Reddit.com} and can be accessed via the \textsf{Reddit} API or other similar technologies. This study was not  interventional research. Moreover,  although Reddit usernames are anonymous and usually do not display any personal information, we have additionally anonymized each one of them.  For these reasons, no informed consent was required (following point 8.05 of the \emph{Ethical Principles of Psychologists and Code of Conduct} of the American Psychological Association).}
  
-
-\tnotetext[2]{ \textsf{Samurai Labs} contributed 3000 PLN to the funding of this research. \textsf{Samurai Labs} prepared the raw data and results of personal attack recognition, and provided the humanpower to manually check which of 540 outliers  (even after the initial filtering out of bots) were bots. Some computing power was provided by National Science Center research grant number 2016/22/E/HS1/00304. Study design, \textsf{R} code, statistical analyses, their explanation and visualizations are due to Rafal Urbaniak (who has no interest in results going one way or the other, and no incentives related to any specific outcome were involved), theoretical discussion and further editorial work on the manuscript are  joint effort. Full .Rmd file with analysis code and anonymized datasets is available at \href{https://rfl-urbaniak.github.io/redditAttacks/}{https://rfl-urbaniak.github.io/redditAttacks/}.}
+%%TODO
+\tnotetext[2]{ \textsf{Samurai Labs} contributed 3000 PLN to the funding of this research. \textsf{Samurai Labs} prepared the raw data and results of personal attack recognition, and provided the humanpower to manually check which of 540 outliers  (even after the initial filtering out of bots) were bots. Some computing power was provided by National Science Center research grant number 2016/22/E/HS1/00304. The following authors have affiliation and involvement in Samurai Labs: Micha{\l } 
+Ptaszy{\'n}ski, Patrycja Tempska, Gniewosz Leliwa, Maciej Brochocki, Micha{\l } Wroczyński--- they are  either co-founders or employees of Samurai Labs. Study design, \textsf{R} code, statistical analyses, their explanation and visualizations are due to Rafal Urbaniak (who has no interest in results going one way or the other, and no incentives related to any specific outcome were involved), theoretical discussion and further editorial work on the manuscript are  joint effort. Full .Rmd file with analysis code and anonymized datasets is available at \href{https://rfl-urbaniak.github.io/redditAttacks/}{https://rfl-urbaniak.github.io/redditAttacks/}.}
 
 
 % First author
@@ -84,7 +86,6 @@
 %       gplus=<gplus id>]
 
 \author[1]{Rafal Urbaniak}[
-prefix = Dr.,
 orcid = 0000-0002-6321-2866]
 
 % Corresponding author indication
@@ -101,11 +102,11 @@ orcid = 0000-0002-6321-2866]
 
 % Credit authorship
 % eg: \credit{Conceptualization of this study, Methodology, Software}
-\credit{Study design, data wrangling, statistical analyses, explanations and visualisations}
+\credit{Methodology, Formal analysis, Data Curation, Writing -- Original Draft, Writing -- Review \& Editing, Visualization}
 
 % Address/affiliation
 \affiliation[1]{organization={University of Gdansk},
-            addressline={ul. Ba{\.z}ynskiego 8}, 
+            addressline={ul. Bażyńskiego 8}, 
             city={Gdansk},
 %          citysep={}, % Uncomment if no comma needed between city and postcode
             postcode={80-209}, 
@@ -118,25 +119,27 @@ orcid = 0000-0002-6321-2866]
 
 
 
-%%TODO: add author details
 
+
+
+%%TODO: add author details
+ 
 
 \author[2]{Micha{\l} Ptaszy{\'n}ski}[
-prefix = Dr.,
 orcid = 0000-0002-1910-9183]
 % Email id of the author
-\ead{EMAIL}
+\ead{michal.ptaszynski@gmail.com}
 % URL of the author
-\ead[url]{URL}
+\ead[url]{http://arakilab.media.eng.hokudai.ac.jp/~ptaszynski/ }
 % Credit authorship
 % eg: \credit{Conceptualization of this study, Methodology, Software}
-\credit{CREDIT}
+\credit{Conceptualization, Validation, Investigation, Resources, Writing -- Original Draft, Writing -- Review \& Editing}
 % Address/affiliation
 \affiliation[2]{organization={Kitami Institute of Technology},
-            addressline={ADDRESS}, 
-            city={CITY},
+            addressline={165 Koen-cho kitami}, 
+            city={Hokkaido},
 %          citysep={}, % Uncomment if no comma needed between city and postcode
-            postcode={POST CODE}, 
+            postcode={090-8507}, 
 %            state={Pomorskie},
             country={Japan}}
 
@@ -144,55 +147,56 @@ orcid = 0000-0002-1910-9183]
 
 \author[3]{Patrycja Tempska}[]
 % Email id of the author
-\ead{EMAIL}
+\ead{patrycja@samurailabs.com}
 % URL of the author
-\ead[url]{URL}
+\ead[url]{https://www.linkedin.com/in/patrycjatempska/}
 % Credit authorship
 % eg: \credit{Conceptualization of this study, Methodology, Software}
-\credit{CREDIT}
+\credit{Conceptualization, Validation, Investigation, Resources, Writing -- Original Draft, Writing -- Review \& Editing, Data Curation, Project administration}
 % Address/affiliation
 \affiliation[3]{organization={Samurai Labs},
-            addressline={ADDRESS}, 
-            city={CITY},
+            addressline={\mbox{Aleja Zwycięstwa 96/98}}, 
+            city={Gdynia},
 %          citysep={}, % Uncomment if no comma needed between city and postcode
-            postcode={POST CODE}, 
+            postcode={81-451}, 
 %            state={Pomorskie},
-            country={COUNTRY}}
+            country={Poland}}
+
 
 
 
 \author[3]{Gniewosz Leliwa}[]
 % Email id of the author
-\ead{EMAIL}
+\ead{gniewosz@samurailabs.com}
 % URL of the author
-\ead[url]{URL}
+\ead[url]{https://www.linkedin.com/in/leliwa/}
 % Credit authorship
 % eg: \credit{Conceptualization of this study, Methodology, Software}
-\credit{CREDIT}
+\credit{Conceptualization, Software, Writing -- Original Draft, Data Curation, Investigation}
 % Address/affiliation
 
 
 
 \author[3]{Maciej Brochocki}[]
 % Email id of the author
-\ead{EMAIL}
+\ead{Maciej.brochocki@samurailabs.com}
 % URL of the author
-\ead[url]{URL}
+\ead[url]{https://www.linkedin.com/in/maciejbrochocki/}
 % Credit authorship
 % eg: \credit{Conceptualization of this study, Methodology, Software}
-\credit{CREDIT}
+\credit{Software, Data Curation, Investigation}
 % Address/affiliation
 
 
 
 \author[3]{Micha{\l} Wroczy{\'n}ski}[]
 % Email id of the author
-\ead{EMAIL}
+\ead{michal@samurailabs.com}
 % URL of the author
-\ead[url]{URL}
+\ead[url]{https://www.linkedin.com/in/michalwroczynski/}
 % Credit authorship
 % eg: \credit{Conceptualization of this study, Methodology, Software}
-\credit{CREDIT}
+\credit{Conceptualization, Funding acquisition, Supervision}
 % Address/affiliation
 
 
@@ -220,10 +224,13 @@ The results can be interpreted as an important signal to social media platforms 
 
 % Research highlights
 \begin{highlights}
-\item 
-\item 
-\item 
+\item Exploration of the effects of online personal attacks on victims' activity on social media (Reddit).
+\item  First large-scale (150K users who generated more than 180K comments), behavioral analysis that uses a high-precision Artificial Intelligence system and is not based on self-reported data.
+\item Data analysis conducted from three perspectives: (1)~classical statistical methods, (2)~Bayesian estimation, and (3)~model-theoretic analysis with hurdle and zero-inflated models.
+\item  Personal attacks received online significantly decrease victims' online activity.
 \end{highlights}
+
+
 
 % Keywords
 % Each keyword is seperated by \sep
@@ -240,7 +247,7 @@ The results can be interpreted as an important signal to social media platforms 
 Recent decade brought an exponential growth of social networking services (SNS) and associated with them social media platforms \citep{ortiz2019rise,sheth2020borderless},
  with Facebook\footnote{\url{https://www.facebook.com/}} closing in on 2.85 billion users (one third of world population), YouTube\footnote{\url{https://www.youtube.com/}} on close to 2 billion, with smaller scale platforms such as Twitter\footnote{\url{https://www.twitter.com/}} and Reddit\footnote{\url{https://www.reddit.com/}} converging on around 350 million and over 430 million respectively (equivalent to the entire population of the United States of America). 
 
-At the same time social media have witnessed an over ten percentage-point drop in growth rate between 2012 and 2018,\footnote{\url{https://www.searchenginejournal.com/growth-social-media-v-3-0-infographic/}} which suggests that the market is reaching over-satiation [@andersen2001satiation] and most social media platforms will struggle for sustainable growth.
+At the same time social media have witnessed an over ten percentage-point drop in growth rate between 2012 and 2018,\footnote{\url{https://www.searchenginejournal.com/growth-social-media-v-3-0-infographic/}} which suggests that the market is reaching over-satiation \citep{andersen2001satiation}  and most social media platforms will struggle for sustainable growth.
 This leads to a shift from quantity-based to quality-based growth policy, meaning that most social networking platforms will need to focus not on how many new users to invite, but rather on how to keep the existing users from leaving the platform and at the same time keep them actively engaged.
 
 One problem growing within the SNS that  seriously hinders user engagement is  cyberbullying and various forms of Internet harassment \citep{ptaszynski2018automatic}. The global increase of the numbers of Internet harassment cases has been related to the perceived anonymity and thus the sense of impunity in users 
@@ -258,7 +265,7 @@ First, we present a thorough overview of the literature  on how social networks 
 
 The paper is organized as follows.
 Section \ref{literaturereview} presents our review of the research on (1)  factors influencing user behavior in social media in general, (2) specific effects of online harassment on user behavior, and in particular (3) factors that influence users' continuous participation in SNS. 
-Next, in Section \ref{technology} we describe the technology we applied, which is both in line with general accounts of personal attacks present in psychology, and feasible from the technological point of view, and argue that the technology is sufficiently precise for the current study. Section \ref{quantanalysis} contains an in-depth large-scale analysis of Reddit messages and personal attacks  with the help of the technology provided by [\textsf{Samurai Labs}](https://www.samurailabs.ai/). We expand on the findings and discuss their more general meaning and importance, as well as limitations of this study in Section \ref{discussion}. Finally,  we conclude the paper and indicate  further paths to explore.
+Next, in Section \ref{technology} we describe the technology we applied, which is both in line with general accounts of personal attacks present in psychology, and feasible from the technological point of view, and argue that the technology is sufficiently precise for the current study. Section \ref{quantanalysis} contains an in-depth large-scale analysis of Reddit messages and personal attacks  with the help of the technology provided by \textsf{Samurai Labs}\footnote{\url{https://www.samurailabs.ai/.}} We expand on the findings and discuss their more general meaning and importance, as well as limitations of this study in Section \ref{discussion}. Finally,  we  indicate  further paths to explore.
 
 
 
@@ -279,7 +286,7 @@ More detailed studies on this matter link the use of social media to the feeling
  correlate with social media fatigue and academic performance. Their research hypothesis was that all these  stressors  trigger various emotional states which can be referred to as \textit{social media fatigue}, which was observed to  correlate with  academic performance decrement. 
 The first group in that study comprised of 1,398 young adults from India who actively used WhatsApp\footnote{\url{https://www.whatsapp.com/}} attending a full-time master's program at the university, while the second group comprised of  472 young adults who were only attending a distance education course. The following stressors led to social media fatigue: social comparisons, self-disclosure, intensity of use (which was the strongest predictor of the fatigue). Social media fatigue was also found to translate into academic performance decrement, while online privacy concerns and FOMO did not yield as high results.
 
-WhatsApp usage on academic performance was also studied in \citep{Alkhalaf2018, Afful2020, yeboah2014impact} with varying conclusions. \citet{Alkhalaf2018} report that there is no significant association between academic performance (students’ GPA) and the usage of WhatsApp. \citet{Afful2020} found that the influence is positive as long as the dominant use is for study-related purposes. On the contrary, in a study conducted by \citet{yeboah2014impact}, most students perceive WhatsApp as harming their performance, although here  students' subjective perception and  not an objective measure of performance (such as  GPA) was being examined.
+WhatsApp usage on academic performance was also studied in \citep{Alkhalaf2018, Afful2020, yeboah2014impact} with varying conclusions. \citet{Alkhalaf2018} report that there is no significant association between academic performance (students' GPA) and the usage of WhatsApp. \citet{Afful2020} found that the influence is positive as long as the dominant use is for study-related purposes. On the contrary, in a study conducted by \citet{yeboah2014impact}, most students perceive WhatsApp as harming their performance, although here  students' subjective perception and  not an objective measure of performance (such as  GPA) was being examined.
 
 
 Although there is some contradicting research on the topic of the relationship between social networking site usage and self-esteem, a meta-analysis performed by \citet{saiphoo2020social} indicated a small, negative, and significant relationship. In particular, the relationship was stronger in studies investigating problematic SNS use, which could suggest that higher levels of SNS use could be associated with lower levels of self-esteem.
@@ -368,7 +375,7 @@ Moreover, the results suggested that
 getting a response influenced whether the user would reappear in the group. 
 
 
-\citet{wise2006moderation} also investigated the kinds of features of online community that made people more inclined to participate. Both structural and content features where studied.  Structural features comprised the presence of moderation and the length of time passed between new posts. Content features involved the actual words and phrases occurring in a discussion; for instance, interactivity is assessed by asking whether subsequent posts refer to the issues mentioned in the previous ones.  
+\citet{wise2006moderation} also investigated the kinds of features of online community that made people more inclined to participate. Both structural and content features were studied.  Structural features comprised the presence of moderation and the length of time passed between new posts. Content features involved the actual words and phrases occurring in a discussion; for instance, interactivity is assessed by asking whether subsequent posts refer to the issues mentioned in the previous ones.  
 Out of all content features, only the presence of moderation elicited greater intent to participate.
 Although participation intent was measured in an attitudinal and not behavioral way (7-point Likert scale was used) other studies also investigated the relation between moderation and participation. \citet{preece2004top} examined the main motivations of lurkers (those who observe rather than participate in the online community). One of the key reason behind lurking turned out to be aggressive, rude or offensive responses between the community members. Positive effects of moderation in the process of creation of online communities and increasing engagement have 
 been also studied by \citet{meyer2014moderation} and \citet{carey2016influences}, whereas distributed type of moderation has been proven to be effective in increasing civil participation and enforcing norms \citep{lampe2014crowdsourcing}. These studies show that effective and efficient moderation is crucial in making the users continue to use the social media, especially for newcomers, for whom the quality of the first several months of SNS experience is important for  establishing long-term participation and commitment to the SNS \citep{raub2015phenomenological}.
@@ -464,7 +471,7 @@ This leads to the emergence of a \textit{group identity} that accepts and values
 
 
 
-What is crucial to note is that in all the aforementioned studies a five-point Likert scale or similar were used to measure the variables (e.g., ranging from 1="strongly disagree" to 5="strongly agree"), and the studies \textbf{relied on self-reported data}, which, as the authors often mention themselves, \textbf{do not reflect the full scope of actual processes}, indicating that \textbf{more large-scale quantitative research is necessary} when it comes to measuring the behavioral outcomes of negative experiences online, such as cyberbullying, and personal attacks and their influence on SNS discontinuous usage intention in users.
+What is crucial to note is that in all the aforementioned studies a five-point Likert scale or similar were used to measure the variables (e.g., ranging from 1="strongly disagree" to 5="strongly agree"), and \textbf{the studies relied on self-reported data}, which, as the authors often mention themselves, \textbf{do not reflect the full scope of actual processes}, indicating that \textbf{more large-scale quantitative research is necessary} when it comes to measuring the behavioral outcomes of negative experiences online, such as cyberbullying, and personal attacks and their influence on SNS discontinuous usage intention in users.
 As research shows, there is often a discrepancy between declarative data and the actual logged digital media use \citep{Parry2021discrepancies, Ellis2019smartphoneScales}.  Self-reports are contingent on various cognitive biases including social desirability (people are prone to make a socially desirable answer rather than being honest), different interpretations of questions being asked, as well as limited ability of truthful introspection.
 
 
@@ -520,6 +527,18 @@ all of the "narrow" models on a large dataset of 477,851 Reddit comments collect
 \item  10,023 (41.3\%) contained personal attacks against third persons / groups.
 The sum exceeds 100\% because some of the comments contained personal attacks against both second person and third person / groups. For example, a comment ``Fu$\ast\ast$ you a$\ast\ast$hole, you know that girls from this school are real bit$\ast\ast$es" contains both types of personal attack.
 \end{itemize}
+
+
+
+
+
+Additionally, from the original data of 320,000 Reddit posts we extracted and annotated 6,769 Reddit posts as either a personal attack (1) or not (0). To assure that the extracted additional dataset contains a percentage of Personal Attacks sufficient to perform the evaluation, the Reddit posts were extracted with an assumption that each post contains at least one word of a general negative connotation. Our dictionary of such words contains 6,412 instances, and includes a wide range of negative words, such as nouns (e.g., "racist", "death", "idiot", "hell"), verbs (e.g., "attack", "kill", "destroy", "suck"), adjectives (e.g., "old", "thick", "stupid", "sick"), or adverbs (e.g., "spitefully", "tragically", "disgustingly"). In the 6,769 additionally annotated Reddit samples there were 957 actual Personal Attacks (14\%), from which Samurai correctly assigned 709 (true positives) and missed 248 (false negatives), which accounts for 74\% of the Recall rate.
+Finally, we performed another additional experiment in which, we used Samurai to annotate completely new 10,000 samples from Discord messages that did not contain Personal Attacks but contained vulgar words. The messages were manually checked by two trained annotators and one additional super-annotator. The result of Samurai on this additional dataset was a 2\% of false positive rate, with exactly 202 cases misclassified as personal attacks. This accounts for specificity rate of 98\%.
+
+
+
+
+
 
 
 
@@ -579,7 +598,7 @@ For each of these groups new  dataset was prepared, containing all posts or comm
 
 
 
-We used the boxplot rule to identify  of 534 "powerusers" which we suspected of being bots (even though we already removed users whose names suggested they were bots) --- all of them were manually checked by \textsf{Samurai Labs}. Those identified as bots (only 15 of them) or missing (29 of them) were removed.  A few more unusual data points needed to be removed, because they turned out to be users whose comments contained large numbers of third-person personal attacks which in fact supported them. Since we were interested in the impact of personal attacks directed against a user on the user's activity, such unusual cases would distort the results.   86 users who did not post anything in the \textsf{before} period were also removed.  In the end, \textsf{R} and \textsf{S} were aligned, centering around the selection day (day 8) and the studied group comprised 3673 users (see 
+We used the boxplot rule to identify   534 "powerusers" which we suspected of being bots (even though we already removed users whose names suggested they were bots) --- all of them were manually checked by \textsf{Samurai Labs}. Those identified as bots (only 15 of them) or missing (29 of them) were removed.  A few more unusual data points needed to be removed, because they turned out to be users whose comments contained large numbers of third-person personal attacks which in fact supported them. Since we were interested in the impact of personal attacks directed against a user on the user's activity, such unusual cases would distort the results.   86 users who did not post anything in the \textsf{before} period were also removed.  In the end, \textsf{R} and \textsf{S} were aligned, centering around the selection day (day 8) and the studied group comprised 3673 users (see 
 \mbox{Table \ref{tab:groups}}).
 
 
@@ -614,7 +633,7 @@ First, we visually explore our dataset by looking at the relationship between th
 
 
 
-The visualization in Figure \ref{fig:highPlots} should be understood as follows. Each point is a user. The $x$-axis represents a number of attacks they received in the \textsf{before} period (so that, for instance, users with 0 wide attacks are the members of the control group), and  the $y$-axis represents the difference between their activity count \textsf{before} and \textsf{after}. We can see that most of the users received 0 attacks before (these are our control group members), with the rest of the group receiving 1, 2, 3, etc. attacks in the \textsf{before} period with decreasing frequency. The blue line represents linear regression suggesting negative correlation. The gray line is constructed using generalized additive mode (gam) smoothing, which is  a fairly standard smoothing method for large datasets (it is more sensitive to local tendencies and yet avoids overfitting). The parameters of the gam model (including the level of smoothing) are chosen by their predictive accuracy.\footnote{See  the documentation of \textsf{gam} of the \textsf{mgcv} packages for details: \url{https://www.rdocumentation.org/packages/mgcv/versions/1.8-33/topics/gam}.}  Shades indicate the 95\% confidence level interval for predictions from the linear model.
+The visualization in Figure \ref{fig:highPlots} should be understood as follows. Each point is a user. The $x$-axis represents a number of attacks they received in the \textsf{before} period (so that, for instance, users with 0 wide attacks are the members of the control group), and  the $y$-axis represents the difference between their activity count \textsf{before} and \textsf{after}. We can see that most of the users received 0 attacks before (these are our control group members), with the rest of the group receiving 1, 2, 3, etc. attacks in the \textsf{before} period with decreasing frequency. The blue line represents linear regression suggesting negative correlation. The gray line is constructed using generalized additive mode (gam) smoothing, which is  a fairly standard smoothing method for large datasets (it is more sensitive to local tendencies and yet avoids overfitting). The parameters of the gam model (including the level of smoothing) are chosen by their predictive accuracy.\footnote{See  the documentation of \textsf{gam} of the \textsf{mgcv} packages for details: \url{https://www.rdocumentation.org/packages/mgcv/versions/1.8-33/topics/gam}.}  Shades indicate the 95\% confidence  intervals.
 
 
 
@@ -762,7 +781,7 @@ residuals & 3652 & 5730212 & 1569.061 &  & \\
 We run single t-tests on different groups to estimate different means
 and we don't use t-test for hypothesis testing. To alleviate concerns
 about multiple testing and increased risk of type I error, we also
-performed an ANOVA tests, which strongly suggest non-random correlation
+performed an ANOVA tests (Table \ref{tab:anovanarrow}), which strongly suggest non-random correlation
 between the numbers of attacks and activity change.
 
 Furthermore, 80 comparison rows in Tukey's Honest Significance Test
@@ -829,13 +848,10 @@ with a range of options: the reader is to judge with prior seems most
 plausible to them, and then modify their beliefs according to the impact
 the data has on their prior convictions. All three distributions are
 fairly skeptical because they expect the change to be the same for every
-user, and they expect this change to be near 0.\\
-Here, due to space limitations, we focus on the wide prior (Fig.
-\ref{fig:priors}) , which is normal with \((\mu = 0, \sigma = 50)\).
-
-\noindent  The impact on other priors is studied in the online
+user, and they expect this change to be near 0. Here, due to space limitations, we focus on the wide prior (Fig.
+\ref{fig:priors}) , which is normal with \((\mu = 0, \sigma = 50)\).  The impact on other priors is studied in the online
 documentation, but the results don't differ too
-much.\footnote{Their  parameters are respectively $, (\mu = -1.11, \sigma = 44.47)$ and $(\mu = -1.11, \sigma = 7.5)$.   $-1.11$ is the whole sample mean, $44.47$ is the sample standard deviation, and $7.5$ is the standard deviation obtained by  trying to make  theoretical normal distribution similar to the empirical distribution. We did not use  a completely uninformed uniform prior, because it is  not sufficiently skeptical, being more easily impacted by the data, and because it has some undesirable mathematical properties, see \emph{Don’t Use Uniform Priors. They statistically don’t make sense.} at \url{https://towardsdatascience.com/stop-using-uniform-priors-47473bdd0b8a} for an accessible explanation.}
+much.\footnote{Their  parameters are respectively $, (\mu = -1.11, \sigma = 44.47)$ and $(\mu = -1.11, \sigma = 7.5)$.   $-1.11$ is the whole sample mean, $44.47$ is the sample standard deviation, and $7.5$ is the standard deviation obtained by  trying to make  theoretical normal distribution similar to the empirical distribution. We did not use  a completely uninformed uniform prior, because it is  not sufficiently skeptical, being more easily impacted by the data, and because it has some undesirable mathematical properties, see \emph{Don't Use Uniform Priors. They statistically don't make sense.} at \url{https://towardsdatascience.com/stop-using-uniform-priors-47473bdd0b8a} for an accessible explanation.}
 
 
 
@@ -935,15 +951,14 @@ help us much with the zero counts.
 \end{figure}
 
 Another candidate distribution we considered was negative binomial.
-There still were problems with zeros although in the opposite direction
-though), the goodness-of-fit test resulted in \(\chi^2 \approx 647\) and
+There still were problems with zeros, although in the opposite direction. The goodness-of-fit test resulted in \(\chi^2 \approx 647\) and
 \(P(>\chi^s)\approx 0\), but the right side of the Figure
 \ref{fig:nbinperf} looks better. This suggested that improvements were
 still needed.
 
 There are two well-known strategies to develop distributions for data
 with high zero counts: zero-inflated and hurdle
-models.\footnote{In a zero-inflated Poisson (ZIP) model (Lambert 1992) a distinction is made between   the structural zeros for which the output value  will always be 0, and the rest, sometimes giving random zeros. A  ZIP model is comprised of two components:
+models.\footnote{In a zero-inflated Poisson (ZIP) model \citep{Lambert1992Zero} a distinction is made between   the structural zeros for which the output value  will always be 0, and the rest, sometimes giving random zeros. A  ZIP model is comprised of two components:
 
 \begin{itemize}
 \item  A model for the binary event of membership in the class where 0 is necessary. Typically, this is logistic regression. 
@@ -952,7 +967,7 @@ models.\footnote{In a zero-inflated Poisson (ZIP) model (Lambert 1992) a distinc
 \end{itemize}
 
 
-In hurdle models (proposed initially by Cragg (1971) and developed further by Mullahy (1986)) the idea  is that there may be some special  “hurdle” required to reach a positive count. The model  uses:
+In hurdle models (proposed initially by \citet{Cragg1971Some} and developed further by \citet{Mullahy1986}) the idea  is that there may be some special  "hurdle" required to reach a positive count. The model  uses:
 
 \begin{itemize}
 \item A logistic regression  submodel to distinguish counts of zero from larger counts, and
@@ -965,8 +980,11 @@ difference whether we use zero-inflation or hurdling. We investigated
 this further. One method of comparing such models is the Vuong test
 which produced \(z\)-statistic (\(2.08\) with \(p\approx 0.018\))
 suggesting the zero-inflated negative binomial model is better than
-hurdle negative binomial. However, the differences in log-likelihood
-(14459 vs.~14527) and AIC (28945 vs.~29081) were not large.
+hurdle negative binomial. The differences in log-likelihoods are 
+14459 vs.~14527 and the differences in  AIC are 28945 vs.~29081.
+
+
+
 
 
 
@@ -1010,7 +1028,7 @@ not going to do this (in fact, attaching too much value to statistical
 significance thresholds can be pernicious, and also misleading if the
 predictors are correlated, as attacks on posts and attacks on comments
 may well be). Moreover, the results of step-wise elimination from the
-full model are sensitive to the ordering in which we consider variables,
+full model turned out to be sensitive to the ordering in which we consider variables,
 and there is no principled reason to prefer any of the orderings.
 Instead, interpreting \(p\)-values we apply the following advice: the
 closer it is to 1, the more skeptical we should be about the judgment
@@ -1117,7 +1135,7 @@ zero\_activityBefore & 1.084\\
 
 
 
-The coefficeints are somewhat difficult to interpret because the models
+The coefficients are somewhat difficult to interpret because the models
 use log link function. Therefore we first exponentiate them to obtain
 odds ratios (Table \ref{tab:exphnb}). Let's interpret the intercepts of
 the count submodel. The baseline number of posts for those who are not
@@ -1125,77 +1143,42 @@ in the zero class is 12.6. The coefficients indicate that the
 multiplicative contribution of each unit change.
 
 We visualise the effects of selected variables by plotting what activity
-levels the model predicts for their different values (we focus on 0-40,
-as the top of this range is already an extrapolation), while keeping
+levels the model predicts for their different values, while keeping
 other variables fixed at their mean values (Figure \ref{fig:effects}). 
 To make sure our choice to use the hurdle model was not crucial for
 these results, we also provide effect plots for the full zero-inflated
 model.
 
-\begin{figure}
-\centering
-\begin{center}\includegraphics[width=\linewidth]{images/unnamed-chunk-46-1} \end{center}
-\end{figure}
+\begin{figure*}
+\begin{center}
+\includegraphics[width=0.48\linewidth]{images/unnamed-chunk-46-1} \includegraphics[width=0.48\linewidth]{images/unnamed-chunk-47-1}
 
+\includegraphics[width=0.48\linewidth]{images/unnamed-chunk-48-1}
+\includegraphics[width=0.48\linewidth]{images/unnamed-chunk-49-1}
 
-\begin{figure}
-\centering
+\includegraphics[width=0.48\linewidth]{images/unnamed-chunk-50-1}
 
-\begin{center}\includegraphics[width=0.85\linewidth]{images/unnamed-chunk-47-1} \end{center}
-\end{figure}
-
-\begin{figure}
-\centering
-
-\begin{center}\includegraphics[width=0.85\linewidth]{images/unnamed-chunk-48-1} \end{center}
-\end{figure}
-
-\begin{figure}
-\centering
-
-\begin{center}\includegraphics[width=0.85\linewidth]{images/unnamed-chunk-49-1} \end{center}
-\end{figure}
-
-\begin{figure}
-
-\centering
-
-\begin{center}\includegraphics[width=0.85\linewidth]{images/unnamed-chunk-50-1} \end{center}
+\end{center}
 
 \caption{Predicted effects of selected variables on activity with other variables fixed at their mean values, hurdle model.}
 \label{fig:effects}
-\end{figure}
+\end{figure*}
 
 
 
-\begin{figure}
-\centering
+\begin{figure*}
+
+\begin{center}
+\includegraphics[width=0.48\linewidth]{images/unnamed-chunk-52-1}\includegraphics[width=0.48\linewidth]{images/unnamed-chunk-53-1} 
+\includegraphics[width=0.48\linewidth]{images/unnamed-chunk-54-1}
+\includegraphics[width=0.48\linewidth]{images/unnamed-chunk-55-1}
 
 
-\begin{center}\includegraphics[width=0.85\linewidth]{images/unnamed-chunk-52-1} \end{center}
-\end{figure}
-
-\begin{figure}
-
-\begin{center}\includegraphics[width=0.85\linewidth]{images/unnamed-chunk-53-1} \end{center}
-\end{figure}
-
-\begin{figure}
-
-\begin{center}\includegraphics[width=0.85\linewidth]{images/unnamed-chunk-54-1} \end{center}
-\end{figure}
-
-\begin{figure}
-
-\begin{center}\includegraphics[width=0.85\linewidth]{images/unnamed-chunk-55-1} \end{center}
-\end{figure}
-
-\begin{figure}
-
-\begin{center}\includegraphics[width=0.85\linewidth]{images/unnamed-chunk-56-1} \end{center}
+\includegraphics[width=0.48\linewidth]{images/unnamed-chunk-56-1}
+\end{center}
 \caption{Predicted effects of selected variables on activity with other variables fixed at their mean values, zero-inflated model.}
 \label{fig:effects2}
-\end{figure}
+\end{figure*}
 
 
 
@@ -1247,7 +1230,7 @@ between the subjects that make them end up in the groups they end up in,
 which causally account for the differences in the outcome variable. In
 our particular case, this is somewhat limited, because users, strictly
 speaking, do not self-select to be attacked. However, it is at least
-possible that users who write more, and especially controversial content
+possible that users who write more, and especially more controversial content
 are more likely to be attacked, and perhaps whatever causal factors make
 such users write more of more controversial content makes them decrease
 their activity the week after, independently of being attacked.
@@ -1282,7 +1265,7 @@ previous activity (Fig. \ref{fig:regression2}).
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=1\linewidth]{images/unnamed-chunk-60-1} \end{center}
+\includegraphics[width=1\linewidth]{images/distance-1} \end{center}
 \caption{Distance from sample mean vs. activity score, grouped by the number of attacks (plot for 1 narrow attack omitted, as it is visually not too distinct from the one for 0 attacks).}
 \label{fig:regression2}
 \end{figure*}
@@ -1294,8 +1277,8 @@ before indeed tend to have lower activity in the second week.
 Next, notice that restricting the dataset to users with similar activity
 before still results in uneven activity change between the groups. We
 focus focus on users with \textsf{activityBefore} restricted to the
-third quartile of the whole sample (44), narrow attacks in \$\{0,1,2,3,
-4\} and estimate their \textsf{activityScore} proportional drop.
+third quartile of the whole sample (44), narrow attacks in $\{0,1,2,3,
+4\}$ and estimate their \textsf{activityScore} proportional drop.
 
 \normalsize  The estimated means of proportional changes are
 $0.05$, $0.11$, $-0.09$, $-0.35$, $-0.7$ with decreasing p-values falling below
@@ -1346,7 +1329,7 @@ was needed was our group selection method. Perhaps, one could argue, it
 would be better to simply randomly pick users and track their fate
 starting at some particular time. This way, perhaps, we could avoid
 uneven activity levels in the first week between the groups. Attacks are
-fairly rare so it quite likely that users receiving attacks during the
+fairly rare so it is quite likely that users receiving attacks during the
 observation period would still be the more active ones. Moreover, due to
 the rarity of attacks, by proceeding this way and collecting data for
 two weeks only we would run a risk of ending up with very small
@@ -1358,8 +1341,8 @@ different data collection method.
 Another problem that should be mentioned is the population bias, due to
 which the results might not be generalizable to populations from other
 social networking sites. As of 2018, Reddit had 330 million monthly
-active users
-\footnote{\url{https://mediakix.com/blog/reddit-statistics-users-demographics/}},
+active users,
+\footnote{\url{https://mediakix.com/blog/reddit-statistics-users-demographics/}}
 out of which 54\% come from the U.S., 8\% from the UK, and 6.4\% from
 Canada. 69\% of its users are male. It's also popular among young adults
 --- people between the ages of 25-34 make up around 45\% of the user
@@ -1450,9 +1433,12 @@ network depopulation caused by personal attacks and other forms of
 online harassment, with almost all of them pointing to the importance of
 \textit{efficient moderation}.
 
+
+
+
 One of the strategies that can serve as a potentially effective way to
-curb verbal abuse is counter-speech. As shown in \citep{munger2017tweetment} it can
-lead to a significant reduction of the number of racist tweets, but
+curb verbal abuse is counter-speech. As shown in \citep{munger2017tweetment,Bilewicz2021Artificial} it can
+lead to a significant reduction of the number of racist tweets or attacking comments on Reddit, but
 also, according to \citet{mivskolci2020countering}, can encourage
 bystander interventions in the form of expressing pro-minority attitude.
 In a quasi-experimental research design they have used two argumentative
@@ -1479,7 +1465,7 @@ policy, platforms should randomly ban a small fraction of individual
 users across the online hate population. The reasoning behind this
 policy was that ``choosing a small fraction lowers the risk of multiple
 lawsuits, and choosing randomly serves the dual role of lowering the
-risk of banning many from the same cluster, and inciting a large crowd.
+risk of banning many from the same cluster, and inciting a large crowd.''
 In the third policy they proposed juxtaposing hate clusters with
 anti-hate users and communities, as this way hate-cluster can be
 neutralized with the number of determined anti-hate users.
@@ -1561,9 +1547,9 @@ fairly large dataset from Reddit, a popular social media platform. The
 result was subjected to statistical analysis. The results of our study,
 based on several hundred thousand posts and comments clearly showed that
 the activity of users experiencing personal attacks online deteriorates
-fairly quickly even after one attack. It is not know whether and to what
+fairly quickly. It is not know whether and to what
 extent attacked users regain their activity --- this needs further
-research --- but even temporarily frequent exposure to personal attacks
+research --- but it seems that   frequent exposure to personal attacks
 will cause disengagement with the platform and arguably lead to its
 depopulation.
 

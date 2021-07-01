@@ -1,4 +1,4 @@
-\begin{thebibliography}{72}
+\begin{thebibliography}{77}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -40,6 +40,13 @@
   \bibinfo{pages}{S10--S14}.
 \newblock \URLprefix \url{https://doi.org/10.1080/0142159x.2018.1464652},
   \DOIprefix\doi{10.1080/0142159x.2018.1464652}.
+%Type = Incollection
+\bibitem[{Andersen(2001)}]{andersen2001satiation}
+\bibinfo{author}{Andersen, E.S.}, \bibinfo{year}{2001}.
+\newblock \bibinfo{title}{Satiation in an evolutionary model of structural
+  economic dynamics}, in: \bibinfo{booktitle}{Escaping Satiation}.
+  \bibinfo{publisher}{Springer}, pp. \bibinfo{pages}{165--186}.
+\newblock \DOIprefix\doi{10.1007/978-3-662-04528-2_10}.
 %Type = Inproceedings
 \bibitem[{Arguello et~al.(2006)Arguello, Butler, Joyce, Kraut, Ling, Ros{\'e}
   and Wang}]{arguello2006talk}
@@ -95,6 +102,22 @@
 \newblock \bibinfo{journal}{Political Psychology}
   \DOIprefix\doi{10.1111/pops.12670}.
 %Type = Article
+\bibitem[{Bilewicz et~al.(2021)Bilewicz, Tempska, Leliwa, Dowgiałło, Tańska,
+  Urbaniak and Wroczyński}]{Bilewicz2021Artificial}
+\bibinfo{author}{Bilewicz, M.}, \bibinfo{author}{Tempska, P.},
+  \bibinfo{author}{Leliwa, G.}, \bibinfo{author}{Dowgiałło, M.},
+  \bibinfo{author}{Tańska, M.}, \bibinfo{author}{Urbaniak, R.},
+  \bibinfo{author}{Wroczyński, M.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Artificial intelligence against hate: Intervention
+  reducing verbal aggression in the social network environment}.
+\newblock \bibinfo{journal}{Aggressive Behavior} \bibinfo{volume}{47},
+  \bibinfo{pages}{260--266}.
+\newblock \URLprefix
+  \url{https://onlinelibrary.wiley.com/doi/abs/10.1002/ab.21948},
+  \DOIprefix\doi{https://doi.org/10.1002/ab.21948},
+  \href{http://arxiv.org/abs/https://onlinelibrary.wiley.com/doi/pdf/10.1002/ab.21948}{\tt
+  arXiv:https://onlinelibrary.wiley.com/doi/pdf/10.1002/ab.21948}.
+%Type = Article
 \bibitem[{Campbell et~al.(2012)Campbell, Spears, Slee, Butler and
   Kift}]{campbell2012victims}
 \bibinfo{author}{Campbell, M.}, \bibinfo{author}{Spears, B.},
@@ -141,6 +164,16 @@
   Far-right Extremist Forums Using Social Influence Model}.
 \newblock \bibinfo{publisher}{Michigan State University}.
 \newblock \bibinfo{note}{[PhD Thesis]}.
+%Type = Article
+\bibitem[{Cragg(1971)}]{Cragg1971Some}
+\bibinfo{author}{Cragg, J.G.}, \bibinfo{year}{1971}.
+\newblock \bibinfo{title}{Some statistical models for limited dependent
+  variables with application to the demand for durable goods}.
+\newblock \bibinfo{journal}{Econometrica} \bibinfo{volume}{39},
+  \bibinfo{pages}{829--44}.
+\newblock \URLprefix
+  \url{https://EconPapers.repec.org/RePEc:ecm:emetrp:v:39:y:1971:i:5:p:829-44},
+  \DOIprefix\doi{10.2307/1909582}.
 %Type = Article
 \bibitem[{Cross et~al.(2012)Cross, Piggin, Douglas and
   Vonkaenel-Flatt}]{cross2012virtual}
@@ -282,6 +315,18 @@
 \newblock \bibinfo{title}{Doing {B}ayesian Data Analysis; A Tutorial with
   \textsf{R}, \textsf{JAGS}, and \textsf{Stan}}.
 %Type = Article
+\bibitem[{Lambert(1992)}]{Lambert1992Zero}
+\bibinfo{author}{Lambert, D.}, \bibinfo{year}{1992}.
+\newblock \bibinfo{title}{Zero-inflated poisson regression, with an application
+  to defects in manufacturing}.
+\newblock \bibinfo{journal}{Technometrics} \bibinfo{volume}{34},
+  \bibinfo{pages}{1--14}.
+\newblock \URLprefix
+  \url{https://www.tandfonline.com/doi/abs/10.1080/00401706.1992.10485228},
+  \DOIprefix\doi{10.1080/00401706.1992.10485228},
+  \href{http://arxiv.org/abs/https://www.tandfonline.com/doi/pdf/10.1080/00401706.1992.10485228}{\tt
+  arXiv:https://www.tandfonline.com/doi/pdf/10.1080/00401706.1992.10485228}.
+%Type = Article
 \bibitem[{Lampe et~al.(2014)Lampe, Zube, Lee, Park and
   Johnston}]{lampe2014crowdsourcing}
 \bibinfo{author}{Lampe, C.}, \bibinfo{author}{Zube, P.}, \bibinfo{author}{Lee,
@@ -363,6 +408,15 @@
   Artificial Intelligence}, \bibinfo{organization}{Springer}. pp.
   \bibinfo{pages}{51--56}.
 \newblock \DOIprefix\doi{10.1007/978-3-319-57351-9_6}.
+%Type = Article
+\bibitem[{Mullahy(1986)}]{Mullahy1986}
+\bibinfo{author}{Mullahy, J.}, \bibinfo{year}{1986}.
+\newblock \bibinfo{title}{Specification and testing of some modified count data
+  models}.
+\newblock \bibinfo{journal}{Journal of Econometrics} \bibinfo{volume}{33},
+  \bibinfo{pages}{341--365}.
+\newblock \URLprefix \url{https://doi.org/10.1016/0304-4076(86)90002-3},
+  \DOIprefix\doi{10.1016/0304-4076(86)90002-3}.
 %Type = Article
 \bibitem[{Munger(2017)}]{munger2017tweetment}
 \bibinfo{author}{Munger, K.}, \bibinfo{year}{2017}.

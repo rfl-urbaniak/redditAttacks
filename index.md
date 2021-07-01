@@ -23,7 +23,12 @@ output:
 
 ### Resources
 
-- Github folder with all the files is available [here](https://github.com/rfl-urbaniak/redditAttacks). 
+- Github folder with all the files is available [here](https://github.com/rfl-urbaniak/redditAttacks).
+
+    - The [datasets subfolder](https://github.com/rfl-urbaniak/redditAttacks/tree/main/datasets) includes the dataset (quittingFinalAnon.csv) and the bayesian chains resulting from the bayesian analysis.
+    -
+
+
 
 
 **Contents**

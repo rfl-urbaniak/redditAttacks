@@ -459,12 +459,18 @@ proceeds like this:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{thursdayClean <-}\StringTok{ }\NormalTok{thursdayClean[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"Auto"}\NormalTok{, thursdayClean}\OperatorTok{$}\NormalTok{author, }\DataTypeTok{fixed=}\OtherTok{TRUE}\NormalTok{),]}
-\NormalTok{thursdayClean <-}\StringTok{ }\NormalTok{thursdayClean[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"auto"}\NormalTok{, thursdayClean}\OperatorTok{$}\NormalTok{author, }\DataTypeTok{fixed=}\OtherTok{TRUE}\NormalTok{),]}
-\NormalTok{thursdayClean <-}\StringTok{ }\NormalTok{thursdayClean[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"Auto"}\NormalTok{, thursdayClean}\OperatorTok{$}\NormalTok{receiver, }\DataTypeTok{fixed=}\OtherTok{TRUE}\NormalTok{),]}
-\NormalTok{thursdayClean <-}\StringTok{ }\NormalTok{thursdayClean[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"auto"}\NormalTok{, thursdayClean}\OperatorTok{$}\NormalTok{receiver, }\DataTypeTok{fixed=}\OtherTok{TRUE}\NormalTok{),]}
-\NormalTok{thursdayClean <-}\StringTok{ }\NormalTok{thursdayClean[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"bot"}\NormalTok{, thursdayClean}\OperatorTok{$}\NormalTok{receiver, }\DataTypeTok{fixed=}\OtherTok{TRUE}\NormalTok{),]}
-\NormalTok{thursdayClean <-}\StringTok{ }\NormalTok{thursdayClean[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"Bot"}\NormalTok{, thursdayClean}\OperatorTok{$}\NormalTok{receiver, }\DataTypeTok{fixed=}\OtherTok{TRUE}\NormalTok{),]}
+\NormalTok{thursdayClean <-}\StringTok{ }\NormalTok{thursdayClean[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"Auto"}\NormalTok{, thursdayClean}\OperatorTok{$}\NormalTok{author,}
+    \DataTypeTok{fixed =} \OtherTok{TRUE}\NormalTok{), ]}
+\NormalTok{thursdayClean <-}\StringTok{ }\NormalTok{thursdayClean[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"auto"}\NormalTok{, thursdayClean}\OperatorTok{$}\NormalTok{author,}
+    \DataTypeTok{fixed =} \OtherTok{TRUE}\NormalTok{), ]}
+\NormalTok{thursdayClean <-}\StringTok{ }\NormalTok{thursdayClean[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"Auto"}\NormalTok{, thursdayClean}\OperatorTok{$}\NormalTok{receiver,}
+    \DataTypeTok{fixed =} \OtherTok{TRUE}\NormalTok{), ]}
+\NormalTok{thursdayClean <-}\StringTok{ }\NormalTok{thursdayClean[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"auto"}\NormalTok{, thursdayClean}\OperatorTok{$}\NormalTok{receiver,}
+    \DataTypeTok{fixed =} \OtherTok{TRUE}\NormalTok{), ]}
+\NormalTok{thursdayClean <-}\StringTok{ }\NormalTok{thursdayClean[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"bot"}\NormalTok{, thursdayClean}\OperatorTok{$}\NormalTok{receiver,}
+    \DataTypeTok{fixed =} \OtherTok{TRUE}\NormalTok{), ]}
+\NormalTok{thursdayClean <-}\StringTok{ }\NormalTok{thursdayClean[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"Bot"}\NormalTok{, thursdayClean}\OperatorTok{$}\NormalTok{receiver,}
+    \DataTypeTok{fixed =} \OtherTok{TRUE}\NormalTok{), ]}
 \end{Highlighting}
 \end{Shaded}
 
@@ -488,10 +494,14 @@ Again, this was a fairly straightforward use of grepl:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{thursdayClean <-}\StringTok{ }\NormalTok{thursdayClean[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"none"}\NormalTok{, thursdayClean}\OperatorTok{$}\NormalTok{receiver, }\DataTypeTok{fixed=}\OtherTok{TRUE}\NormalTok{),]}
-\NormalTok{thursdayClean <-}\StringTok{ }\NormalTok{thursdayClean[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"None"}\NormalTok{, thursdayClean}\OperatorTok{$}\NormalTok{receiver, }\DataTypeTok{fixed=}\OtherTok{TRUE}\NormalTok{),]}
-\NormalTok{thursdayClean <-}\StringTok{ }\NormalTok{thursdayClean[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"<MISSING>"}\NormalTok{, thursdayClean}\OperatorTok{$}\NormalTok{receiver, }\DataTypeTok{fixed=}\OtherTok{TRUE}\NormalTok{),]}
-\NormalTok{thursdayClean <-}\StringTok{ }\NormalTok{thursdayClean[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"[deleted]"}\NormalTok{, thursdayClean}\OperatorTok{$}\NormalTok{receiver, }\DataTypeTok{fixed=}\OtherTok{TRUE}\NormalTok{),]}
+\NormalTok{thursdayClean <-}\StringTok{ }\NormalTok{thursdayClean[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"none"}\NormalTok{, thursdayClean}\OperatorTok{$}\NormalTok{receiver,}
+    \DataTypeTok{fixed =} \OtherTok{TRUE}\NormalTok{), ]}
+\NormalTok{thursdayClean <-}\StringTok{ }\NormalTok{thursdayClean[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"None"}\NormalTok{, thursdayClean}\OperatorTok{$}\NormalTok{receiver,}
+    \DataTypeTok{fixed =} \OtherTok{TRUE}\NormalTok{), ]}
+\NormalTok{thursdayClean <-}\StringTok{ }\NormalTok{thursdayClean[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"<MISSING>"}\NormalTok{, thursdayClean}\OperatorTok{$}\NormalTok{receiver,}
+    \DataTypeTok{fixed =} \OtherTok{TRUE}\NormalTok{), ]}
+\NormalTok{thursdayClean <-}\StringTok{ }\NormalTok{thursdayClean[}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"[deleted]"}\NormalTok{, thursdayClean}\OperatorTok{$}\NormalTok{receiver,}
+    \DataTypeTok{fixed =} \OtherTok{TRUE}\NormalTok{), ]}
 \end{Highlighting}
 \end{Shaded}
 
@@ -645,8 +655,8 @@ Again, this was a fairly straightforward use of grepl:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{#note we load the data here}
-\NormalTok{data <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"../datasets/quittingFinalAnon.csv"}\NormalTok{)[,}\OperatorTok{-}\DecValTok{1}\NormalTok{]}
+\CommentTok{# note we load the data here}
+\NormalTok{data <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"../datasets/quittingFinalAnon.csv"}\NormalTok{)[, }\DecValTok{-1}\NormalTok{]}
 \end{Highlighting}
 \end{Shaded}
 
@@ -755,6 +765,40 @@ the linear model.
 
 \footnotesize
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ggthemes)}
+\NormalTok{th <-}\StringTok{ }\KeywordTok{theme_tufte}\NormalTok{()}
+\NormalTok{highPlot <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ sumHighBefore, }\DataTypeTok{y =}\NormalTok{ activityDiff)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_jitter}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.8}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.3}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{,}
+    \DataTypeTok{color =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.7}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.8}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{breaks =} \DecValTok{0}\OperatorTok{:}\KeywordTok{max}\NormalTok{(data}\OperatorTok{$}\NormalTok{sumHighBefore), }\DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{,}
+        \KeywordTok{max}\NormalTok{(data}\OperatorTok{$}\NormalTok{sumHighBefore))) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylim}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{300}\NormalTok{, }\DecValTok{300}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{color =} \StringTok{"grey"}\NormalTok{,}
+    \DataTypeTok{size =} \FloatTok{0.4}\NormalTok{, }\DataTypeTok{lty =} \DecValTok{2}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"narrow attacks before"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ylab}\NormalTok{(}\StringTok{"activity change after"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Impact of narrow attacks on activity"}\NormalTok{,}
+    \DataTypeTok{subtitle =} \StringTok{"weekly counts, n=3673"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_segment}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \DecValTok{-1}\NormalTok{,}
+    \DataTypeTok{y =} \DecValTok{-100}\NormalTok{, }\DataTypeTok{xend =} \DecValTok{9}\NormalTok{, }\DataTypeTok{yend =} \DecValTok{-100}\NormalTok{), }\DataTypeTok{lty =} \DecValTok{3}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.1}\NormalTok{, }\DataTypeTok{color =} \StringTok{"gray71"}\NormalTok{,}
+    \DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_segment}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \DecValTok{-1}\NormalTok{, }\DataTypeTok{y =} \DecValTok{100}\NormalTok{, }\DataTypeTok{xend =} \DecValTok{9}\NormalTok{,}
+    \DataTypeTok{yend =} \DecValTok{100}\NormalTok{), }\DataTypeTok{lty =} \DecValTok{3}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.1}\NormalTok{, }\DataTypeTok{color =} \StringTok{"gray71"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_segment}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \DecValTok{-1}\NormalTok{, }\DataTypeTok{y =} \DecValTok{-100}\NormalTok{, }\DataTypeTok{xend =} \DecValTok{-1}\NormalTok{, }\DataTypeTok{yend =} \DecValTok{100}\NormalTok{),}
+        \DataTypeTok{lty =} \DecValTok{3}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.1}\NormalTok{, }\DataTypeTok{color =} \StringTok{"gray71"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_segment}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \DecValTok{9}\NormalTok{, }\DataTypeTok{y =} \DecValTok{-100}\NormalTok{, }\DataTypeTok{xend =} \DecValTok{9}\NormalTok{, }\DataTypeTok{yend =} \DecValTok{100}\NormalTok{),}
+        \DataTypeTok{lty =} \DecValTok{3}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.1}\NormalTok{, }\DataTypeTok{color =} \StringTok{"gray71"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\NormalTok{th}
+
+
+\NormalTok{highPlotZoomed <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ sumHighBefore, }\DataTypeTok{y =}\NormalTok{ activityDiff)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_jitter}\NormalTok{(}\DataTypeTok{size =} \DecValTok{1}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{,}
+    \DataTypeTok{color =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.7}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.8}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{breaks =} \DecValTok{0}\OperatorTok{:}\KeywordTok{max}\NormalTok{(data}\OperatorTok{$}\NormalTok{sumHighBefore),}
+    \DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{9}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylim}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{100}\NormalTok{, }\DecValTok{100}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{color =} \StringTok{"grey"}\NormalTok{,}
+    \DataTypeTok{size =} \FloatTok{0.4}\NormalTok{, }\DataTypeTok{lty =} \DecValTok{2}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"narrow attacks before"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ylab}\NormalTok{(}\StringTok{"activity change after"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Impact of narrow attacks on activity"}\NormalTok{,}
+    \DataTypeTok{subtitle =} \StringTok{"weekly counts, zoomed in"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_hline}\NormalTok{(}\DataTypeTok{yintercept =} \DecValTok{0}\NormalTok{,}
+    \DataTypeTok{col =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.2}\NormalTok{, }\DataTypeTok{lty =} \DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \normalsize
 
 \begin{figure}
@@ -775,6 +819,42 @@ the linear model.
 \label{fig:highPlots}
 \end{figure}
 
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lowPlot <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ sumLowBefore, }\DataTypeTok{y =}\NormalTok{ activityDiff)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_jitter}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.8}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.3}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{,}
+    \DataTypeTok{color =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.7}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.8}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{color =} \StringTok{"grey"}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.4}\NormalTok{, }\DataTypeTok{lty =} \DecValTok{2}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{xlab}\NormalTok{(}\StringTok{"wide attacks before"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"activity change after"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Impact of wide attacks on activity"}\NormalTok{, }\DataTypeTok{subtitle =} \StringTok{"weekly counts, n=3673"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_segment}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \DecValTok{-1}\NormalTok{, }\DataTypeTok{y =} \DecValTok{-150}\NormalTok{, }\DataTypeTok{xend =} \DecValTok{15}\NormalTok{, }\DataTypeTok{yend =} \DecValTok{-150}\NormalTok{),}
+        \DataTypeTok{lty =} \DecValTok{3}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.1}\NormalTok{, }\DataTypeTok{color =} \StringTok{"gray71"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_segment}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \DecValTok{-1}\NormalTok{, }\DataTypeTok{y =} \DecValTok{150}\NormalTok{, }\DataTypeTok{xend =} \DecValTok{15}\NormalTok{, }\DataTypeTok{yend =} \DecValTok{150}\NormalTok{),}
+        \DataTypeTok{lty =} \DecValTok{3}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.1}\NormalTok{, }\DataTypeTok{color =} \StringTok{"gray71"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_segment}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \DecValTok{-1}\NormalTok{, }\DataTypeTok{y =} \DecValTok{-150}\NormalTok{, }\DataTypeTok{xend =} \DecValTok{-1}\NormalTok{, }\DataTypeTok{yend =} \DecValTok{150}\NormalTok{),}
+        \DataTypeTok{lty =} \DecValTok{3}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.1}\NormalTok{, }\DataTypeTok{color =} \StringTok{"gray71"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_segment}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \DecValTok{15}\NormalTok{, }\DataTypeTok{y =} \DecValTok{-150}\NormalTok{, }\DataTypeTok{xend =} \DecValTok{15}\NormalTok{, }\DataTypeTok{yend =} \DecValTok{150}\NormalTok{),}
+        \DataTypeTok{lty =} \DecValTok{3}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.1}\NormalTok{, }\DataTypeTok{color =} \StringTok{"gray71"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{xlim}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\KeywordTok{max}\NormalTok{(data}\OperatorTok{$}\NormalTok{sumLowBefore)))}
+
+
+
+\NormalTok{lowPlotZoomed <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ sumLowBefore, }\DataTypeTok{y =}\NormalTok{ activityDiff)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_jitter}\NormalTok{(}\DataTypeTok{size =} \DecValTok{1}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{,}
+    \DataTypeTok{color =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.7}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.8}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{breaks =} \DecValTok{0}\OperatorTok{:}\KeywordTok{max}\NormalTok{(data}\OperatorTok{$}\NormalTok{sumLowBefore),}
+    \DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{15}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylim}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{150}\NormalTok{, }\DecValTok{150}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{color =} \StringTok{"grey"}\NormalTok{,}
+    \DataTypeTok{size =} \FloatTok{0.4}\NormalTok{, }\DataTypeTok{lty =} \DecValTok{2}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"wide attacks before"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ylab}\NormalTok{(}\StringTok{"activity change after"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Impact of wide attacks on activity"}\NormalTok{,}
+    \DataTypeTok{subtitle =} \StringTok{"weekly counts, zoomed in"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_hline}\NormalTok{(}\DataTypeTok{yintercept =} \DecValTok{0}\NormalTok{,}
+    \DataTypeTok{col =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.2}\NormalTok{, }\DataTypeTok{lty =} \DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
 \begin{figure}
 \begin{subfigure}[b]{0.95\textwidth}
 
@@ -790,6 +870,41 @@ the linear model.
 \caption{Wide attacks vs. weekly activity change (jittered), with  linear and gam smoothing.}
 \label{fig:lowPlots}
 \end{figure}
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lowOnlyPlot <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ (sumLowBefore }\OperatorTok{-}\StringTok{ }\NormalTok{sumHighBefore),}
+    \DataTypeTok{y =}\NormalTok{ activityDiff)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_jitter}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.8}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.3}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{color =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{fill =} \StringTok{"skyblue"}\NormalTok{,}
+        \DataTypeTok{size =} \FloatTok{0.7}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.8}\NormalTok{) }\OperatorTok{+}\StringTok{ }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{color =} \StringTok{"grey"}\NormalTok{,}
+    \DataTypeTok{size =} \FloatTok{0.4}\NormalTok{, }\DataTypeTok{lty =} \DecValTok{2}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"wide only attacks before"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ylab}\NormalTok{(}\StringTok{"activity change after"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Impact of wide only attacks on activity"}\NormalTok{,}
+    \DataTypeTok{subtitle =} \StringTok{"weekly counts, n=3673"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_segment}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \DecValTok{-1}\NormalTok{,}
+    \DataTypeTok{y =} \DecValTok{-150}\NormalTok{, }\DataTypeTok{xend =} \DecValTok{15}\NormalTok{, }\DataTypeTok{yend =} \DecValTok{-150}\NormalTok{), }\DataTypeTok{lty =} \DecValTok{3}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.1}\NormalTok{, }\DataTypeTok{color =} \StringTok{"gray71"}\NormalTok{,}
+    \DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_segment}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \DecValTok{-1}\NormalTok{, }\DataTypeTok{y =} \DecValTok{150}\NormalTok{, }\DataTypeTok{xend =} \DecValTok{15}\NormalTok{,}
+    \DataTypeTok{yend =} \DecValTok{150}\NormalTok{), }\DataTypeTok{lty =} \DecValTok{3}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.1}\NormalTok{, }\DataTypeTok{color =} \StringTok{"gray71"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_segment}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \DecValTok{-1}\NormalTok{, }\DataTypeTok{y =} \DecValTok{-150}\NormalTok{, }\DataTypeTok{xend =} \DecValTok{-1}\NormalTok{, }\DataTypeTok{yend =} \DecValTok{150}\NormalTok{),}
+        \DataTypeTok{lty =} \DecValTok{3}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.1}\NormalTok{, }\DataTypeTok{color =} \StringTok{"gray71"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_segment}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \DecValTok{15}\NormalTok{, }\DataTypeTok{y =} \DecValTok{-150}\NormalTok{, }\DataTypeTok{xend =} \DecValTok{15}\NormalTok{, }\DataTypeTok{yend =} \DecValTok{150}\NormalTok{),}
+        \DataTypeTok{lty =} \DecValTok{3}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.1}\NormalTok{, }\DataTypeTok{color =} \StringTok{"gray71"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{xlim}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\KeywordTok{max}\NormalTok{(data}\OperatorTok{$}\NormalTok{sumLowBefore)))}
+
+
+\NormalTok{lowOnlyPlotZoomed <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ (sumLowBefore }\OperatorTok{-}\StringTok{ }\NormalTok{sumHighBefore),}
+    \DataTypeTok{y =}\NormalTok{ activityDiff)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_jitter}\NormalTok{(}\DataTypeTok{size =} \DecValTok{1}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{color =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{fill =} \StringTok{"skyblue"}\NormalTok{,}
+        \DataTypeTok{size =} \FloatTok{0.7}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.8}\NormalTok{) }\OperatorTok{+}\StringTok{ }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{breaks =} \DecValTok{0}\OperatorTok{:}\KeywordTok{max}\NormalTok{(data}\OperatorTok{$}\NormalTok{sumLowBefore),}
+    \DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{15}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylim}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{150}\NormalTok{, }\DecValTok{150}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{color =} \StringTok{"grey"}\NormalTok{,}
+    \DataTypeTok{size =} \FloatTok{0.4}\NormalTok{, }\DataTypeTok{lty =} \DecValTok{2}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"wide only attacks before"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ylab}\NormalTok{(}\StringTok{"activity change after"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Impact of wide only attacks on activity"}\NormalTok{,}
+    \DataTypeTok{subtitle =} \StringTok{"weekly counts, zoomed in"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_hline}\NormalTok{(}\DataTypeTok{yintercept =} \DecValTok{0}\NormalTok{,}
+    \DataTypeTok{col =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.2}\NormalTok{, }\DataTypeTok{lty =} \DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
 
 \begin{figure}
 \Centering
@@ -825,6 +940,50 @@ Figure \ref{fig:propActivity}. The impact is still negative, more so for
 mathematical reasons the score minimum is -1 (user activity cannot drop
 more than 100\%), and so the graph looks assymetric around the
 horizontal line.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rescale <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(diff, act) \{}
+\NormalTok{    diff}\OperatorTok{/}\NormalTok{act}
+\NormalTok{\}}
+\NormalTok{data}\OperatorTok{$}\NormalTok{activityScore <-}\StringTok{ }\KeywordTok{rescale}\NormalTok{(data}\OperatorTok{$}\NormalTok{activityDiff, data}\OperatorTok{$}\NormalTok{activityBefore)}
+
+\NormalTok{propPlotHigh <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ sumHighBefore, }\DataTypeTok{y =}\NormalTok{ activityScore)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_jitter}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.8}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.3}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{,}
+    \DataTypeTok{color =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.7}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.8}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"narrow attacks before"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"proportional activity change"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Impact of narrow attacks on proportional activity"}\NormalTok{,}
+        \DataTypeTok{subtitle =} \StringTok{"n=3673"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{,}
+    \DecValTok{10}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_hline}\NormalTok{(}\DataTypeTok{yintercept =} \DecValTok{0}\NormalTok{, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.2}\NormalTok{,}
+    \DataTypeTok{lty =} \DecValTok{3}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{breaks =} \DecValTok{1}\OperatorTok{:}\DecValTok{15}\NormalTok{, }\DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{,}
+    \DecValTok{10}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{color =} \StringTok{"grey"}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.4}\NormalTok{, }\DataTypeTok{lty =} \DecValTok{2}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{)}
+
+\NormalTok{propPlotLow <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ sumLowBefore, }\DataTypeTok{y =}\NormalTok{ activityScore)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_jitter}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.8}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.3}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{,}
+    \DataTypeTok{color =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.7}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.8}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"wide attacks before"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"proportional activity change"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Impact of wide attacks on proportional activity"}\NormalTok{,}
+        \DataTypeTok{subtitle =} \StringTok{"n=3673"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{,}
+    \DecValTok{10}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_hline}\NormalTok{(}\DataTypeTok{yintercept =} \DecValTok{0}\NormalTok{, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.2}\NormalTok{,}
+    \DataTypeTok{lty =} \DecValTok{3}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{breaks =} \DecValTok{1}\OperatorTok{:}\DecValTok{15}\NormalTok{, }\DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{,}
+    \DecValTok{10}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{color =} \StringTok{"grey"}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.4}\NormalTok{, }\DataTypeTok{lty =} \DecValTok{2}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{)}
+
+
+\NormalTok{propPlotLowOnly <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ sumLowBefore }\OperatorTok{-}\StringTok{ }\NormalTok{sumHighBefore,}
+    \DataTypeTok{y =}\NormalTok{ activityScore)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_jitter}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.8}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.3}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{color =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{fill =} \StringTok{"skyblue"}\NormalTok{,}
+        \DataTypeTok{size =} \FloatTok{0.7}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.8}\NormalTok{) }\OperatorTok{+}\StringTok{ }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"wide only attacks before"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ylab}\NormalTok{(}\StringTok{"proportional activity change"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Impact of wide only attacks on proportional activity"}\NormalTok{,}
+    \DataTypeTok{subtitle =} \StringTok{"n=3673"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{,}
+    \DecValTok{10}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_hline}\NormalTok{(}\DataTypeTok{yintercept =} \DecValTok{0}\NormalTok{, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.2}\NormalTok{,}
+    \DataTypeTok{lty =} \DecValTok{3}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{breaks =} \DecValTok{1}\OperatorTok{:}\DecValTok{15}\NormalTok{, }\DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{,}
+    \DecValTok{10}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{color =} \StringTok{"grey"}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.4}\NormalTok{, }\DataTypeTok{lty =} \DecValTok{2}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
 
 \begin{figure}
 \begin{subfigure}[b]{0.75\textwidth}
@@ -884,14 +1043,155 @@ count & 2831 & 530 & 147 & 61 & 35 & 22 & 17 & 8 & 4 & 3 & 2 & 2 & 1 & 1 & 1 & 3
 We proceed as follows. We list 9 options of the number of attacks and
 initiate vectors to which we will save the confidence interval limits
 (\textsf{low}, \textsf{high}), the estimated mean and the
-\textsf{p}-value (Table \ref{tab:testimates}). We use the same approach
-to analyze the other types of attacks.
+\textsf{p}-value. We use the same approach to analyze the other types of
+attacks.
 
 \footnotesize
 
-\normalsize
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{attacks <-}\StringTok{ }\DecValTok{0}\OperatorTok{:}\DecValTok{8}
+\NormalTok{max <-}\StringTok{ }\KeywordTok{max}\NormalTok{(attacks)}
+\NormalTok{low <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(max }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{high <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(max }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{m <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(max }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{p <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(max }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{t <-}\StringTok{ }\KeywordTok{list}\NormalTok{()}
+
+\ControlFlowTok{for}\NormalTok{ (attacks }\ControlFlowTok{in}\NormalTok{ attacks) \{}
+\NormalTok{    t[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]] <-}\StringTok{ }\KeywordTok{t.test}\NormalTok{(data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\NormalTok{attacks,}
+\NormalTok{        ]}\OperatorTok{$}\NormalTok{activityDiff)}
+
+\NormalTok{    low[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{t[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{conf.int[}\DecValTok{1}\NormalTok{]}
+\NormalTok{    high[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{t[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{conf.int[}\DecValTok{2}\NormalTok{]}
+\NormalTok{    m[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{t[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{estimate}
+\NormalTok{    p[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{t[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{p.value}
+\NormalTok{\}}
+\NormalTok{highTable <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\KeywordTok{rbind}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{, low, m, high, p),}
+    \DecValTok{3}\NormalTok{))}
+\KeywordTok{rownames}\NormalTok{(highTable) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"attacks"}\NormalTok{, }\StringTok{"CIlow"}\NormalTok{, }\StringTok{"estimated m"}\NormalTok{, }\StringTok{"CIhigh"}\NormalTok{,}
+    \StringTok{"p-value"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{highTableLong <-}\StringTok{ }\KeywordTok{round}\NormalTok{(}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{attacks =} \DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{, low, m, high,}
+\NormalTok{    p), }\DecValTok{3}\NormalTok{)}
+
+\NormalTok{highTableBar <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(highTableLong) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks,}
+    \DataTypeTok{y =}\NormalTok{ m), }\DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{, }\DataTypeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_errorbar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks, }\DataTypeTok{ymin =}\NormalTok{ low, }\DataTypeTok{ymax =}\NormalTok{ high),}
+        \DataTypeTok{width =} \FloatTok{0.4}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"seashell3"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.9}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.3}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"narrow attacks"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"mean activity change"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_text}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks, }\DataTypeTok{y =}\NormalTok{ low }\OperatorTok{-}\StringTok{ }\DecValTok{20}\NormalTok{, }\DataTypeTok{label =}\NormalTok{ p), }\DataTypeTok{size =} \DecValTok{2}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Mean impact of narrow attacks on  weekly activity"}\NormalTok{,}
+        \DataTypeTok{subtitle =} \StringTok{"with 95% confidence intervals and p-values"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{labels =} \DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{, }\DataTypeTok{breaks =} \DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{)}
+
+\NormalTok{highTableBar6 <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(highTableLong[highTableLong}\OperatorTok{$}\NormalTok{attacks }\OperatorTok{<}
+\StringTok{    }\DecValTok{6}\NormalTok{, ]) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks, }\DataTypeTok{y =}\NormalTok{ m), }\DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{,}
+    \DataTypeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_errorbar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks,}
+    \DataTypeTok{ymin =}\NormalTok{ low, }\DataTypeTok{ymax =}\NormalTok{ high), }\DataTypeTok{width =} \FloatTok{0.4}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"seashell3"}\NormalTok{,}
+    \DataTypeTok{alpha =} \FloatTok{0.9}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.3}\NormalTok{) }\OperatorTok{+}\StringTok{ }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"narrow attacks"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ylab}\NormalTok{(}\StringTok{"mean activity change"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_text}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks,}
+    \DataTypeTok{y =}\NormalTok{ low }\OperatorTok{-}\StringTok{ }\DecValTok{20}\NormalTok{, }\DataTypeTok{label =}\NormalTok{ p), }\DataTypeTok{size =} \DecValTok{2}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Mean impact of narrow attacks <6 on  weekly activity"}\NormalTok{,}
+    \DataTypeTok{subtitle =} \StringTok{"with 95% confidence intervals and p-values"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{labels =} \DecValTok{0}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{breaks =} \DecValTok{0}\OperatorTok{:}\DecValTok{5}\NormalTok{)}
+
+\NormalTok{highTableBar3 <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(highTableLong[highTableLong}\OperatorTok{$}\NormalTok{attacks }\OperatorTok{<}
+\StringTok{    }\DecValTok{3}\NormalTok{, ]) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks, }\DataTypeTok{y =}\NormalTok{ m), }\DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{,}
+    \DataTypeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_errorbar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks,}
+    \DataTypeTok{ymin =}\NormalTok{ low, }\DataTypeTok{ymax =}\NormalTok{ high), }\DataTypeTok{width =} \FloatTok{0.4}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"seashell3"}\NormalTok{,}
+    \DataTypeTok{alpha =} \FloatTok{0.9}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.3}\NormalTok{) }\OperatorTok{+}\StringTok{ }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"narrow attacks"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ylab}\NormalTok{(}\StringTok{"mean activity change"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_text}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks,}
+    \DataTypeTok{y =}\NormalTok{ low }\OperatorTok{-}\StringTok{ }\DecValTok{5}\NormalTok{, }\DataTypeTok{label =}\NormalTok{ p), }\DataTypeTok{size =} \DecValTok{2}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Mean impact of narrow attacks <3 on  weekly activity"}\NormalTok{,}
+    \DataTypeTok{subtitle =} \StringTok{"with 95% confidence intervals and p-values"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{labels =} \DecValTok{0}\OperatorTok{:}\DecValTok{2}\NormalTok{, }\DataTypeTok{breaks =} \DecValTok{0}\OperatorTok{:}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{attacks <-}\StringTok{ }\DecValTok{0}\OperatorTok{:}\DecValTok{8}
+\NormalTok{max <-}\StringTok{ }\KeywordTok{max}\NormalTok{(attacks)}
+\NormalTok{lowL <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(max }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{highL <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(max }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{mL <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(max }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{pL <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(max }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{tL <-}\StringTok{ }\KeywordTok{list}\NormalTok{()}
+
+\ControlFlowTok{for}\NormalTok{ (attacks }\ControlFlowTok{in}\NormalTok{ attacks) \{}
+\NormalTok{    tL[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]] <-}\StringTok{ }\KeywordTok{t.test}\NormalTok{(data[data}\OperatorTok{$}\NormalTok{sumLowBefore }\OperatorTok{==}\StringTok{ }\NormalTok{attacks,}
+\NormalTok{        ]}\OperatorTok{$}\NormalTok{activityDiff)}
+
+\NormalTok{    lowL[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{t[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{conf.int[}\DecValTok{1}\NormalTok{]}
+\NormalTok{    highL[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{t[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{conf.int[}\DecValTok{2}\NormalTok{]}
+\NormalTok{    mL[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{t[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{estimate}
+\NormalTok{    pL[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{t[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{p.value}
+\NormalTok{\}}
+\NormalTok{lowTable <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\KeywordTok{rbind}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{, lowL, mL, highL, pL),}
+    \DecValTok{3}\NormalTok{))}
+\KeywordTok{rownames}\NormalTok{(lowTable) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"attacks"}\NormalTok{, }\StringTok{"CIlow"}\NormalTok{, }\StringTok{"estimated m"}\NormalTok{, }\StringTok{"CIhigh"}\NormalTok{,}
+    \StringTok{"p-value"}\NormalTok{)}
+
+
+\NormalTok{attacks <-}\StringTok{ }\DecValTok{0}\OperatorTok{:}\DecValTok{8}
+\NormalTok{max <-}\StringTok{ }\KeywordTok{max}\NormalTok{(attacks)}
+\NormalTok{lowLo <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(max }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{highLo <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(max }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{mLo <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(max }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{pLo <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(max }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{tLo <-}\StringTok{ }\KeywordTok{list}\NormalTok{()}
+
+\ControlFlowTok{for}\NormalTok{ (attacks }\ControlFlowTok{in}\NormalTok{ attacks) \{}
+\NormalTok{    tLo[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]] <-}\StringTok{ }\KeywordTok{t.test}\NormalTok{(data[data}\OperatorTok{$}\NormalTok{sumLowBefore }\OperatorTok{-}\StringTok{ }\NormalTok{data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}
+\StringTok{        }\NormalTok{attacks, ]}\OperatorTok{$}\NormalTok{activityDiff)}
+
+\NormalTok{    lowLo[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{t[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{conf.int[}\DecValTok{1}\NormalTok{]}
+\NormalTok{    highLo[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{t[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{conf.int[}\DecValTok{2}\NormalTok{]}
+\NormalTok{    mLo[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{t[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{estimate}
+\NormalTok{    pLo[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{t[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{p.value}
+\NormalTok{\}}
+\NormalTok{lowOnlyTable <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\KeywordTok{rbind}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{, lowLo, mLo, highLo,}
+\NormalTok{    pLo), }\DecValTok{3}\NormalTok{))}
+\KeywordTok{rownames}\NormalTok{(lowTable) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"attacks"}\NormalTok{, }\StringTok{"CIlow"}\NormalTok{, }\StringTok{"estimated m"}\NormalTok{, }\StringTok{"CIhigh"}\NormalTok{,}
+    \StringTok{"p-value"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lowTableLong <-}\StringTok{ }\KeywordTok{round}\NormalTok{(}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{attacks =} \DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{, lowL, mL, highL,}
+\NormalTok{    pL), }\DecValTok{3}\NormalTok{)}
+
+\NormalTok{lowTableBar <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(lowTableLong) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks,}
+    \DataTypeTok{y =}\NormalTok{ m), }\DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{, }\DataTypeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_errorbar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks, }\DataTypeTok{ymin =}\NormalTok{ low, }\DataTypeTok{ymax =}\NormalTok{ high),}
+        \DataTypeTok{width =} \FloatTok{0.4}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"seashell3"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.9}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.3}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"wide attacks"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"mean activity change"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_text}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks, }\DataTypeTok{y =}\NormalTok{ low }\OperatorTok{-}\StringTok{ }\DecValTok{20}\NormalTok{, }\DataTypeTok{label =} \KeywordTok{round}\NormalTok{(p,}
+        \DecValTok{3}\NormalTok{)), }\DataTypeTok{size =} \DecValTok{2}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Mean impact of wide attacks on  weekly activity"}\NormalTok{,}
+    \DataTypeTok{subtitle =} \StringTok{"with 95% confidence intervals and p-values"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{labels =} \DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{, }\DataTypeTok{breaks =} \DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{)}
+
+
+\NormalTok{lowOnlyTableLong <-}\StringTok{ }\KeywordTok{round}\NormalTok{(}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{attacks =} \DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{, lowLo, mLo,}
+\NormalTok{    highLo, pLo), }\DecValTok{3}\NormalTok{)}
+
+\NormalTok{lowOnlyTableBar <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(lowOnlyTableLong) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks,}
+    \DataTypeTok{y =}\NormalTok{ m), }\DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{, }\DataTypeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_errorbar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks, }\DataTypeTok{ymin =}\NormalTok{ low, }\DataTypeTok{ymax =}\NormalTok{ high),}
+        \DataTypeTok{width =} \FloatTok{0.4}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"seashell3"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.9}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.3}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"wide only attacks"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"mean activity change"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_text}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks, }\DataTypeTok{y =}\NormalTok{ low }\OperatorTok{-}\StringTok{ }\DecValTok{20}\NormalTok{, }\DataTypeTok{label =} \KeywordTok{round}\NormalTok{(p,}
+        \DecValTok{3}\NormalTok{)), }\DataTypeTok{size =} \DecValTok{2}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Mean impact of wide only attacks on  weekly activity"}\NormalTok{,}
+    \DataTypeTok{subtitle =} \StringTok{"with 95% confidence intervals and p-values"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{labels =} \DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{, }\DataTypeTok{breaks =} \DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \normalsize
 
@@ -1003,6 +1303,57 @@ bars represent \(p\)-values, not the estimated means (Figures
 \label{fig:lowerTableBars}
 \end{figure}
 
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{h6 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{6}\NormalTok{, ]}
+\NormalTok{h7 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{7}\NormalTok{, ]}
+\NormalTok{h8 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{8}\NormalTok{, ]}
+
+\CommentTok{# power for 6 attacks}
+\NormalTok{a <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(data}\OperatorTok{$}\NormalTok{activityDiff)}
+\NormalTok{s <-}\StringTok{ }\KeywordTok{sd}\NormalTok{(h7}\OperatorTok{$}\NormalTok{activityDiff)}
+\NormalTok{n <-}\StringTok{ }\DecValTok{8}
+\NormalTok{error <-}\StringTok{ }\KeywordTok{qt}\NormalTok{(}\FloatTok{0.975}\NormalTok{, }\DataTypeTok{df =}\NormalTok{ n }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{) }\OperatorTok{*}\StringTok{ }\NormalTok{s}\OperatorTok{/}\KeywordTok{sqrt}\NormalTok{(n)}
+\NormalTok{left <-}\StringTok{ }\NormalTok{a }\OperatorTok{-}\StringTok{ }\NormalTok{error}
+\NormalTok{right <-}\StringTok{ }\NormalTok{a }\OperatorTok{+}\StringTok{ }\NormalTok{error}
+\NormalTok{assumed <-}\StringTok{ }\NormalTok{a }\OperatorTok{-}\StringTok{ }\DecValTok{80}
+\NormalTok{tleft <-}\StringTok{ }\NormalTok{(left }\OperatorTok{-}\StringTok{ }\NormalTok{assumed)}\OperatorTok{/}\NormalTok{(s}\OperatorTok{/}\KeywordTok{sqrt}\NormalTok{(n))}
+\NormalTok{tright <-}\StringTok{ }\NormalTok{(right }\OperatorTok{-}\StringTok{ }\NormalTok{assumed)}\OperatorTok{/}\NormalTok{(s}\OperatorTok{/}\KeywordTok{sqrt}\NormalTok{(n))}
+\NormalTok{p <-}\StringTok{ }\KeywordTok{pt}\NormalTok{(tright, }\DataTypeTok{df =}\NormalTok{ n }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{) }\OperatorTok{-}\StringTok{ }\KeywordTok{pt}\NormalTok{(tleft, }\DataTypeTok{df =}\NormalTok{ n }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{power6 <-}\StringTok{ }\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{p}
+
+\CommentTok{# power for 7 attacks}
+\NormalTok{a <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(data}\OperatorTok{$}\NormalTok{activityDiff)}
+\NormalTok{s <-}\StringTok{ }\KeywordTok{sd}\NormalTok{(h7}\OperatorTok{$}\NormalTok{activityDiff)}
+\NormalTok{n <-}\StringTok{ }\DecValTok{8}
+\NormalTok{error <-}\StringTok{ }\KeywordTok{qt}\NormalTok{(}\FloatTok{0.975}\NormalTok{, }\DataTypeTok{df =}\NormalTok{ n }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{) }\OperatorTok{*}\StringTok{ }\NormalTok{s}\OperatorTok{/}\KeywordTok{sqrt}\NormalTok{(n)}
+\NormalTok{left <-}\StringTok{ }\NormalTok{a }\OperatorTok{-}\StringTok{ }\NormalTok{error}
+\NormalTok{right <-}\StringTok{ }\NormalTok{a }\OperatorTok{+}\StringTok{ }\NormalTok{error}
+\NormalTok{assumed <-}\StringTok{ }\NormalTok{a }\OperatorTok{-}\StringTok{ }\DecValTok{80}
+\NormalTok{tleft <-}\StringTok{ }\NormalTok{(left }\OperatorTok{-}\StringTok{ }\NormalTok{assumed)}\OperatorTok{/}\NormalTok{(s}\OperatorTok{/}\KeywordTok{sqrt}\NormalTok{(n))}
+\NormalTok{tright <-}\StringTok{ }\NormalTok{(right }\OperatorTok{-}\StringTok{ }\NormalTok{assumed)}\OperatorTok{/}\NormalTok{(s}\OperatorTok{/}\KeywordTok{sqrt}\NormalTok{(n))}
+\NormalTok{p <-}\StringTok{ }\KeywordTok{pt}\NormalTok{(tright, }\DataTypeTok{df =}\NormalTok{ n }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{) }\OperatorTok{-}\StringTok{ }\KeywordTok{pt}\NormalTok{(tleft, }\DataTypeTok{df =}\NormalTok{ n }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{power7 <-}\StringTok{ }\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{p}
+
+\CommentTok{# power for 8 attacks}
+\NormalTok{a <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(data}\OperatorTok{$}\NormalTok{activityDiff)}
+\NormalTok{s <-}\StringTok{ }\KeywordTok{sd}\NormalTok{(h8}\OperatorTok{$}\NormalTok{activityDiff)}
+\NormalTok{n <-}\StringTok{ }\DecValTok{4}
+\NormalTok{error <-}\StringTok{ }\KeywordTok{qt}\NormalTok{(}\FloatTok{0.975}\NormalTok{, }\DataTypeTok{df =}\NormalTok{ n }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{) }\OperatorTok{*}\StringTok{ }\NormalTok{s}\OperatorTok{/}\KeywordTok{sqrt}\NormalTok{(n)}
+\NormalTok{left <-}\StringTok{ }\NormalTok{a }\OperatorTok{-}\StringTok{ }\NormalTok{error}
+\NormalTok{right <-}\StringTok{ }\NormalTok{a }\OperatorTok{+}\StringTok{ }\NormalTok{error}
+\NormalTok{assumed <-}\StringTok{ }\NormalTok{a }\OperatorTok{-}\StringTok{ }\DecValTok{80}
+\NormalTok{tleft <-}\StringTok{ }\NormalTok{(left }\OperatorTok{-}\StringTok{ }\NormalTok{assumed)}\OperatorTok{/}\NormalTok{(s}\OperatorTok{/}\KeywordTok{sqrt}\NormalTok{(n))}
+\NormalTok{tright <-}\StringTok{ }\NormalTok{(right }\OperatorTok{-}\StringTok{ }\NormalTok{assumed)}\OperatorTok{/}\NormalTok{(s}\OperatorTok{/}\KeywordTok{sqrt}\NormalTok{(n))}
+\NormalTok{p <-}\StringTok{ }\KeywordTok{pt}\NormalTok{(tright, }\DataTypeTok{df =}\NormalTok{ n }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{) }\OperatorTok{-}\StringTok{ }\KeywordTok{pt}\NormalTok{(tleft, }\DataTypeTok{df =}\NormalTok{ n }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{power8 <-}\StringTok{ }\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{p}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize 
+
 Note fairly wide confidence intervals for higher number of attacks.
 These arise because attacks are quite rare, so the sample sizes for 5,
 6, 7 and 8 narrow attacks are 22, 17, 8 and 4 respectively. This might
@@ -1021,6 +1372,26 @@ performed an ANOVA tests, which strongly suggest non-random correlation
 between the numbers of attacks and activity change. Furthermore, 80
 comparison rows in Tukey's Honest Significance Test (Tukey, 1949) have
 conservatively adjusted p-value below 0.05.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{highAnova <-}\StringTok{ }\KeywordTok{aov}\NormalTok{(activityDiff }\OperatorTok{~}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(sumHighBefore), }\DataTypeTok{data =}\NormalTok{ data)}
+\NormalTok{lowAnova <-}\StringTok{ }\KeywordTok{aov}\NormalTok{(activityDiff }\OperatorTok{~}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(sumLowBefore), }\DataTypeTok{data =}\NormalTok{ data)}
+\NormalTok{lowOnlyAnova <-}\StringTok{ }\KeywordTok{aov}\NormalTok{(activityDiff }\OperatorTok{~}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(sumLowBefore }\OperatorTok{-}\StringTok{ }\NormalTok{sumHighBefore),}
+    \DataTypeTok{data =}\NormalTok{ data)}
+
+\KeywordTok{library}\NormalTok{(descr, }\DataTypeTok{quietly =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(pander, }\DataTypeTok{quietly =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(papeR, }\DataTypeTok{quietly =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{sh <-}\StringTok{ }\KeywordTok{xtable}\NormalTok{(}\KeywordTok{summary}\NormalTok{(highAnova))}
+\KeywordTok{rownames}\NormalTok{(sh) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"narrow"}\NormalTok{, }\StringTok{"residuals"}\NormalTok{)}
+\NormalTok{sh}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
 
 \begin{table}[h!]
 
@@ -1073,14 +1444,34 @@ t-test assumes is the normality of the sampling distribution, and this
 condition is much easier to satisfy thanks to the central limit theorem.
 (see for instance Figure \ref{fig:sampling}).\}
 
-\begin{figure}
-\begin{subfigure}[t]{0.45\textwidth}
+\footnotesize
 
-\begin{center}\includegraphics{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-38-1} \end{center}
-\end{subfigure}\hfill
-\begin{subfigure}[t]{0.45\textwidth}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{means <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(}\DecValTok{10000}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (run }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{10000}\NormalTok{) \{}
+\NormalTok{    means[run] <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(}\KeywordTok{sample}\NormalTok{(data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{, ]}\OperatorTok{$}\NormalTok{activityDiff,}
+        \DecValTok{30}\NormalTok{))}
+\NormalTok{\}}
+\NormalTok{distr <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{, ], }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ activityDiff)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_histogram}\NormalTok{(}\DataTypeTok{bins =} \DecValTok{100}\NormalTok{) }\OperatorTok{+}\StringTok{ }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"Distribution of activityDiff for narrow attacks before = 2"}\NormalTok{)}
+
+
+\NormalTok{sampDistr <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_histogram}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ means), }\DataTypeTok{bins =} \DecValTok{100}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"Simulated sampling distribution for the same  with n=30 and 10 000 runs"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
+\begin{figure}
+\begin{subfigure}{0.4\textwidth}
 
 \begin{center}\includegraphics{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-39-1} \end{center}
+\end{subfigure}\hfill
+\begin{subfigure}{0.4\textwidth}
+
+\begin{center}\includegraphics{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-40-1} \end{center}
 \end{subfigure}
 \caption{Example of comparison of a distribution and its sampling distribution.}
 \label{fig:sampling}
@@ -1127,6 +1518,15 @@ deviations are respectively \((0,50), (-1.11,44.47)\) and
 
 \footnotesize
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(BEST)}
+\NormalTok{priorsWide <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DataTypeTok{muM =} \DecValTok{0}\NormalTok{, }\DataTypeTok{muSD =} \DecValTok{50}\NormalTok{)}
+\NormalTok{priorsInformed <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DataTypeTok{muM =} \FloatTok{-1.11}\NormalTok{, }\DataTypeTok{muSD =} \FloatTok{44.47}\NormalTok{)}
+\NormalTok{priorsFit <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DataTypeTok{muM =} \FloatTok{-1.11}\NormalTok{, }\DataTypeTok{muSD =} \FloatTok{7.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \normalsize
 
 These are all normal distributions with different parameters. We follow
@@ -1147,17 +1547,32 @@ properties\footnote{See \emph{Don’t Use Uniform Priors. They statistically don
 Our priors look as in Figure \ref{fig:priors} (note that the fitted
 prior looks similar when the \(x\) scale is different to make the
 fitting more clearly visible; we also visualise the fitted prior in the
-same scale as the other priors).
+same scale as the other priors). Here's the visualisation code for the
+wide priors, code for the other priors is analogous.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{priorWide <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =} \KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{200}\NormalTok{, }\DecValTok{200}\NormalTok{)), }\KeywordTok{aes}\NormalTok{(x)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{stat_function}\NormalTok{(}\DataTypeTok{fun =}\NormalTok{ dnorm, }\DataTypeTok{args =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{mean =} \DecValTok{0}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{50}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ylab}\NormalTok{(}\StringTok{""}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{breaks =} \OtherTok{NULL}\NormalTok{) }\OperatorTok{+}\StringTok{ }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"expected activity change"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Wide prior"}\NormalTok{, }\DataTypeTok{subtitle =} \StringTok{"Normal prior with m = 0, sd = 50"}\NormalTok{)}
+\NormalTok{priorWide}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
 
 \begin{figure}[!ht]
 \begin{subfigure}[!ht]{0.45\textwidth}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-41-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-43-1} \end{center}
 \end{subfigure}
 \hfill
 \begin{subfigure}[!ht]{0.45\textwidth}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-42-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-44-1} \end{center}
 \end{subfigure}
 
 
@@ -1165,11 +1580,11 @@ same scale as the other priors).
 
 \begin{subfigure}[!ht]{0.45\textwidth}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-43-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-45-1} \end{center}
 \end{subfigure} \hfill
 \begin{subfigure}[!ht]{0.45\textwidth}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-44-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-46-1} \end{center}
 \end{subfigure}
 
 
@@ -1177,24 +1592,76 @@ same scale as the other priors).
 \label{fig:priors}
 \end{figure}
 
+First, it will be convenient to split and extract the data (we will do
+the Bayesian analysis for narrow attacks:
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sh0 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{, ]}\OperatorTok{$}\NormalTok{activityDiff}
+\NormalTok{sh1 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{, ]}\OperatorTok{$}\NormalTok{activityDiff}
+\NormalTok{sh2 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{, ]}\OperatorTok{$}\NormalTok{activityDiff}
+\NormalTok{sh3 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{3}\NormalTok{, ]}\OperatorTok{$}\NormalTok{activityDiff}
+\NormalTok{sh4 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{4}\NormalTok{, ]}\OperatorTok{$}\NormalTok{activityDiff}
+\NormalTok{sh5 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{5}\NormalTok{, ]}\OperatorTok{$}\NormalTok{activityDiff}
+\NormalTok{sh6 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{6}\NormalTok{, ]}\OperatorTok{$}\NormalTok{activityDiff}
+\NormalTok{sh7 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{7}\NormalTok{, ]}\OperatorTok{$}\NormalTok{activityDiff}
+\NormalTok{sh8 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{8}\NormalTok{, ]}\OperatorTok{$}\NormalTok{activityDiff}
+\end{Highlighting}
+\end{Shaded}
+
 \normalsize
 
 As an example, we go over in detail over the estimation of the impact of
 data for three narrow attacks on the wide prior. We built the sample of
 simulated posterior probabilities and plotted the t-distributions of 30
 random steps in the approximation process together with a histogram of
-the data, so that we can estimate how the simulations converged.
+the data, so that we can estimate how the simulations
+converged.\footnote{Actually, since BEST simulations are computationally heavy, we have already run them separately and loaded the file with the results. However, normally you would use a line like the one listed (these simulations take the more time the larger the dataset).}
 
 \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mc3w <-}\StringTok{ }\KeywordTok{BESTmcmc}\NormalTok{(sh3, }\DataTypeTok{priors =}\NormalTok{ priorsWide)}
+\KeywordTok{plotPostPred}\NormalTok{(mc3w)}
+\end{Highlighting}
+\end{Shaded}
 
 \normalsize
 
 \begin{figure}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-48-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-50-1} \end{center}
 \label{fig:threeWidePostPred}
 \caption{T-distributions for 30 random steps in Bayesian approximation (wide prior, three attacks): $y$ is a potential parameter value (a candidate group mean), and we plot probability densities for the distributions detemined by the random steps.}
 \end{figure}
+
+Next, we print some information about the object we obtained:
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{print}\NormalTok{(mc3w)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## MCMC fit results for BEST analysis:
+## 100002 simulations saved.
+##          mean     sd  median    HDIlo  HDIup  Rhat n.eff
+## mu    -24.476  9.063 -24.327 -42.4760 -6.859 1.000 48767
+## nu      9.626 12.988   5.275   0.9163 33.326 1.001  2867
+## sigma  61.398 11.533  61.081  39.6685 84.249 1.000  9530
+## 
+## 'HDIlo' and 'HDIup' are the limits of a 95% HDI credible interval.
+## 'Rhat' is the potential scale reduction factor (at convergence, Rhat=1).
+## 'n.eff' is a crude measure of effective sample size.
+\end{verbatim}
+
+\normalsize
 
 The simulation, among other things, produces out a sample of 100002
 simulated posterior distributions of the mean, \textsf{mu}. Below we
@@ -1221,14 +1688,27 @@ the first 100 steps in the full simulation and parameters visited at
 every 50th step (because a plot of all 100000 steps would not be clearly
 readable).
 
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \DecValTok{1}\OperatorTok{:}\KeywordTok{length}\NormalTok{(mc3w}\OperatorTok{$}\NormalTok{mu[}\DecValTok{1}\OperatorTok{:}\DecValTok{100}\NormalTok{]), }\DataTypeTok{y =}\NormalTok{ mc3w}\OperatorTok{$}\NormalTok{mu[}\DecValTok{1}\OperatorTok{:}\DecValTok{100}\NormalTok{]),}
+    \DataTypeTok{alpha =} \FloatTok{0.7}\NormalTok{) }\OperatorTok{+}\StringTok{ }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"initial steps in the chain"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ylab}\NormalTok{(}\StringTok{"potential parameter"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Convergence plot for first 100 steps in MCMC"}\NormalTok{,}
+    \DataTypeTok{subtitle =} \StringTok{"Wide prior, three attacks"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
 \begin{figure}[!ht]
 \begin{subfigure}[!ht]{0.45\textwidth}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-49-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-53-1} \end{center}
 \end{subfigure} \hfill
 \begin{subfigure}[!ht]{0.45\textwidth}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-50-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-54-1} \end{center}
 \end{subfigure}
 \caption{Chain diagnostics for three attacks with wide priors.}
 \label{fig:chains}
@@ -1240,9 +1720,16 @@ the distribution of the outcome. HDI with limits is displayed at the
 bottom, and the information in green represents the t proportion of the
 sample that is below 0.
 
+Rhat is a convergence measure, if the process goes well it should be
+around 1, and \textsf{n.eff} is the effective sample size -- which is
+often lower than the actual full sample because of autocorrelation (in
+simulations next guess for a parameter depends to some extent on what
+the previous guess was, and the calculation of \textsf{n.eff} corrects
+for this).
+
 \begin{figure}[h!]
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-51-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-55-1} \end{center}
 \caption{Outcome plot for three attacks, wide prior.}
 \label{fig:mw3plot}
 \end{figure}
@@ -1269,41 +1756,143 @@ distributions (not the means of the data, but a result of a compromise
 between the priors and the data) with HDIs. The total output is in
 Figures \ref{fig:bayesian1}-\ref{fig:bayesian3}.
 
-\scriptsize
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# prepare data and plot densities}
+\NormalTok{bayesianWideDF <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{a0 =}\NormalTok{ mc0w}\OperatorTok{$}\NormalTok{mu, }\DataTypeTok{a1 =}\NormalTok{ mc1w}\OperatorTok{$}\NormalTok{mu, }\DataTypeTok{a2 =}\NormalTok{ mc2w}\OperatorTok{$}\NormalTok{mu,}
+    \DataTypeTok{a3 =}\NormalTok{ mc3w}\OperatorTok{$}\NormalTok{mu, }\DataTypeTok{a4 =}\NormalTok{ mc4w}\OperatorTok{$}\NormalTok{mu, }\DataTypeTok{a5 =}\NormalTok{ mc5w}\OperatorTok{$}\NormalTok{mu, }\DataTypeTok{a6 =}\NormalTok{ mc6w}\OperatorTok{$}\NormalTok{mu, }\DataTypeTok{a7 =}\NormalTok{ mc7w}\OperatorTok{$}\NormalTok{mu,}
+    \DataTypeTok{a8 =}\NormalTok{ mc8w}\OperatorTok{$}\NormalTok{mu)}
+\NormalTok{bayesianWideDF}\OperatorTok{$}\NormalTok{prior <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\KeywordTok{nrow}\NormalTok{(bayesianWideDF), }\DataTypeTok{mean =} \DecValTok{0}\NormalTok{,}
+    \DataTypeTok{sd =} \DecValTok{50}\NormalTok{)}
+\NormalTok{BayesianWideDFLong <-}\StringTok{ }\KeywordTok{gather}\NormalTok{(bayesianWideDF)}
+\NormalTok{BayesianWideDFLong}\OperatorTok{$}\NormalTok{key <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(BayesianWideDFLong}\OperatorTok{$}\NormalTok{key)}
+\NormalTok{BayesianWideDensities <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(BayesianWideDFLong, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ value,}
+    \DataTypeTok{group =}\NormalTok{ key, }\DataTypeTok{color =}\NormalTok{ key, }\DataTypeTok{fill =}\NormalTok{ key)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"activity change"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_fill_discrete}\NormalTok{(}\DataTypeTok{name =} \StringTok{"group"}\NormalTok{,}
+    \DataTypeTok{labels =} \KeywordTok{c}\NormalTok{(}\StringTok{"0 attacks"}\NormalTok{, }\StringTok{"1 attack"}\NormalTok{, }\StringTok{"2 attacks"}\NormalTok{, }\StringTok{"3 attacks"}\NormalTok{,}
+        \StringTok{"4 attacks"}\NormalTok{, }\StringTok{"5 attacks"}\NormalTok{, }\StringTok{"6 attacks"}\NormalTok{, }\StringTok{"7 attacks"}\NormalTok{, }\StringTok{"8 attacks"}\NormalTok{,}
+        \StringTok{"prior"}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{guides}\NormalTok{(}\DataTypeTok{color =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{size =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylim}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}
+    \FloatTok{0.11}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{xlim}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{90}\NormalTok{, }\DecValTok{60}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Impact of data on wide prior"}\NormalTok{,}
+    \DataTypeTok{subtitle =} \StringTok{"narrow attacks vs. activity change"}\NormalTok{)}
+
+\CommentTok{# extract means and HDI limits from the mcmc objects}
+\NormalTok{wideMeans <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(}\DecValTok{9}\NormalTok{)}
+\NormalTok{wideLow <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(}\DecValTok{9}\NormalTok{)}
+\NormalTok{wideHigh <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(}\DecValTok{9}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{9}\NormalTok{) \{}
+\NormalTok{    wideMeans[i] <-}\StringTok{ }\KeywordTok{eval}\NormalTok{(}\KeywordTok{parse}\NormalTok{(}\DataTypeTok{text =} \KeywordTok{paste}\NormalTok{(}\StringTok{"summary(mc"}\NormalTok{, i }\OperatorTok{-}
+\StringTok{        }\DecValTok{1}\NormalTok{, }\StringTok{"w)[1]"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)))}
+\NormalTok{    wideLow[i] <-}\StringTok{ }\KeywordTok{eval}\NormalTok{(}\KeywordTok{parse}\NormalTok{(}\DataTypeTok{text =} \KeywordTok{paste}\NormalTok{(}\StringTok{"summary(mc"}\NormalTok{, i }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{,}
+        \StringTok{"w)[21]"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)))}
+\NormalTok{    wideHigh[i] <-}\StringTok{ }\KeywordTok{eval}\NormalTok{(}\KeywordTok{parse}\NormalTok{(}\DataTypeTok{text =} \KeywordTok{paste}\NormalTok{(}\StringTok{"summary(mc"}\NormalTok{, i }\OperatorTok{-}
+\StringTok{        }\DecValTok{1}\NormalTok{, }\StringTok{"w)[26]"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)))}
+\NormalTok{\}}
+
+\CommentTok{# order the data and make the barplot}
+\NormalTok{wideBayesTable <-}\StringTok{ }\KeywordTok{round}\NormalTok{(}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{attacks =} \DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{, wideLow, wideMeans,}
+\NormalTok{    wideHigh), }\DecValTok{3}\NormalTok{)}
+\NormalTok{wideBayesBar <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(wideBayesTable) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks,}
+    \DataTypeTok{y =}\NormalTok{ wideMeans), }\DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{, }\DataTypeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_errorbar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks, }\DataTypeTok{ymin =}\NormalTok{ wideLow, }\DataTypeTok{ymax =}\NormalTok{ wideHigh),}
+        \DataTypeTok{width =} \FloatTok{0.4}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"seashell3"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.9}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.3}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"narrow attacks"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"activity change"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_text}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks }\OperatorTok{+}
+\StringTok{    }\FloatTok{0.24}\NormalTok{, }\DataTypeTok{y =}\NormalTok{ wideMeans }\OperatorTok{-}\StringTok{ }\DecValTok{3}\NormalTok{, }\DataTypeTok{label =} \KeywordTok{round}\NormalTok{(wideMeans, }\DecValTok{1}\NormalTok{)), }\DataTypeTok{size =} \DecValTok{3}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{labels =} \DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{, }\DataTypeTok{breaks =} \DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bayesianFittedDF <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{a0 =}\NormalTok{ mc0f}\OperatorTok{$}\NormalTok{mu, }\DataTypeTok{a1 =}\NormalTok{ mc1f}\OperatorTok{$}\NormalTok{mu, }\DataTypeTok{a2 =}\NormalTok{ mc2f}\OperatorTok{$}\NormalTok{mu,}
+    \DataTypeTok{a3 =}\NormalTok{ mc3f}\OperatorTok{$}\NormalTok{mu, }\DataTypeTok{a4 =}\NormalTok{ mc4f}\OperatorTok{$}\NormalTok{mu, }\DataTypeTok{a5 =}\NormalTok{ mc5f}\OperatorTok{$}\NormalTok{mu, }\DataTypeTok{a6 =}\NormalTok{ mc6f}\OperatorTok{$}\NormalTok{mu, }\DataTypeTok{a7 =}\NormalTok{ mc7f}\OperatorTok{$}\NormalTok{mu,}
+    \DataTypeTok{a8 =}\NormalTok{ mc8f}\OperatorTok{$}\NormalTok{mu)}
+\NormalTok{bayesianFittedDF}\OperatorTok{$}\NormalTok{prior <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\KeywordTok{nrow}\NormalTok{(bayesianFittedDF), }\DataTypeTok{mean =} \FloatTok{-1.11}\NormalTok{,}
+    \DataTypeTok{sd =} \FloatTok{7.5}\NormalTok{)}
+\NormalTok{BayesianFittedDFLong <-}\StringTok{ }\KeywordTok{gather}\NormalTok{(bayesianFittedDF)}
+\NormalTok{BayesianFittedDFLong}\OperatorTok{$}\NormalTok{key <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(BayesianFittedDFLong}\OperatorTok{$}\NormalTok{key)}
+\NormalTok{BayesianFittedDensities <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(BayesianFittedDFLong, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ value,}
+    \DataTypeTok{group =}\NormalTok{ key, }\DataTypeTok{color =}\NormalTok{ key, }\DataTypeTok{fill =}\NormalTok{ key)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"activity change"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_fill_discrete}\NormalTok{(}\DataTypeTok{name =} \StringTok{"group"}\NormalTok{,}
+    \DataTypeTok{labels =} \KeywordTok{c}\NormalTok{(}\StringTok{"0 attacks"}\NormalTok{, }\StringTok{"1 attack"}\NormalTok{, }\StringTok{"2 attacks"}\NormalTok{, }\StringTok{"3 attacks"}\NormalTok{,}
+        \StringTok{"4 attacks"}\NormalTok{, }\StringTok{"5 attacks"}\NormalTok{, }\StringTok{"6 attacks"}\NormalTok{, }\StringTok{"7 attacks"}\NormalTok{, }\StringTok{"8 attacks"}\NormalTok{,}
+        \StringTok{"prior"}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{guides}\NormalTok{(}\DataTypeTok{color =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{size =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylim}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}
+    \FloatTok{0.12}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{xlim}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{35}\NormalTok{, }\DecValTok{20}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Impact of data on fitted prior"}\NormalTok{,}
+    \DataTypeTok{subtitle =} \StringTok{"narrow attacks vs. activity change"}\NormalTok{)}
+
+\NormalTok{fittedMeans <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(}\DecValTok{9}\NormalTok{)}
+\NormalTok{fittedLow <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(}\DecValTok{9}\NormalTok{)}
+\NormalTok{fittedHigh <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(}\DecValTok{9}\NormalTok{)}
+
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{9}\NormalTok{) \{}
+\NormalTok{    fittedMeans[i] <-}\StringTok{ }\KeywordTok{eval}\NormalTok{(}\KeywordTok{parse}\NormalTok{(}\DataTypeTok{text =} \KeywordTok{paste}\NormalTok{(}\StringTok{"summary(mc"}\NormalTok{, i }\OperatorTok{-}
+\StringTok{        }\DecValTok{1}\NormalTok{, }\StringTok{"f)[1]"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)))}
+\NormalTok{    fittedLow[i] <-}\StringTok{ }\KeywordTok{eval}\NormalTok{(}\KeywordTok{parse}\NormalTok{(}\DataTypeTok{text =} \KeywordTok{paste}\NormalTok{(}\StringTok{"summary(mc"}\NormalTok{, i }\OperatorTok{-}
+\StringTok{        }\DecValTok{1}\NormalTok{, }\StringTok{"f)[21]"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)))}
+\NormalTok{    fittedHigh[i] <-}\StringTok{ }\KeywordTok{eval}\NormalTok{(}\KeywordTok{parse}\NormalTok{(}\DataTypeTok{text =} \KeywordTok{paste}\NormalTok{(}\StringTok{"summary(mc"}\NormalTok{, i }\OperatorTok{-}
+\StringTok{        }\DecValTok{1}\NormalTok{, }\StringTok{"f)[26]"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)))}
+\NormalTok{\}}
+
+\NormalTok{fittedBayesTable <-}\StringTok{ }\KeywordTok{round}\NormalTok{(}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{attacks =} \DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{, fittedLow,}
+\NormalTok{    fittedMeans, fittedHigh), }\DecValTok{3}\NormalTok{)}
+\NormalTok{fittedBayesBar <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(fittedBayesTable) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks,}
+    \DataTypeTok{y =}\NormalTok{ fittedMeans), }\DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{, }\DataTypeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_errorbar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks, }\DataTypeTok{ymin =}\NormalTok{ fittedLow, }\DataTypeTok{ymax =}\NormalTok{ fittedHigh),}
+        \DataTypeTok{width =} \FloatTok{0.4}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"seashell3"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.9}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.3}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"narrow attacks"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"activity change"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_text}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks }\OperatorTok{+}
+\StringTok{    }\FloatTok{0.25}\NormalTok{, }\DataTypeTok{y =}\NormalTok{ fittedMeans }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{, }\DataTypeTok{label =} \KeywordTok{round}\NormalTok{(fittedMeans, }\DecValTok{1}\NormalTok{)),}
+    \DataTypeTok{size =} \DecValTok{3}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{labels =} \DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{, }\DataTypeTok{breaks =} \DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{)}
+
+
+\CommentTok{# ______________________________}
+\NormalTok{bayesianInformativeDF <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{a0 =}\NormalTok{ mc0i}\OperatorTok{$}\NormalTok{mu, }\DataTypeTok{a1 =}\NormalTok{ mc1i}\OperatorTok{$}\NormalTok{mu,}
+    \DataTypeTok{a2 =}\NormalTok{ mc2i}\OperatorTok{$}\NormalTok{mu, }\DataTypeTok{a3 =}\NormalTok{ mc3i}\OperatorTok{$}\NormalTok{mu, }\DataTypeTok{a4 =}\NormalTok{ mc4i}\OperatorTok{$}\NormalTok{mu, }\DataTypeTok{a5 =}\NormalTok{ mc5i}\OperatorTok{$}\NormalTok{mu, }\DataTypeTok{a6 =}\NormalTok{ mc6i}\OperatorTok{$}\NormalTok{mu,}
+    \DataTypeTok{a7 =}\NormalTok{ mc7i}\OperatorTok{$}\NormalTok{mu, }\DataTypeTok{a8 =}\NormalTok{ mc8i}\OperatorTok{$}\NormalTok{mu)}
+\NormalTok{bayesianInformativeDF}\OperatorTok{$}\NormalTok{prior <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\KeywordTok{nrow}\NormalTok{(bayesianInformativeDF),}
+    \DataTypeTok{mean =} \FloatTok{-1.11}\NormalTok{, }\DataTypeTok{sd =} \FloatTok{44.47}\NormalTok{)}
+\NormalTok{BayesianInformativeDFLong <-}\StringTok{ }\KeywordTok{gather}\NormalTok{(bayesianInformativeDF)}
+\NormalTok{BayesianInformativeDFLong}\OperatorTok{$}\NormalTok{key <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(BayesianInformativeDFLong}\OperatorTok{$}\NormalTok{key)}
+\NormalTok{BayesianInvormativeDensities <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(BayesianInformativeDFLong,}
+    \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ value, }\DataTypeTok{group =}\NormalTok{ key, }\DataTypeTok{color =}\NormalTok{ key, }\DataTypeTok{fill =}\NormalTok{ key)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.2}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"activity change"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_fill_discrete}\NormalTok{(}\DataTypeTok{name =} \StringTok{"group"}\NormalTok{,}
+    \DataTypeTok{labels =} \KeywordTok{c}\NormalTok{(}\StringTok{"0 attacks"}\NormalTok{, }\StringTok{"1 attack"}\NormalTok{, }\StringTok{"2 attacks"}\NormalTok{, }\StringTok{"3 attacks"}\NormalTok{,}
+        \StringTok{"4 attacks"}\NormalTok{, }\StringTok{"5 attacks"}\NormalTok{, }\StringTok{"6 attacks"}\NormalTok{, }\StringTok{"7 attacks"}\NormalTok{, }\StringTok{"8 attacks"}\NormalTok{,}
+        \StringTok{"prior"}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{guides}\NormalTok{(}\DataTypeTok{color =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{size =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylim}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}
+    \FloatTok{0.11}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{xlim}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{90}\NormalTok{, }\DecValTok{50}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Impact of data on Informative prior"}\NormalTok{,}
+    \DataTypeTok{subtitle =} \StringTok{"narrow attacks vs. activity change"}\NormalTok{)}
+
+
+\NormalTok{InformativeMeans <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(}\DecValTok{9}\NormalTok{)}
+\NormalTok{InformativeLow <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(}\DecValTok{9}\NormalTok{)}
+\NormalTok{InformativeHigh <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(}\DecValTok{9}\NormalTok{)}
+
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{9}\NormalTok{) \{}
+\NormalTok{    InformativeMeans[i] <-}\StringTok{ }\KeywordTok{eval}\NormalTok{(}\KeywordTok{parse}\NormalTok{(}\DataTypeTok{text =} \KeywordTok{paste}\NormalTok{(}\StringTok{"summary(mc"}\NormalTok{,}
+\NormalTok{        i }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{, }\StringTok{"i)[1]"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)))}
+\NormalTok{    InformativeLow[i] <-}\StringTok{ }\KeywordTok{eval}\NormalTok{(}\KeywordTok{parse}\NormalTok{(}\DataTypeTok{text =} \KeywordTok{paste}\NormalTok{(}\StringTok{"summary(mc"}\NormalTok{,}
+\NormalTok{        i }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{, }\StringTok{"i)[21]"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)))}
+\NormalTok{    InformativeHigh[i] <-}\StringTok{ }\KeywordTok{eval}\NormalTok{(}\KeywordTok{parse}\NormalTok{(}\DataTypeTok{text =} \KeywordTok{paste}\NormalTok{(}\StringTok{"summary(mc"}\NormalTok{,}
+\NormalTok{        i }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{, }\StringTok{"i)[26]"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)))}
+\NormalTok{\}}
+
+\NormalTok{InformativeBayesTable <-}\StringTok{ }\KeywordTok{round}\NormalTok{(}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{attacks =} \DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{, InformativeLow,}
+\NormalTok{    InformativeMeans, InformativeHigh), }\DecValTok{3}\NormalTok{)}
+
+\NormalTok{InformativeBayesBar <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(InformativeBayesTable) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks,}
+    \DataTypeTok{y =}\NormalTok{ InformativeMeans), }\DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{, }\DataTypeTok{fill =} \StringTok{"skyblue"}\NormalTok{,}
+    \DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_errorbar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks, }\DataTypeTok{ymin =}\NormalTok{ InformativeLow,}
+    \DataTypeTok{ymax =}\NormalTok{ InformativeHigh), }\DataTypeTok{width =} \FloatTok{0.4}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"seashell3"}\NormalTok{,}
+    \DataTypeTok{alpha =} \FloatTok{0.9}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.3}\NormalTok{) }\OperatorTok{+}\StringTok{ }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"narrow attacks"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ylab}\NormalTok{(}\StringTok{"activity change"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_text}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks }\OperatorTok{+}\StringTok{ }\FloatTok{0.25}\NormalTok{,}
+    \DataTypeTok{y =}\NormalTok{ InformativeMeans }\OperatorTok{-}\StringTok{ }\DecValTok{3}\NormalTok{, }\DataTypeTok{label =} \KeywordTok{round}\NormalTok{(InformativeMeans,}
+        \DecValTok{1}\NormalTok{)), }\DataTypeTok{size =} \DecValTok{3}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{labels =} \DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{, }\DataTypeTok{breaks =} \DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \newpage
-
-\begin{figure}[!ht]
-\begin{subfigure}[!ht]{0.9\textwidth}
-
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-54-1} \end{center}
-\end{subfigure} 
-
-
-\begin{subfigure}[!ht]{0.9\textwidth}
-
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-55-1} \end{center}
-\end{subfigure}
-
-
-\caption{Prior and posterior distributions for all attacks and wide priors, with posterior means and HDI limits in barplots.}
-\label{fig:bayesian1}
-\end{figure}
-
-\begin{figure}[!ht]
-\begin{subfigure}[!ht]{0.9\textwidth}
-
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-56-1} \end{center}
-\end{subfigure} 
-
-
-\begin{subfigure}[!ht]{0.9\textwidth}
-
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-57-1} \end{center}
-\end{subfigure}
-\caption{Prior and posterior distributions for all attacks and fitted priors, with posterior means and HDI limits in barplots.}
-\label{fig:bayesian2}
-\end{figure}
 
 \begin{figure}[!ht]
 \begin{subfigure}[!ht]{0.9\textwidth}
@@ -1315,6 +1904,38 @@ Figures \ref{fig:bayesian1}-\ref{fig:bayesian3}.
 \begin{subfigure}[!ht]{0.9\textwidth}
 
 \begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-59-1} \end{center}
+\end{subfigure}
+
+
+\caption{Prior and posterior distributions for all attacks and wide priors, with posterior means and HDI limits in barplots.}
+\label{fig:bayesian1}
+\end{figure}
+
+\begin{figure}[!ht]
+\begin{subfigure}[!ht]{0.9\textwidth}
+
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-60-1} \end{center}
+\end{subfigure} 
+
+
+\begin{subfigure}[!ht]{0.9\textwidth}
+
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-61-1} \end{center}
+\end{subfigure}
+\caption{Prior and posterior distributions for all attacks and fitted priors, with posterior means and HDI limits in barplots.}
+\label{fig:bayesian2}
+\end{figure}
+
+\begin{figure}[!ht]
+\begin{subfigure}[!ht]{0.9\textwidth}
+
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-62-1} \end{center}
+\end{subfigure} 
+
+
+\begin{subfigure}[!ht]{0.9\textwidth}
+
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-63-1} \end{center}
 \end{subfigure}
 
 \caption{Prior and posterior distributions for all attacks and informative priors, with posterior means and HDI limits in barplots.}
@@ -1335,7 +1956,7 @@ attacks seem to display more uneven behavior).
 
 \begin{figure}[!ht]
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-60-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-64-1} \end{center}
 \caption{Standard deviations of  activity change vs. narrow attacks.}
 \label{fig:bayesian3'}
 \end{figure}
@@ -1364,23 +1985,73 @@ models meant to predict \textsf{activityAfter} based on a selection of
 other variables, pick the best one(s) and analyze what they reveal about
 the predictors involved.
 
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(MASS)}
+\KeywordTok{library}\NormalTok{(vcd)}
+\KeywordTok{library}\NormalTok{(lmtest)}
+\KeywordTok{library}\NormalTok{(countreg)}
+\KeywordTok{library}\NormalTok{(pscl)}
+\KeywordTok{library}\NormalTok{(stats)}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
 Our first challenge was finding the right distribution for the outcome
 variable (Figure \ref{fig:activityDistro}).
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{activityAfterTab <-}\StringTok{ }\KeywordTok{table}\NormalTok{(}\KeywordTok{factor}\NormalTok{(data}\OperatorTok{$}\NormalTok{activityAfter, }\DataTypeTok{levels =} \DecValTok{0}\OperatorTok{:}\KeywordTok{max}\NormalTok{(data}\OperatorTok{$}\NormalTok{activityAfter)))}
+\NormalTok{activityAfterDf <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(activityAfterTab)}
+\NormalTok{activityAfterDf}\OperatorTok{$}\NormalTok{Var1 <-}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(activityAfterDf}\OperatorTok{$}\NormalTok{Var1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{activityDistr <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(activityAfterDf, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Var1, }\DataTypeTok{y =}\NormalTok{ Freq)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}
+    \DecValTok{1000}\NormalTok{, }\DataTypeTok{by =} \DecValTok{50}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Distribution of activityAfter"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{xlab}\NormalTok{(}\StringTok{"activityAfter"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"count"}\NormalTok{)}
+
+\NormalTok{activityDistrRestr <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(activityAfterDf, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Var1, }\DataTypeTok{y =}\NormalTok{ Freq)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}
+    \DecValTok{100}\NormalTok{, }\DataTypeTok{by =} \DecValTok{10}\NormalTok{), }\DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{100}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Distribution of activityAfter"}\NormalTok{,}
+    \DataTypeTok{subtitle =} \StringTok{"x restricted to 0-100"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"activityAfter"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ylab}\NormalTok{(}\StringTok{"count"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
 
 \begin{figure}
 \begin{subfigure}[b]{0.45\textwidth}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-64-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-68-1} \end{center}
 \end{subfigure}
 \begin{subfigure}[b]{0.45\textwidth}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-65-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-69-1} \end{center}
 \end{subfigure}
 \caption{Empirical distribution of activityAfter}
 \label{fig:activityDistro}
 \end{figure}
 
 \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{activityFitPois <-}\StringTok{ }\KeywordTok{goodfit}\NormalTok{(activityAfterTab, }\DataTypeTok{type =} \StringTok{"poisson"}\NormalTok{)}
+\KeywordTok{unlist}\NormalTok{(activityFitPois}\OperatorTok{$}\NormalTok{par)}
+\KeywordTok{summary}\NormalTok{(activityFitPois)}
+\end{Highlighting}
+\end{Shaded}
 
 \normalsize 
 
@@ -1390,9 +2061,25 @@ parameter (\(\approx 35.69\)) to perform a goodness-of-fit test (with
 \(df=273\), \(\chi^2 \approx \infty\) and \(P(>\chi^2)\approx 0\)), and
 compare visually the predicted values with the actual ones.
 
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{activityFitPois <-}\StringTok{ }\KeywordTok{goodfit}\NormalTok{(activityAfterTab, }\DataTypeTok{type =} \StringTok{"poisson"}\NormalTok{)}
+\NormalTok{poissonFitPlot <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(activityAfterDf, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Var1, }\DataTypeTok{y =}\NormalTok{ Freq)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.6}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}
+    \DecValTok{100}\NormalTok{, }\DataTypeTok{by =} \DecValTok{10}\NormalTok{), }\DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{100}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"activityAfter with fitted best Poisson model predictions"}\NormalTok{,}
+    \DataTypeTok{subtitle =} \StringTok{"x restricted to 0-100"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"activityAfter"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ylab}\NormalTok{(}\StringTok{"count"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Var1, }\DataTypeTok{y =}\NormalTok{ activityFitPois}\OperatorTok{$}\NormalTok{fitted),}
+    \DataTypeTok{colour =} \StringTok{"darksalmon"}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
 \begin{figure}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-68-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-72-1} \end{center}
 \caption{Poor performance of best-fitting Poisson distribution.}
 \end{figure}
 
@@ -1407,11 +2094,30 @@ help us much with the zero counts.
 
 \footnotesize
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{activityFitNbin <-}\StringTok{ }\KeywordTok{goodfit}\NormalTok{(activityAfterTab, }\DataTypeTok{type =} \StringTok{"nbinom"}\NormalTok{)}
+\KeywordTok{summary}\NormalTok{(activityFitNbin)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{activityFitNbin <-}\StringTok{ }\KeywordTok{goodfit}\NormalTok{(activityAfterTab, }\DataTypeTok{type =} \StringTok{"nbinom"}\NormalTok{)}
+\NormalTok{poissonNbinPlot2 <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(activityAfterDf, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Var1, }\DataTypeTok{y =}\NormalTok{ Freq)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}
+    \DecValTok{100}\NormalTok{, }\DataTypeTok{by =} \DecValTok{10}\NormalTok{), }\DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{100}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"activityAfter with fitted best negative binomial model predictions"}\NormalTok{,}
+    \DataTypeTok{subtitle =} \StringTok{"x restricted to 0-100"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"activityAfter"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ylab}\NormalTok{(}\StringTok{"count"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Var1, }\DataTypeTok{y =}\NormalTok{ activityFitNbin}\OperatorTok{$}\NormalTok{fitted),}
+    \DataTypeTok{colour =} \StringTok{"darksalmon"}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.8}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \normalsize 
 
 \begin{figure}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-71-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-75-1} \end{center}
 \caption{Somewhat better performance of best-fitting negative binomial distribution.}
 \label{fig:nbinperf}
 \end{figure}
@@ -1451,27 +2157,49 @@ of lower counts) for the models (Figure \ref{fig:rootograms}).
 
 \footnotesize
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data}\OperatorTok{$}\NormalTok{sumLowOnlyBefore <-}\StringTok{ }\NormalTok{data}\OperatorTok{$}\NormalTok{sumLowBefore }\OperatorTok{-}\StringTok{ }\NormalTok{data}\OperatorTok{$}\NormalTok{sumHighBefore}
+
+\NormalTok{fullModelZINbin <-}\StringTok{ }\KeywordTok{zeroinfl}\NormalTok{(activityAfter }\OperatorTok{~}\StringTok{ }\NormalTok{sumLowOnlyBefore }\OperatorTok{+}
+\StringTok{    }\NormalTok{sumHighBefore }\OperatorTok{+}\StringTok{ }\NormalTok{sumPlBefore }\OperatorTok{+}\StringTok{ }\NormalTok{sumPhBefore }\OperatorTok{+}\StringTok{ }\NormalTok{activityBefore,}
+    \DataTypeTok{data =}\NormalTok{ data, }\DataTypeTok{dist =} \StringTok{"negbin"}\NormalTok{)}
+
+\NormalTok{fullModelHNbin <-}\StringTok{ }\KeywordTok{hurdle}\NormalTok{(activityAfter }\OperatorTok{~}\StringTok{ }\NormalTok{sumLowOnlyBefore }\OperatorTok{+}\StringTok{ }\NormalTok{sumHighBefore }\OperatorTok{+}
+\StringTok{    }\NormalTok{sumPlBefore }\OperatorTok{+}\StringTok{ }\NormalTok{sumPhBefore }\OperatorTok{+}\StringTok{ }\NormalTok{activityBefore, }\DataTypeTok{data =}\NormalTok{ data,}
+    \DataTypeTok{dist =} \StringTok{"negbin"}\NormalTok{)}
+
+\NormalTok{fullModelZIpois <-}\StringTok{ }\KeywordTok{zeroinfl}\NormalTok{(activityAfter }\OperatorTok{~}\StringTok{ }\NormalTok{sumLowOnlyBefore }\OperatorTok{+}
+\StringTok{    }\NormalTok{sumHighBefore }\OperatorTok{+}\StringTok{ }\NormalTok{sumPlBefore }\OperatorTok{+}\StringTok{ }\NormalTok{sumPhBefore }\OperatorTok{+}\StringTok{ }\NormalTok{activityBefore,}
+    \DataTypeTok{data =}\NormalTok{ data, }\DataTypeTok{dist =} \StringTok{"poisson"}\NormalTok{)}
+
+\NormalTok{fullModelHpois <-}\StringTok{ }\KeywordTok{hurdle}\NormalTok{(activityAfter }\OperatorTok{~}\StringTok{ }\NormalTok{sumLowOnlyBefore }\OperatorTok{+}\StringTok{ }\NormalTok{sumHighBefore }\OperatorTok{+}
+\StringTok{    }\NormalTok{sumPlBefore }\OperatorTok{+}\StringTok{ }\NormalTok{sumPhBefore }\OperatorTok{+}\StringTok{ }\NormalTok{activityBefore, }\DataTypeTok{data =}\NormalTok{ data,}
+    \DataTypeTok{dist =} \StringTok{"poisson"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \normalsize
 
 \begin{figure}[h!]
 \begin{subfigure}[b]{0.45\textwidth}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-74-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-78-1} \end{center}
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.45\textwidth}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-75-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-79-1} \end{center}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.45\textwidth}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-76-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-80-1} \end{center}
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.45\textwidth}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-77-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-81-1} \end{center}
 \end{subfigure}
 \caption{Rootograms for four candidate zero-handling distributions; note the y axes are squared counts.}
 \label{fig:rootograms}
@@ -1489,13 +2217,55 @@ hurdle negative binomial. However, the differences in log-likelihood
 
 \footnotesize
 
-\normalsize 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{vuong}\NormalTok{(fullModelZINbin, fullModelHNbin)}
+\end{Highlighting}
+\end{Shaded}
 
-\footnotesize
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{logLik}\NormalTok{(fullModelZINbin)}
+\KeywordTok{AIC}\NormalTok{(fullModelZINbin)}
+
+\KeywordTok{logLik}\NormalTok{(fullModelHNbin)}
+\KeywordTok{AIC}\NormalTok{(fullModelHNbin)}
+\end{Highlighting}
+\end{Shaded}
 
 \normalsize
 
+There seem to be some reasons to prefer the zero-inflated model, but the
+score differences are not too impressive, both likelihood ratios are
+Akaike scores are very close (note: we want to minimize AIC and maximize
+log likelihood).
+
+To move on we need to modify the variables, because some of the counts
+included others. This was not a problem so far, but now we will be
+looking in detail at their roles jointly, and so it is important to not
+count various things multiple times.
+
 \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# select variables of interest}
+\NormalTok{dataModeling <-}\StringTok{ }\NormalTok{data }\OperatorTok{%>%}
+\StringTok{    }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{select}\NormalTok{(sumLowOnlyBefore, sumHighBefore, sumPlBefore,}
+\NormalTok{        sumPhBefore, activityBefore, activityAfter)}
+
+\CommentTok{# sum narrow now becomes sum of narrow attacks on comments}
+\NormalTok{dataModeling}\OperatorTok{$}\NormalTok{sumHighBefore <-}\StringTok{ }\NormalTok{dataModeling}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{-}\StringTok{ }\NormalTok{dataModeling}\OperatorTok{$}\NormalTok{sumPhBefore}
+
+\CommentTok{# sum wide only now becomes sum of wide only on comments}
+\NormalTok{dataModeling}\OperatorTok{$}\NormalTok{sumLowOnlyBefore <-}\StringTok{ }\NormalTok{dataModeling}\OperatorTok{$}\NormalTok{sumLowOnlyBefore }\OperatorTok{-}
+\StringTok{    }\NormalTok{dataModeling}\OperatorTok{$}\NormalTok{sumPlBefore}
+
+\CommentTok{# sum of wide on posts now becomes sum of wide only on}
+\CommentTok{# posts}
+\NormalTok{dataModeling}\OperatorTok{$}\NormalTok{sumPlBefore <-}\StringTok{ }\NormalTok{dataModeling}\OperatorTok{$}\NormalTok{sumPlBefore }\OperatorTok{-}\StringTok{ }\NormalTok{dataModeling}\OperatorTok{$}\NormalTok{sumPhBefore}
+\end{Highlighting}
+\end{Shaded}
 
 \normalsize
 
@@ -1507,6 +2277,25 @@ other variables.
 
 \footnotesize 
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ZNBfull <-}\StringTok{ }\KeywordTok{zeroinfl}\NormalTok{(activityAfter }\OperatorTok{~}\StringTok{ }\NormalTok{., }\DataTypeTok{data =}\NormalTok{ dataModeling, }\DataTypeTok{dist =} \StringTok{"negbin"}\NormalTok{)}
+\NormalTok{ZNBactivity <-}\StringTok{ }\KeywordTok{zeroinfl}\NormalTok{(activityAfter }\OperatorTok{~}\StringTok{ }\NormalTok{activityBefore, }\DataTypeTok{data =}\NormalTok{ dataModeling,}
+    \DataTypeTok{dist =} \StringTok{"negbin"}\NormalTok{)}
+\NormalTok{HNBfull <-}\StringTok{ }\KeywordTok{hurdle}\NormalTok{(activityAfter }\OperatorTok{~}\StringTok{ }\NormalTok{., }\DataTypeTok{data =}\NormalTok{ dataModeling, }\DataTypeTok{dist =} \StringTok{"negbin"}\NormalTok{)}
+\NormalTok{HNBactivity <-}\StringTok{ }\KeywordTok{hurdle}\NormalTok{(activityAfter }\OperatorTok{~}\StringTok{ }\NormalTok{activityBefore, }\DataTypeTok{data =}\NormalTok{ dataModeling,}
+    \DataTypeTok{dist =} \StringTok{"negbin"}\NormalTok{)}
+
+\CommentTok{# now take a look at this}
+\KeywordTok{summary}\NormalTok{(dataModeling}\OperatorTok{$}\NormalTok{activityAfter)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    0.00    2.00   10.00   35.69   38.00 1032.00
+\end{verbatim}
+
 \normalsize
 
 The outcome variable has third quartile of weekly activity count in the
@@ -1514,25 +2303,29 @@ The outcome variable has third quartile of weekly activity count in the
 accuracy where most of the users are placed. Therefore, we look at what
 happens with these models up to 40 (Figure \ref{fig:rootogramsFeature}).
 
+\footnotesize
+
+\normalsize
+
 \begin{figure}
 \begin{subfigure}[b]{0.45\textwidth}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-83-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-87-1} \end{center}
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.45\textwidth}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-84-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-88-1} \end{center}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.45\textwidth}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-85-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-89-1} \end{center}
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.45\textwidth}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-86-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-90-1} \end{center}
 \end{subfigure}
 \caption{Rootograms for all variables vs. activity only with zero-inflated and hurdle models.}
 \label{fig:rootogramsFeature}
@@ -1565,10 +2358,105 @@ Akaike score should be chosen. Even with penalty for the additional
 variables, the full model receives better score (although the difference
 is not very large, 29,081 vs.~29,085).
 
+First, we can do this in a step-wise manner:
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(lmtest)}
+\NormalTok{likHNBactivity <-}\StringTok{ }\KeywordTok{logLik}\NormalTok{(HNBactivity)}
+\NormalTok{likHNBfull <-}\StringTok{ }\KeywordTok{logLik}\NormalTok{(HNBfull)}
+\NormalTok{(teststat <-}\StringTok{ }\DecValTok{-2} \OperatorTok{*}\StringTok{ }\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(likHNBactivity) }\OperatorTok{-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(likHNBfull)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 20.28267
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df <-}\StringTok{ }\DecValTok{13} \OperatorTok{-}\StringTok{ }\DecValTok{5}
+\NormalTok{(p.val <-}\StringTok{ }\KeywordTok{pchisq}\NormalTok{(teststat, }\DataTypeTok{df =}\NormalTok{ df, }\DataTypeTok{lower.tail =} \OtherTok{FALSE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.009317915
+\end{verbatim}
+
+\normalsize
+
+The same result can be achieved more quickly using the following lines:
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{waldtest}\NormalTok{(HNBactivity, HNBfull)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{AIC}\NormalTok{(HNBactivity)}
+\KeywordTok{AIC}\NormalTok{(HNBfull)}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
 Next, we inspect the HNB model (Tables \ref{tab:fhnb_estimates1} and
 \ref{tab:fhnb_estimates2}) and interpret the result.
 
 \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(stargazer)}
+\KeywordTok{stargazer}\NormalTok{(HNBfull)}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize 
+
+\begin{table}[!h] \centering
+\begin{tabular}{@{\extracolsep{5pt}}lc}
+\\[-1.8ex]\hline
+\hline \\[-1.8ex]
+& \multicolumn{1}{c}{\textit{Dependent variable:}} \\
+\cline{2-2}
+\\[-1.8ex] & activityAfter \\
+\hline \\[-1.8ex]
+sumLowOnlyBefore & $-$0.009 \\
+& (0.014) \\
+& \\
+sumHighBefore & $-$0.008 \\
+& (0.020) \\
+& \\
+sumPlBefore & 0.015 \\
+& (0.013) \\
+& \\
+sumPhBefore & $-$0.139$^{**}$ \\
+& (0.069) \\
+& \\
+activityBefore & 0.015$^{***}$ \\
+& (0.001) \\
+& \\
+Constant & 2.534$^{***}$ \\
+& (0.032) \\
+& \\
+\hline \\[-1.8ex]
+Observations & 3,673 \\
+Log Likelihood & $-$14,527.690 \\
+\hline
+\hline \\[-1.8ex]
+\textit{Note:} & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
+\end{tabular}
+\caption{Estimated parameters of the full hurdle negative binomial model.}
+\label{tab:fhnb_estimates}
+\end{table}
 
 \begin{table}[!h] \centering
 \begin{tabular}{@{\extracolsep{5pt}}lc}
@@ -1652,11 +2540,21 @@ sensitive to the ordering in which we consider variables, and there is
 no principled reason to prefer any of the orderings. Instead,
 interpreting \(p\)-values we apply the following advice: the closer it
 is to 1, the more skeptical we should be about the judgment the model
-makes about its role.
-
+makes about its
+role.\footnote{See the excellent book titled \emph{The Cult of Statistical Significance: How the Standard Error Costs Us Jobs, Justice, and Lives} by Stephen T. Ziliak and Deirdre N. McCloskey.}
 The coefficeints are somewhat difficult to interpret because the models
 use log link function. Therefore we first exponentiate them to obtain
 odds ratios:
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{expCoef <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{round}\NormalTok{((}\KeywordTok{exp}\NormalTok{(}\KeywordTok{coef}\NormalTok{((HNBfull)))), }\DecValTok{3}\NormalTok{))}
+\KeywordTok{colnames}\NormalTok{(expCoef) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Odds ratios"}\NormalTok{)}
+\KeywordTok{mykable}\NormalTok{(expCoef)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{table}
 \centering\begingroup\fontsize{9}{11}\selectfont
@@ -1683,6 +2581,8 @@ zero\_activityBefore & 1.084\\
 \end{tabular}
 \endgroup{}
 \end{table}
+
+\normalsize
 
 Next we analyze the intercepts of the count submodel. The baseline
 number of posts for those who are not in the zero class is 12.6. The
@@ -1712,44 +2612,36 @@ other variables fixed at their mean values (Figure \ref{fig:effects}).
 
 \footnotesize
 
-\normalsize
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sumLowOnlyBefore <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{mean}\NormalTok{(dataModeling}\OperatorTok{$}\NormalTok{sumLowOnlyBefore),}
+    \DecValTok{4001}\NormalTok{)}
+\NormalTok{sumHighBefore <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{mean}\NormalTok{(dataModeling}\OperatorTok{$}\NormalTok{sumHighBefore), }\DecValTok{4001}\NormalTok{)}
+\NormalTok{sumPlBefore <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{mean}\NormalTok{(dataModeling}\OperatorTok{$}\NormalTok{sumPlBefore), }\DecValTok{4001}\NormalTok{)}
+\NormalTok{sumPhBefore <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{mean}\NormalTok{(dataModeling}\OperatorTok{$}\NormalTok{sumPhBefore), }\DecValTok{4001}\NormalTok{)}
+\NormalTok{activityBefore <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{mean}\NormalTok{(dataModeling}\OperatorTok{$}\NormalTok{activityBefore), }\DecValTok{4001}\NormalTok{)}
+\NormalTok{activityAfter <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{mean}\NormalTok{(dataModeling}\OperatorTok{$}\NormalTok{activityAfter), }\DecValTok{4001}\NormalTok{)}
 
-\begin{figure}
-\begin{subfigure}[b]{0.45\textwidth}
+\NormalTok{baseEffDf <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(sumLowOnlyBefore, sumHighBefore, sumPlBefore,}
+\NormalTok{    sumPhBefore, activityBefore, activityAfter)}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-92-1} \end{center}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.45\textwidth}
+\NormalTok{effSizePlot <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(columnno, }\DataTypeTok{range =} \DecValTok{40}\NormalTok{, }\DataTypeTok{by =} \DecValTok{5}\NormalTok{) \{}
+\NormalTok{    EffDf <-}\StringTok{ }\NormalTok{baseEffDf}
+\NormalTok{    EffDf[, columnno] <-}\StringTok{ }\DecValTok{0}\OperatorTok{:}\DecValTok{4000}
+\NormalTok{    EffDf}\OperatorTok{$}\NormalTok{prediction <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(HNBfull, EffDf)}
+    \KeywordTok{ggplot}\NormalTok{(EffDf, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ EffDf[, columnno], }\DataTypeTok{y =}\NormalTok{ prediction)) }\OperatorTok{+}
+\StringTok{        }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{col =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{        }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, range, }\DataTypeTok{by =}\NormalTok{ by), }\DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{,}
+\NormalTok{            range)) }\OperatorTok{+}\StringTok{ }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"predicted activity"}\NormalTok{)}
+\NormalTok{\}}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-93-1} \end{center}
-\end{subfigure}
-
-\begin{subfigure}[b]{0.45\textwidth}
-
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-94-1} \end{center}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.45\textwidth}
-
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-95-1} \end{center}
-\end{subfigure}
-
-\centering
-\begin{subfigure}[t]{0.45\textwidth}
-
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-96-1} \end{center}
-\end{subfigure}
-
-\caption{Predicted effects of selected variables on activity with other variables fixed at their mean values, hurdle model.}
-\label{fig:effects}
-\end{figure}
-
-Finally, to make sure our choice to use the hurdle model was not crucial
-for these results, we also provide effect plots for the full
-zero-inflated model.
-
-\footnotesize
+\NormalTok{effLO <-}\StringTok{ }\KeywordTok{effSizePlot}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{500}\NormalTok{, }\DecValTok{50}\NormalTok{)  }\CommentTok{#low only}
+\NormalTok{effH <-}\StringTok{ }\KeywordTok{effSizePlot}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{5}\NormalTok{)  }\CommentTok{#narrow on comments}
+\NormalTok{effPl <-}\StringTok{ }\KeywordTok{effSizePlot}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{10}\NormalTok{)  }\CommentTok{#pl}
+\NormalTok{effPh <-}\StringTok{ }\KeywordTok{effSizePlot}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{5}\NormalTok{)  }\CommentTok{#ph}
+\NormalTok{effA <-}\StringTok{ }\KeywordTok{effSizePlot}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{200}\NormalTok{, }\DecValTok{20}\NormalTok{)  }\CommentTok{#abefore}
+\end{Highlighting}
+\end{Shaded}
 
 \normalsize
 
@@ -1780,6 +2672,65 @@ zero-inflated model.
 \begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-102-1} \end{center}
 \end{subfigure}
 
+\caption{Predicted effects of selected variables on activity with other variables fixed at their mean values, hurdle model.}
+\label{fig:effects}
+\end{figure}
+
+Finally, to make sure our choice to use the hurdle model was not crucial
+for these results, we also provide effect plots for the full
+zero-inflated model.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{effSizePlotZ <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(columnno, }\DataTypeTok{range =} \DecValTok{40}\NormalTok{, }\DataTypeTok{by =} \DecValTok{5}\NormalTok{) \{}
+\NormalTok{    EffDf <-}\StringTok{ }\NormalTok{baseEffDf}
+\NormalTok{    EffDf[, columnno] <-}\StringTok{ }\DecValTok{0}\OperatorTok{:}\DecValTok{4000}
+\NormalTok{    EffDf}\OperatorTok{$}\NormalTok{prediction <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(ZNBfull, EffDf)}
+    \KeywordTok{ggplot}\NormalTok{(EffDf, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ EffDf[, columnno], }\DataTypeTok{y =}\NormalTok{ prediction)) }\OperatorTok{+}
+\StringTok{        }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{col =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{        }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, range, }\DataTypeTok{by =}\NormalTok{ by), }\DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{,}
+\NormalTok{            range)) }\OperatorTok{+}\StringTok{ }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"predicted activity"}\NormalTok{)}
+\NormalTok{\}}
+
+\NormalTok{effLOZ <-}\StringTok{ }\KeywordTok{effSizePlotZ}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{500}\NormalTok{, }\DecValTok{50}\NormalTok{)  }\CommentTok{#wide only}
+\NormalTok{effHZ <-}\StringTok{ }\KeywordTok{effSizePlotZ}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{5}\NormalTok{)  }\CommentTok{#high on comments}
+\NormalTok{effPlZ <-}\StringTok{ }\KeywordTok{effSizePlotZ}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{10}\NormalTok{)  }\CommentTok{#pl}
+\NormalTok{effPhZ <-}\StringTok{ }\KeywordTok{effSizePlotZ}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{5}\NormalTok{)  }\CommentTok{#ph}
+\NormalTok{effAZ <-}\StringTok{ }\KeywordTok{effSizePlotZ}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{200}\NormalTok{, }\DecValTok{20}\NormalTok{)  }\CommentTok{#abefore}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
+\begin{figure}
+\begin{subfigure}[b]{0.45\textwidth}
+
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-104-1} \end{center}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.45\textwidth}
+
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-105-1} \end{center}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.45\textwidth}
+
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-106-1} \end{center}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.45\textwidth}
+
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-107-1} \end{center}
+\end{subfigure}
+
+\centering
+\begin{subfigure}[t]{0.45\textwidth}
+
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-108-1} \end{center}
+\end{subfigure}
+
 \caption{Predicted effects of selected variables on activity with other variables fixed at their mean values, zero-inflated model.}
 \label{fig:effects2}
 \end{figure}
@@ -1788,6 +2739,20 @@ Another way to use this information is to inspect the table of activity
 counts that the model expects based on the number of personal attacks on
 a post received in the before period, assuming all the other input
 variables are kept at their mean values:
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EffSumHighTable <-}\StringTok{ }\NormalTok{baseEffDf[}\DecValTok{0}\OperatorTok{:}\DecValTok{20}\NormalTok{, ]}
+\NormalTok{EffSumHighTable[, }\DecValTok{4}\NormalTok{] <-}\StringTok{ }\DecValTok{0}\OperatorTok{:}\DecValTok{19}
+\NormalTok{EffSumHighTable}\OperatorTok{$}\NormalTok{prediction <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(HNBfull, EffSumHighTable)}
+\NormalTok{EffTablePosts <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(EffSumHighTable}\OperatorTok{$}\NormalTok{sumPhBefore, }\KeywordTok{round}\NormalTok{(EffSumHighTable}\OperatorTok{$}\NormalTok{prediction))}
+\KeywordTok{rownames}\NormalTok{(EffTablePosts) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"attacks"}\NormalTok{, }\StringTok{"expected activity"}\NormalTok{)}
+\KeywordTok{mykable}\NormalTok{(EffTablePosts) }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{kable_styling}\NormalTok{(}\DataTypeTok{latex_options =} \StringTok{"scale_down"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{table}
 \centering\begingroup\fontsize{9}{11}\selectfont
@@ -1801,6 +2766,8 @@ expected activity & 24 & 22 & 19 & 17 & 15 & 13 & 11 & 10 & 9 & 8 & 7 & 6 & 6 & 
 \end{tabular}}
 \endgroup{}
 \end{table}
+
+\normalsize
 
 The predictions are similar, except for the predicted results of wide
 only attacks on posts. This perhaps can be explained by observing that
@@ -1840,9 +2807,70 @@ might be elevated by the observation that activity before indeed
 increases with the number of attacks received and that the activity drop
 increases with \textsf{activity} before.
 
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{attacksb <-}\StringTok{ }\DecValTok{0}\OperatorTok{:}\DecValTok{8}
+\NormalTok{maxb <-}\StringTok{ }\KeywordTok{max}\NormalTok{(attacks)}
+\NormalTok{lowb <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(max }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{highb <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(max }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{mb <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(max }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{pb <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(max }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{tb <-}\StringTok{ }\KeywordTok{list}\NormalTok{()}
+
+\ControlFlowTok{for}\NormalTok{ (attacks }\ControlFlowTok{in}\NormalTok{ attacksb) \{}
+\NormalTok{    t[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]] <-}\StringTok{ }\KeywordTok{t.test}\NormalTok{(data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\NormalTok{attacks,}
+\NormalTok{        ]}\OperatorTok{$}\NormalTok{activityBefore)}
+
+\NormalTok{    lowb[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{t[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{conf.int[}\DecValTok{1}\NormalTok{]}
+\NormalTok{    highb[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{t[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{conf.int[}\DecValTok{2}\NormalTok{]}
+\NormalTok{    mb[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{t[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{estimate}
+\NormalTok{    pb[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{t[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{p.value}
+\NormalTok{\}}
+\NormalTok{highTableb <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\KeywordTok{rbind}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{, lowb, mb, highb,}
+\NormalTok{    pb), }\DecValTok{3}\NormalTok{))}
+\KeywordTok{rownames}\NormalTok{(highTableb) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"attacks"}\NormalTok{, }\StringTok{"CIlow"}\NormalTok{, }\StringTok{"estimatedm"}\NormalTok{, }\StringTok{"CIhigh"}\NormalTok{,}
+    \StringTok{"p-value"}\NormalTok{)}
+
+\NormalTok{before <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{t}\NormalTok{(highTableb))}
+
+\NormalTok{attacksa <-}\StringTok{ }\DecValTok{0}\OperatorTok{:}\DecValTok{8}
+\NormalTok{maxa <-}\StringTok{ }\KeywordTok{max}\NormalTok{(attacksa)}
+\NormalTok{lowa <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(max }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{higha <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(max }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{ma <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(max }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{pa <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(max }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{ta <-}\StringTok{ }\KeywordTok{list}\NormalTok{()}
+\ControlFlowTok{for}\NormalTok{ (attacks }\ControlFlowTok{in}\NormalTok{ attacksa) \{}
+\NormalTok{    ta[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]] <-}\StringTok{ }\KeywordTok{t.test}\NormalTok{(data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\NormalTok{attacks,}
+\NormalTok{        ]}\OperatorTok{$}\NormalTok{activityAfter)}
+\NormalTok{    lowa[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{ta[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{conf.int[}\DecValTok{1}\NormalTok{]}
+\NormalTok{    higha[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{ta[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{conf.int[}\DecValTok{2}\NormalTok{]}
+\NormalTok{    ma[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{ta[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{estimate}
+\NormalTok{    pa[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{ta[[attacks }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{]]}\OperatorTok{$}\NormalTok{p.value}
+\NormalTok{\}}
+\NormalTok{highTablea <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\KeywordTok{rbind}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{8}\NormalTok{, lowa, ma, higha,}
+\NormalTok{    pa), }\DecValTok{3}\NormalTok{))}
+\KeywordTok{rownames}\NormalTok{(highTablea) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"attacks"}\NormalTok{, }\StringTok{"CIlow"}\NormalTok{, }\StringTok{"estimatedm"}\NormalTok{, }\StringTok{"CIhigh"}\NormalTok{,}
+    \StringTok{"p-value"}\NormalTok{)}
+\NormalTok{after <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{t}\NormalTok{(highTablea))}
+
+\KeywordTok{ggplot}\NormalTok{(before, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks, }\DataTypeTok{y =}\NormalTok{ estimatedm)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_errorbar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{ymin =}\NormalTok{ CIlow, }\DataTypeTok{ymax =}\NormalTok{ CIhigh), }\DataTypeTok{width =} \FloatTok{0.2}\NormalTok{,}
+        \DataTypeTok{size =} \FloatTok{0.2}\NormalTok{, }\DataTypeTok{position =} \KeywordTok{position_dodge}\NormalTok{(}\FloatTok{0.05}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"narrow attacks"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ylab}\NormalTok{(}\StringTok{"mean activity"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_line}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ after, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ attacks,}
+    \DataTypeTok{y =}\NormalTok{ estimatedm), }\DataTypeTok{color =} \StringTok{"skyblue"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_errorbar}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ after,}
+    \KeywordTok{aes}\NormalTok{(}\DataTypeTok{ymin =}\NormalTok{ CIlow, }\DataTypeTok{ymax =}\NormalTok{ CIhigh), }\DataTypeTok{width =} \FloatTok{0.3}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.2}\NormalTok{,}
+    \DataTypeTok{color =} \StringTok{"skyblue"}\NormalTok{, }\DataTypeTok{position =} \KeywordTok{position_dodge}\NormalTok{(}\FloatTok{0.05}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
 \begin{figure}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-104-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-111-1} \end{center}
 \caption{Mean activity before (black) with 95\% CI error bars and after (blue) , grouped by the number of narrow attacks.}
 \end{figure}
 
@@ -1852,9 +2880,44 @@ activity change between week 1 and week 2, grouped by the number of
 attacks received (for the cases for which we obtained significant
 results in the classical analysis).
 
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{h0 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{, ]}
+\NormalTok{h1 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{, ]}
+\NormalTok{h2 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{, ]}
+\NormalTok{h3 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{3}\NormalTok{, ]}
+\NormalTok{h4 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{4}\NormalTok{, ]}
+
+\NormalTok{distance <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) \{}
+\NormalTok{    x }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(data}\OperatorTok{$}\NormalTok{sumHighBefore)}
+\NormalTok{\}}
+
+\KeywordTok{library}\NormalTok{(gridExtra)}
+\KeywordTok{grid.arrange}\NormalTok{(}\KeywordTok{ggplot}\NormalTok{(h0, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{distance}\NormalTok{(activityBefore), }\DataTypeTok{y =}\NormalTok{ activityDiff)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.3}\NormalTok{, }\DataTypeTok{size =} \DecValTok{1}\NormalTok{, }\DataTypeTok{position =} \StringTok{"jitter"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}\StringTok{ }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"distance from sample mean"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"0 narrow attacks"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"activity change"}\NormalTok{), }\KeywordTok{ggplot}\NormalTok{(h2,}
+    \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{distance}\NormalTok{(activityBefore), }\DataTypeTok{y =}\NormalTok{ activityDiff)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.3}\NormalTok{,}
+    \DataTypeTok{size =} \DecValTok{1}\NormalTok{, }\DataTypeTok{position =} \StringTok{"jitter"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{,}
+    \DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}\StringTok{ }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"distance from sample mean"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"2 narrow attacks"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ylab}\NormalTok{(}\StringTok{"activity change"}\NormalTok{), }\KeywordTok{ggplot}\NormalTok{(h3, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{distance}\NormalTok{(activityBefore),}
+    \DataTypeTok{y =}\NormalTok{ activityDiff)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.3}\NormalTok{, }\DataTypeTok{size =} \DecValTok{1}\NormalTok{, }\DataTypeTok{position =} \StringTok{"jitter"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}\StringTok{ }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"distance from sample mean"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"3 narrow attacks"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"activity change"}\NormalTok{), }\KeywordTok{ggplot}\NormalTok{(h4,}
+    \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{distance}\NormalTok{(activityBefore), }\DataTypeTok{y =}\NormalTok{ activityDiff)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.3}\NormalTok{,}
+    \DataTypeTok{size =} \DecValTok{1}\NormalTok{, }\DataTypeTok{position =} \StringTok{"jitter"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{,}
+    \DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}\StringTok{ }\NormalTok{th }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\StringTok{"distance from sample mean"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"4 narrow attacks"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ylab}\NormalTok{(}\StringTok{"activity change"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
 \begin{figure}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-105-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-113-1} \end{center}
 \caption{Distance from sample mean vs. activity change, grouped by the number of attacks (plot for 1 narrow attack omitted, as it is visually not very too distinct from the one for 0 attacks).}
 \label{fig:regression}
 \end{figure}
@@ -1880,7 +2943,7 @@ previous activity (Fig. \ref{fig:regression2}).
 
 \begin{figure}
 
-\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-106-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-114-1} \end{center}
 \caption{Distance from sample mean vs. activity score, grouped by the number of attacks (plot for 1 narrow attack omitted, as it is visually not too distinct from the one for 0 attacks).}
 \label{fig:regression2}
 \end{figure}
@@ -1894,6 +2957,29 @@ before still results in uneven activity change between the groups. We
 focus focus on users with \textsf{activityBefore} restricted to the
 third quartile of the whole sample (44), narrow attacks in \$\{0,1,2,3,
 4\} and estimate their \textsf{activityScore} proportional drop.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{iqr0 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{0} \OperatorTok{&}\StringTok{ }\NormalTok{data}\OperatorTok{$}\NormalTok{activityBefore }\OperatorTok{<=}
+\StringTok{    }\DecValTok{44}\NormalTok{, ]}
+\NormalTok{iqr1 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{1} \OperatorTok{&}\StringTok{ }\NormalTok{data}\OperatorTok{$}\NormalTok{activityBefore }\OperatorTok{<=}
+\StringTok{    }\DecValTok{44}\NormalTok{, ]}
+\NormalTok{iqr2 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{2} \OperatorTok{&}\StringTok{ }\NormalTok{data}\OperatorTok{$}\NormalTok{activityBefore }\OperatorTok{<=}
+\StringTok{    }\DecValTok{44}\NormalTok{, ]}
+\NormalTok{iqr3 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{3} \OperatorTok{&}\StringTok{ }\NormalTok{data}\OperatorTok{$}\NormalTok{activityBefore }\OperatorTok{<=}
+\StringTok{    }\DecValTok{44}\NormalTok{, ]}
+\NormalTok{iqr4 <-}\StringTok{ }\NormalTok{data[data}\OperatorTok{$}\NormalTok{sumHighBefore }\OperatorTok{==}\StringTok{ }\DecValTok{4} \OperatorTok{&}\StringTok{ }\NormalTok{data}\OperatorTok{$}\NormalTok{activityBefore }\OperatorTok{<=}
+\StringTok{    }\DecValTok{44}\NormalTok{, ]}
+
+\KeywordTok{t.test}\NormalTok{(iqr0}\OperatorTok{$}\NormalTok{activityScore)}
+\KeywordTok{t.test}\NormalTok{(iqr1}\OperatorTok{$}\NormalTok{activityScore)}
+\KeywordTok{t.test}\NormalTok{(iqr2}\OperatorTok{$}\NormalTok{activityScore)}
+\KeywordTok{t.test}\NormalTok{(iqr3}\OperatorTok{$}\NormalTok{activityScore)}
+\KeywordTok{t.test}\NormalTok{(iqr4}\OperatorTok{$}\NormalTok{activityScore)}
+\end{Highlighting}
+\end{Shaded}
 
 \normalsize  The estimated means of proportional changes are
 \(0.05, 0.11, -0.09,-0.35, -0.7\) with decreasing p-values falling below
@@ -1909,6 +2995,19 @@ recommended to use ANCOVA to correct for prior differences in pretest
 measurements. In our case, a statistically significant difference for
 different number of attacks received remains after correcting for
 differences in activity before.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(rstatix)}
+\NormalTok{data}\OperatorTok{$}\NormalTok{fhigh <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(data}\OperatorTok{$}\NormalTok{sumHighBefore)}
+\NormalTok{data }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{anova_test}\NormalTok{(activityDiff }\OperatorTok{~}\StringTok{ }\NormalTok{activityBefore }\OperatorTok{+}\StringTok{ }\NormalTok{fhigh)}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
 
 \begin{table}
 \footnotesize

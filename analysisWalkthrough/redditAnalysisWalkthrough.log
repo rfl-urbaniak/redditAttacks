@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.7.16)  1 JUL 2021 09:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.7.16)  12 JUL 2021 16:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2099,570 +2099,1031 @@ LaTeX Font Info:    Try loading font information for T1+jkptt on input line 461
 File: t1jkptt.fd 2007/01/26 Fontinst v1.928 font definitions for T1/jkptt.
 )
 
-Package xcolor Warning: Incompatible color definition on input line 469.
+Package xcolor Warning: Incompatible color definition on input line 475.
 
 
-Package xcolor Warning: Incompatible color definition on input line 469.
-
-
-Package xcolor Warning: Incompatible color definition on input line 489.
+Package xcolor Warning: Incompatible color definition on input line 475.
 
 [4]
 
-Package xcolor Warning: Incompatible color definition on input line 496.
+Package xcolor Warning: Incompatible color definition on input line 495.
 
 
-Package xcolor Warning: Incompatible color definition on input line 496.
+Package xcolor Warning: Incompatible color definition on input line 506.
 
 
-Package xcolor Warning: Incompatible color definition on input line 526.
+Package xcolor Warning: Incompatible color definition on input line 506.
 
-LaTeX Font Info:    Try loading font information for TS1+jkptt on input line 52
+
+Package xcolor Warning: Incompatible color definition on input line 536.
+
+LaTeX Font Info:    Try loading font information for TS1+jkptt on input line 53
 8.
 (/usr/share/texlive/texmf-dist/tex/latex/kpfonts/ts1jkptt.fd
 File: ts1jkptt.fd 2007/01/26 Fontinst v1.928 font definitions for TS1/jkptt.
 )
 LaTeX Font Info:    Font shape `T1/jkptt/m/it' in size <7> not available
-(Font)              Font shape `T1/jkptt/m/sl' tried instead on input line 529.
+(Font)              Font shape `T1/jkptt/m/sl' tried instead on input line 539.
 
 
-Package xcolor Warning: Incompatible color definition on input line 531.
+Package xcolor Warning: Incompatible color definition on input line 541.
 
 
-Package xcolor Warning: Incompatible color definition on input line 531.
+Package xcolor Warning: Incompatible color definition on input line 541.
 
 
-Package xcolor Warning: Incompatible color definition on input line 590.
+Package xcolor Warning: Incompatible color definition on input line 600.
 
 [5]
 
-Package xcolor Warning: Incompatible color definition on input line 646.
+Package xcolor Warning: Incompatible color definition on input line 656.
 
 LaTeX Font Info:    Font shape `T1/jkptt/m/it' in size <8> not available
-(Font)              Font shape `T1/jkptt/m/sl' tried instead on input line 648.
+(Font)              Font shape `T1/jkptt/m/sl' tried instead on input line 658.
 
 
-Package xcolor Warning: Incompatible color definition on input line 651.
+Package xcolor Warning: Incompatible color definition on input line 661.
 
 
-Package xcolor Warning: Incompatible color definition on input line 651.
-
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 679.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 679.
-
-Package xcolor Warning: Incompatible color definition on input line 720.
-
-
-Package xcolor Warning: Incompatible color definition on input line 721.
-
-
-Package xcolor Warning: Incompatible color definition on input line 724.
+Package xcolor Warning: Incompatible color definition on input line 661.
 
 [6]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 689.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 689.
 
-Package xcolor Warning: Incompatible color definition on input line 737.
+Package xcolor Warning: Incompatible color definition on input line 730.
 
 
-Package xcolor Warning: Incompatible color definition on input line 752.
+Package xcolor Warning: Incompatible color definition on input line 731.
+
+
+Package xcolor Warning: Incompatible color definition on input line 734.
+
+
+Package xcolor Warning: Incompatible color definition on input line 747.
+
+
+Package xcolor Warning: Incompatible color definition on input line 762.
 
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.04004pt on input line 752.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-8-1.pdf, id=118, 44
+(Font)              scaled to size 7.04004pt on input line 762.
+
+Package xcolor Warning: Incompatible color definition on input line 768.
+
+
+Package xcolor Warning: Incompatible color definition on input line 800.
+
+
+Package xcolor Warning: Incompatible color definition on input line 800.
+
+
+Package xcolor Warning: Incompatible color definition on input line 800.
+
+[7]
+
+Package xcolor Warning: Incompatible color definition on input line 800.
+
+
+Package xcolor Warning: Incompatible color definition on input line 800.
+
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-8-1.pdf, id=130, 44
 8.67625pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-8-1.pdf Graphi
 c file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-8-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-8-1.pdf  used on input line 763.
+hunk-8-1.pdf  used on input line 807.
 (pdftex.def)             Requested size: 361.67314pt x 254.87032pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-9-1.pdf, id=119, 46
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-9-1.pdf, id=131, 46
 3.7325pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-9-1.pdf Graphi
 c file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-9-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-9-1.pdf  used on input line 771.
+hunk-9-1.pdf  used on input line 815.
 (pdftex.def)             Requested size: 361.66742pt x 246.59142pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-11-1.pdf, id=120, 4
+
+Package xcolor Warning: Incompatible color definition on input line 824.
+
+
+Package xcolor Warning: Incompatible color definition on input line 854.
+
+
+Package xcolor Warning: Incompatible color definition on input line 854.
+
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-11-1.pdf, id=132, 4
 44.66125pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-11-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-11-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-11-1.pdf  used on input line 781.
+hunk-11-1.pdf  used on input line 861.
 (pdftex.def)             Requested size: 361.65955pt x 257.16197pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-12-1.pdf, id=121, 4
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-12-1.pdf, id=133, 4
 63.7325pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-12-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-12-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-12-1.pdf  used on input line 787.
+hunk-12-1.pdf  used on input line 867.
 (pdftex.def)             Requested size: 361.66742pt x 246.59142pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-14-1.pdf, id=122, 4
+
+Package xcolor Warning: Incompatible color definition on input line 876.
+
+
+Package xcolor Warning: Incompatible color definition on input line 905.
+
+
+Package xcolor Warning: Incompatible color definition on input line 905.
+
+
+Underfull \vbox (badness 10000) detected at line 905
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 905.
+
+[8] [9 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-8-1.pdf> <
+./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-9-1.pdf>] [10 <./r
+edditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-11-1.pdf> <./redditAn
+alysisWalkthrough_files/figure-latex/unnamed-chunk-12-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 905.
+
+
+Package xcolor Warning: Incompatible color definition on input line 905.
+
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-14-1.pdf, id=199, 4
 43.6575pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-14-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-14-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-14-1.pdf  used on input line 798.
+hunk-14-1.pdf  used on input line 913.
 (pdftex.def)             Requested size: 361.6555pt x 257.74092pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-15-1.pdf, id=123, 4
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-15-1.pdf, id=200, 4
 63.7325pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-15-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-15-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-15-1.pdf  used on input line 804.
+hunk-15-1.pdf  used on input line 919.
 (pdftex.def)             Requested size: 361.66742pt x 246.59142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 805--805
+Underfull \hbox (badness 10000) in paragraph at lines 920--920
 [][][]|\T1/ptm/m/n/9 (+20) Re-stricted to 0-15 at-tacks and ac-tiv-ity change i
 n the range -150-150, cen-tral ten-dency re-drawn,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 807--807
+Underfull \hbox (badness 10000) in paragraph at lines 922--922
 [][][]|\T1/ptm/m/n/10 (+17) Wide only at-tacks vs. weekly ac-tiv-ity change (ji
 t-tered), with lin-ear and gam smooth-
  []
 
-LaTeX Font Info:    Try loading font information for OT1+jkpss on input line 81
-9.
+LaTeX Font Info:    Try loading font information for OT1+jkpss on input line 93
+4.
 (/usr/share/texlive/texmf-dist/tex/latex/kpfonts/ot1jkpss.fd
 File: ot1jkpss.fd 2007/07/16 Fontinst v1.928 font definitions for OT1/jkpss.
 )
 
-Package xcolor Warning: Incompatible color definition on input line 823.
+Package xcolor Warning: Incompatible color definition on input line 938.
 
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-17-1.pdf, id=125, 4
+
+Package xcolor Warning: Incompatible color definition on input line 946.
+
+
+Package xcolor Warning: Incompatible color definition on input line 984.
+
+
+Package xcolor Warning: Incompatible color definition on input line 984.
+
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-17-1.pdf, id=202, 4
 62.72874pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-17-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-17-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-17-1.pdf  used on input line 832.
+hunk-17-1.pdf  used on input line 991.
 (pdftex.def)             Requested size: 285.52615pt x 195.0992pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-18-1.pdf, id=126, 4
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-18-1.pdf, id=203, 4
 62.72874pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-18-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-18-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-18-1.pdf  used on input line 838.
+hunk-18-1.pdf  used on input line 997.
 (pdftex.def)             Requested size: 285.52615pt x 195.0992pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-19-1.pdf, id=127, 4
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-19-1.pdf, id=204, 4
 62.72874pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-19-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-19-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-19-1.pdf  used on input line 845.
+hunk-19-1.pdf  used on input line 1004.
 (pdftex.def)             Requested size: 285.52615pt x 195.0992pt.
-[7] [8 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-8-1.pdf> <
-./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-9-1.pdf>] [9 <./re
-dditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-11-1.pdf> <./redditAna
-lysisWalkthrough_files/figure-latex/unnamed-chunk-12-1.pdf>] [10 <./redditAnaly
-sisWalkthrough_files/figure-latex/unnamed-chunk-14-1.pdf> <./redditAnalysisWalk
-through_files/figure-latex/unnamed-chunk-15-1.pdf>] [11 <./redditAnalysisWalkth
-rough_files/figure-latex/unnamed-chunk-17-1.pdf> <./redditAnalysisWalkthrough_f
-iles/figure-latex/unnamed-chunk-18-1.pdf> <./redditAnalysisWalkthrough_files/fi
-gure-latex/unnamed-chunk-19-1.pdf>]
 
-LaTeX Warning: Reference `tab:testimates' on page 12 undefined on input line 88
-7.
+Package xcolor Warning: Incompatible color definition on input line 1051.
+
+[11] [12 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-14-1.pdf
+> <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-15-1.pdf>] [13 
+<./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-17-1.pdf> <./redd
+itAnalysisWalkthrough_files/figure-latex/unnamed-chunk-18-1.pdf> <./redditAnaly
+sisWalkthrough_files/figure-latex/unnamed-chunk-19-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 1075.
 
 
-Package xcolor Warning: Incompatible color definition on input line 958.
+Package xcolor Warning: Incompatible color definition on input line 1075.
 
 
-Package xcolor Warning: Incompatible color definition on input line 958.
+Package xcolor Warning: Incompatible color definition on input line 1077.
 
 
-Package xcolor Warning: Incompatible color definition on input line 958.
+Package xcolor Warning: Incompatible color definition on input line 1112.
 
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-28-1.pdf, id=283, 4
+
+Package xcolor Warning: Incompatible color definition on input line 1112.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1116.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1163.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1163.
+
+
+Underfull \vbox (badness 10000) detected at line 1163
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 1163.
+
+[14]
+
+Package xcolor Warning: Incompatible color definition on input line 1163.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1163.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1165.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1194.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1194.
+
+[15]
+
+Package xcolor Warning: Incompatible color definition on input line 1258.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1258.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1258.
+
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-28-1.pdf, id=302, 4
 44.66125pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-28-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-28-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-28-1.pdf  used on input line 963.
+hunk-28-1.pdf  used on input line 1263.
 (pdftex.def)             Requested size: 361.65955pt x 257.16197pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-29-1.pdf, id=284, 4
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-29-1.pdf, id=303, 4
 44.66125pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-29-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-29-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-29-1.pdf  used on input line 972.
+hunk-29-1.pdf  used on input line 1272.
 (pdftex.def)             Requested size: 361.65955pt x 257.16197pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-30-1.pdf, id=285, 4
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-30-1.pdf, id=304, 4
 44.66125pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-30-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-30-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-30-1.pdf  used on input line 981.
+hunk-30-1.pdf  used on input line 1281.
 (pdftex.def)             Requested size: 361.65955pt x 257.16197pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-31-1.pdf, id=286, 4
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-31-1.pdf, id=305, 4
 44.66125pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-31-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-31-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-31-1.pdf  used on input line 992.
+hunk-31-1.pdf  used on input line 1292.
 (pdftex.def)             Requested size: 285.52533pt x 203.02591pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-32-1.pdf, id=287, 4
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-32-1.pdf, id=306, 4
 44.66125pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-32-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-32-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-32-1.pdf  used on input line 998.
+hunk-32-1.pdf  used on input line 1298.
 (pdftex.def)             Requested size: 285.52533pt x 203.02591pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[12 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-28-1.pdf>]
 
-LaTeX Warning: Text page 13 contains only floats.
+Package xcolor Warning: Incompatible color definition on input line 1308.
 
-[13 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-29-1.pdf> <./
+
+Package xcolor Warning: Incompatible color definition on input line 1353.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1353.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1353.
+
+[16 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-28-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 1353.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1353.
+
+
+Underfull \vbox (badness 10000) detected at line 1353
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1353
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 1353.
+
+[17 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-29-1.pdf> <./
 redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-30-1.pdf>]
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Package xcolor Warning: Incompatible color definition on input line 1353.
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Package xcolor Warning: Incompatible color definition on input line 1353.
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Underfull \vbox (badness 10000) detected at line 1353
+ []
 
 
-Package xcolor Warning: Incompatible color definition on input line 1074.
+Overfull \vbox (1.30786pt too high) detected at line 1353
+ []
 
-[14 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-31-1.pdf> <./
+
+Package xcolor Warning: Incompatible color definition on input line 1353.
+
+[18 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-31-1.pdf> <./
 redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-32-1.pdf>]
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-38-1.pdf, id=370, 4
-38.63875pt x 315.1775pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-38-1.pdf Graph
-ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-38-1.pdf>
-Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-38-1.pdf  used on input line 1079.
-(pdftex.def)             Requested size: 171.31606pt x 123.09666pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-39-1.pdf, id=371, 4
-39.6425pt x 313.17pt>
+
+Package xcolor Warning: Incompatible color definition on input line 1353.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1353.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1378.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1392.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1392.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1445.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1449.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1463.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1463.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1463.
+
+[19]
+
+Package xcolor Warning: Incompatible color definition on input line 1463.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1463.
+
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-39-1.pdf, id=395, 3
+35.2525pt x 315.1775pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-39-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-39-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-39-1.pdf  used on input line 1083.
-(pdftex.def)             Requested size: 171.31229pt x 122.03067pt.
-
-Package xcolor Warning: Incompatible color definition on input line 1120.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1146.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1147.
-
-[15]
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-41-1.pdf, id=386, 4
-33.62pt x 316.18124pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-41-1.pdf Graph
+hunk-39-1.pdf  used on input line 1470.
+(pdftex.def)             Requested size: 152.27411pt x 143.1559pt.
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-40-1.pdf, id=396, 4
+12.54124pt x 313.17pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-40-1.pdf Graph
 ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-41-1.pdf>
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-40-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-41-1.pdf  used on input line 1155.
-(pdftex.def)             Requested size: 171.3144pt x 124.91675pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-42-1.pdf, id=387, 4
-27.5975pt x 316.18124pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-42-1.pdf Graph
-ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-42-1.pdf>
-Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-42-1.pdf  used on input line 1160.
-(pdftex.def)             Requested size: 171.31pt x 126.67288pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-43-1.pdf, id=388, 4
+hunk-40-1.pdf  used on input line 1474.
+(pdftex.def)             Requested size: 152.27905pt x 115.5987pt.
+
+Package xcolor Warning: Incompatible color definition on input line 1511.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1521.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1528.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1528.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1546.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1547.
+
+[20 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-39-1.pdf> <./
+redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-40-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 1555.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1563.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1563.
+
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-43-1.pdf, id=422, 4
 33.62pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-43-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-43-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-43-1.pdf  used on input line 1168.
+hunk-43-1.pdf  used on input line 1570.
 (pdftex.def)             Requested size: 171.3144pt x 124.91675pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-44-1.pdf, id=389, 4
-33.62pt x 316.18124pt>
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-44-1.pdf, id=423, 4
+27.5975pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-44-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-44-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-44-1.pdf  used on input line 1172.
+hunk-44-1.pdf  used on input line 1575.
+(pdftex.def)             Requested size: 171.31pt x 126.67288pt.
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-45-1.pdf, id=424, 4
+33.62pt x 316.18124pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-45-1.pdf Graph
+ic file (type pdf)
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-45-1.pdf>
+Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
+hunk-45-1.pdf  used on input line 1583.
 (pdftex.def)             Requested size: 171.3144pt x 124.91675pt.
-[16 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-38-1.pdf> <./
-redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-39-1.pdf> <./redditA
-nalysisWalkthrough_files/figure-latex/unnamed-chunk-41-1.pdf> <./redditAnalysis
-Walkthrough_files/figure-latex/unnamed-chunk-42-1.pdf> <./redditAnalysisWalkthr
-ough_files/figure-latex/unnamed-chunk-43-1.pdf> <./redditAnalysisWalkthrough_fi
-les/figure-latex/unnamed-chunk-44-1.pdf>]
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-48-1.pdf, id=440, 4
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-46-1.pdf, id=425, 4
+33.62pt x 316.18124pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-46-1.pdf Graph
+ic file (type pdf)
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-46-1.pdf>
+Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
+hunk-46-1.pdf  used on input line 1587.
+(pdftex.def)             Requested size: 171.3144pt x 124.91675pt.
+
+Package xcolor Warning: Incompatible color definition on input line 1600.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1612.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1612.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1621.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1625.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1630.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1630.
+
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-50-1.pdf, id=427, 4
 63.7325pt x 312.16624pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-48-1.pdf Graph
-ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-48-1.pdf>
-Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-48-1.pdf  used on input line 1194.
-(pdftex.def)             Requested size: 380.70181pt x 256.2733pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1199--1202
-
- []
-
-
-Package xcolor Warning: Incompatible color definition on input line 1207.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1211.
-
-[17 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-48-1.pdf>]
-
-Package xcolor Warning: Incompatible color definition on input line 1219.
-
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-49-1.pdf, id=462, 4
-50.68375pt x 316.18124pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-49-1.pdf Graph
-ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-49-1.pdf>
-Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-49-1.pdf  used on input line 1227.
-(pdftex.def)             Requested size: 171.3166pt x 120.1887pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-50-1.pdf, id=463, 4
-52.69125pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-50-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-50-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-50-1.pdf  used on input line 1231.
-(pdftex.def)             Requested size: 171.31299pt x 119.65318pt.
+hunk-50-1.pdf  used on input line 1636.
+(pdftex.def)             Requested size: 380.70181pt x 256.2733pt.
 
-Package xcolor Warning: Incompatible color definition on input line 1238.
+Package xcolor Warning: Incompatible color definition on input line 1645.
 
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-51-1.pdf, id=465, 4
-69.755pt x 283.0575pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-51-1.pdf Graph
+[21 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-43-1.pdf> <./
+redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-44-1.pdf> <./redditA
+nalysisWalkthrough_files/figure-latex/unnamed-chunk-45-1.pdf> <./redditAnalysis
+Walkthrough_files/figure-latex/unnamed-chunk-46-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 1649.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1649.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1666--1669
+
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 1674.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1678.
+
+[22 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-50-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 1686.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1693.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1700.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1700.
+
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-53-1.pdf, id=485, 4
+50.68375pt x 316.18124pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-53-1.pdf Graph
 ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-51-1.pdf>
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-53-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-51-1.pdf  used on input line 1245.
-(pdftex.def)             Requested size: 380.70018pt x 229.39624pt.
-
-Package xcolor Warning: Incompatible color definition on input line 1250.
-
-[18 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-49-1.pdf> <./
-redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-50-1.pdf> <./redditA
-nalysisWalkthrough_files/figure-latex/unnamed-chunk-51-1.pdf>]
-
-Package xcolor Warning: Incompatible color definition on input line 1270.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1270.
-
-[19]
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-54-1.pdf, id=511, 4
-53.695pt x 316.18124pt>
+hunk-53-1.pdf  used on input line 1707.
+(pdftex.def)             Requested size: 171.3166pt x 120.1887pt.
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-54-1.pdf, id=486, 4
+52.69125pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-54-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-54-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-54-1.pdf  used on input line 1279.
-(pdftex.def)             Requested size: 342.62418pt x 238.77568pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-55-1.pdf, id=512, 4
-46.66875pt x 316.18124pt>
+hunk-54-1.pdf  used on input line 1711.
+(pdftex.def)             Requested size: 171.31299pt x 119.65318pt.
+
+Package xcolor Warning: Incompatible color definition on input line 1718.
+
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-55-1.pdf, id=488, 4
+69.755pt x 283.0575pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-55-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-55-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-55-1.pdf  used on input line 1285.
-(pdftex.def)             Requested size: 342.63422pt x 242.53882pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-56-1.pdf, id=513, 4
-53.695pt x 316.18124pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-56-1.pdf Graph
-ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-56-1.pdf>
-Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-56-1.pdf  used on input line 1296.
-(pdftex.def)             Requested size: 342.62418pt x 238.77568pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-57-1.pdf, id=514, 4
-44.66125pt x 303.1325pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-57-1.pdf Graph
-ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-57-1.pdf>
-Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-57-1.pdf  used on input line 1302.
-(pdftex.def)             Requested size: 342.62769pt x 233.57463pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-58-1.pdf, id=515, 4
+hunk-55-1.pdf  used on input line 1732.
+(pdftex.def)             Requested size: 380.70018pt x 229.39624pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1737.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1757.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1757.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1761.
+
+[23 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-53-1.pdf> <./
+redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-54-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 1804.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1804.
+
+
+Underfull \vbox (badness 10000) detected at line 1804
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 1804.
+
+[24 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-55-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 1804.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1804.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1808.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1893.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1893.
+
+
+Underfull \vbox (badness 10000) detected at line 1893
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 1893.
+
+[25]
+
+Package xcolor Warning: Incompatible color definition on input line 1893.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1893.
+
+[26]
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-58-1.pdf, id=543, 4
 53.695pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-58-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-58-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-58-1.pdf  used on input line 1311.
+hunk-58-1.pdf  used on input line 1900.
 (pdftex.def)             Requested size: 342.62418pt x 238.77568pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-59-1.pdf, id=516, 4
-45.665pt x 303.1325pt>
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-59-1.pdf, id=544, 4
+46.66875pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-59-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-59-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-59-1.pdf  used on input line 1317.
-(pdftex.def)             Requested size: 342.62589pt x 233.04733pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-60-1.pdf, id=517, 4
-44.66125pt x 303.1325pt>
+hunk-59-1.pdf  used on input line 1906.
+(pdftex.def)             Requested size: 342.63422pt x 242.53882pt.
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-60-1.pdf, id=545, 4
+53.695pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-60-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-60-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-60-1.pdf  used on input line 1338.
-(pdftex.def)             Requested size: 380.69818pt x 259.52788pt.
-[20 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-54-1.pdf> <./
-redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-55-1.pdf>] [21 <./re
-dditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-56-1.pdf> <./redditAna
-lysisWalkthrough_files/figure-latex/unnamed-chunk-57-1.pdf>]
-
-Package xcolor Warning: Incompatible color definition on input line 1368.
-
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-64-1.pdf, id=573, 4
-39.6425pt x 315.1775pt>
+hunk-60-1.pdf  used on input line 1917.
+(pdftex.def)             Requested size: 342.62418pt x 238.77568pt.
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-61-1.pdf, id=546, 4
+44.66125pt x 303.1325pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-61-1.pdf Graph
+ic file (type pdf)
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-61-1.pdf>
+Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
+hunk-61-1.pdf  used on input line 1923.
+(pdftex.def)             Requested size: 342.62769pt x 233.57463pt.
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-62-1.pdf, id=547, 4
+53.695pt x 316.18124pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-62-1.pdf Graph
+ic file (type pdf)
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-62-1.pdf>
+Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
+hunk-62-1.pdf  used on input line 1932.
+(pdftex.def)             Requested size: 342.62418pt x 238.77568pt.
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-63-1.pdf, id=548, 4
+45.665pt x 303.1325pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-63-1.pdf Graph
+ic file (type pdf)
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-63-1.pdf>
+Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
+hunk-63-1.pdf  used on input line 1938.
+(pdftex.def)             Requested size: 342.62589pt x 233.04733pt.
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-64-1.pdf, id=549, 4
+44.66125pt x 303.1325pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-64-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-64-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-64-1.pdf  used on input line 1373.
-(pdftex.def)             Requested size: 171.31229pt x 122.81293pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-65-1.pdf, id=574, 4
-45.665pt x 315.1775pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-65-1.pdf Graph
-ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-65-1.pdf>
-Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-65-1.pdf  used on input line 1377.
-(pdftex.def)             Requested size: 171.31294pt x 121.15375pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-68-1.pdf, id=575, 4
-45.665pt x 315.1775pt>
+hunk-64-1.pdf  used on input line 1959.
+(pdftex.def)             Requested size: 380.69818pt x 259.52788pt.
+[27 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-58-1.pdf> <./
+redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-59-1.pdf>] [28 <./re
+dditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-60-1.pdf> <./redditAna
+lysisWalkthrough_files/figure-latex/unnamed-chunk-61-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 1990.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1999.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1999.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2004.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2008.
+
+[29 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-62-1.pdf> <./
+redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-63-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 2014.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2014.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2016.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2029.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2029.
+
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-68-1.pdf, id=631, 4
+39.6425pt x 315.1775pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-68-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-68-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-68-1.pdf  used on input line 1395.
-(pdftex.def)             Requested size: 380.70071pt x 269.23428pt.
-[22 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-58-1.pdf> <./
-redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-59-1.pdf>]
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-71-1.pdf, id=604, 4
+hunk-68-1.pdf  used on input line 2036.
+(pdftex.def)             Requested size: 171.31229pt x 122.81293pt.
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-69-1.pdf, id=632, 4
 45.665pt x 315.1775pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-71-1.pdf Graph
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-69-1.pdf Graph
 ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-71-1.pdf>
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-69-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-71-1.pdf  used on input line 1414.
+hunk-69-1.pdf  used on input line 2040.
+(pdftex.def)             Requested size: 171.31294pt x 121.15375pt.
+
+Package xcolor Warning: Incompatible color definition on input line 2048.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2054.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2054.
+
+[30 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-64-1.pdf> <./
+redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-68-1.pdf> <./redditA
+nalysisWalkthrough_files/figure-latex/unnamed-chunk-69-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 2066.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2076.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2076.
+
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-72-1.pdf, id=662, 4
+45.665pt x 315.1775pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-72-1.pdf Graph
+ic file (type pdf)
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-72-1.pdf>
+Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
+hunk-72-1.pdf  used on input line 2082.
 (pdftex.def)             Requested size: 380.70071pt x 269.23428pt.
 
-Package xcolor Warning: Incompatible color definition on input line 1423.
+Package xcolor Warning: Incompatible color definition on input line 2097.
 
-[23 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-60-1.pdf> <./
-redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-64-1.pdf> <./redditA
-nalysisWalkthrough_files/figure-latex/unnamed-chunk-65-1.pdf>] [24 <./redditAna
-lysisWalkthrough_files/figure-latex/unnamed-chunk-68-1.pdf> <./redditAnalysisWa
-lkthrough_files/figure-latex/unnamed-chunk-71-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 1450.
+Package xcolor Warning: Incompatible color definition on input line 2102.
 
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-74-1.pdf, id=666, 4
-63.7325pt x 315.1775pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-74-1.pdf Graph
-ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-74-1.pdf>
-Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-74-1.pdf  used on input line 1459.
-(pdftex.def)             Requested size: 171.31651pt x 116.4359pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-75-1.pdf, id=667, 4
-63.7325pt x 315.1775pt>
+
+Package xcolor Warning: Incompatible color definition on input line 2102.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2104.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2114.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2114.
+
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-75-1.pdf, id=663, 4
+45.665pt x 315.1775pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-75-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-75-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-75-1.pdf  used on input line 1464.
-(pdftex.def)             Requested size: 171.31651pt x 116.4359pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-76-1.pdf, id=668, 4
-63.7325pt x 315.1775pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-76-1.pdf Graph
-ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-76-1.pdf>
-Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-76-1.pdf  used on input line 1469.
-(pdftex.def)             Requested size: 171.31651pt x 116.4359pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-77-1.pdf, id=669, 4
-63.7325pt x 315.1775pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-77-1.pdf Graph
-ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-77-1.pdf>
-Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-77-1.pdf  used on input line 1474.
-(pdftex.def)             Requested size: 171.31651pt x 116.4359pt.
+hunk-75-1.pdf  used on input line 2120.
+(pdftex.def)             Requested size: 380.70071pt x 269.23428pt.
 
-Package xcolor Warning: Incompatible color definition on input line 1515.
+Package xcolor Warning: Incompatible color definition on input line 2129.
 
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-83-1.pdf, id=671, 4
-63.7325pt x 315.1775pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-83-1.pdf Graph
-ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-83-1.pdf>
-Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-83-1.pdf  used on input line 1520.
-(pdftex.def)             Requested size: 171.31651pt x 116.4359pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-84-1.pdf, id=672, 4
-63.7325pt x 315.1775pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-84-1.pdf Graph
-ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-84-1.pdf>
-Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-84-1.pdf  used on input line 1525.
-(pdftex.def)             Requested size: 171.31651pt x 116.4359pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-85-1.pdf, id=673, 4
-63.7325pt x 315.1775pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-85-1.pdf Graph
-ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-85-1.pdf>
-Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-85-1.pdf  used on input line 1530.
-(pdftex.def)             Requested size: 171.31651pt x 116.4359pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-86-1.pdf, id=674, 4
-63.7325pt x 315.1775pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-86-1.pdf Graph
-ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-86-1.pdf>
-Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-86-1.pdf  used on input line 1535.
-(pdftex.def)             Requested size: 171.31651pt x 116.4359pt.
-[25 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-74-1.pdf> <./
-redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-75-1.pdf> <./redditA
-nalysisWalkthrough_files/figure-latex/unnamed-chunk-76-1.pdf> <./redditAnalysis
-Walkthrough_files/figure-latex/unnamed-chunk-77-1.pdf>]
+[31 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-72-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 1568.
+Package xcolor Warning: Incompatible color definition on input line 2156.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1569.
+Package xcolor Warning: Incompatible color definition on input line 2160.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2180.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2180.
+
+
+Underfull \vbox (badness 10000) detected at line 2180
+ []
+
+
+Overfull \vbox (0.42233pt too high) detected at line 2180
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 2180.
+
+[32 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-75-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 2180.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2180.
+
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-78-1.pdf, id=704, 4
+63.7325pt x 315.1775pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-78-1.pdf Graph
+ic file (type pdf)
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-78-1.pdf>
+Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
+hunk-78-1.pdf  used on input line 2187.
+(pdftex.def)             Requested size: 171.31651pt x 116.4359pt.
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-79-1.pdf, id=705, 4
+63.7325pt x 315.1775pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-79-1.pdf Graph
+ic file (type pdf)
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-79-1.pdf>
+Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
+hunk-79-1.pdf  used on input line 2192.
+(pdftex.def)             Requested size: 171.31651pt x 116.4359pt.
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-80-1.pdf, id=706, 4
+63.7325pt x 315.1775pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-80-1.pdf Graph
+ic file (type pdf)
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-80-1.pdf>
+Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
+hunk-80-1.pdf  used on input line 2197.
+(pdftex.def)             Requested size: 171.31651pt x 116.4359pt.
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-81-1.pdf, id=707, 4
+63.7325pt x 315.1775pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-81-1.pdf Graph
+ic file (type pdf)
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-81-1.pdf>
+Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
+hunk-81-1.pdf  used on input line 2202.
+(pdftex.def)             Requested size: 171.31651pt x 116.4359pt.
+
+Package xcolor Warning: Incompatible color definition on input line 2220.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2224.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2224.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2226.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2234.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2234.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2250.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2268.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2268.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2268.
+
+[33 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-78-1.pdf> <./
+redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-79-1.pdf> <./redditA
+nalysisWalkthrough_files/figure-latex/unnamed-chunk-80-1.pdf> <./redditAnalysis
+Walkthrough_files/figure-latex/unnamed-chunk-81-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 2268.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2268.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2280.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2292.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2292.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2304.
+
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-87-1.pdf, id=741, 4
+63.7325pt x 315.1775pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-87-1.pdf Graph
+ic file (type pdf)
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-87-1.pdf>
+Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
+hunk-87-1.pdf  used on input line 2313.
+(pdftex.def)             Requested size: 171.31651pt x 116.4359pt.
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-88-1.pdf, id=742, 4
+63.7325pt x 315.1775pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-88-1.pdf Graph
+ic file (type pdf)
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-88-1.pdf>
+Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
+hunk-88-1.pdf  used on input line 2318.
+(pdftex.def)             Requested size: 171.31651pt x 116.4359pt.
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-89-1.pdf, id=743, 4
+63.7325pt x 315.1775pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-89-1.pdf Graph
+ic file (type pdf)
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-89-1.pdf>
+Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
+hunk-89-1.pdf  used on input line 2323.
+(pdftex.def)             Requested size: 171.31651pt x 116.4359pt.
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-90-1.pdf, id=744, 4
+63.7325pt x 315.1775pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-90-1.pdf Graph
+ic file (type pdf)
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-90-1.pdf>
+Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
+hunk-90-1.pdf  used on input line 2328.
+(pdftex.def)             Requested size: 171.31651pt x 116.4359pt.
+[34 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-87-1.pdf> <./
+redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-88-1.pdf> <./redditA
+nalysisWalkthrough_files/figure-latex/unnamed-chunk-89-1.pdf> <./redditAnalysis
+Walkthrough_files/figure-latex/unnamed-chunk-90-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 2365.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2372.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2372.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2378.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2383.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2383.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2395.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2399.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2399.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2401.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2406.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2406.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2410.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2411.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2415.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2420.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2420.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -2670,157 +3131,255 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[26 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-83-1.pdf> <./
-redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-84-1.pdf> <./redditA
-nalysisWalkthrough_files/figure-latex/unnamed-chunk-85-1.pdf> <./redditAnalysis
-Walkthrough_files/figure-latex/unnamed-chunk-86-1.pdf>] [27]
 
-Package xcolor Warning: Incompatible color definition on input line 1711.
+Package xcolor Warning: Incompatible color definition on input line 2544.
 
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-92-1.pdf, id=752, 4
-50.68375pt x 316.18124pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-92-1.pdf Graph
-ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-92-1.pdf>
-Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-92-1.pdf  used on input line 1720.
-(pdftex.def)             Requested size: 171.3166pt x 120.1887pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-93-1.pdf, id=753, 4
-48.67625pt x 316.18124pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-93-1.pdf Graph
-ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-93-1.pdf>
-Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-93-1.pdf  used on input line 1725.
-(pdftex.def)             Requested size: 171.31345pt x 120.72423pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-94-1.pdf, id=754, 4
-50.68375pt x 316.18124pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-94-1.pdf Graph
-ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-94-1.pdf>
-Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-94-1.pdf  used on input line 1730.
-(pdftex.def)             Requested size: 171.3166pt x 120.1887pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-95-1.pdf, id=755, 4
-48.67625pt x 316.18124pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-95-1.pdf Graph
-ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-95-1.pdf>
-Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-95-1.pdf  used on input line 1735.
-(pdftex.def)             Requested size: 171.31345pt x 120.72423pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-96-1.pdf, id=756, 4
-50.68375pt x 316.18124pt>
-File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-96-1.pdf Graph
-ic file (type pdf)
-<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-96-1.pdf>
-Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-96-1.pdf  used on input line 1741.
-(pdftex.def)             Requested size: 171.3166pt x 120.1887pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-98-1.pdf, id=757, 4
+[35] [36]
+
+Package xcolor Warning: Incompatible color definition on input line 2551.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2557.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2557.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2611.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2615.
+
+[37]
+
+Package xcolor Warning: Incompatible color definition on input line 2644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2644.
+
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-98-1.pdf, id=801, 4
 50.68375pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-98-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-98-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-98-1.pdf  used on input line 1759.
+hunk-98-1.pdf  used on input line 2651.
 (pdftex.def)             Requested size: 171.3166pt x 120.1887pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-99-1.pdf, id=758, 4
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-99-1.pdf, id=802, 4
 48.67625pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-99-1.pdf Graph
 ic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-99-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-99-1.pdf  used on input line 1764.
+hunk-99-1.pdf  used on input line 2656.
 (pdftex.def)             Requested size: 171.31345pt x 120.72423pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-100-1.pdf, id=759, 
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-100-1.pdf, id=803, 
 450.68375pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-100-1.pdf Grap
 hic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-100-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-100-1.pdf  used on input line 1769.
+hunk-100-1.pdf  used on input line 2661.
 (pdftex.def)             Requested size: 171.3166pt x 120.1887pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-101-1.pdf, id=760, 
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-101-1.pdf, id=804, 
 448.67625pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-101-1.pdf Grap
 hic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-101-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-101-1.pdf  used on input line 1774.
+hunk-101-1.pdf  used on input line 2666.
 (pdftex.def)             Requested size: 171.31345pt x 120.72423pt.
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-102-1.pdf, id=761, 
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-102-1.pdf, id=805, 
 450.68375pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-102-1.pdf Grap
 hic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-102-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-102-1.pdf  used on input line 1780.
+hunk-102-1.pdf  used on input line 2672.
 (pdftex.def)             Requested size: 171.3166pt x 120.1887pt.
-[28] [29 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-92-1.pdf
-> <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-93-1.pdf> <./re
-dditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-94-1.pdf> <./redditAna
-lysisWalkthrough_files/figure-latex/unnamed-chunk-95-1.pdf> <./redditAnalysisWa
-lkthrough_files/figure-latex/unnamed-chunk-96-1.pdf>] [30 <./redditAnalysisWalk
-through_files/figure-latex/unnamed-chunk-98-1.pdf> <./redditAnalysisWalkthrough
-_files/figure-latex/unnamed-chunk-99-1.pdf> <./redditAnalysisWalkthrough_files/
-figure-latex/unnamed-chunk-100-1.pdf> <./redditAnalysisWalkthrough_files/figure
--latex/unnamed-chunk-101-1.pdf> <./redditAnalysisWalkthrough_files/figure-latex
-/unnamed-chunk-102-1.pdf>]
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-104-1.pdf, id=849, 
-444.66125pt x 303.1325pt>
+
+Package xcolor Warning: Incompatible color definition on input line 2685.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2703.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2703.
+
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-104-1.pdf, id=806, 
+450.68375pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-104-1.pdf Grap
 hic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-104-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-104-1.pdf  used on input line 1845.
-(pdftex.def)             Requested size: 380.69818pt x 259.52788pt.
-
-Package xcolor Warning: Incompatible color definition on input line 1849.
-
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-105-1.pdf, id=851, 
-456.70625pt x 316.18124pt>
+hunk-104-1.pdf  used on input line 2710.
+(pdftex.def)             Requested size: 171.3166pt x 120.1887pt.
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-105-1.pdf, id=807, 
+448.67625pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-105-1.pdf Grap
 hic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-105-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-105-1.pdf  used on input line 1857.
-(pdftex.def)             Requested size: 380.71071pt x 263.56895pt.
-
-Package xcolor Warning: Incompatible color definition on input line 1879.
-
-<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-106-1.pdf, id=853, 
-456.70625pt x 316.18124pt>
+hunk-105-1.pdf  used on input line 2715.
+(pdftex.def)             Requested size: 171.31345pt x 120.72423pt.
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-106-1.pdf, id=808, 
+450.68375pt x 316.18124pt>
 File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-106-1.pdf Grap
 hic file (type pdf)
 <use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-106-1.pdf>
 Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
-hunk-106-1.pdf  used on input line 1883.
+hunk-106-1.pdf  used on input line 2720.
+(pdftex.def)             Requested size: 171.3166pt x 120.1887pt.
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-107-1.pdf, id=809, 
+448.67625pt x 316.18124pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-107-1.pdf Grap
+hic file (type pdf)
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-107-1.pdf>
+Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
+hunk-107-1.pdf  used on input line 2725.
+(pdftex.def)             Requested size: 171.31345pt x 120.72423pt.
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-108-1.pdf, id=810, 
+450.68375pt x 316.18124pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-108-1.pdf Grap
+hic file (type pdf)
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-108-1.pdf>
+Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
+hunk-108-1.pdf  used on input line 2731.
+(pdftex.def)             Requested size: 171.3166pt x 120.1887pt.
+
+Package xcolor Warning: Incompatible color definition on input line 2745.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2755.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2755.
+
+[38] [39 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-98-1.pdf
+> <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-99-1.pdf> <./re
+dditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-100-1.pdf> <./redditAn
+alysisWalkthrough_files/figure-latex/unnamed-chunk-101-1.pdf> <./redditAnalysis
+Walkthrough_files/figure-latex/unnamed-chunk-102-1.pdf>] [40 <./redditAnalysisW
+alkthrough_files/figure-latex/unnamed-chunk-104-1.pdf> <./redditAnalysisWalkthr
+ough_files/figure-latex/unnamed-chunk-105-1.pdf> <./redditAnalysisWalkthrough_f
+iles/figure-latex/unnamed-chunk-106-1.pdf> <./redditAnalysisWalkthrough_files/f
+igure-latex/unnamed-chunk-107-1.pdf> <./redditAnalysisWalkthrough_files/figure-
+latex/unnamed-chunk-108-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 2812.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2867.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2867.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2867.
+
+[41]
+
+Package xcolor Warning: Incompatible color definition on input line 2867.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2867.
+
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-111-1.pdf, id=900, 
+444.66125pt x 303.1325pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-111-1.pdf Grap
+hic file (type pdf)
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-111-1.pdf>
+Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
+hunk-111-1.pdf  used on input line 2873.
+(pdftex.def)             Requested size: 380.69818pt x 259.52788pt.
+
+Package xcolor Warning: Incompatible color definition on input line 2877.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2885.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2914.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2914.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2914.
+
+[42 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-111-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 2914.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2914.
+
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-113-1.pdf, id=915, 
+456.70625pt x 316.18124pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-113-1.pdf Grap
+hic file (type pdf)
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-113-1.pdf>
+Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
+hunk-113-1.pdf  used on input line 2920.
 (pdftex.def)             Requested size: 380.71071pt x 263.56895pt.
-[31 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-104-1.pdf>] [
-32 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-105-1.pdf> <./
-redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-106-1.pdf>] [33] [34
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1985.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1985.
+
+Package xcolor Warning: Incompatible color definition on input line 2942.
+
+<redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-114-1.pdf, id=917, 
+456.70625pt x 316.18124pt>
+File: redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-114-1.pdf Grap
+hic file (type pdf)
+<use redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-114-1.pdf>
+Package pdftex.def Info: redditAnalysisWalkthrough_files/figure-latex/unnamed-c
+hunk-114-1.pdf  used on input line 2946.
+(pdftex.def)             Requested size: 380.71071pt x 263.56895pt.
+
+Package xcolor Warning: Incompatible color definition on input line 2963.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2982.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2982.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2982.
+
+[43 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-113-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 2982.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2982.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3001.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3008.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3008.
+
+[44 <./redditAnalysisWalkthrough_files/figure-latex/unnamed-chunk-114-1.pdf>] [
+45]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3084.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3084.
 (./redditAnalysisWalkthrough.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1985.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1985.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3084.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3084.
 
 Package rerunfilecheck Info: File `redditAnalysisWalkthrough.out' has not chang
 ed.
 (rerunfilecheck)             Checksum: F4FC63C9B55AFF136E9962F336A463D0;1347.
-
-LaTeX Warning: There were undefined references.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1985.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3084.
  ) 
 Here is how much of TeX's memory you used:
- 31080 strings out of 492982
- 547529 string characters out of 6134896
- 706631 words of memory out of 5000000
- 33632 multiletter control sequences out of 15000+600000
- 116316 words of font info for 374 fonts, out of 8000000 for 9000
+ 31113 strings out of 492982
+ 547864 string characters out of 6134896
+ 712679 words of memory out of 5000000
+ 33635 multiletter control sequences out of 15000+600000
+ 117633 words of font info for 386 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,11n,77p,8856b,660s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{/u
@@ -2840,10 +3399,10 @@ type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol
 /usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on redditAnalysisWalkthrough.pdf (34 pages, 3259300 bytes).
+Output written on redditAnalysisWalkthrough.pdf (45 pages, 3300570 bytes).
 PDF statistics:
- 1002 PDF objects out of 1200 (max. 8388607)
- 770 compressed objects within 8 object streams
- 122 named destinations out of 1000 (max. 500000)
+ 1058 PDF objects out of 1200 (max. 8388607)
+ 814 compressed objects within 9 object streams
+ 136 named destinations out of 1000 (max. 500000)
  35170 words of extra memory for PDF output out of 35830 (max. 10000000)
 

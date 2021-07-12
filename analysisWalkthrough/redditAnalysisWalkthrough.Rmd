@@ -27,6 +27,8 @@ options(knitr.kable.NA = '')
 library(tidyverse)
 library(knitr)
 library(kableExtra)
+library(formatR)
+knitr::opts_chunk$set(tidy.opts = list(width.cutoff = 60), tidy = TRUE)
 ```
 
 
@@ -259,7 +261,7 @@ The visualisations in Figure \ref{fig:highPlots} should be understood as follows
 
 \footnotesize
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300}
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300}
 library(ggthemes)
 th <- theme_tufte()
 highPlot <- ggplot(data, aes(x = sumHighBefore, y = activityDiff))+geom_jitter(size=0.8, alpha = 0.3)+
@@ -301,15 +303,15 @@ highPlotZoomed
 \label{fig:highPlots}
 \end{figure}
 
-
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+\footnotesize
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 lowPlot <- ggplot(data, aes(x = sumLowBefore, y = activityDiff))+geom_jitter(size=0.8, alpha = 0.3)+geom_smooth(method = "lm",color = "skyblue", fill= "skyblue", size = 0.7, alpha = 0.8)+th+geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)+ xlab("wide attacks before")+ ylab("activity change after")+labs(title = "Impact of wide attacks on activity", subtitle = "weekly counts, n=3673") + geom_segment(aes(x = -1, y = -150, xend = 15, yend = -150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+ geom_segment(aes(x = -1, y = 150, xend = 15, yend = 150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+ geom_segment(aes(x = -1, y = -150, xend = -1, yend = 150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+ geom_segment(aes(x = 15, y = -150, xend = 15, yend = 150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+xlim(c(-1,max(data$sumLowBefore)))
 
 
 
 lowPlotZoomed <- ggplot(data, aes(x = sumLowBefore, y = activityDiff))+geom_jitter(size=1, alpha = 0.2)+geom_smooth(method = "lm",color = "skyblue", fill= "skyblue", size = 0.7, alpha = 0.8)+th+scale_x_continuous(breaks = 0:max(data$sumLowBefore),limits = c(-1,15))+ylim(c(-150,150))+geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)+ xlab("wide attacks before")+ ylab("activity change after")+labs(title = "Impact of wide attacks on activity", subtitle = "weekly counts, zoomed in")+geom_hline(yintercept = 0, col = "red", size = 0.2, lty = 3)
 ```
-
+\normalsize
 
 \begin{figure}
 \begin{subfigure}[b]{0.95\textwidth}
@@ -329,15 +331,15 @@ lowPlotZoomed
 \label{fig:lowPlots}
 \end{figure}
 
+\footnotesize
 
-
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 lowOnlyPlot <- ggplot(data, aes(x = (sumLowBefore - sumHighBefore), y = activityDiff))+geom_jitter(size=0.8, alpha = 0.3)+geom_smooth(method = "lm",color = "skyblue", fill= "skyblue", size = 0.7, alpha = 0.8)+th+geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)+ xlab("wide only attacks before")+ ylab("activity change after")+labs(title = "Impact of wide only attacks on activity", subtitle = "weekly counts, n=3673") + geom_segment(aes(x = -1, y = -150, xend = 15, yend = -150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+ geom_segment(aes(x = -1, y = 150, xend = 15, yend = 150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+ geom_segment(aes(x = -1, y = -150, xend = -1, yend = 150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+ geom_segment(aes(x = 15, y = -150, xend = 15, yend = 150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+xlim(c(-1,max(data$sumLowBefore)))
 
 
 lowOnlyPlotZoomed <- ggplot(data, aes(x = (sumLowBefore - sumHighBefore), y = activityDiff))+geom_jitter(size=1, alpha = 0.2)+geom_smooth(method = "lm",color = "skyblue", fill= "skyblue", size = 0.7, alpha = 0.8)+th+scale_x_continuous(breaks = 0:max(data$sumLowBefore),limits = c(-1,15))+ylim(c(-150,150))+geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)+ xlab("wide only attacks before")+ ylab("activity change after")+labs(title = "Impact of wide only attacks on activity", subtitle = "weekly counts, zoomed in")+geom_hline(yintercept = 0, col = "red", size = 0.2, lty = 3)
 ```
-
+\normalsize
 
 \begin{figure}
 \Centering
@@ -367,11 +369,8 @@ The above visualises the  activity change in terms of weekly counts. However, ar
 
 We zoom in to densely populated areas of the plot for \textsf{activityScore} as a function of the three types of attacks in Figure \ref{fig:propActivity}. The impact is still negative, more so for \textsf{narrow} attacks, and less so for other types. Note that for mathematical reasons the score minimum is -1 (user activity cannot drop more than 100\%), and so the graph looks  assymetric around the horizontal line. 
 
-
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
-# rescale <- function(diff,act){
-# exp(diff/act)/(1+exp(diff/act))
-# }
+\footnotesize
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 rescale <- function(diff,act){
 diff/act
 }
@@ -385,7 +384,7 @@ propPlotLow <- ggplot(data, aes(x = sumLowBefore, y = activityScore))+geom_jitte
 propPlotLowOnly <- ggplot(data, aes(x = sumLowBefore-sumHighBefore, y = activityScore))+geom_jitter(size=0.8, alpha = 0.3)+geom_smooth(method = "lm",color = "skyblue", fill= "skyblue", size = 0.7, alpha = 0.8)+th + xlab("wide only attacks before")+ ylab("proportional activity change")+labs(title = "Impact of wide only attacks on proportional activity", subtitle = "n=3673")+scale_y_continuous(limits = c(-1,10))+geom_hline(yintercept = 0, col = "red", size = 0.2, lty = 3)+scale_x_continuous(breaks = 1:15, limits = c(-1,10))+geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)
 
 ```
-
+\normalsize
 
 
 
@@ -446,7 +445,7 @@ counts %>% kable("latex", booktabs = T,linesep = "", col.names = NULL) %>%
 \normalsize 
 
 
-We proceed as follows. We list 9  options of the number of attacks and initiate vectors to which we will save the confidence interval limits (\textsf{low}, \textsf{high}), the estimated mean and the \textsf{p}-value (Table \ref{tab:testimates}). We use the same approach to analyze  the other types of attacks.
+We proceed as follows. We list 9  options of the number of attacks and initiate vectors to which we will save the confidence interval limits (\textsf{low}, \textsf{high}), the estimated mean and the \textsf{p}-value. We use the same approach to analyze  the other types of attacks.
 
 
 
@@ -461,7 +460,7 @@ We proceed as follows. We list 9  options of the number of attacks and initiate 
 
 
 \footnotesize
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message= FALSE, warning= FALSE}
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message= FALSE, warning= FALSE}
 attacks <- 0:8 
 max <- max(attacks)
 low <- numeric(max+1)
@@ -481,28 +480,31 @@ p[attacks+1] <- t[[attacks+1]]$p.value
 highTable<-as.data.frame(round(rbind(0:8,low, m, high, p),3))
 rownames(highTable) <- c("attacks","CIlow","estimated m", "CIhigh", "p-value")
 ```
-\normalsize
 
 
 
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 highTableLong <- round(data.frame(attacks = 0:8, low, m, high, p),3)
 
 highTableBar <- ggplot(highTableLong)+ geom_bar(aes(x=attacks,y=m), stat="identity", fill = "skyblue", alpha= 0.5)+
   geom_errorbar( aes(x=attacks, ymin=low, ymax=high), width=0.4, colour="seashell3", alpha=0.9, size=0.3)+th+xlab("narrow attacks")+ylab("mean activity change")+
   geom_text(aes(x=attacks, y=low-20,
-                label=p), size = 2)+labs(title = "Mean impact of narrow attacks on  weekly activity", subtitle = "with 95% confidence intervals and p-values")+scale_x_continuous(labels = 0:8, breaks= 0:8)
+                label=p), size = 2)+labs(title = "Mean impact of narrow attacks on  weekly activity", subtitle = "with 95% confidence intervals and p-values")+
+  scale_x_continuous(labels = 0:8, breaks= 0:8)
 
-highTableBar6 <- ggplot(highTableLong[highTableLong$attacks < 6 ,])+ geom_bar(aes(x=attacks,y=m), stat="identity", fill = "skyblue", alpha= 0.5)+
+highTableBar6 <- ggplot(highTableLong[highTableLong$attacks < 6 ,])+ 
+  geom_bar(aes(x=attacks,y=m), stat="identity", fill = "skyblue", alpha= 0.5)+
   geom_errorbar( aes(x=attacks, ymin=low, ymax=high), width=0.4, colour="seashell3", alpha=0.9, size=0.3)+th+xlab("narrow attacks")+ylab("mean activity change")+
-  geom_text(aes(x=attacks, y=low-20,
-                label=p), size = 2)+labs(title = "Mean impact of narrow attacks <6 on  weekly activity", subtitle = "with 95% confidence intervals and p-values")+scale_x_continuous(labels = 0:5, breaks= 0:5)
+  geom_text(aes(x=attacks, y=low-20,label=p), size = 2)+
+      labs(title = "Mean impact of narrow attacks <6 on  weekly activity",
+       subtitle = "with 95% confidence intervals and p-values")+
+  scale_x_continuous(labels = 0:5, breaks= 0:5)
 
 highTableBar3 <- ggplot(highTableLong[highTableLong$attacks < 3 ,])+ geom_bar(aes(x=attacks,y=m), stat="identity", fill = "skyblue", alpha= 0.5)+
   geom_errorbar( aes(x=attacks, ymin=low, ymax=high), width=0.4, colour="seashell3", alpha=0.9, size=0.3)+th+xlab("narrow attacks")+ylab("mean activity change")+
-  geom_text(aes(x=attacks, y=low-5,
-                label=p), size = 2)+labs(title = "Mean impact of narrow attacks <3 on  weekly activity", subtitle = "with 95% confidence intervals and p-values")+scale_x_continuous(labels = 0:2, breaks= 0:2)
+  geom_text(aes(x=attacks, y=low-5, label=p), size = 2)+
+    labs(title = "Mean impact of narrow attacks <3 on  weekly activity", subtitle = "with 95% confidence intervals and p-values")+scale_x_continuous(labels = 0:2, breaks= 0:2)
 ```
 
 
@@ -518,7 +520,7 @@ highTableBar3 <- ggplot(highTableLong[highTableLong$attacks < 3 ,])+ geom_bar(ae
 
 
 \footnotesize
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message= FALSE, warning= FALSE}
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message= FALSE, warning= FALSE}
 attacks <- 0:8
 max <- max(attacks)
 lowL <- numeric(max+1)
@@ -560,12 +562,12 @@ lowOnlyTable<-as.data.frame(round(rbind(0:8,lowLo, mLo, highLo, pLo),3))
 rownames(lowTable) <- c("attacks","CIlow","estimated m", "CIhigh", "p-value")
 
 ```
-\normalsize
 
 
 
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 lowTableLong <- round(data.frame(attacks = 0:8, lowL, mL, highL, pL),3)
 
 lowTableBar <- ggplot(lowTableLong)+ geom_bar(aes(x=attacks,y=m), stat="identity", fill = "skyblue", alpha= 0.5)+
@@ -581,7 +583,7 @@ lowOnlyTableBar <- ggplot(lowOnlyTableLong)+ geom_bar(aes(x=attacks,y=m), stat="
   geom_text(aes(x=attacks, y=low-20,
                 label=round(p,3)), size = 2)+labs(title = "Mean impact of wide only attacks on  weekly activity", subtitle = "with 95% confidence intervals and p-values")+scale_x_continuous(labels = 0:8, breaks= 0:8)
 ```
-
+\normalsize
 
 T-test based estimates for activity change divided by numbers of narrow attacks received:
 
@@ -677,8 +679,8 @@ lowOnlyTableBar
 
 
 
-
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+\footnotesize
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
 h6 <- data[data$sumHighBefore == 6,]
 h7 <- data[data$sumHighBefore == 7,]
 h8 <- data[data$sumHighBefore == 8,]
@@ -722,7 +724,7 @@ tright <- (right-assumed)/(s/sqrt(n))
 p <- pt(tright,df=n-1)-pt(tleft,df=n-1)
 power8 <- 1-p
 ```
-
+\normalsize 
 
 
 
@@ -733,7 +735,21 @@ Note fairly wide confidence intervals for higher number of attacks. These arise 
 
 We run single t-tests on different groups to estimate different means and we don't use t-test for hypothesis testing. To alleviate concerns about multiple testing and increased risk of type I error,  we also  performed an  ANOVA tests, which strongly suggest non-random correlation between the numbers of attacks and activity change. 
  Furthermore,  80 comparison rows in Tukey's Honest Significance Test [@Tukey1949] have conservatively adjusted p-value below 0.05.  
- 
+
+\footnotesize
+```{r,echo=TRUE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE,warning=FALSE}
+highAnova <- aov(activityDiff ~ as.factor(sumHighBefore), data = data)
+lowAnova <- aov(activityDiff ~ as.factor(sumLowBefore), data = data)
+lowOnlyAnova <- aov(activityDiff ~ as.factor(sumLowBefore-sumHighBefore), data = data)
+
+library(descr,quietly=TRUE)
+library(pander,quietly=TRUE)
+library(papeR,quietly=TRUE)
+sh <- xtable(summary(highAnova))
+rownames(sh) <- c("narrow","residuals")
+sh 
+```
+\normalsize
 
 \begin{table}[h!]
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE,warning=FALSE}
@@ -793,23 +809,30 @@ so
  We used t-tests, which one might think assumes normality, to estimate means  for distributions, which in fact  are not normal. However, what t-test assumes is the normality of the sampling distribution, and this condition is much easier to satisfy thanks to the central limit theorem. 
 (see for instance Figure \ref{fig:sampling}).}
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",fig.margin=TRUE}
+
+
+\footnotesize
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",fig.margin=TRUE}
 means <- numeric(10000)
 for(run in 1:10000){
 means[run] <- mean(sample(data[data$sumHighBefore==2,]$activityDiff,30))
 }
-distr <- ggplot(data[data$sumHighBefore==2,],aes(x = activityDiff)) + geom_histogram(bins = 100)+th+ggtitle("Distribution of activityDiff for narrow attacks before = 2")
+distr <- ggplot(data[data$sumHighBefore==2,],aes(x = activityDiff)) + geom_histogram(bins = 100)+th+
+  ggtitle("Distribution of activityDiff for narrow attacks before = 2")
+
+
 sampDistr <- ggplot() + geom_histogram(aes(x = means),bins = 100)+th+ggtitle("Simulated sampling distribution for the same  with n=30 and 10 000 runs")
 ```
+\normalsize
 
 \begin{figure}
-\begin{subfigure}[t]{0.45\textwidth}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold",  dpi = 300, message = FALSE, warning = FALSE}
+\begin{subfigure}{0.4\textwidth}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE,  dpi = 300, message = FALSE, warning = FALSE, fig.width= 5}
 distr
 ```
 \end{subfigure}\hfill
-\begin{subfigure}[t]{0.45\textwidth}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", dpi = 300, message = FALSE, warning = FALSE}
+\begin{subfigure}{0.4\textwidth}
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE,  dpi = 300, message = FALSE, warning = FALSE, fig.width= 6}
 sampDistr
 ```
 \end{subfigure}
@@ -907,7 +930,7 @@ We did this for  three different fairly skeptical normal prior distributions (wh
 
 \footnotesize
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE, message=FALSE}
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE, message=FALSE}
 library(BEST)
 priorsWide <- list(muM = 0, muSD = 50)
 priorsInformed <- list(muM = -1.11, muSD = 44.47)
@@ -917,8 +940,16 @@ priorsFit <- list(muM = -1.11, muSD = 7.5)
 \normalsize
 
 
-These are all normal distributions with different parameters. We follow the usual practice of presenting a Bayesian analysis with a range of options: the reader is to judge with prior seems most plausible to them, and then modify their beliefs according to the impact the data has on their prior convictions. The wide prior assumes that the most likely difference is 0, but the standard deviation is quite large, the informed prior takes the mean and standard deviation of the whole study group, whereas the fit prior follows fairly closely the actual empirical distribution of activity change values. All of them are fairly skeptical because they expect the change to be the same for every user, and they expect this change to be near 0.  We did not use  a completely uninformed uniform prior, because it is  not sufficiently skeptical, being more easily impacted by the data, and because it has some undesirable mathematical properties\footnote{See \emph{Don’t Use Uniform Priors. They statistically don’t make sense.} at \url{https://towardsdatascience.com/stop-using-uniform-priors-47473bdd0b8a} for an accessible explanation.} Our priors look as in Figure \ref{fig:priors} (note that the fitted prior looks similar when the $x$ scale is different to make the fitting more clearly visible; we also visualise the fitted prior in the same scale as the other priors). 
+These are all normal distributions with different parameters. We follow the usual practice of presenting a Bayesian analysis with a range of options: the reader is to judge with prior seems most plausible to them, and then modify their beliefs according to the impact the data has on their prior convictions. The wide prior assumes that the most likely difference is 0, but the standard deviation is quite large, the informed prior takes the mean and standard deviation of the whole study group, whereas the fit prior follows fairly closely the actual empirical distribution of activity change values. All of them are fairly skeptical because they expect the change to be the same for every user, and they expect this change to be near 0.  We did not use  a completely uninformed uniform prior, because it is  not sufficiently skeptical, being more easily impacted by the data, and because it has some undesirable mathematical properties\footnote{See \emph{Don’t Use Uniform Priors. They statistically don’t make sense.} at \url{https://towardsdatascience.com/stop-using-uniform-priors-47473bdd0b8a} for an accessible explanation.} Our priors look as in Figure \ref{fig:priors} (note that the fitted prior looks similar when the $x$ scale is different to make the fitting more clearly visible; we also visualise the fitted prior in the same scale as the other priors).   Here's the visualisation code for the wide priors, code for the other priors is analogous.
 
+\footnotesize
+```{r,echo=TRUE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+priorWide <- ggplot(data = data.frame(x = c(-200, 200)), aes(x)) +
+  stat_function(fun = dnorm, args = list(mean = 0, sd = 50)) + ylab("") +
+  scale_y_continuous(breaks = NULL)+th+xlab("expected activity change")+labs(title = "Wide prior", subtitle ="Normal prior with m = 0, sd = 50")
+priorWide
+```
+\normalsize
 
 \begin{figure}[!ht]
 \begin{subfigure}[!ht]{0.45\textwidth}
@@ -976,11 +1007,11 @@ priorFitted
 
 
 
-<!-- First, it will be convenient to split and extract the data (we will do the Bayesian analysis for narrow attacks: -->
+First, it will be convenient to split and extract the data (we will do the Bayesian analysis for narrow attacks:
 
-<!-- \footnotesize -->
+\footnotesize
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 sh0 <- data[data$sumHighBefore==0,]$activityDiff
 sh1 <- data[data$sumHighBefore==1,]$activityDiff
 sh2 <- data[data$sumHighBefore==2,]$activityDiff
@@ -994,15 +1025,14 @@ sh8 <- data[data$sumHighBefore==8,]$activityDiff
 
 \normalsize
 
-As an example, we go over in detail over the estimation of the impact of data for three narrow attacks on the wide prior. We   built the sample of simulated posterior probabilities and plotted the t-distributions of 30 random steps in the approximation process together with a histogram of the data, so that we can estimate how the simulations converged.
-
-<!-- \footnote{Actually, since BEST simulations are computationally heavy, we have already run them separately and loaded the file with the results. However, normally you would use a line like the one listed (these simulations take the more time the larger the dataset).} -->
+As an example, we go over in detail over the estimation of the impact of data for three narrow attacks on the wide prior. We   built the sample of simulated posterior probabilities and plotted the t-distributions of 30 random steps in the approximation process together with a histogram of the data, so that we can estimate how the simulations converged.\footnote{Actually, since BEST simulations are computationally heavy, we have already run them separately and loaded the file with the results. However, normally you would use a line like the one listed (these simulations take the more time the larger the dataset).}
 
 
 \footnotesize
 
-```{r,echo=FALSE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"} 
+```{r,echo=TRUE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"} 
 mc3w <- BESTmcmc(sh3,priors = priorsWide)
+plotPostPred(mc3w)
 ```
 
 \normalsize
@@ -1023,13 +1053,13 @@ plotPostPred(mc3w)
 
 
 
-<!-- Next, we print some information about the object we obtained: -->
+Next, we print some information about the object we obtained:
 
-<!-- \footnotesize -->
-<!-- ```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE} -->
-<!-- print(mc3w) -->
-<!-- ``` -->
-<!-- \normalsize -->
+\footnotesize
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+print(mc3w)
+```
+\normalsize
 
 
  The simulation, among other things, produces out a sample of 100002 simulated posterior distributions of the mean, \textsf{mu}. Below we briefly describe how the algorithm works.  
@@ -1052,8 +1082,12 @@ However,  what the simulation needs is something proportional to the right-hand 
 
 For instance, it is possible to  look at which potential parameters the simulation for three attacks visited.  Figure \ref{fig:chains}  represents the first 100 steps in the full simulation and parameters visited at every 50th step (because a plot of all 100000 steps would not be clearly readable).
 
-
-
+\footnotesize
+```{r,echo=TRUE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+ggplot()+geom_line(aes(x=1:length(mc3w$mu[1:100]),y = mc3w$mu[1:100]), alpha=0.7)+th+xlab("initial steps in the chain")+ylab("potential parameter")+
+  labs(title = "Convergence plot for first 100 steps in MCMC", subtitle = "Wide prior, three attacks")
+```
+\normalsize
 
 \begin{figure}[!ht]
 \begin{subfigure}[!ht]{0.45\textwidth}
@@ -1078,7 +1112,7 @@ We can collapse the plot, ignoring time, with default \textsf{BESTmcmc} features
 The histogram illustrates the distribution of the outcome. HDI with limits is displayed at the bottom, and the information in green represents the 
 t proportion of the sample that is below 0. 
 
-<!-- Rhat is a convergence measure, if the process goes well it should be around 1, and \textsf{n.eff} is the effective sample size -- which is often lower than the actual full sample because of autocorrelation (in simulations next guess for a parameter depends to some extent on what the previous guess was, and the calculation of \textsf{n.eff} corrects for this). -->
+Rhat is a convergence measure, if the process goes well it should be around 1, and \textsf{n.eff} is the effective sample size -- which is often lower than the actual full sample because of autocorrelation (in simulations next guess for a parameter depends to some extent on what the previous guess was, and the calculation of \textsf{n.eff} corrects for this).
 
 
 \begin{figure}[h!]
@@ -1100,9 +1134,9 @@ the mean of those visited potential  means is -24.476 (although this does not ha
 Having  gone over a detailed example, we present the results of the Bayesian analysis for 0-9 narrow attacks (and a simulated prior) for three types of priors and the barplot of the means of posterior distributions (not the means of the data, but a result of a compromise between the  priors and the data) with HDIs.  The total output is in Figures \ref{fig:bayesian1}-\ref{fig:bayesian3}.
 
 
-\scriptsize
+\footnotesize
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
 #prepare data and plot densities
 bayesianWideDF <- data.frame(a0 = mc0w$mu,a1 = mc1w$mu, a2 =mc2w$mu,a3 = mc3w$mu, 
               a4 = mc4w$mu, a5 = mc5w$mu, a6 = mc6w$mu, a7 = mc7w$mu,a8 = mc8w$mu)
@@ -1138,8 +1172,9 @@ wideBayesBar <- ggplot(wideBayesTable)+ geom_bar(aes(x=attacks,y=wideMeans),
   geom_text(aes(x=attacks+0.24, y=wideMeans-3, label=round(wideMeans,1)), size = 3)+scale_x_continuous(labels = 0:8, breaks= 0:8)
 ```
 
+\footnotesize
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
 bayesianFittedDF <- data.frame(a0 = mc0f$mu,a1 = mc1f$mu, a2 =mc2f$mu,a3 = mc3f$mu, a4 = mc4f$mu, a5 = mc5f$mu, a6 = mc6f$mu, a7 = mc7f$mu,a8 = mc8f$mu)
 bayesianFittedDF$prior <- rnorm(nrow(bayesianFittedDF), mean = -1.11, sd = 7.5)
 BayesianFittedDFLong <- gather(bayesianFittedDF)
@@ -1291,8 +1326,10 @@ We analyzed the correlation between attacks received and activity change using c
 To reach some clarity on such issues, we perform a regression analysis to see how the predictors in best fit models interact, and to use the model parameters to get some comparison of the impact they have.
 We build a number of potentially viable generalized linear regression models meant to predict \textsf{activityAfter} based on a selection of other variables, pick the best one(s) and analyze what they reveal about the  predictors involved.
 
+\footnotesize
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE,warning=FALSE}
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE,warning=FALSE}
 library(MASS)
 library(vcd)
 library(lmtest)
@@ -1302,10 +1339,13 @@ library(stats)
 ```
 
 
+\normalsize
+
 Our first challenge was finding the right distribution for the outcome variable  (Figure \ref{fig:activityDistro}).
 
+\footnotesize
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 activityAfterTab <-table(factor(data$activityAfter,
                 levels = 0:max(data$activityAfter)))
 activityAfterDf <- as.data.frame(activityAfterTab)
@@ -1313,12 +1353,12 @@ activityAfterDf$Var1 <- as.integer(activityAfterDf$Var1)
 ```
 
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 activityDistr <- ggplot(activityAfterDf, aes(x = Var1, y  = Freq))+ geom_bar( stat="identity")+scale_x_continuous(breaks = seq(0,1000, by = 50))+th+labs(title="Distribution of activityAfter")+xlab("activityAfter")+ylab("count")
 
 activityDistrRestr <- ggplot(activityAfterDf, aes(x = Var1, y  = Freq))+ geom_bar( stat="identity")+scale_x_continuous(breaks = seq(0,100, by = 10), limits = c(0,100))+th+labs(title="Distribution of activityAfter", subtitle = "x restricted to 0-100")+xlab("activityAfter")+ylab("count")
 ```
-
+\normalsize
 
 \begin{figure}
 \begin{subfigure}[b]{0.45\textwidth}
@@ -1337,7 +1377,7 @@ activityDistrRestr
 
 
 \footnotesize
-```{r,echo=FALSE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
+```{r,echo=TRUE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
 activityFitPois <- goodfit(activityAfterTab, type = "poisson")
 unlist(activityFitPois$par)
 summary(activityFitPois)
@@ -1346,14 +1386,15 @@ summary(activityFitPois)
 
 One potential candidate was the Poisson distribution. We identified the Poisson distribution that best fits the data, used  its $\lambda$ parameter ($\approx 35.69$) to  perform a goodness-of-fit test (with $df=273$, $\chi^2 \approx \infty$ and $P(>\chi^2)\approx 0$), and compare visually the predicted values with the actual ones.
 
+\footnotesize
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
 activityFitPois <- goodfit(activityAfterTab, type = "poisson")
 poissonFitPlot <- ggplot(activityAfterDf, aes(x = Var1, y  = Freq))+ geom_bar( stat="identity", alpha=0.6)+
   scale_x_continuous(breaks = seq(0,100, by = 10), 
                      limits = c(0,100))+th+labs(title="activityAfter with fitted best Poisson model predictions", subtitle = "x restricted to 0-100")+xlab("activityAfter")+ylab("count")+geom_point(aes(x = Var1,y=activityFitPois$fitted), colour="darksalmon", size = 0.5, alpha = 0.5)
 ```
-
+\normalsize
 
 \begin{figure}
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
@@ -1371,16 +1412,16 @@ poissonFitPlot
 
 
 \footnotesize
-```{r,echo=FALSE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
+```{r,echo=TRUE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
 activityFitNbin <- goodfit(activityAfterTab, type = "nbinom")
 summary(activityFitNbin)
 ```
-\normalsize 
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
 activityFitNbin <- goodfit(activityAfterTab, type = "nbinom")
 poissonNbinPlot2 <- ggplot(activityAfterDf, aes(x = Var1, y  = Freq))+ geom_bar( stat="identity", alpha = 0.5)+scale_x_continuous(breaks = seq(0,100, by = 10), limits = c(0,100))+th+labs(title="activityAfter with fitted best negative binomial model predictions", subtitle = "x restricted to 0-100")+xlab("activityAfter")+ylab("count")+geom_point(aes(x = Var1,y=activityFitNbin$fitted), colour="darksalmon", size = 0.5, alpha = 0.8)
 ```
+\normalsize 
 
 
 \begin{figure}
@@ -1417,7 +1458,7 @@ We start with the full predictor sets.  We display rootograms (they have \emph{s
 
 
 \footnotesize
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE,warning=FALSE}
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE,warning=FALSE}
 data$sumLowOnlyBefore <- data$sumLowBefore - data$sumHighBefore
 
 fullModelZINbin <-zeroinfl(activityAfter~sumLowOnlyBefore+
@@ -1436,9 +1477,8 @@ fullModelHpois <- hurdle(activityAfter~sumLowOnlyBefore+
   sumHighBefore+sumPlBefore+ sumPhBefore+ activityBefore, 
   data = data, dist = "poisson")
 ```
-\normalsize
 
-```{r,echo=FALSE,include =FALSE, eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+```{r,echo=TRUE,include =FALSE, eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 fullModelZINbinRoot <- countreg::rootogram(fullModelZINbin,
           max=100, main="Zero-inflated negative binomial")
 
@@ -1448,6 +1488,7 @@ fullModelZIpoisRoot <- countreg::rootogram(fullModelZIpois, max=100, main="Zero-
 
 fullModelHpoisRoot <- countreg::rootogram(fullModelHpois, max=100, main="Hurdle Poisson")
 ```
+\normalsize
 
 
 
@@ -1486,14 +1527,12 @@ The first observation was that even zero-inflation or hurdling do not improve th
 <!-- (note: this method is applicable for comparing zero-inflated or hurdled models, but not for zero-inflation detection!) -->
 
 \footnotesize
-```{r,echo=FALSE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+```{r,echo=TRUE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
  vuong(fullModelZINbin, fullModelHNbin)
 ```
 
-\normalsize 
 
-\footnotesize
-```{r,echo=FALSE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", warning = FALSE}
+```{r,echo=TRUE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", warning = FALSE}
 logLik(fullModelZINbin)
 AIC(fullModelZINbin)
 
@@ -1503,13 +1542,13 @@ AIC(fullModelHNbin)
 \normalsize
 
 
-<!-- There seem to be some reasons to prefer the zero-inflated model, but the score differences are not too impressive, both likelihood ratios are Akaike scores are very close (note: we want to minimize AIC and maximize log likelihood).  -->
+There seem to be some reasons to prefer the zero-inflated model, but the score differences are not too impressive, both likelihood ratios are Akaike scores are very close (note: we want to minimize AIC and maximize log likelihood).
 
 
-<!-- To move on we need to modify  the variables,  because some of the counts included others. This was not a problem so far, but now we will be looking in detail at their roles jointly, and so it is important to not count various things multiple times. -->
+To move on we need to modify  the variables,  because some of the counts included others. This was not a problem so far, but now we will be looking in detail at their roles jointly, and so it is important to not count various things multiple times.
 
 \footnotesize
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 #select variables of interest
 dataModeling <- data %>% dplyr::select(sumLowOnlyBefore, sumHighBefore,
               sumPlBefore, sumPhBefore, activityBefore, activityAfter)
@@ -1531,7 +1570,7 @@ dataModeling$sumPlBefore <- dataModeling$sumPlBefore -
 We build zero-inflated negative binomial and hurdle negative binomial models, one with all variables, and one based on previous activity only.  If we can get equally good predictions using previous activity only and ignoring information about attacks, this would suggest no impact of the other variables.
 
 \footnotesize 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", warning=FALSE, message= FALSE}
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", warning=FALSE, message= FALSE}
 ZNBfull <- zeroinfl(activityAfter~., 
                     data = dataModeling, dist = "negbin")
 ZNBactivity <- zeroinfl(activityAfter~activityBefore, 
@@ -1542,13 +1581,15 @@ HNBactivity <- hurdle(activityAfter~activityBefore,
                     data = dataModeling, dist = "negbin")
 
 #now take a look at this
-#summary(dataModeling$activityAfter)
+summary(dataModeling$activityAfter)
 ```
 \normalsize
 
 The outcome variable has third quartile of weekly activity count in the \textsf{after} period at 38, and we are mostly interested in predictive accuracy where most of the users are placed. Therefore, we  look at what happens with these models up to 40 (Figure \ref{fig:rootogramsFeature}).
 
-```{r,echo=FALSE,include =FALSE, eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+\footnotesize
+
+```{r,echo=TRUE,include =FALSE, eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 ZNBfullRoot <- countreg::rootogram(ZNBfull,
           max=40, main="Zero-inflated negative binomial")
 
@@ -1559,6 +1600,8 @@ HNBfullRoot <- countreg::rootogram(HNBfull, max=40, main="Zero-inflated Poisson"
 HNBactivityRoot <- countreg::rootogram(HNBactivity, max=40, main="Hurdle Poisson")
 ```
 
+
+\normalsize
 
 
 
@@ -1599,23 +1642,27 @@ Wald's test is somewhat similar (ableit more generally applicable). It also indi
 Finally, Akaike Information Criterion [@Akaike1974model] provides an  estimator of out-of-sample prediction error and penalizes more complex models. As long as we evaluate models with respect to the same data, the ones with lower Akaike score should be chosen.  Even with penalty for the additional variables, the full model receives better score (although the difference is not very large, 29,081 vs. 29,085).
 
  
-<!--  First, we can do this in a step-wise manner: -->
+ First, we can do this in a step-wise manner:
 
 
-<!-- \footnotesize  -->
+\footnotesize
 
-<!-- ```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"} -->
-<!-- library(lmtest) -->
-<!-- likHNBactivity <- logLik(HNBactivity) -->
-<!-- likHNBfull <- logLik(HNBfull) -->
-<!-- (teststat <- -2 * (as.numeric(likHNBactivity)-as.numeric(likHNBfull))) -->
-<!-- df <- 13 - 5 -->
-<!-- (p.val <- pchisq(teststat, df = df, lower.tail = FALSE)) -->
-<!-- ``` -->
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+library(lmtest)
+likHNBactivity <- logLik(HNBactivity)
+likHNBfull <- logLik(HNBfull)
+(teststat <- -2 * (as.numeric(likHNBactivity)-as.numeric(likHNBfull)))
+df <- 13 - 5
+(p.val <- pchisq(teststat, df = df, lower.tail = FALSE))
+```
 
-<!-- \normalsize -->
+\normalsize
 
-<!-- The same result can be achieved more quickly using the following lines: -->
+The same result can be achieved more quickly using the following lines:
+
+
+
+\footnotesize
 
 ```{r,echo=FALSE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 lrtest(HNBactivity,HNBfull)
@@ -1623,124 +1670,71 @@ lrtest(HNBactivity,HNBfull)
 
 
 
-```{r,echo=FALSE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+```{r,echo=TRUE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 waldtest(HNBactivity,HNBfull)
 ```
 
 
 
-```{r,echo=FALSE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+```{r,echo=TRUE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 AIC(HNBactivity)
 AIC(HNBfull)
 ```
 
+\normalsize
 
 
 
 
-
-<!-- Here's yet another  way to support our decision to include the additional variables. Let's split the dataset into training and testing groups, train the models on the training set, let them make predictions for the testing set, restrict the testing set to activity <40 (because we don't want our decision to be influenced by outliers) and calculate mean squared error for the predictions.  -->
-
-<!-- \footnotesize  -->
-<!-- ```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning= FALSE, message=FALSE} -->
-<!-- #split data -->
-<!-- set.seed(666) -->
-<!-- trainingSize <- ceiling(nrow(dataModeling)/2) -->
-<!-- sampleCodes <- sample(1:nrow(dataModeling), -->
-<!--                       trainingSize, replace = FALSE) -->
-<!-- training <- dataModeling[sampleCodes,] -->
-<!-- test <- dataModeling[-sampleCodes,] -->
-
-<!-- #build models -->
-<!-- HNBtrainingFull <- hurdle(activityAfter~.,  -->
-<!--                           data = training, dist = "negbin") -->
-<!-- HNBtrainingActivity <- hurdle(activityAfter~activityBefore,  -->
-<!--                           data = training, dist = "negbin") -->
-<!-- ZINBtrainingFull <- zeroinfl(activityAfter~.,  -->
-<!--                           data = training, dist = "negbin") -->
-<!-- ZINBtrainingActivity <- zeroinfl(activityAfter~activityBefore,  -->
-<!--                           data = training, dist = "negbin") -->
-
-<!-- #predictions -->
-<!-- test$prHNBfull <- round(predict (HNBtrainingFull, test)) -->
-<!-- test$prHNBactivity <- round(predict (HNBtrainingActivity, test)) -->
-<!-- test$prZINBfull <- round(predict (ZINBtrainingFull, test)) -->
-<!-- test$prZINBactivity <- round(predict (ZINBtrainingActivity, test)) -->
-
-<!-- #restrict dataset and calculate MSE -->
-<!-- testRestr <- test[test$activityAfter < 40,] -->
-<!-- MseHNBfull <- sum((testRestr$prHNBfull -  -->
-<!--                   testRestr$activityAfter)^2)/nrow(test) -->
-<!-- MseHNBactivity <- sum((testRestr$prHNBactivity -  -->
-<!--                   testRestr$activityAfter)^2)/nrow(test) -->
-<!-- MseZINBfull<- sum((testRestr$prZINBfull -  -->
-<!--                   testRestr$activityAfter)^2)/nrow(test) -->
-<!-- MseZINBactivity <- sum((testRestr$prZINBactivity - -->
-<!--                   testRestr$activityAfter)^2)/nrow(test) -->
-
-<!-- Mse <- data.frame(MseHNBfull = MseHNBfull,  -->
-<!--                   MseHNBactivity = MseHNBactivity,  -->
-<!--                   MseZINBfull = MseZINBfull,  -->
-<!--                   MseZINBactivity = MseZINBactivity) -->
-<!-- ``` -->
-
-<!-- \normalsize  -->
-<!-- ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"} -->
-<!-- mykable(Mse) -->
-<!-- ``` -->
-
-
-
-<!-- And the winner is\dots Hurdle negative binomial model again! Great! -->
 
 
 Next, we inspect the HNB model (Tables  \ref{tab:fhnb_estimates1} and \ref{tab:fhnb_estimates2}) and interpret the result. 
 
 \footnotesize
 
-<!-- ```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", message=FALSE, warning = FALSE} -->
-<!-- library(stargazer) -->
-<!-- stargazer(HNBfull) -->
-<!-- #shnbf <- summary(HNBfull) -->
-<!-- #shnbfp <- prettify(shnbf) -->
-<!-- ``` -->
+```{r,echo=TRUE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", message=FALSE, warning = FALSE}
+library(stargazer)
+stargazer(HNBfull)
+```
+\normalsize 
 
-<!-- \begin{table}[!h] \centering -->
-<!-- \begin{tabular}{@{\extracolsep{5pt}}lc} -->
-<!-- \\[-1.8ex]\hline -->
-<!-- \hline \\[-1.8ex] -->
-<!-- & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ -->
-<!-- \cline{2-2} -->
-<!-- \\[-1.8ex] & activityAfter \\ -->
-<!-- \hline \\[-1.8ex] -->
-<!-- sumLowOnlyBefore & $-$0.009 \\ -->
-<!-- & (0.014) \\ -->
-<!-- & \\ -->
-<!-- sumHighBefore & $-$0.008 \\ -->
-<!-- & (0.020) \\ -->
-<!-- & \\ -->
-<!-- sumPlBefore & 0.015 \\ -->
-<!-- & (0.013) \\ -->
-<!-- & \\ -->
-<!-- sumPhBefore & $-$0.139$^{**}$ \\ -->
-<!-- & (0.069) \\ -->
-<!-- & \\ -->
-<!-- activityBefore & 0.015$^{***}$ \\ -->
-<!-- & (0.001) \\ -->
-<!-- & \\ -->
-<!-- Constant & 2.534$^{***}$ \\ -->
-<!-- & (0.032) \\ -->
-<!-- & \\ -->
-<!-- \hline \\[-1.8ex] -->
-<!-- Observations & 3,673 \\ -->
-<!-- Log Likelihood & $-$14,527.690 \\ -->
-<!-- \hline -->
-<!-- \hline \\[-1.8ex] -->
-<!-- \textit{Note:} & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ -->
-<!-- \end{tabular} -->
-<!-- \caption{Estimated parameters of the full hurdle negative binomial model.} -->
-<!-- \label{tab:fhnb_estimates} -->
-<!-- \end{table} -->
+
+\begin{table}[!h] \centering
+\begin{tabular}{@{\extracolsep{5pt}}lc}
+\\[-1.8ex]\hline
+\hline \\[-1.8ex]
+& \multicolumn{1}{c}{\textit{Dependent variable:}} \\
+\cline{2-2}
+\\[-1.8ex] & activityAfter \\
+\hline \\[-1.8ex]
+sumLowOnlyBefore & $-$0.009 \\
+& (0.014) \\
+& \\
+sumHighBefore & $-$0.008 \\
+& (0.020) \\
+& \\
+sumPlBefore & 0.015 \\
+& (0.013) \\
+& \\
+sumPhBefore & $-$0.139$^{**}$ \\
+& (0.069) \\
+& \\
+activityBefore & 0.015$^{***}$ \\
+& (0.001) \\
+& \\
+Constant & 2.534$^{***}$ \\
+& (0.032) \\
+& \\
+\hline \\[-1.8ex]
+Observations & 3,673 \\
+Log Likelihood & $-$14,527.690 \\
+\hline
+\hline \\[-1.8ex]
+\textit{Note:} & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
+\end{tabular}
+\caption{Estimated parameters of the full hurdle negative binomial model.}
+\label{tab:fhnb_estimates}
+\end{table}
 
 
 \begin{table}[!h] \centering
@@ -1818,20 +1812,19 @@ Constant & 0.49$^{***}$ \\
 
 \normalsize
 
-The output is split into two submodels: one for predicting zeros, one for the counts. It could be suggested to ignore those variables whose coefficients are not  statistically significant, but given the already discussed reasons to include these variables, we are not going to do this (in fact, attaching too much value to statistical significance thresholds can be pernicious, and also misleading if the predictors are correlated, as attacks on posts and attacks on comments may well be). Moreover, the results of step-wise elimination from the full model are sensitive to the ordering in which we consider variables, and there is no principled reason to prefer any of the orderings. Instead, interpreting  $p$-values we apply the following advice: the closer it is to 1, the more skeptical we should be about the judgment the model makes about its role. 
-
-
-<!-- reading the excellent book titled \emph{The Cult of Statistical Significance: How the Standard Error Costs Us Jobs, Justice, and Lives} by Stephen T. Ziliak and Deirdre N. McCloskey.  -->
-
+The output is split into two submodels: one for predicting zeros, one for the counts. It could be suggested to ignore those variables whose coefficients are not  statistically significant, but given the already discussed reasons to include these variables, we are not going to do this (in fact, attaching too much value to statistical significance thresholds can be pernicious, and also misleading if the predictors are correlated, as attacks on posts and attacks on comments may well be). Moreover, the results of step-wise elimination from the full model are sensitive to the ordering in which we consider variables, and there is no principled reason to prefer any of the orderings. Instead, interpreting  $p$-values we apply the following advice: the closer it is to 1, the more skeptical we should be about the judgment the model makes about its role.\footnote{See the excellent book titled \emph{The Cult of Statistical Significance: How the Standard Error Costs Us Jobs, Justice, and Lives} by Stephen T. Ziliak and Deirdre N. McCloskey.}
 The coefficeints  are somewhat difficult to interpret because the models use log link function. Therefore  we first   exponentiate them to obtain odds ratios:
 
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+\footnotesize
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 expCoef <- as.data.frame(round((exp(coef((HNBfull)))),3))
 colnames(expCoef) <- c("Odds ratios")
 mykable(expCoef)
 ```
 
+\normalsize
 
 Next we analyze the intercepts of the count submodel. 
 The baseline number of posts for those who are not in the zero class is 12.6.  The coefficients indicate that the multiplicative contribution of each unit change. For instance:
@@ -1859,7 +1852,7 @@ Next, regarding the zero submodel.
 
 
 \footnotesize
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
 sumLowOnlyBefore <- rep(mean(dataModeling$sumLowOnlyBefore),4001)
 sumHighBefore <- rep(mean(dataModeling$sumHighBefore),4001)
 sumPlBefore <- rep(mean(dataModeling$sumPlBefore),4001)
@@ -1931,7 +1924,7 @@ effA+ggtitle("Predicted (hurdle) effect of previous activity")+xlab("activity be
 Finally, to make sure our choice to use the hurdle model was not crucial for these results, we also provide effect plots for the full zero-inflated model. 
 
 \footnotesize
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 effSizePlotZ <- function(columnno,range = 40,by = 5){
   EffDf <- baseEffDf
   EffDf[,columnno] <- 0:4000
@@ -1991,7 +1984,9 @@ effAZ+ggtitle("Predicted (zero-inflated) effect of previous activity")+xlab("act
 Another way to use this information is to inspect the table of activity counts that the model expects based on the number of personal attacks on a post received in the before period, assuming all the other input variables are kept at their mean values:
 
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+\footnotesize
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
 EffSumHighTable <- baseEffDf[0:20,]
 EffSumHighTable[,4] <- 0:19
 EffSumHighTable$prediction <- predict(HNBfull,EffSumHighTable)
@@ -1999,7 +1994,7 @@ EffTablePosts <- rbind(EffSumHighTable$sumPhBefore,round(EffSumHighTable$predict
 rownames(EffTablePosts) <- c("attacks","expected activity")
 mykable(EffTablePosts) %>% kable_styling(latex_options = "scale_down")
 ```
-
+\normalsize
 
 The predictions are  similar, except for the predicted results of wide only attacks on posts. This perhaps can be explained by observing  that  such cases of personal attacks sometimes represent situations in which the users  actually agree with the original post (see our remark in the beginning of the section  about data gathering and selection), and in some cases the attacks are critical of the author, so there is much more variation in this group and precise modeling is harder.
 
@@ -2017,7 +2012,52 @@ One might have reasoned about our previous analyses as follows:  attacks in the 
 
 Another problem plaguing observational studies is \textbf{regression to the mean}. If the probability of any particular message being attacked is fairly low, users who have received an attack are quite likely to have posted more content than the treatment group, and perhaps those who posted more content in the \textsf{before} period are more likely to post less in the \textsf{after} period. This concern might be elevated by the observation that activity before indeed increases with the number of attacks received and that the activity drop increases with \textsf{activity} before.
 
+\footnotesize
+```{r,echo=TRUE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+attacksb <- 0:8 
+maxb <- max(attacks)
+lowb <- numeric(max+1)
+highb <- numeric(max+1)
+mb <- numeric(max+1)
+pb <- numeric(max+1)
+tb <- list()
 
+for(attacks in attacksb){
+  t[[attacks+1]] <- t.test(data[data$sumHighBefore == attacks,]$activityBefore)
+  
+  lowb[attacks+1] <- t[[attacks+1]]$conf.int[1]
+  highb[attacks+1] <- t[[attacks+1]]$conf.int[2]
+  mb[attacks+1] <- t[[attacks+1]]$estimate
+  pb[attacks+1] <- t[[attacks+1]]$p.value
+}
+highTableb<-as.data.frame(round(rbind(0:8,lowb, mb, highb, pb),3))
+rownames(highTableb) <- c("attacks","CIlow","estimatedm", "CIhigh", "p-value")
+
+before <- as.data.frame(t(highTableb))
+
+attacksa <- 0:8 
+maxa <- max(attacksa)
+lowa <- numeric(max+1)
+higha <- numeric(max+1)
+ma <- numeric(max+1)
+pa <- numeric(max+1)
+ta <- list()
+for(attacks in attacksa){
+  ta[[attacks+1]] <- t.test(data[data$sumHighBefore == attacks,]$activityAfter)
+  lowa[attacks+1] <- ta[[attacks+1]]$conf.int[1]
+  higha[attacks+1] <- ta[[attacks+1]]$conf.int[2]
+  ma[attacks+1] <- ta[[attacks+1]]$estimate
+  pa[attacks+1] <- ta[[attacks+1]]$p.value
+}
+highTablea<-as.data.frame(round(rbind(0:8,lowa, ma, higha, pa),3))
+rownames(highTablea) <- c("attacks","CIlow","estimatedm", "CIhigh", "p-value")
+after <- as.data.frame(t(highTablea))
+
+ggplot(before, aes(x = attacks, y = estimatedm))+geom_point()+ geom_errorbar(aes(ymin=CIlow, ymax=CIhigh), width=.2,size=0.2,
+                                                                             position=position_dodge(0.05))+th+xlab("narrow attacks")+ylab("mean activity")+geom_line(data = after, aes(x = attacks, y = estimatedm), color = "skyblue")+geom_errorbar(data = after, aes(ymin=CIlow, ymax=CIhigh), width=.3,size=0.2,color = "skyblue",  position=position_dodge(0.05))
+
+```
+\normalsize
 
 \begin{figure}
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
@@ -2070,7 +2110,28 @@ ggplot(before, aes(x = attacks, y = estimatedm))+geom_point()+ geom_errorbar(aes
 
 We visually inspect in Figure \ref{fig:regression} the relation between the distance from the sample mean for \textsf{activityBefore} and the activity change between week 1 and week 2, grouped by the number of attacks received (for the cases for which we obtained significant results in the classical analysis). 
 
+\footnotesize
 
+```{r,echo=TRUE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+h0 <- data[data$sumHighBefore == 0,]
+h1 <- data[data$sumHighBefore == 1,]
+h2 <- data[data$sumHighBefore == 2,]
+h3 <- data[data$sumHighBefore == 3,]
+h4 <- data[data$sumHighBefore == 4,]
+
+distance <- function(x) { x - mean(data$sumHighBefore)}
+
+library(gridExtra)
+grid.arrange(ggplot(h0, aes(x = distance(activityBefore),y = activityDiff))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
+)+ggtitle("0 narrow attacks")+ylab("activity change"),
+ggplot(h2, aes(x = distance(activityBefore),y = activityDiff))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
+)+ggtitle("2 narrow attacks")+ylab("activity change"),
+ggplot(h3, aes(x = distance(activityBefore),y = activityDiff))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
+)+ggtitle("3 narrow attacks")+ylab("activity change"),
+ggplot(h4, aes(x = distance(activityBefore),y = activityDiff))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
+)+ggtitle("4 narrow attacks")+ylab("activity change"))
+```
+\normalsize
 
 \begin{figure}
 ```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
@@ -2141,7 +2202,9 @@ ggplot(h4, aes(x = distance(activityBefore),y = activityScore))+geom_point(alpha
 Next, notice that restricting the dataset to users with similar activity before still results in uneven activity change between the groups. We focus focus on users with \textsf{activityBefore} restricted to the third quartile of the whole sample (44),  narrow attacks in $\{0,1,2,3, 4\} and estimate  their \textsf{activityScore} proportional drop.
 
 
-```{r,echo=FALSE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+\footnotesize
+
+```{r,echo=TRUE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
 iqr0 <- data[data$sumHighBefore == 0 & data$activityBefore <= 44,]
 iqr1 <- data[data$sumHighBefore == 1 & data$activityBefore <= 44,]
 iqr2 <- data[data$sumHighBefore == 2 & data$activityBefore <= 44,]
@@ -2164,6 +2227,15 @@ The estimated means of proportional changes  are $0.05, 0.11, -0.09,-0.35, -0.7$
 
 Further, to adjust for regression to the mean, it is sometimes recommended to  use ANCOVA to correct for prior differences in pretest measurements. In our case, a statistically significant difference for different number of attacks received remains after correcting for differences  in activity before.
 
+
+\footnotesize
+
+```{r,echo=TRUE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+library(rstatix)
+data$fhigh <- as.factor(data$sumHighBefore)
+data %>% anova_test(activityDiff ~ activityBefore + fhigh)
+```
+\normalsize
 
 \begin{table}
 \footnotesize

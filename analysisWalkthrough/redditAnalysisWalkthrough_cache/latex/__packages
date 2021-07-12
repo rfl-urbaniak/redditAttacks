@@ -27,3 +27,5 @@ countreg
 pscl
 gridExtra
 rstatix
+stargazer
+formatR

@@ -58,10 +58,8 @@ The detection of personal attacks was performed using Samurai, a proprietary tec
 
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/example.png" width="100%" style="display: block; margin: auto;" />
 
-<embed src="https://rfl-urbaniak.github.io/redditAttacks/images/example-eps-converted-to.pdf" width="600px" height="400px" />
 
-
-In practice, it means that a whole variety of constructions can be detected without the need to construct a fixed list of dictionary words defined . Due to utilizing symbolic components that oversee statistical components, {Samurai} recognizes complex linguistic phenomena (such as indirect speech, rhetorical figures or counter-factual expressions) to distinguish personal attacks from normal communication, greatly reducing the number of false alarms as compared to others systems used for violence detection. An example of comparison can be seen in Figure , and a full benchmark was presented in (Ptaszyński et al., 2018).
+In practice, it means that a whole variety of constructions can be detected without the need to construct a fixed list of dictionary words defined . Due to utilizing symbolic components that oversee statistical components, Samurai recognizes complex linguistic phenomena (such as indirect speech, rhetorical figures or counter-factual expressions) to distinguish personal attacks from normal communication, greatly reducing the number of false alarms as compared to others systems used for violence detection. An example of comparison can be seen in Figure , and a full benchmark was presented in (Ptaszyński et al., 2018).
 
 
 The detection models utilized in this research were designed to detect personal attacks targeted against a second person (e.g. interlocutor, original author of a post) and a third person/group (e.g., other participants in the conversation, people not involved in the conversation, social groups, professional groups), except public figures (e.g. politicians, celebrities). With regards to symbolic component of the system, by "models" we mean separate rules (such as, specifying a candidate for the presence of personal attack, such as the aggressive word "idiot," which is further disambiguated with a syntactic rule of citation, e.g., "\[he|she|they\] said \[SUBJECT\] \[PREDICATE\]") or sets of rules, as seen in Figure , e.g. normalization model contains rules for transcription normalization, citation detection model contains rules for citation, etc. With regards to the statistical component, by "models" refer to machine learning models trained on large data to classify an entry into one of the categories (e.g., true personal attack, or false positive).
@@ -95,6 +93,32 @@ The raw datasets used have been obtained by Samurai, who were able to collect Re
 
 In the study, experimental manipulation of the crucial independent variables (personal attacks of various form) to assess their effect on the dependent variable (users’ change in activity) would be unethical and against the goal of Samurai Labs, which is to detect and *prevent* online violence. While such a lack of control is a weakness as compared to typical experiments in psychology, our sample was both much larger and much more varied than the usual WEIRD (western, educated, and from industrialized, rich, and democratic countries) groups used in psychology. Notice, however, that the majority of Reddit users are based in U.S. For instance, (Wise, Hamman, & Thorson, 2006) examined 59 undergraduates from a political science class at a major Midwestern university in the USA, (Zong, Yang, & Bao, 2019) studied 251 students and faculty members from China who are users of WeChat, and (Valkenburg, Peter, & Schouten, 2006) surveyed 881 young users (10-19yo.) of a Dutch SNS called CU2.
 
+
+
+Because of the preponderance of personal attacks online, we could use the real-life data from Reddit and use the following study design:
+
+1.  All the raw data, comprising of daily lists of posts and comments (some of which were used in the study) with time-stamps and author and target user names, have been obtained by Samurai Labs, who also applied their personal attack detection algorithm to them, adding two more variables: narrow and wide. These were the raw datasets used in further analysis.
+
+2.  Practical limitations allowed for data collection for around two continuous weeks (day 0 ± 7 days). First, we randomly selected one weekend day and one working day. These were June 27, 2020 (Saturday, S) and July 02, 2020 (Thursday, R). The activity on those days was used to assign users to groups in the following manner. We picked one weekend and one non-weekend day to correct for activity shifts over the weekend (the data indeed revealed slightly higher activity over the weekends, no other week-day related pattern was observed). We could not investigate (or correct for) monthly activity variations, because the access to unmoderated data was limited.
+
+3.  For each of these days, a random sample of 100,000 posts or comments have been drawn from all content posted on Reddit. Each of these datasets went through preliminary user-name based bots removal. This is a simple search for typical phrases included in user names, such as "Auto", "auto", "Bot", or "bot".
+
+For instance, for our initial thursdayClean datased, this proceeds like this:
+
+``` r
+thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$author,
+    fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$author,
+    fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$receiver,
+    fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$receiver,
+    fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("bot", thursdayClean$receiver,
+    fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("Bot", thursdayClean$receiver,
+    fixed = TRUE), ]
+```
 
 
 

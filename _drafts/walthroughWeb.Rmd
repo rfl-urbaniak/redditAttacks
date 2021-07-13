@@ -130,3 +130,30 @@ In the study,   experimental manipulation of the crucial independent variables (
 
 
 
+Because of the preponderance of personal attacks  online, we could use the real-life data from Reddit and use the following study design:
+
+
+
+
+1. All the raw data, comprising of daily lists of posts and comments (some of which were used in the study) with time-stamps and author and target user names, have been obtained by  Samurai Labs, who also applied their personal attack detection algorithm to them, adding two more variables: narrow and wide. These were the raw datasets used in further analysis. 
+
+
+2.  Practical limitations allowed for data collection for  around two continuous weeks (day 0 $\pm$ 7 days). First, we randomly selected one weekend day and one working day. These were June 27, 2020 (Saturday, S) and July 02, 2020 (Thursday, R). The activity on those days was used to   assign users to groups in the following manner. We picked one weekend and one non-weekend day to correct for activity shifts over the weekend (the data indeed revealed slightly higher activity over the weekends, no other week-day related pattern was observed). We could not investigate (or correct for) monthly activity variations, because the access to unmoderated data was limited.
+
+
+3.  For each of these days, a random sample of 100,000 posts or comments have been drawn from all content posted on Reddit.  Each of these datasets went through preliminary user-name based bots removal. This is a simple search for typical phrases included in user names, such as "Auto", "auto", "Bot", or "bot".
+
+For instance, for our initial thursdayClean datased, this proceeds like this:
+
+
+\scriptsize
+```{r,echo=TRUE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$author, fixed=TRUE),]
+thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$author, fixed=TRUE),]
+thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$receiver, fixed=TRUE),]
+thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$receiver, fixed=TRUE),]
+thursdayClean <- thursdayClean[!grepl("bot", thursdayClean$receiver, fixed=TRUE),]
+thursdayClean <- thursdayClean[!grepl("Bot", thursdayClean$receiver, fixed=TRUE),]
+```
+\normalsize
+

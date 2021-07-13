@@ -31,6 +31,31 @@ The raw datasets used have been obtained by , who were able to collect posts and
 
 In the study, experimental manipulation of the crucial independent variables (personal attacks of various form) to assess their effect on the dependent variable (users’ change in activity) would be unethical and against the goal of Samurai Labs, which is to detect and *prevent* online violence. While such a lack of control is a weakness as compared to typical experiments in psychology, our sample was both much larger and much more varied than the usual WEIRD (western, educated, and from industrialized, rich, and democratic countries) groups used in psychology. Notice, however, that the majority of Reddit users are based in U.S. For instance, (Wise, Hamman, & Thorson, 2006) examined 59 undergraduates from a political science class at a major Midwestern university in the USA, (Zong, Yang, & Bao, 2019) studied 251 students and faculty members from China who are users of WeChat, and (Valkenburg, Peter, & Schouten, 2006) surveyed 881 young users (10-19yo.) of a Dutch SNS called CU2.
 
+Because of the preponderance of personal attacks online, we could use the real-life data from Reddit and use the following study design:
+
+1.  All the raw data, comprising of daily lists of posts and comments (some of which were used in the study) with time-stamps and author and target user names, have been obtained by Samurai Labs, who also applied their personal attack detection algorithm to them, adding two more variables: narrow and wide. These were the raw datasets used in further analysis.
+
+2.  Practical limitations allowed for data collection for around two continuous weeks (day 0 ± 7 days). First, we randomly selected one weekend day and one working day. These were June 27, 2020 (Saturday, S) and July 02, 2020 (Thursday, R). The activity on those days was used to assign users to groups in the following manner. We picked one weekend and one non-weekend day to correct for activity shifts over the weekend (the data indeed revealed slightly higher activity over the weekends, no other week-day related pattern was observed). We could not investigate (or correct for) monthly activity variations, because the access to unmoderated data was limited.
+
+3.  For each of these days, a random sample of 100,000 posts or comments have been drawn from all content posted on Reddit. Each of these datasets went through preliminary user-name based bots removal. This is a simple search for typical phrases included in user names, such as "Auto", "auto", "Bot", or "bot".
+
+For instance, for our initial thursdayClean datased, this proceeds like this:
+
+``` r
+thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$author,
+    fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$author,
+    fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$receiver,
+    fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$receiver,
+    fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("bot", thursdayClean$receiver,
+    fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("Bot", thursdayClean$receiver,
+    fixed = TRUE), ]
+```
+
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.
 
 Valkenburg, P. M., Peter, J., & Schouten, A. P. (2006). Friend networking sites and their relationship to adolescents’ well-being and social self-esteem. *CyberPsychology & Behavior*, *9*(5), 584–590. <https://doi.org/10.1089/cpb.2006.9.584>

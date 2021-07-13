@@ -58,7 +58,7 @@ The detection of personal attacks was performed using Samurai, a proprietary tec
 
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/example-eps-converted-to.pdf" width="100%" style="display: block; margin: auto;" />
 
-<embed src="https://rfl-urbaniak.github.io/redditAttacks/images/example-eps-converted-to.pdf" width="800px" height="2100px" />
+<embed src="https://rfl-urbaniak.github.io/redditAttacks/images/example-eps-converted-to.pdf" width="600px" height="400px" />
 
 
 In practice, it means that a whole variety of constructions can be detected without the need to construct a fixed list of dictionary words defined . Due to utilizing symbolic components that oversee statistical components, {Samurai} recognizes complex linguistic phenomena (such as indirect speech, rhetorical figures or counter-factual expressions) to distinguish personal attacks from normal communication, greatly reducing the number of false alarms as compared to others systems used for violence detection. An example of comparison can be seen in Figure , and a full benchmark was presented in (Ptaszyński et al., 2018).

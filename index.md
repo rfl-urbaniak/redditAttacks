@@ -45,5 +45,21 @@ The results can be interpreted as an important signal to social media platforms 
 {:toc}
 
 
+###  Technology applied for personal attack detection
 
-### Set-up
+For the need of this research we define personal attack as any kind of abusive remark made in relation to a person (ad hominem) rather than to the content of the argument expressed by that person in a discussion. The definition of ‘personal attack’ subsumes the use of specific terms which compare other people to animals or objects or making nasty insinuations without providing evidence. Three examples of typical personal attacks are as follows.
+
+-   *You are legit mentally retarded homie.*
+-   *Eat a bag of dicks, fuckstick.*
+-   *Fuck off with your sensitivity you douche.*
+
+The detection of personal attacks was performed using Samurai, a proprietary technology of Samurai Labs.[1]
+
+
+### References {-}
+
+Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.
+
+Wroczynski, M., & Leliwa, G. (2019). *System and method for detecting undesirable and potentially harmful online behavior*. Google Patents.
+
+[1] <https://www.samurailabs.ai/>, described in (Ptaszyński, Leliwa, Piech, & Smywiński-Pohl, 2018; Wroczynski & Leliwa, 2019).

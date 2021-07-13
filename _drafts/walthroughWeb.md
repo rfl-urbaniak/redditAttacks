@@ -15,6 +15,18 @@ For the need of this research we define personal attack as any kind of abusive r
 
 The detection of personal attacks was performed using Samurai, a proprietary technology of Samurai Labs.[1]
 
+The following figure illustrates how the input text ("ccant believ he sad ur an id10+...!") is processed step-by-step utilizing both statistical and symbolic methods.
+
+
+<img src="example-eps-converted-to.pdf" width="100%" style="display: block; margin: auto;" />
+
+
+
+
+### References 
+
+
+
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.
 
 Wroczynski, M., & Leliwa, G. (2019). *System and method for detecting undesirable and potentially harmful online behavior*. Google Patents.

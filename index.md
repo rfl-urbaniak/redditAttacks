@@ -56,7 +56,7 @@ For the need of this research we define personal attack as any kind of abusive r
 The detection of personal attacks was performed using Samurai, a proprietary technology of Samurai Labs.[1] The following figure illustrates how the input text ("ccant believ he sad ur an id10+...!") is processed step-by-step utilizing both statistical and symbolic methods.
 
 
-<img src="example-eps-converted-to.pdf" width="100%" style="display: block; margin: auto;" />
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/example-eps-converted-to.pdf" width="100%" style="display: block; margin: auto;" />
 
 
 In practice, it means that a whole variety of constructions can be detected without the need to construct a fixed list of dictionary words defined . Due to utilizing symbolic components that oversee statistical components, {Samurai} recognizes complex linguistic phenomena (such as indirect speech, rhetorical figures or counter-factual expressions) to distinguish personal attacks from normal communication, greatly reducing the number of false alarms as compared to others systems used for violence detection. An example of comparison can be seen in Figure , and a full benchmark was presented in (Ptaszyński et al., 2018).

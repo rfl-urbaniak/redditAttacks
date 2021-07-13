@@ -88,6 +88,9 @@ Additionally, from the original data of 320,000 Reddit posts we extracted and an
 
 
 
+The raw datasets used have been obtained by Samurai, who were able to collect Reddit posts and comments without moderation or comment removal. All content was downloaded from the data stream provided by which enabled full data dump from Reddit in real-time. The advantage of using it was access to unmoderated data (As of August 20th, the service is not available. For now, one possible way is to use an API provided by Reddit with a constraint:  Reddit allows for 600 requests every 10 minutes. 10 minutes might be a short time in the case of moderators' reaction, but is enough for AutoModerator or other automated moderation to exert their force, thus leading to a moderated, and therefore incomplete dataset.). Further, deployed their personal attacks recognition algorithms to identify personal attacks.
+
+
 
 
 

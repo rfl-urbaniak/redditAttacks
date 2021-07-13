@@ -112,3 +112,12 @@ The sum exceeds 100\% because some of the comments contained personal attacks ag
 
 Additionally, from the original data of 320,000 Reddit posts we extracted and annotated 6,769 Reddit posts as either a personal attack (1) or not (0). To assure that the extracted additional dataset contains a percentage of Personal Attacks sufficient to perform the evaluation, the Reddit posts were extracted with an assumption that each post contains at least one word of a general negative connotation. Our dictionary of such words contains 6,412 instances, and includes a wide range of negative words, such as nouns (e.g., "racist", "death", "idiot", "hell"), verbs (e.g., "attack", "kill", "destroy", "suck"), adjectives (e.g., "old", "thick", "stupid", "sick"), or adverbs (e.g., "spitefully", "tragically", "disgustingly"). In the 6,769 additionally annotated Reddit samples there were 957 actual Personal Attacks (14\%), from which Samurai correctly assigned 709 (true positives) and missed 248 (false negatives), which accounts for 74\% of the Recall rate.
 Finally, we performed another additional experiment in which, we used Samurai to annotate completely new 10,000 samples from Discord messages that did not contain Personal Attacks but contained vulgar words. The messages were manually checked by two trained annotators and one additional super-annotator. The result of Samurai on this additional dataset was a 2\% of false positive rate, with exactly 202 cases misclassified as personal attacks. This accounts for specificity rate of 98\%.
+
+
+
+
+
+\section{Study design, data collection, and dataset description}
+
+
+The raw datasets used have been obtained by \textsf{Samurai Labs}, who were able to collect \textsf{Reddit} posts and comments without \textsf{Reddit} moderation or comment removal. All content was downloaded from the data stream provided by \url{pushshift.io} which enabled full data dump from Reddit in real-time. The advantage of using it was access to unmoderated data.\footnote{As of August 20th, the service is not available. For now, one possible way is to use an API provided by Reddit with a constraint:  Reddit allows for 600 requests every 10 minutes. 10 minutes might be a short time in the case of moderators' reaction, but is enough for AutoModerator or other automated moderation to exert their force, thus leading to a moderated, and therefore incomplete dataset.} Further, \textsf{Samurai Labs} deployed their personal attacks recognition algorithms to identify personal attacks.

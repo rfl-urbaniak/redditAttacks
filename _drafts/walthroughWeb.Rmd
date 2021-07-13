@@ -121,3 +121,12 @@ Finally, we performed another additional experiment in which, we used Samurai to
 
 
 The raw datasets used have been obtained by \textsf{Samurai Labs}, who were able to collect \textsf{Reddit} posts and comments without \textsf{Reddit} moderation or comment removal. All content was downloaded from the data stream provided by \url{pushshift.io} which enabled full data dump from Reddit in real-time. The advantage of using it was access to unmoderated data.\footnote{As of August 20th, the service is not available. For now, one possible way is to use an API provided by Reddit with a constraint:  Reddit allows for 600 requests every 10 minutes. 10 minutes might be a short time in the case of moderators' reaction, but is enough for AutoModerator or other automated moderation to exert their force, thus leading to a moderated, and therefore incomplete dataset.} Further, \textsf{Samurai Labs} deployed their personal attacks recognition algorithms to identify personal attacks.
+
+
+
+
+
+In the study,   experimental manipulation of the crucial independent variables (personal attacks of various form)   to assess their effect on the dependent variable (users’ change in activity)  would be unethical and against the goal of Samurai Labs, which is to detect and _prevent_ online violence. While such a lack of control is a weakness as compared to typical experiments in psychology, our sample was both much larger and much more varied than the usual WEIRD (western, educated, and from industrialized, rich, and democratic countries) groups used in psychology. Notice, however, that the majority of Reddit users  are based in U.S. For instance,  [@wise2006moderation] examined  59 undergraduates from a political science class at a major Midwestern university in the USA, [@zong2019social] studied 251 students and faculty members from China who are users of WeChat, and  [@valkenburg2006friend] surveyed  881 young users (10-19yo.) of a Dutch SNS called CU2.
+
+
+

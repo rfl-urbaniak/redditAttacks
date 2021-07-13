@@ -73,11 +73,12 @@ Moreover, the symbolic component of the system uses two types of symbolic rules,
 
 
 
+-   5,717 (23.6%) contained personal attacks against second person detected by the "narrow" models,
+-   8,837 (36.4%) contained personal attacks against second person detected by "wide" models,
+-   10,023 (41.3%) contained personal attacks against third persons / groups.
 
 
-
-
-
+The sum exceeds 100% because some of the comments contained personal attacks against both second person and third person / groups. For example, a comment \`\`Fu\*\* you a\*\*hole, you know that girls from this school are real bit\*\*es" contains both types of personal attack.
 
 
 

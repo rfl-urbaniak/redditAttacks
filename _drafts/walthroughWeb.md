@@ -799,6 +799,27 @@ print(mc3w)
     ## 'Rhat' is the potential scale reduction factor (at convergence, Rhat=1).
     ## 'n.eff' is a crude measure of effective sample size.
 
+``` r
+ggplot() + geom_line(aes(x = 1:length(mc3w$mu[1:100]), y = mc3w$mu[1:100]),
+    alpha = 0.7) + th + xlab("initial steps in the chain") +
+    ylab("potential parameter") + labs(title = "Convergence plot for first 100 steps in MCMC",
+    subtitle = "Wide prior, three attacks")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/convergencePlot-1.png" width="100%" style="display: block; margin: auto;" />
+
+We can also inspect the chain diagnostics:
+
+``` r
+conv <- mc3w$mu[seq(1, length(mc3w$mu), by = 50)]
+ggplot() + geom_line(aes(x = 1:length(conv), y = conv), alpha = 0.7) +
+    th + xlab("steps in the selection") + ylab("potential parameter") +
+    labs(title = "Convergence plot for every 50th step in MCMC",
+        subtitle = "Wide prior, three attacks")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/chainDiagnostics-1.png" width="100%" style="display: block; margin: auto;" />
+
 Kruschke, J. (2015). *Doing Bayesian data analysis; a tutorial with R, JAGS, and Stan*.
 
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.

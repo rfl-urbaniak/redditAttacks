@@ -772,3 +772,18 @@ Next, we print some information about the object we obtained:
 ```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
 print(mc3w)
 ```
+
+
+
+```{r convergencePlot,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+ggplot()+geom_line(aes(x=1:length(mc3w$mu[1:100]),y = mc3w$mu[1:100]), alpha=0.7)+th+xlab("initial steps in the chain")+ylab("potential parameter")+
+  labs(title = "Convergence plot for first 100 steps in MCMC", subtitle = "Wide prior, three attacks")
+```
+
+We can also inspect the chain diagnostics:
+
+```{r chainDiagnostics,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+conv <- mc3w$mu[seq(1,length(mc3w$mu), by = 50)]
+ggplot()+geom_line(aes(x=1:length(conv),y = conv), alpha=0.7)+th+xlab("steps in the selection")+ylab("potential parameter")+
+  labs(title = "Convergence plot for every 50th step in MCMC", subtitle = "Wide prior, three attacks")
+```

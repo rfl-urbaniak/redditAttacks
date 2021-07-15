@@ -999,9 +999,34 @@ However,  what the simulation needs is something proportional to the right-hand 
 - Next, the algorithm considers another randomly drawn potential parameter $\theta_2$ in the neighborhood of $\theta_1$ and calculates $p'(\theta_2)$. If it is greater than $p'(\theta_1)$, it moves its location to $\theta_2$ with certainty, otherwise, it decides to move there with some non-extreme probability only (its value is a meta-parameter chosen to optimize the algorithm convergence).
 - Then it draws randomly another potential parameter in the neighborhood of wherever it ended up, and proceeds as before. This is done for a large number of steps.
 - The procedure, repeated multiple  times, yields a long list of potential parameters visited, and the frequency with which the algorithm visits certain range of potential parameters is proportionate to the probability of these parameters being the true parameters given the data. After normalization,  a probability density for the list is obtained: this is the estimated posterior probability distribution  for the parameter in question.
-    
 
 
+
+
+
+For instance, it is possible to  look at which potential parameters the simulation for three attacks visited.  Let's look at  the first 100 steps in the full simulation and parameters visited at every 50th step (because a plot of all 100000 steps would not be clearly readable).
+
+``` r
+ggplot() + geom_line(aes(x = 1:length(mc3w$mu[1:100]), y = mc3w$mu[1:100]),
+    alpha = 0.7) + th + xlab("initial steps in the chain") +
+    ylab("potential parameter") + labs(title = "Convergence plot for first 100 steps in MCMC",
+    subtitle = "Wide prior, three attacks")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/convergencePlot-1.png" width="100%" style="display: block; margin: auto;" />
+
+
+
+
+``` r
+conv <- mc3w$mu[seq(1, length(mc3w$mu), by = 50)]
+ggplot() + geom_line(aes(x = 1:length(conv), y = conv), alpha = 0.7) +
+    th + xlab("steps in the selection") + ylab("potential parameter") +
+    labs(title = "Convergence plot for every 50th step in MCMC",
+        subtitle = "Wide prior, three attacks")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/chainDiagnostics-1.png" width="100%" style="display: block; margin: auto;" />
 
 
 

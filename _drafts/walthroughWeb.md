@@ -230,6 +230,47 @@ lowPlotZoomed
 
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/lowPlotZoomed-1.png" width="100%" style="display: block; margin: auto;" />
 
+``` r
+lowOnlyPlot <- ggplot(data, aes(x = (sumLowBefore - sumHighBefore),
+    y = activityDiff)) + geom_jitter(size = 0.8, alpha = 0.3) +
+    geom_smooth(method = "lm", color = "skyblue", fill = "skyblue",
+        size = 0.7, alpha = 0.8) + th + geom_smooth(color = "grey",
+    size = 0.4, lty = 2, alpha = 0.2) + xlab("wide only attacks before") +
+    ylab("activity change after") + labs(title = "Impact of wide only attacks on activity",
+    subtitle = "weekly counts, n=3673") + geom_segment(aes(x = -1,
+    y = -150, xend = 15, yend = -150), lty = 3, size = 0.1, color = "gray71",
+    alpha = 0.2) + geom_segment(aes(x = -1, y = 150, xend = 15,
+    yend = 150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+    geom_segment(aes(x = -1, y = -150, xend = -1, yend = 150),
+        lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+    geom_segment(aes(x = 15, y = -150, xend = 15, yend = 150),
+        lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+    xlim(c(-1, max(data$sumLowBefore)))
+
+
+lowOnlyPlotZoomed <- ggplot(data, aes(x = (sumLowBefore - sumHighBefore),
+    y = activityDiff)) + geom_jitter(size = 1, alpha = 0.2) +
+    geom_smooth(method = "lm", color = "skyblue", fill = "skyblue",
+        size = 0.7, alpha = 0.8) + th + scale_x_continuous(breaks = 0:max(data$sumLowBefore),
+    limits = c(-1, 15)) + ylim(c(-150, 150)) + geom_smooth(color = "grey",
+    size = 0.4, lty = 2, alpha = 0.2) + xlab("wide only attacks before") +
+    ylab("activity change after") + labs(title = "Impact of wide only attacks on activity",
+    subtitle = "weekly counts, zoomed in") + geom_hline(yintercept = 0,
+    col = "red", size = 0.2, lty = 3)
+```
+
+``` r
+lowOnlyPlot
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/lowOnlyPlot-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+lowOnlyPlotZoomed
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/lowOnlyPlotZoomed-1.png" width="100%" style="display: block; margin: auto;" />
+
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.
 
 Valkenburg, P. M., Peter, J., & Schouten, A. P. (2006). Friend networking sites and their relationship to adolescents’ well-being and social self-esteem. *CyberPsychology & Behavior*, *9*(5), 584–590. <https://doi.org/10.1089/cpb.2006.9.584>

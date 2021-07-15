@@ -333,3 +333,34 @@ lowPlotZoomed
 
 
 
+
+
+
+
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+lowOnlyPlot <- ggplot(data, aes(x = (sumLowBefore - sumHighBefore), y = activityDiff))+geom_jitter(size=0.8, alpha = 0.3)+geom_smooth(method = "lm",color = "skyblue", fill= "skyblue", size = 0.7, alpha = 0.8)+th+geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)+ xlab("wide only attacks before")+ ylab("activity change after")+labs(title = "Impact of wide only attacks on activity", subtitle = "weekly counts, n=3673") + geom_segment(aes(x = -1, y = -150, xend = 15, yend = -150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+ geom_segment(aes(x = -1, y = 150, xend = 15, yend = 150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+ geom_segment(aes(x = -1, y = -150, xend = -1, yend = 150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+ geom_segment(aes(x = 15, y = -150, xend = 15, yend = 150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+xlim(c(-1,max(data$sumLowBefore)))
+
+
+lowOnlyPlotZoomed <- ggplot(data, aes(x = (sumLowBefore - sumHighBefore), y = activityDiff))+geom_jitter(size=1, alpha = 0.2)+geom_smooth(method = "lm",color = "skyblue", fill= "skyblue", size = 0.7, alpha = 0.8)+th+scale_x_continuous(breaks = 0:max(data$sumLowBefore),limits = c(-1,15))+ylim(c(-150,150))+geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)+ xlab("wide only attacks before")+ ylab("activity change after")+labs(title = "Impact of wide only attacks on activity", subtitle = "weekly counts, zoomed in")+geom_hline(yintercept = 0, col = "red", size = 0.2, lty = 3)
+```
+
+
+
+
+```{r lowOnlyPlot,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+lowOnlyPlot
+```
+
+
+```{r lowOnlyPlotZoomed,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+lowOnlyPlotZoomed
+```
+
+
+
+
+
+
+

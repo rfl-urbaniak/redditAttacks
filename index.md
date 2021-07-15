@@ -218,14 +218,52 @@ head(dataDisp)
 ### Exploration
 
 
-First, we visually explore our dataset by looking at the relationship between the number of received attacks vs. the activity change counted as the difference of weekly counts of posts or comments authored  in the second (`after`}) and in the first  week (`before`}). We do this for `narrow`} attacks , `wide` attacks, where a weaker, but still negative impact, can be observed, and  then we   take a look at the impact of those attacks which were recognized as `wide` only}. The distinction between wide and narrow pertains only to the choice of attack recognition algorithm and does not directly translate into how offensive an attack was, except that `wide`} attacks also include third-person ones.  Here, the direction of impact is less clear: while the tendency is negative for low numbers of attacks, non-linear smoothing suggests that  higher numbers mostly third-person personal attacks seem positively correlated with activity change. This might suggest that while being attacked has negative impact on a user's activity, having your post "supported" by other users' third-person attacks has a more motivating effect. We will look at this issue in a later section, when we analyze the dataset using regression.
+First, we visually explore our dataset by looking at the relationship between the number of received attacks vs. the activity change counted as the difference of weekly counts of posts or comments authored  in the second (`after`) and in the first  week (`before`). We do this for `narrow` attacks , `wide` attacks, where a weaker, but still negative impact, can be observed, and  then we   take a look at the impact of those attacks which were recognized as `wide only`. The distinction between wide and narrow pertains only to the choice of attack recognition algorithm and does not directly translate into how offensive an attack was, except that `wide` attacks also include third-person ones.  Here, the direction of impact is less clear: while the tendency is negative for low numbers of attacks, non-linear smoothing suggests that  higher numbers mostly third-person personal attacks seem positively correlated with activity change. This might suggest that while being attacked has negative impact on a user's activity, having your post "supported" by other users' third-person attacks has a more motivating effect. We will look at this issue in a later section, when we analyze the dataset using regression.
 
 
 
-The visualisations  should be understood as follows. Each point is a user. The $x$-axis represents a number of attacks they received in the `before`} period (so that, for instance, users with 0 wide attacks are the members of the control group), and  the $y$-axis represents the difference between their activity count `before`} and `after`}. We can see that most of the users received 0 attacks before (these are our control group members), with the rest of the group receiving 1, 2, 3, etc. attacks in the `before`} period with decreasing frequency. The blue line represents linear regression suggesting negative correlation. The gray line is constructed using generalized additive mode (gam) smoothing, which is  a fairly standard smoothing method for large datasets (it is more sensitive to local tendencies and yet avoids overfitting). The parameters of the gam model (including the level of smoothing) are chosen by their predictive accuracy. (See  the [documentation](\url{https://www.rdocumentation.org/packages/mgcv/versions/1.8-33/topics/gam) of `gam` of the `mgcv` package for details.)  Shades indicate the $95\%$ confidence level interval for predictions from the linear model.
+The visualisations  should be understood as follows. Each point is a user. The $x$-axis represents a number of attacks they received in the `before` period (so that, for instance, users with 0 wide attacks are the members of the control group), and  the $y$-axis represents the difference between their activity count `before` and `after`. We can see that most of the users received 0 attacks before (these are our control group members), with the rest of the group receiving 1, 2, 3, etc. attacks in the `before` period with decreasing frequency. The blue line represents linear regression suggesting negative correlation. The gray line is constructed using generalized additive mode (gam) smoothing, which is  a fairly standard smoothing method for large datasets (it is more sensitive to local tendencies and yet avoids overfitting). The parameters of the gam model (including the level of smoothing) are chosen by their predictive accuracy. (See  the [documentation](\url{https://www.rdocumentation.org/packages/mgcv/versions/1.8-33/topics/gam) of `gam` of the `mgcv` package for details.)  Shades indicate the $95\%$ confidence level interval for predictions from the linear model.
 
 
 
+
+``` r
+library(ggthemes)
+th <- theme_tufte()
+highPlot <- ggplot(data, aes(x = sumHighBefore, y = activityDiff)) +
+    geom_jitter(size = 0.8, alpha = 0.3) + geom_smooth(method = "lm",
+    color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
+    scale_x_continuous(breaks = 0:max(data$sumHighBefore), limits = c(-1,
+        max(data$sumHighBefore))) + ylim(c(-300, 300)) + geom_smooth(color = "grey",
+    size = 0.4, lty = 2, alpha = 0.2) + xlab("narrow attacks before") +
+    ylab("activity change after") + labs(title = "Impact of narrow attacks on activity",
+    subtitle = "weekly counts, n=3673") + geom_segment(aes(x = -1,
+    y = -100, xend = 9, yend = -100), lty = 3, size = 0.1, color = "gray71",
+    alpha = 0.2) + geom_segment(aes(x = -1, y = 100, xend = 9,
+    yend = 100), lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+    geom_segment(aes(x = -1, y = -100, xend = -1, yend = 100),
+        lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+    geom_segment(aes(x = 9, y = -100, xend = 9, yend = 100),
+        lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+    th
+
+
+highPlotZoomed <- ggplot(data, aes(x = sumHighBefore, y = activityDiff)) +
+    geom_jitter(size = 1, alpha = 0.2) + geom_smooth(method = "lm",
+    color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
+    th + scale_x_continuous(breaks = 0:max(data$sumHighBefore),
+    limits = c(-1, 9)) + ylim(c(-100, 100)) + geom_smooth(color = "grey",
+    size = 0.4, lty = 2, alpha = 0.2) + xlab("narrow attacks before") +
+    ylab("activity change after") + labs(title = "Impact of narrow attacks on activity",
+    subtitle = "weekly counts, zoomed in") + geom_hline(yintercept = 0,
+    col = "red", size = 0.2, lty = 3)
+```
+
+
+
+
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/highPlot-1.png" width="100%" style="display: block; margin: auto;" />
 
 
 

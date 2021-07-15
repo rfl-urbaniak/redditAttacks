@@ -672,6 +672,9 @@ lowOnlyTableBar
 
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/lowOnlyTableBar-1.png" width="100%" style="display: block; margin: auto;" />
 
+
+Now, let's take a look at power calculations for higher numbers of attacks.
+
 ``` r
 h6 <- data[data$sumHighBefore == 6, ]
 h7 <- data[data$sumHighBefore == 7, ]

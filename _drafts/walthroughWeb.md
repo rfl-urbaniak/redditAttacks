@@ -105,6 +105,11 @@ thursdayClean <- thursdayClean[!grepl("[deleted]", thursdayClean$receiver,
 data <- read.csv("../datasets/quittingFinalAnon.csv")[, -1]
 ```
 
+| Group      | n   |
+|------------|-----|
+| Rtreatment | 935 |
+| Streatment | 921 |
+
 A few first lines of the resulting anonymized dataset from which we removed separate day counts. Note that in the code "low" corresponds to "wide" (for "low precision") and "high" to "narrow" attacks (for "high precision"). The variables are: (low attacks, high attacks, low attacks on posts, how attacks on posts, authored content posted) and retained summary columns.
 
 -    contains anonymous user numbers.
@@ -114,6 +119,26 @@ A few first lines of the resulting anonymized dataset from which we removed sepa
 -    and count comments or posts during days seven days before and seven days after. The intuition is, these shouldn't change much if personal attacks have no impact on activity.
 
 -    and include information about which group a user belongs to.
+
+``` r
+dataDisp <- data[, c(1, 77:85)]
+head(dataDisp)
+```
+
+    ##   user sumLowBefore sumHighBefore sumPlBefore sumPhBefore activityBefore
+    ## 1    1            1             0           1           0              2
+    ## 2    2            5             4           0           0            106
+    ## 3    3            2             1           0           0             29
+    ## 4    4            6             4           0           0            180
+    ## 5    5            5             2           0           0            116
+    ## 6    6            2             0           0           0            124
+    ##   activityAfter activityDiff      group treatment
+    ## 1             0           -2 Rtreatment         1
+    ## 2            80          -26 Rtreatment         1
+    ## 3            31            2 Rtreatment         1
+    ## 4            92          -88 Rtreatment         1
+    ## 5            95          -21 Rtreatment         1
+    ## 6           104          -20 Rtreatment         1
 
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.
 

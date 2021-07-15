@@ -251,36 +251,15 @@ A few first lines of the resulting anonymized dataset from which we removed sepa
 - \textsf{group} and \textsf{treatment} include information about which group a user belongs to.
 
 
-\begin{table}
-\centering\begingroup\fontsize{9}{11}\selectfont
-
-\begin{tabular}{lr}
-\toprule
-Group & n\\
-\midrule
-\cellcolor{gray!6}{Rcontrol} & \cellcolor{gray!6}{875}\\
-Rtreatment & 935\\
-\cellcolor{gray!6}{Scontrol} & \cellcolor{gray!6}{942}\\
-Streatment & 921\\
-\bottomrule
-\end{tabular}
-\endgroup{}
-\end{table}
 
 
 
-\footnotesize 
-```{r, echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
-mykable <- function(object) {kable(object, "latex", booktabs = T) %>% kable_styling(latex_options = "striped",font_size = 9)}
-kable(table(data$group), "latex", booktabs = T, col.names = c("Group", "n")) %>% 
-  kable_styling(latex_options = "striped",font_size = 9)  #"scale_down"
-```
 
 
 
-```{r,,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+```{r,,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 dataDisp <- data[,c(1,77:85)]
-mykable(head(dataDisp)) %>% kable_styling(latex_options = "scale_down")
+head(dataDisp)
 ```
 \normalsize 
 

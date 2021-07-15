@@ -189,23 +189,36 @@ thursdayClean <- thursdayClean[!grepl("[deleted]", thursdayClean$receiver,
 
 
 
+  ``` r
+  dataDisp <- data[, c(1, 77:85)]
+  head(dataDisp)
+  ```
 
-| user                  | sumLowBefore          | sumHighBefore         | sumPlBefore           | sumPhBefore           | activityBefore          | activityAfter          | activityDiff            | group                          | treatment             |
-|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-------------------------|------------------------|-------------------------|--------------------------------|-----------------------|
-| 2                     | 5                     | 4                     | 0                     | 0                     | 106                     | 80                     | -26                     | Rtreatment                     | 1                     |
-| 4                     | 6                     | 4                     | 0                     | 0                     | 180                     | 92                     | -88                     | Rtreatment                     | 1                     |
-| 6                     | 2                     | 0                     | 0                     | 0                     | 124                     | 104                    | -20                     | Rtreatment                     | 1                     |
+      ##   user sumLowBefore sumHighBefore sumPlBefore sumPhBefore activityBefore
+      ## 1    1            1             0           1           0              2
+      ## 2    2            5             4           0           0            106
+      ## 3    3            2             1           0           0             29
+      ## 4    4            6             4           0           0            180
+      ## 5    5            5             2           0           0            116
+      ## 6    6            2             0           0           0            124
+      ##   activityAfter activityDiff      group treatment
+      ## 1             0           -2 Rtreatment         1
+      ## 2            80          -26 Rtreatment         1
+      ## 3            31            2 Rtreatment         1
+      ## 4            92          -88 Rtreatment         1
+      ## 5            95          -21 Rtreatment         1
+      ## 6           104          -20 Rtreatment         1
 
 
+-  *user* contains anonymous user numbers.
+-  *sumLowBefore* contains the sum of *wide*  attacks in days 1-7. *sumHighBefore* the sum of *narrow* (attacks in the same period.
+-  *Pl* and *Ph* code *wide* and `narrow` attacks on posts (we wanted to verify the additional sub-hypothesis that  attacks on a post might have more impact than attacks on comments).
+
+-  `activityBefore` and `activityAfter` count comments or posts during days seven days before and seven days after. The intuition is, these shouldn't change much if personal attacks have  no impact on activity.
+
+-  `group` and `treatment` include information about which group a user belongs to.
 
 
-  -    contains anonymous user numbers.
-  -    contains the sum of attacks in days 1-7. the sum of (attacks in the same period.
-  -    and code and attacks on posts (we wanted to verify the additional sub-hypothesis that attacks on a post might have more impact than attacks on comments).
-
-  -    and count comments or posts during days seven days before and seven days after. The intuition is, these shouldn't change much if personal attacks have no impact on activity.
-
-  -    and include information about which group a user belongs to.
 
 
 

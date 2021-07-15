@@ -136,7 +136,7 @@ Because of the preponderance of personal attacks online, we could use the real-l
      fixed = TRUE), ]
     ```
 
- 5. This left us with  92,943 comments or posts by 75,516 users  for R and 89,585 comments by 72,801 users  for S. While we didn't directly track whether content was a post or a comment, we paid attention as to whether a piece of content was a reply to a post or not (the working assumption was that personal attacks on posts might have different impact than attacks on comments). Quite consistently, 46\% of content were comments on posts on both days.
+ 5. This left us with  92,943 comments or posts by 75,516 users  for R and 89,585 comments by 72,801 users  for S. While we didn't directly track whether content was a post or a comment, we paid attention as to whether a piece of content was a reply to a post or not (the working assumption was that personal attacks on posts might have different impact than attacks on comments). Quite consistently, $46\%$ of content were comments on posts on both days.
 
 
  6.  On these two  days respectively,  1359 R users ($1.79\%$) received at least one narrow attack, 35 of them received more than one ($0.046\%$). 302 of S users ($0.39\%$) received at least one narrow attack and 3 of them more than one narrow on that day ($0.003\%$). These numbers  are estimates for a single day, and therefore if the chance of obtaining at least one narrow attack in a day is $1.79\%$, assuming the binomial distribution, the estimated probability of obtaining at least one narrow attack in a week is 11.9\% in a week and 43\% in a month.

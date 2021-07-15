@@ -1332,6 +1332,70 @@ expCoef
     ## zero_sumPhBefore             1.156
     ## zero_activityBefore          1.084
 
+``` r
+sumLowOnlyBefore <- rep(mean(dataModeling$sumLowOnlyBefore),
+    4001)
+sumHighBefore <- rep(mean(dataModeling$sumHighBefore), 4001)
+sumPlBefore <- rep(mean(dataModeling$sumPlBefore), 4001)
+sumPhBefore <- rep(mean(dataModeling$sumPhBefore), 4001)
+activityBefore <- rep(mean(dataModeling$activityBefore), 4001)
+activityAfter <- rep(mean(dataModeling$activityAfter), 4001)
+
+baseEffDf <- data.frame(sumLowOnlyBefore, sumHighBefore, sumPlBefore,
+    sumPhBefore, activityBefore, activityAfter)
+
+effSizePlot <- function(columnno, range = 40, by = 5) {
+    EffDf <- baseEffDf
+    EffDf[, columnno] <- 0:4000
+    EffDf$prediction <- predict(HNBfull, EffDf)
+    ggplot(EffDf, aes(x = EffDf[, columnno], y = prediction)) +
+        geom_smooth(alpha = 0.5, col = "skyblue", se = FALSE) +
+        scale_x_continuous(breaks = seq(0, range, by = by), limits = c(-1,
+            range)) + th + ylab("predicted activity")
+}
+
+effLO <- effSizePlot(1, 500, 50)  #low only
+effH <- effSizePlot(2, 50, 5)  #narrow on comments
+effPl <- effSizePlot(3, 100, 10)  #pl
+effPh <- effSizePlot(4, 50, 5)  #ph
+effA <- effSizePlot(5, 200, 20)  #abefore
+```
+
+``` r
+effLO + ggtitle("Predicted (hurdle) effect of wide only attacks on comments") +
+    xlab("wide only attacks")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/effLO-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+effH + ggtitle("Predicted (hurdle) effect of narrow attacks on comments") +
+    xlab("narrow attacks")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/effH-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+effPl + ggtitle("Predicted (hurdle) effect of wide attacks on posts") +
+    xlab("wide attacks")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/effPl-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+effPh + ggtitle("Predicted (hurdle) effect of narrow attacks on posts") +
+    xlab("narrow attacks")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/effPh-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+effA + ggtitle("Predicted (hurdle) effect of previous activity") +
+    xlab("activity before")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/effA-1.png" width="100%" style="display: block; margin: auto;" />
+
 Akaike, H. (1974). A new look at the statistical model identification. *IEEE Transactions on Automatic Control*, *19*(6), 716–723. <https://doi.org/10.1109/TAC.1974.1100705>
 
 Kruschke, J. (2015). *Doing Bayesian data analysis; a tutorial with R, JAGS, and Stan*.

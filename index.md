@@ -1671,7 +1671,108 @@ HNBfull
 
 
 
-        
+
+Next we analyze the intercepts of the count submodel.
+The baseline number of posts for those who are not in the zero class is 12.6.  The coefficients indicate that the multiplicative contribution of each unit change. For instance:
+
+- Each additional wide only attack on a user decreases the baseline by factor of .991. So, other things being equal, receiving 10 wide attacks only would decrease  a user's activity by $100 \times (1-.991^{10}) \approx 8.6\%$.
+- The impact of narrow attacks on comments is similar.
+- Interestingly, wide only attacks on post actually increase activity, at least for those who are not in the zero class. For instance, four of them would increase the activity by $100\times (1-1.006^4) \approx 2.4\%$.
+- The strongest impact is due to narrow only attacks on posts. Even one of them decreases one's expected activity by $14\%$, thus, receiving  receiving five of them  reduces one's expected activity by $50\%$.
+
+
+
+Next, regarding the zero submodel.
+
+
+- The basic odds for not posting for the whole week are 1.63. This means that the probability of belonging to the zero class is $\nicefrac{1.63\,}{1+1.63}\approx 0.61$.
+- wide only attacks, narrow attacks on comments, wide only attacks on posts all decrease the chances in being in the zero class.
+- In contrast, receiving narrow attacks on posts has a  strong impact, increasing the chances of not posting anything next week. For instance, with the baseline odds 1.63, if one receives five such attacks, other things being equal, her chances of not posting for a week go to $\frac{(1.63\times 1.15^5 }{1+(1.63\times 1.15^5)}\approx .76$.
+- Interestingly, posting in the previous week makes one slightly more likely to not post the next week. One's baseline probability of being active, $1-0.61 = 0.39$ goes to   $1-\frac{1.63 \times 1.08^20}{1+1.63 \times 1.08^20} \approx 0.22$ if in the preceding week one wrote on \textsf{Reddit} 20 times, other things being equal.
+
+
+We visualise the effects of selected variables by plotting what activity levels the model predicts for their different values (we focus on 0-40, as the top of this range is already an extrapolation), while keeping other variables fixed at their mean values.
+
+
+
+``` r
+sumLowOnlyBefore <- rep(mean(dataModeling$sumLowOnlyBefore),
+    4001)
+sumHighBefore <- rep(mean(dataModeling$sumHighBefore), 4001)
+sumPlBefore <- rep(mean(dataModeling$sumPlBefore), 4001)
+sumPhBefore <- rep(mean(dataModeling$sumPhBefore), 4001)
+activityBefore <- rep(mean(dataModeling$activityBefore), 4001)
+activityAfter <- rep(mean(dataModeling$activityAfter), 4001)
+
+baseEffDf <- data.frame(sumLowOnlyBefore, sumHighBefore, sumPlBefore,
+    sumPhBefore, activityBefore, activityAfter)
+
+effSizePlot <- function(columnno, range = 40, by = 5) {
+    EffDf <- baseEffDf
+    EffDf[, columnno] <- 0:4000
+    EffDf$prediction <- predict(HNBfull, EffDf)
+    ggplot(EffDf, aes(x = EffDf[, columnno], y = prediction)) +
+        geom_smooth(alpha = 0.5, col = "skyblue", se = FALSE) +
+        scale_x_continuous(breaks = seq(0, range, by = by), limits = c(-1,
+            range)) + th + ylab("predicted activity")
+}
+
+effLO <- effSizePlot(1, 500, 50)  #low only
+effH <- effSizePlot(2, 50, 5)  #narrow on comments
+effPl <- effSizePlot(3, 100, 10)  #pl
+effPh <- effSizePlot(4, 50, 5)  #ph
+effA <- effSizePlot(5, 200, 20)  #abefore
+```
+
+``` r
+effLO + ggtitle("Predicted (hurdle) effect of wide only attacks on comments") +
+    xlab("wide only attacks")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/effLO-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+effH + ggtitle("Predicted (hurdle) effect of narrow attacks on comments") +
+    xlab("narrow attacks")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/effH-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+effPl + ggtitle("Predicted (hurdle) effect of wide attacks on posts") +
+    xlab("wide attacks")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/effPl-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+effPh + ggtitle("Predicted (hurdle) effect of narrow attacks on posts") +
+    xlab("narrow attacks")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/effPh-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+effA + ggtitle("Predicted (hurdle) effect of previous activity") +
+    xlab("activity before")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/effA-1.png" width="100%" style="display: block; margin: auto;" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

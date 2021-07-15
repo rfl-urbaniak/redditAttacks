@@ -1253,4 +1253,58 @@ effPh+ggtitle("Predicted (hurdle) effect of narrow attacks on posts")+xlab("narr
 effA+ggtitle("Predicted (hurdle) effect of previous activity")+xlab("activity before")
 ```
 
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+effSizePlotZ <- function(columnno,range = 40,by = 5){
+  EffDf <- baseEffDf
+  EffDf[,columnno] <- 0:4000
+  EffDf$prediction <- predict(ZNBfull,EffDf)
+  ggplot(EffDf, aes(x = EffDf[,columnno], y  = prediction))+
+    geom_smooth(alpha = 0.5, col = "skyblue", se = FALSE)+
+    scale_x_continuous(breaks = seq(0,range, by = by),
+                       limits = c(-1,range))+th+ylab("predicted activity")
+}
 
+effLOZ <- effSizePlotZ(1,500,50)    #wide only
+effHZ  <- effSizePlotZ(2,50,5)      #high on comments
+effPlZ <- effSizePlotZ(3,100,10)    #pl
+effPhZ <- effSizePlotZ(4, 50,5)     #ph
+effAZ  <- effSizePlotZ(5,200,20)    #abefore
+
+```
+
+```{r effLOZ,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+effLOZ+ggtitle("Predicted (zero-inflated) effect of wide only attacks on comments")+xlab("wide only attacks")
+```
+
+```{r effHZ,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+effHZ+ggtitle("Predicted (zero-inflated) effect of narrow attacks on comments")+xlab("narrow attacks")
+```
+
+```{r effPlZ,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+effPlZ+ggtitle("Predicted (zero-inflated) effect of wide attacks on posts")+xlab("wide attacks")
+```
+
+```{r effPhZ,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+effPhZ+ggtitle("Predicted (zero-inflated) effect of narrow attacks on posts")+xlab("narrow attacks")
+```
+
+```{r effAZ,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+effAZ+ggtitle("Predicted (zero-inflated) effect of previous activity")+xlab("activity before")
+```
+
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+EffSumHighTable <- baseEffDf[0:20,]
+EffSumHighTable[,4] <- 0:19
+EffSumHighTable$prediction <- predict(HNBfull,EffSumHighTable)
+EffTablePosts <- rbind(EffSumHighTable$sumPhBefore,round(EffSumHighTable$prediction))
+rownames(EffTablePosts) <- c("attacks","expected activity")
+EffTablePosts
+```
+
+
+
+One might have reasoned about our previous analyses as follows:  attacks in the before period correlate with activity before, and it is activity before that is the real predictor of activity after. This could be supported by observing that the $p$-value for the hurdle model is really low for activity before.  Pearson correlation coefficient for narrow attacks before and activity before is $r(3671)\approx$ `r round( cor(data$sumHighBefore,data$activityBefore),3)` and   $r(3671)\approx$ 
+`r round(cor(data$sumHighBefore,data$activityAfter),3)` for activity after. However, activity before is a much better correlate of activity after, $r(3671)\approx$ 
+`r round(cor(data$activityBefore,data$activityAfter),3)` --- all correlations with $p$-value $<2.2e-16$, and regression analysis (inspect the effect plots) indicates that activity before and high attacks before actually go in the opposite directions.  

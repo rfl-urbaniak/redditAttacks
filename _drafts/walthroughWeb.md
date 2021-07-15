@@ -1396,6 +1396,77 @@ effA + ggtitle("Predicted (hurdle) effect of previous activity") +
 
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/effA-1.png" width="100%" style="display: block; margin: auto;" />
 
+``` r
+effSizePlotZ <- function(columnno, range = 40, by = 5) {
+    EffDf <- baseEffDf
+    EffDf[, columnno] <- 0:4000
+    EffDf$prediction <- predict(ZNBfull, EffDf)
+    ggplot(EffDf, aes(x = EffDf[, columnno], y = prediction)) +
+        geom_smooth(alpha = 0.5, col = "skyblue", se = FALSE) +
+        scale_x_continuous(breaks = seq(0, range, by = by), limits = c(-1,
+            range)) + th + ylab("predicted activity")
+}
+
+effLOZ <- effSizePlotZ(1, 500, 50)  #wide only
+effHZ <- effSizePlotZ(2, 50, 5)  #high on comments
+effPlZ <- effSizePlotZ(3, 100, 10)  #pl
+effPhZ <- effSizePlotZ(4, 50, 5)  #ph
+effAZ <- effSizePlotZ(5, 200, 20)  #abefore
+```
+
+``` r
+effLOZ + ggtitle("Predicted (zero-inflated) effect of wide only attacks on comments") +
+    xlab("wide only attacks")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/effLOZ-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+effHZ + ggtitle("Predicted (zero-inflated) effect of narrow attacks on comments") +
+    xlab("narrow attacks")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/effHZ-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+effPlZ + ggtitle("Predicted (zero-inflated) effect of wide attacks on posts") +
+    xlab("wide attacks")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/effPlZ-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+effPhZ + ggtitle("Predicted (zero-inflated) effect of narrow attacks on posts") +
+    xlab("narrow attacks")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/effPhZ-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+effAZ + ggtitle("Predicted (zero-inflated) effect of previous activity") +
+    xlab("activity before")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/effAZ-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+EffSumHighTable <- baseEffDf[0:20, ]
+EffSumHighTable[, 4] <- 0:19
+EffSumHighTable$prediction <- predict(HNBfull, EffSumHighTable)
+EffTablePosts <- rbind(EffSumHighTable$sumPhBefore, round(EffSumHighTable$prediction))
+rownames(EffTablePosts) <- c("attacks", "expected activity")
+EffTablePosts
+```
+
+    ##                   [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11]
+    ## attacks              0    1    2    3    4    5    6    7    8     9    10
+    ## expected activity   24   22   19   17   15   13   11   10    9     8     7
+    ##                   [,12] [,13] [,14] [,15] [,16] [,17] [,18] [,19] [,20]
+    ## attacks              11    12    13    14    15    16    17    18    19
+    ## expected activity     6     6     5     5     4     4     3     3     3
+
+One might have reasoned about our previous analyses as follows: attacks in the before period correlate with activity before, and it is activity before that is the real predictor of activity after. This could be supported by observing that the *p*-value for the hurdle model is really low for activity before. Pearson correlation coefficient for narrow attacks before and activity before is *r*(3671)≈ 0.437 and *r*(3671)≈ 0.332 for activity after. However, activity before is a much better correlate of activity after, *r*(3671)≈ 0.845 --- all correlations with *p*-value &lt;2.2*e* − 16, and regression analysis (inspect the effect plots) indicates that activity before and high attacks before actually go in the opposite directions.
+
 Akaike, H. (1974). A new look at the statistical model identification. *IEEE Transactions on Automatic Control*, *19*(6), 716–723. <https://doi.org/10.1109/TAC.1974.1100705>
 
 Kruschke, J. (2015). *Doing Bayesian data analysis; a tutorial with R, JAGS, and Stan*.

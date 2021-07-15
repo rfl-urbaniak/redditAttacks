@@ -1762,10 +1762,103 @@ effA + ggtitle("Predicted (hurdle) effect of previous activity") +
 
 
 
+Finally, to make sure our choice to use the hurdle model was not crucial for these results, we also provide effect plots for the full zero-inflated model.
+
+``` r
+effSizePlotZ <- function(columnno, range = 40, by = 5) {
+    EffDf <- baseEffDf
+    EffDf[, columnno] <- 0:4000
+    EffDf$prediction <- predict(ZNBfull, EffDf)
+    ggplot(EffDf, aes(x = EffDf[, columnno], y = prediction)) +
+        geom_smooth(alpha = 0.5, col = "skyblue", se = FALSE) +
+        scale_x_continuous(breaks = seq(0, range, by = by), limits = c(-1,
+            range)) + th + ylab("predicted activity")
+}
+
+effLOZ <- effSizePlotZ(1, 500, 50)  #wide only
+effHZ <- effSizePlotZ(2, 50, 5)  #high on comments
+effPlZ <- effSizePlotZ(3, 100, 10)  #pl
+effPhZ <- effSizePlotZ(4, 50, 5)  #ph
+effAZ <- effSizePlotZ(5, 200, 20)  #abefore
+```
+
+``` r
+effLOZ + ggtitle("Predicted (zero-inflated) effect of wide only attacks on comments") +
+    xlab("wide only attacks")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/effLOZ-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+effHZ + ggtitle("Predicted (zero-inflated) effect of narrow attacks on comments") +
+    xlab("narrow attacks")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/effHZ-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+effPlZ + ggtitle("Predicted (zero-inflated) effect of wide attacks on posts") +
+    xlab("wide attacks")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/effPlZ-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+effPhZ + ggtitle("Predicted (zero-inflated) effect of narrow attacks on posts") +
+    xlab("narrow attacks")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/effPhZ-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+effAZ + ggtitle("Predicted (zero-inflated) effect of previous activity") +
+    xlab("activity before")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/effAZ-1.png" width="100%" style="display: block; margin: auto;" />
 
 
 
 
+
+
+
+
+Another way to use this information is to inspect the table of activity counts that the model expects based on the number of personal attacks on a post received in the before period, assuming all the other input variables are kept at their mean values:
+
+
+
+``` r
+EffSumHighTable <- baseEffDf[0:20, ]
+EffSumHighTable[, 4] <- 0:19
+EffSumHighTable$prediction <- predict(HNBfull, EffSumHighTable)
+EffTablePosts <- rbind(EffSumHighTable$sumPhBefore, round(EffSumHighTable$prediction))
+rownames(EffTablePosts) <- c("attacks", "expected activity")
+EffTablePosts
+```
+
+    ##                   [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11]
+    ## attacks              0    1    2    3    4    5    6    7    8     9    10
+    ## expected activity   24   22   19   17   15   13   11   10    9     8     7
+    ##                   [,12] [,13] [,14] [,15] [,16] [,17] [,18] [,19] [,20]
+    ## attacks              11    12    13    14    15    16    17    18    19
+    ## expected activity     6     6     5     5     4     4     3     3     3
+
+
+
+
+
+
+The predictions are  similar, except for the predicted results of wide only attacks on posts. This perhaps can be explained by observing  that  such cases of personal attacks sometimes represent situations in which the users  actually agree with the original post (see our remark in the beginning of the section  about data gathering and selection), and in some cases the attacks are critical of the author, so there is much more variation in this group and precise modeling is harder.
+
+It should be kept in mind that  the model is built on up to 27 attacks in the `before` period, with really low number of attacks above 8, so the prediction here is an extrapolation, not an interpolation. Further studies for longer periods are needed to get a more reliable estimate allowing for interpolation in this respect.
+
+One might have reasoned about our previous analyses as follows: attacks in the before period correlate with activity before, and it is activity before that is the real predictor of activity after. This could be supported by observing that the *p*-value for the hurdle model is really low for activity before. Pearson correlation coefficient for narrow attacks before and activity before is *r*(3671)≈ 0.437 and *r*(3671)≈ 0.332 for activity after. However, activity before is a much better correlate of activity after, *r*(3671)≈ 0.845 --- all correlations with *p*-value &lt;2.2*e* − 16, and regression analysis (inspect the effect plots) indicates that activity before and high attacks before actually go in the opposite directions.
+
+
+
+
+### Regression to the mean?
 
 
 

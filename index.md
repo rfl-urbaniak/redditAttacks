@@ -849,7 +849,7 @@ sampDistr
 There are, however, some reasons to be concerned with classical methods:
 
 
-- $p$-values and confidence intervals are hard to interpret intuitively. For instance, a 95\% confidence interval being $(x,y)$ does not mean that the true mean is within $(x,y)$ with probability $0.95$, and the estimated mean being $z$ with $p$-value $0.01$ does not  mean that the true
+- $p$-values and confidence intervals are hard to interpret intuitively. For instance, a $95\%$ confidence interval being $(x,y)$ does not mean that the true mean is within $(x,y)$ with probability $0.95$, and the estimated mean being $z$ with $p$-value $0.01$ does not  mean that the true
 population mean is $z$ with probability $0.99$.
 
 -   *p*-values and confidence intervals are sensitive to undesirable factors, such as stopping intention in experiment design (Kruschke, 2015).
@@ -936,15 +936,70 @@ priorFitted
 
 
 
+First, it will be convenient to split and extract the data (we will do the Bayesian analysis for narrow attacks:
+
+
+``` r
+sh0 <- data[data$sumHighBefore == 0, ]$activityDiff
+sh1 <- data[data$sumHighBefore == 1, ]$activityDiff
+sh2 <- data[data$sumHighBefore == 2, ]$activityDiff
+sh3 <- data[data$sumHighBefore == 3, ]$activityDiff
+sh4 <- data[data$sumHighBefore == 4, ]$activityDiff
+sh5 <- data[data$sumHighBefore == 5, ]$activityDiff
+sh6 <- data[data$sumHighBefore == 6, ]$activityDiff
+sh7 <- data[data$sumHighBefore == 7, ]$activityDiff
+sh8 <- data[data$sumHighBefore == 8, ]$activityDiff
+```
+
+
+
+As an example, we go over in detail over the estimation of the impact of data for three narrow attacks on the wide prior. We   built the sample of simulated posterior probabilities and plotted the t-distributions of 30 random steps in the approximation process together with a histogram of the data, so that we can estimate how the simulations converged. Actually, since BEST simulations are computationally heavy, we have already run them separately and loaded the file with the results. However, normally you would use a line like the one listed (these simulations take the more time the larger the dataset).
+
+
+
+``` r
+mc3w <- BESTmcmc(sh3, priors = priorsWide)
+plotPostPred(mc3w)
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/unnamed-chunk-28-1.png" width="100%" style="display: block; margin: auto;" />
 
 
 
 
+``` r
+print(mc3w)
+```
+
+    ## MCMC fit results for BEST analysis:
+    ## 100002 simulations saved.
+    ##          mean     sd  median    HDIlo  HDIup  Rhat n.eff
+    ## mu    -24.476  9.063 -24.327 -42.4760 -6.859 1.000 48767
+    ## nu      9.626 12.988   5.275   0.9163 33.326 1.001  2867
+    ## sigma  61.398 11.533  61.081  39.6685 84.249 1.000  9530
+    ##
+    ## 'HDIlo' and 'HDIup' are the limits of a 95% HDI credible interval.
+    ## 'Rhat' is the potential scale reduction factor (at convergence, Rhat=1).
+    ## 'n.eff' is a crude measure of effective sample size.
 
 
 
 
+     The simulation, among other things, produces out a sample of 100002 simulated posterior distributions of the mean, \textsf{mu}. Below we briefly describe how the algorithm works.
 
+- Potential parameter  candidates are "locations"  that can be visited, and as the algorithm "travels", it writes down the  visited ones.
+- The algorithm starts with a random candidate $\theta_1$ for a parameter, say, that the real mean activity change is 5. It writes down $\theta_1$ in the list of "places visited".
+- It calculates the probability (density) for the observations  on the assumption that $\theta_1$ indeed is the real mean activity change. This results in $p(D\vert \theta_1)$.
+-  However, what is important is $p(\theta_1\vert D)$, the extent to which the data supports the claim that $\theta_1$ is the right parameter. This, by Bayes' Theorem, is related to $p(D\vert \theta_1)$ by means of equation \eqref{eq:bayes}:
+\begin{align}\label{eq:bayes}
+p(\theta_1\vert D) & = \frac{p(D\vert \theta_1)p(\theta)}{p(D)}
+\end{align}
+- Now, $p(D)$ is notoriously difficult to calculate in many cases.\footnote{The general problem is that  for the continuous case we have $p(D) = \int d \theta p(D\vert \theta) p (\theta)$ and this integral can be analytically unsolvable.}
+However,  what the simulation needs is something proportional to the right-hand side above, and so what is used is simply $p(D\vert \theta_1)p(\theta)$: the likelihood times the prior. We call the result $p'(\theta_1)$.
+- Next, the algorithm considers another randomly drawn potential parameter $\theta_2$ in the neighborhood of $\theta_1$ and calculates $p'(\theta_2)$. If it is greater than $p'(\theta_1)$, it moves its location to $\theta_2$ with certainty, otherwise, it decides to move there with some non-extreme probability only (its value is a meta-parameter chosen to optimize the algorithm convergence).
+- Then it draws randomly another potential parameter in the neighborhood of wherever it ended up, and proceeds as before. This is done for a large number of steps.
+- The procedure, repeated multiple  times, yields a long list of potential parameters visited, and the frequency with which the algorithm visits certain range of potential parameters is proportionate to the probability of these parameters being the true parameters given the data. After normalization,  a probability density for the list is obtained: this is the estimated posterior probability distribution  for the parameter in question.
+    
 
 
 

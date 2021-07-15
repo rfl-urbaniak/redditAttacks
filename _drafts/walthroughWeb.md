@@ -763,6 +763,42 @@ priorFitted
 
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/priorFitted-1.png" width="100%" style="display: block; margin: auto;" />
 
+``` r
+sh0 <- data[data$sumHighBefore == 0, ]$activityDiff
+sh1 <- data[data$sumHighBefore == 1, ]$activityDiff
+sh2 <- data[data$sumHighBefore == 2, ]$activityDiff
+sh3 <- data[data$sumHighBefore == 3, ]$activityDiff
+sh4 <- data[data$sumHighBefore == 4, ]$activityDiff
+sh5 <- data[data$sumHighBefore == 5, ]$activityDiff
+sh6 <- data[data$sumHighBefore == 6, ]$activityDiff
+sh7 <- data[data$sumHighBefore == 7, ]$activityDiff
+sh8 <- data[data$sumHighBefore == 8, ]$activityDiff
+```
+
+``` r
+mc3w <- BESTmcmc(sh3, priors = priorsWide)
+plotPostPred(mc3w)
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/unnamed-chunk-28-1.png" width="100%" style="display: block; margin: auto;" />
+
+Next, we print some information about the object we obtained:
+
+``` r
+print(mc3w)
+```
+
+    ## MCMC fit results for BEST analysis:
+    ## 100002 simulations saved.
+    ##          mean     sd  median    HDIlo  HDIup  Rhat n.eff
+    ## mu    -24.476  9.063 -24.327 -42.4760 -6.859 1.000 48767
+    ## nu      9.626 12.988   5.275   0.9163 33.326 1.001  2867
+    ## sigma  61.398 11.533  61.081  39.6685 84.249 1.000  9530
+    ## 
+    ## 'HDIlo' and 'HDIup' are the limits of a 95% HDI credible interval.
+    ## 'Rhat' is the potential scale reduction factor (at convergence, Rhat=1).
+    ## 'n.eff' is a crude measure of effective sample size.
+
 Kruschke, J. (2015). *Doing Bayesian data analysis; a tutorial with R, JAGS, and Stan*.
 
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.

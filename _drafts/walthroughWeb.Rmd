@@ -734,3 +734,41 @@ priorFitted <- ggplot(data = data.frame(x = c(-100, 100)), aes(x)) +
   geom_density(data = data, aes(x=activityDiff), col = "grey", alpha = 0.6)+xlim(c(-200,200))
 priorFitted
 ```
+
+
+
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+sh0 <- data[data$sumHighBefore==0,]$activityDiff
+sh1 <- data[data$sumHighBefore==1,]$activityDiff
+sh2 <- data[data$sumHighBefore==2,]$activityDiff
+sh3 <- data[data$sumHighBefore==3,]$activityDiff
+sh4 <- data[data$sumHighBefore==4,]$activityDiff
+sh5 <- data[data$sumHighBefore==5,]$activityDiff
+sh6 <- data[data$sumHighBefore==6,]$activityDiff
+sh7 <- data[data$sumHighBefore==7,]$activityDiff
+sh8 <- data[data$sumHighBefore==8,]$activityDiff
+```
+
+
+```{r,echo=TRUE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"} 
+mc3w <- BESTmcmc(sh3,priors = priorsWide)
+plotPostPred(mc3w)
+```
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"} 
+#load("analysis/bayesianChains.RData")
+load("../datasets/bayesianChainsCompatible.RDa")
+```
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+plotPostPred(mc3w)
+```
+
+
+Next, we print some information about the object we obtained:
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+print(mc3w)
+```

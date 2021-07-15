@@ -33,7 +33,6 @@ _Remark_. In what follows, we sometimes display key pieces of code and explain w
 ### Resources
 
 - Github folder with all the files is available [here](https://github.com/rfl-urbaniak/redditAttacks).
-
 - The [datasets subfolder](https://github.com/rfl-urbaniak/redditAttacks/tree/main/datasets) includes the dataset (quittingFinalAnon.csv) and the bayesian chains resulting from the bayesian analysis.
 -
 
@@ -173,9 +172,9 @@ data <- read.csv("../datasets/quittingFinalAnon.csv")[, -1]
 table(data$group)
 ```
 
-##
-##   Rcontrol Rtreatment   Scontrol Streatment
-##875935942921
+      ##
+      ##   Rcontrol Rtreatment   Scontrol Streatment
+      ##875935942921
 
 
 

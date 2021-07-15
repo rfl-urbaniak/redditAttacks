@@ -1685,7 +1685,7 @@ The baseline number of posts for those who are not in the zero class is 12.6.  T
 Next, regarding the zero submodel.
 
 
-- The basic odds for not posting for the whole week are 1.63. This means that the probability of belonging to the zero class is $\nicefrac{1.63\,}{1+1.63}\approx 0.61$.
+- The basic odds for not posting for the whole week are 1.63. This means that the probability of belonging to the zero class is $\frac{1.63\,}{1+1.63}\approx 0.61$.
 - wide only attacks, narrow attacks on comments, wide only attacks on posts all decrease the chances in being in the zero class.
 - In contrast, receiving narrow attacks on posts has a  strong impact, increasing the chances of not posting anything next week. For instance, with the baseline odds 1.63, if one receives five such attacks, other things being equal, her chances of not posting for a week go to $\frac{(1.63\times 1.15^5 }{1+(1.63\times 1.15^5)}\approx .76$.
 - Interestingly, posting in the previous week makes one slightly more likely to not post the next week. One's baseline probability of being active, $1-0.61 = 0.39$ goes to   $1-\frac{1.63 \times 1.08^20}{1+1.63 \times 1.08^20} \approx 0.22$ if in the preceding week one wrote on \textsf{Reddit} 20 times, other things being equal.

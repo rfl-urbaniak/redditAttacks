@@ -205,9 +205,9 @@ head(dataDisp)
       ## 6           104          -20 Rtreatment         1
 
 
--  *user* contains anonymous user numbers.
--  *sumLowBefore* contains the sum of *wide*  attacks in days 1-7. *sumHighBefore* the sum of *narrow* (attacks in the same period.
--  *Pl* and *Ph* code *wide* and `narrow` attacks on posts (we wanted to verify the additional sub-hypothesis that  attacks on a post might have more impact than attacks on comments).
+-  `user` contains anonymous user numbers.
+-  `sumLowBefore` contains the sum of `wide`  attacks in days 1-7. `sumHighBefore` the sum of `narrow` (attacks in the same period.
+-  `Pl* and *Ph* code *wide* and `narrow` attacks on posts (we wanted to verify the additional sub-hypothesis that  attacks on a post might have more impact than attacks on comments).
 
 -  `activityBefore` and `activityAfter` count comments or posts during days seven days before and seven days after. The intuition is, these shouldn't change much if personal attacks have  no impact on activity.
 

@@ -439,7 +439,7 @@ propPlotLowOnly
 
 
 
-Next, we focus on the uncertainties involved. One standard way  to estimate them is to use a one-sample t-tests to estimate the means and 95\% confidence intervals for `activityDifference`} for different numbers of attacks (this would be  equivalent to running a paired t-test for activity before and activity after).
+Next, we focus on the uncertainties involved. One standard way  to estimate them is to use a one-sample t-tests to estimate the means and $95\%$ confidence intervals for `activityDifference` for different numbers of attacks (this would be  equivalent to running a paired t-test for activity before and activity after).
 
 
 Here is the analysis for narrow attacks. There were not enough observations  for attacks above 8 (3, 2, and 2 for 9, 10 and 11 attacks, and single observations for a few higher non-zero counts)  for a t-test to be useful, so  we run the t-test for up to 8 attacks.
@@ -458,12 +458,12 @@ rownames(counts) <- c("no. of attacks", "count")
 counts
 ```
 
-##[,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
-## no. of attacks012345678 91011
-## count  2831  530  147   61   35   22   1784 3 2 2
-##[,13] [,14] [,15] [,16] [,17] [,18] [,19] [,20] [,21]
-## no. of attacks121314161719252627
-## count  1 1 1 3 1 1 1 1 1
+     ##[,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
+     ## no. of attacks012345678 91011
+     ## count  2831  530  147   61   35   22   1784 3 2 2
+     ##[,13] [,14] [,15] [,16] [,17] [,18] [,19] [,20] [,21]
+     ## no. of attacks121314161719252627
+     ## count  1 1 1 3 1 1 1 1 1
 
 
 

@@ -110,7 +110,7 @@ Because of the preponderance of personal attacks online, we could use the real-l
 3.  For each of these days, a random sample of 100,000 posts or comments have been drawn from all content posted on Reddit. Each of these datasets went through preliminary user-name based bots removal. This is a simple search for typical phrases included in user names, such as "Auto", "auto", "Bot", or "bot".
 
    For instance, for our initial thursdayClean datased, this proceeds like this:
- 
+
          ``` r
          thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$author,
              fixed = TRUE), ]

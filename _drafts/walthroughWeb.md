@@ -176,7 +176,59 @@ highPlotZoomed <- ggplot(data, aes(x = sumHighBefore, y = activityDiff)) +
     col = "red", size = 0.2, lty = 3)
 ```
 
+``` r
+highPlot
+```
+
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/highPlot-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+highPlotZoomed
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/highPlotZoomed-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+lowPlot <- ggplot(data, aes(x = sumLowBefore, y = activityDiff)) +
+    geom_jitter(size = 0.8, alpha = 0.3) + geom_smooth(method = "lm",
+    color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
+    th + geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2) +
+    xlab("wide attacks before") + ylab("activity change after") +
+    labs(title = "Impact of wide attacks on activity", subtitle = "weekly counts, n=3673") +
+    geom_segment(aes(x = -1, y = -150, xend = 15, yend = -150),
+        lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+    geom_segment(aes(x = -1, y = 150, xend = 15, yend = 150),
+        lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+    geom_segment(aes(x = -1, y = -150, xend = -1, yend = 150),
+        lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+    geom_segment(aes(x = 15, y = -150, xend = 15, yend = 150),
+        lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+    xlim(c(-1, max(data$sumLowBefore)))
+
+
+
+lowPlotZoomed <- ggplot(data, aes(x = sumLowBefore, y = activityDiff)) +
+    geom_jitter(size = 1, alpha = 0.2) + geom_smooth(method = "lm",
+    color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
+    th + scale_x_continuous(breaks = 0:max(data$sumLowBefore),
+    limits = c(-1, 15)) + ylim(c(-150, 150)) + geom_smooth(color = "grey",
+    size = 0.4, lty = 2, alpha = 0.2) + xlab("wide attacks before") +
+    ylab("activity change after") + labs(title = "Impact of wide attacks on activity",
+    subtitle = "weekly counts, zoomed in") + geom_hline(yintercept = 0,
+    col = "red", size = 0.2, lty = 3)
+```
+
+``` r
+lowPlot
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/lowPlot-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+lowPlotZoomed
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/lowPlotZoomed-1.png" width="100%" style="display: block; margin: auto;" />
 
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.
 

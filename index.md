@@ -109,54 +109,108 @@ Because of the preponderance of personal attacks online, we could use the real-l
 
 3.  For each of these days, a random sample of 100,000 posts or comments have been drawn from all content posted on Reddit. Each of these datasets went through preliminary user-name based bots removal. This is a simple search for typical phrases included in user names, such as "Auto", "auto", "Bot", or "bot".
 
-   For instance, for our initial thursdayClean datased, this proceeds like this:
+  For instance, for our initial thursdayClean datased, this proceeds like this:
 
-         ``` r
-         thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$author,
-             fixed = TRUE), ]
-         thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$author,
-             fixed = TRUE), ]
-          thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$receiver,
-             fixed = TRUE), ]
-         thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$receiver,
-             fixed = TRUE), ]
-         thursdayClean <- thursdayClean[!grepl("bot", thursdayClean$receiver,
-             fixed = TRUE), ]
-         thursdayClean <- thursdayClean[!grepl("Bot", thursdayClean$receiver,
-             fixed = TRUE), ]
-         ```
+          ``` r
+          thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$author,
+              fixed = TRUE), ]
+          thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$author,
+              fixed = TRUE), ]
+           thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$receiver,
+              fixed = TRUE), ]
+          thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$receiver,
+              fixed = TRUE), ]
+          thursdayClean <- thursdayClean[!grepl("bot", thursdayClean$receiver,
+              fixed = TRUE), ]
+          thursdayClean <- thursdayClean[!grepl("Bot", thursdayClean$receiver,
+              fixed = TRUE), ]
+          ```
 
 
 
 4. In some cases, content had been  deleted by the user or removed by Reddit  --- in such cases the dataset only contained information that some content had been  posted but was later removed; since we could not access the content  of such posts or comments and evaluate them for personal attacks, we also excluded them from the study.
 
-      Again, this was a fairly straightforward use of grepl:
+       Again, this was a fairly straightforward use of grepl:
 
-
-
-
-     ``` r
-      thursdayClean <- thursdayClean[!grepl("none", thursdayClean$receiver,
-          fixed = TRUE), ]
-      thursdayClean <- thursdayClean[!grepl("None", thursdayClean$receiver,
-          fixed = TRUE), ]
-      thursdayClean <- thursdayClean[!grepl("<MISSING>", thursdayClean$receiver,
-          fixed = TRUE), ]
-      thursdayClean <- thursdayClean[!grepl("[deleted]", thursdayClean$receiver,
-          fixed = TRUE), ]
-      ```
-
+      ``` r
+       thursdayClean <- thursdayClean[!grepl("none", thursdayClean$receiver,
+           fixed = TRUE), ]
+       thursdayClean <- thursdayClean[!grepl("None", thursdayClean$receiver,
+           fixed = TRUE), ]
+       thursdayClean <- thursdayClean[!grepl("<MISSING>", thursdayClean$receiver,
+           fixed = TRUE), ]
+       thursdayClean <- thursdayClean[!grepl("[deleted]", thursdayClean$receiver,
+           fixed = TRUE), ]
+       ```
 
  5. This left us with  92,943 comments or posts by 75,516 users  for R and 89,585 comments by 72,801 users  for S. While we didn't directly track whether content was a post or a comment, we paid attention as to whether a piece of content was a reply to a post or not (the working assumption was that personal attacks on posts might have different impact than attacks on comments). Quite consistently, 46\% of content were comments on posts on both days.
 
 
-
  6.  On these two  days respectively,  1359 R users ($1.79\%$) received at least one narrow attack, 35 of them received more than one ($0.046\%$). 302 of S users ($0.39\%$) received at least one narrow attack and 3 of them more than one narrow on that day ($0.003\%$). These numbers  are estimates for a single day, and therefore if the chance of obtaining at least one narrow attack in a day is $1.79\%$, assuming the binomial distribution, the estimated probability of obtaining at least one narrow attack in a week is 11.9\% in a week and 43\% in a month.
 
-  ``` r
-  100  * round(1-dbinom(0,7,prob = 1359/75516),3)` #week
-  100 * round(1-dbinom(0,31,prob = 1359/75516),3)` #month
-  ```
+   ``` r
+   100  * round(1-dbinom(0,7,prob = 1359/75516),3)` #week
+   100 * round(1-dbinom(0,31,prob = 1359/75516),3)` #month
+   ```
+
+
+  7.  To ensure a sufficient sample size, we decided not to draw a random sub-sample from the or class comprising 340 users, and included all of them in the Thursday treatment group (). Other users were randomly sampled from and added to , so that the group count was 1000.
+
+  8.  An analogous strategy was followed for . 1338 users belonged to , 27 to , 329 to and 3 to . The total of 344 or users was enriched with sampled users to obtain the group of 1000 users.
+
+  9.  The preliminary / groups of 1500 users each were constructed by sampling 1500 users who posted comments on the respective days but did not receive any recognized attacks. The group sizes for control groups are higher, because after obtaining further information we intended to eliminate those who received any attacks before the group selection day (and for practical reasons we could only obtain data for this period after the groups were selected).
+
+  10.  For each of these groups new dataset was prepared, containing all posts or comments made by the users during the period of ![\\pm 7](https://latex.codecogs.com/png.latex?%5Cpm%207 "\pm 7") days from the selection day (337,015 for , 149,712 for , 227,980 for and 196,999 for ) and all comments made to their posts or comments (621,486 for , 170,422 for , 201,614 for and 204,456 for ), after checking for uniqueness these jointly were 951,949 comments for , 318,542 comments for , 404,535 comments for , and 380,692 comments for ). The need to collect all comments to the content posted by our group members was crucial. We needed this information because we needed to check all such comments for personal attacks to obtain an adequate count of attacks received by our group members. In fact, this turned out to be the most demanding part of data collection.
+
+  11.  All these were wrangled into the frequency form, with (1) numbers of attacks as recognized by or algorithm (in the dataset we call these and respectively), (2) distinction between and ), and (3) activity counts for each day of the study, (4) with added joint counts for the e and periods. Frequency data for users outside of the control or treatment groups were removed.
+
+  12.  With the frequency form at hand, we could look at outliers. We used a fairly robust measure. For each of the weekly counts of and we calculated the interquartile range (), as the absolute distance between the first and the third quartile and identified as outliers those users which landed at least ![1.5\\times \\textsf{IQR}](https://latex.codecogs.com/png.latex?1.5%5Ctimes%20%5Ctextsf%7BIQR%7D "1.5\times \textsf{IQR}") from the respective mean. These resulted in a list of 534 "powerusers" which we suspected of being bots (even though we already removed users whose names suggested they were bots) --- all of them were manually checked by . Those identified as bots (only 15 of them) or missing (29 of them) were removed. It was impossible to establish whether the missing users were bots; there are also two main reasons why a user might be missing: (a) account suspended, and (b) user deleted. We decided not to include the users who went missing in our study, because they would artificially increase the activity drop during the period and because we didn't suspect any of the user deletions to be caused by personal attacks directed against them (although someone might have deleted the account because they were attacked, these were power-users who have a high probability of having been attacked quite a few times before, so this scenario is unlikely).
+
+  13.  The frequency form of the control sets data was used to remove those users who were attacked in the period (894 out of 1445 for , and 982 out of 1447 for remained).
+
+  14.  A few more unusual data points needed to be removed, because they turned out to be users whose comments contained large numbers of third-person personal attacks which in fact supported them. Since we were interested in the impact of personal attacks directed against a user on the user's activity, such unusual cases would distort the results. Six were authors of posts or comments which received more than 60 attacks each. Upon inspection, all of them supported the original users. For instance, two of them were third-person comments about not wearing a mask or sneezing in public, not attacks on these users. Another example is a female who asked for advice about her husband: the comments were supportive of her and critical of the husband. Two users with weekly activity count change higher than 500 were removed -- they did not seem to be bots but very often they posted copy-pasted content and their activity patterns were highly irregular with changes most likely attributable to some other factors than attacks received. The same holds for a young user we removed from the study who displayed activity change near 1000. She commented on her own activity during that period as very unusual and involving 50 hrs without sleeping. Her activity drop afterwards is very likely attributable to other factors than receiving a personal attack.
+
+  15.  86 users who did not post anything in the period were also removed.
+
+  16. In the end, and were aligned, centering around the selection day (day 8) and the studied group comprised 3673 users.
+
+    ``` r
+    # note we load the data here
+    data <- read.csv("../datasets/quittingFinalAnon.csv")[, -1]
+    ```
+
+    | Group                        | n                       |
+    |------------------------------|-------------------------|
+    | Rtreatment                   | 935                     |
+    | Streatment                   | 921                     |
+
+
+
+  A few first lines of the resulting anonymized dataset from which we removed separate day counts. Note that in the code "low" corresponds to "wide" (for "low precision") and "high" to "narrow" attacks (for "high precision"). The variables are: (low attacks, high attacks, low attacks on posts, how attacks on posts, authored content posted) and retained summary columns.
+
+
+
+
+  | user                  | sumLowBefore          | sumHighBefore         | sumPlBefore           | sumPhBefore           | activityBefore          | activityAfter          | activityDiff            | group                          | treatment             |
+  |-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-------------------------|------------------------|-------------------------|--------------------------------|-----------------------|
+  | 2                     | 5                     | 4                     | 0                     | 0                     | 106                     | 80                     | -26                     | Rtreatment                     | 1                     |
+  | 4                     | 6                     | 4                     | 0                     | 0                     | 180                     | 92                     | -88                     | Rtreatment                     | 1                     |
+  | 6                     | 2                     | 0                     | 0                     | 0                     | 124                     | 104                    | -20                     | Rtreatment                     | 1                     |
+
+
+
+
+  -    contains anonymous user numbers.
+  -    contains the sum of attacks in days 1-7. the sum of (attacks in the same period.
+  -    and code and attacks on posts (we wanted to verify the additional sub-hypothesis that attacks on a post might have more impact than attacks on comments).
+
+  -    and count comments or posts during days seven days before and seven days after. The intuition is, these shouldn't change much if personal attacks have no impact on activity.
+
+  -    and include information about which group a user belongs to.
+
+
+
+
 
 
 

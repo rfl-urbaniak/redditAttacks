@@ -774,6 +774,22 @@ sh
 | residuals | 3652 | 5730212.39 | 1569.06  |         |          |
 
 
+``` r
+sl <- xtable(summary(lowAnova))
+rownames(sl) <- c("narrow", "residuals")
+sl
+```
+
+
+|           | Df   | Sum Sq     | Mean Sq  | F value | Pr($>$F) |
+|-----------|------|------------|----------|---------|----------|
+| narrow    | 42   | 1103365.53 | 26270.61 | 17.62   | 0.0000   |
+| residuals | 3630 | 5412342.81 | 1491.00  |         |          |
+
+
+
+
+
 
 
 

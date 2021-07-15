@@ -646,3 +646,10 @@ sh <- xtable(summary(highAnova))
 rownames(sh) <- c("narrow","residuals")
 sh 
 ```
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+sl <- xtable(summary(lowAnova))
+rownames(sl) <- c("narrow","residuals")
+sl
+```

@@ -663,6 +663,26 @@ sl
     ## \end{tabular}
     ## \end{table}
 
+``` r
+so <- xtable(summary(lowOnlyAnova))
+rownames(so) <- c("narrow", "residuals")
+so
+```
+
+    ## % latex table generated in R 3.6.3 by xtable 1.8-4 package
+    ## % Thu Jul 15 08:02:16 2021
+    ## \begin{table}[ht]
+    ## \centering
+    ## \begin{tabular}{lrrrrr}
+    ##   \hline
+    ##  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
+    ##   \hline
+    ## narrow & 35 & 1106625.41 & 31617.87 & 21.26 & 0.0000 \\ 
+    ##   residuals & 3637 & 5409082.93 & 1487.24 &  &  \\ 
+    ##    \hline
+    ## \end{tabular}
+    ## \end{table}
+
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.
 
 Tukey, J. W. (1949). Comparing individual means in the analysis of variance. *Biometrics*, *5*(2), 99. <https://doi.org/10.2307/3001913>

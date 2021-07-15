@@ -1115,6 +1115,124 @@ autoplot(fullModelZINbinRoot, alpha = 0.5) + th + ylab("Square root of couts") +
 
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/fullModelHpoisRoot-1.png" width="100%" style="display: block; margin: auto;" />
 
+``` r
+vuong(fullModelZINbin, fullModelHNbin)
+```
+
+    ## Vuong Non-Nested Hypothesis Test-Statistic: 
+    ## (test-statistic is asymptotically distributed N(0,1) under the
+    ##  null that the models are indistinguishible)
+    ## -------------------------------------------------------------
+    ##               Vuong z-statistic             H_A  p-value
+    ## Raw                    2.089478 model1 > model2 0.018332
+    ## AIC-corrected          2.089478 model1 > model2 0.018332
+    ## BIC-corrected          2.089478 model1 > model2 0.018332
+
+``` r
+logLik(fullModelZINbin)
+```
+
+    ## 'log Lik.' -14459.65 (df=13)
+
+``` r
+AIC(fullModelZINbin)
+```
+
+    ## [1] 28945.3
+
+``` r
+logLik(fullModelHNbin)
+```
+
+    ## 'log Lik.' -14527.69 (df=13)
+
+``` r
+AIC(fullModelHNbin)
+```
+
+    ## [1] 29081.39
+
+There seem to be some reasons to prefer the zero-inflated model, but the score differences are not too impressive, both likelihood ratios are Akaike scores are very close (note: we want to minimize AIC and maximize log likelihood).
+
+To move on we need to modify the variables, because some of the counts included others. This was not a problem so far, but now we will be looking in detail at their roles jointly, and so it is important to not count various things multiple times.
+
+``` r
+# select variables of interest
+dataModeling <- data %>%
+    dplyr::select(sumLowOnlyBefore, sumHighBefore, sumPlBefore,
+        sumPhBefore, activityBefore, activityAfter)
+
+# sum narrow now becomes sum of narrow attacks on comments
+dataModeling$sumHighBefore <- dataModeling$sumHighBefore - dataModeling$sumPhBefore
+
+# sum wide only now becomes sum of wide only on comments
+dataModeling$sumLowOnlyBefore <- dataModeling$sumLowOnlyBefore -
+    dataModeling$sumPlBefore
+
+# sum of wide on posts now becomes sum of wide only on
+# posts
+dataModeling$sumPlBefore <- dataModeling$sumPlBefore - dataModeling$sumPhBefore
+```
+
+``` r
+ZNBfull <- zeroinfl(activityAfter ~ ., data = dataModeling, dist = "negbin")
+ZNBactivity <- zeroinfl(activityAfter ~ activityBefore, data = dataModeling,
+    dist = "negbin")
+HNBfull <- hurdle(activityAfter ~ ., data = dataModeling, dist = "negbin")
+HNBactivity <- hurdle(activityAfter ~ activityBefore, data = dataModeling,
+    dist = "negbin")
+
+# now take a look at this
+summary(dataModeling$activityAfter)
+```
+
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ##    0.00    2.00   10.00   35.69   38.00 1032.00
+
+The outcome variable has third quartile of weekly activity count in the period at 38, and we are mostly interested in predictive accuracy where most of the users are placed. Therefore, we look at what happens with these models up to 40.
+
+``` r
+ZNBfullRoot <- countreg::rootogram(ZNBfull, max = 40, main = "Zero-inflated negative binomial")
+
+ZNBactivityRoot <- countreg::rootogram(ZNBactivity, max = 40,
+    main = "Hurdle negative binomial")
+
+HNBfullRoot <- countreg::rootogram(HNBfull, max = 40, main = "Zero-inflated Poisson")
+
+HNBactivityRoot <- countreg::rootogram(HNBactivity, max = 40,
+    main = "Hurdle Poisson")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/unnamed-chunk-45-1.png" width="100%" style="display: block; margin: auto;" /><img src="https://rfl-urbaniak.github.io/redditAttacks/images/unnamed-chunk-45-2.png" width="100%" style="display: block; margin: auto;" /><img src="https://rfl-urbaniak.github.io/redditAttacks/images/unnamed-chunk-45-3.png" width="100%" style="display: block; margin: auto;" /><img src="https://rfl-urbaniak.github.io/redditAttacks/images/unnamed-chunk-45-4.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+autoplot(ZNBfullRoot, alpha = 0.5) + th + ylab("Square root of couts") +
+    ggtitle("Zero-inflated negative binomial (all variables)")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/ZNBfullRoot-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+autoplot(HNBfullRoot, alpha = 0.5) + th + ylab("Square root of couts") +
+    ggtitle("Hurdle negative binomial (all variables)")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/HNBfullRoot-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+autoplot(ZNBactivityRoot, alpha = 0.5) + th + ylab("Square root of couts") +
+    ggtitle("Zero-inflated negative binomial (activity only)")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/ZNBactivityRoot-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+autoplot(HNBactivityRoot, alpha = 0.5) + th + ylab("Square root of couts") +
+    ggtitle("Hurdle negative binomial (activity only)")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/HNBactivityRoot-1.png" width="100%" style="display: block; margin: auto;" />
+
 Kruschke, J. (2015). *Doing Bayesian data analysis; a tutorial with R, JAGS, and Stan*.
 
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.

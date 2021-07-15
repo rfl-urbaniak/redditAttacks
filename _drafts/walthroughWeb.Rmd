@@ -625,4 +625,24 @@ power8 <- 1-p
 power8
 ```
 
+robabilities that this effect would be discovered by a single sample t-test for 6, 7, and 8 attacks are `r round(c(power6,power7,power8),3)`, and so tests for higher numbers of attacks are underpowered. 
 
+
+We run single t-tests on different groups to estimate different means and we don't use t-test for hypothesis testing. To alleviate concerns about multiple testing and increased risk of type I error,  we also  performed an  ANOVA tests, which strongly suggest non-random correlation between the numbers of attacks and activity change. 
+ Furthermore,  80 comparison rows in Tukey's Honest Significance Test [@Tukey1949] have conservatively adjusted p-value below 0.05.  
+ 
+ 
+ 
+ 
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE,warning=FALSE}
+highAnova <- aov(activityDiff ~ as.factor(sumHighBefore), data = data)
+lowAnova <- aov(activityDiff ~ as.factor(sumLowBefore), data = data)
+lowOnlyAnova <- aov(activityDiff ~ as.factor(sumLowBefore-sumHighBefore), data = data)
+
+library(descr,quietly=TRUE)
+library(pander,quietly=TRUE)
+library(papeR,quietly=TRUE)
+sh <- xtable(summary(highAnova))
+rownames(sh) <- c("narrow","residuals")
+sh 
+```

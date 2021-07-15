@@ -740,12 +740,38 @@ power8
 
 
 
+Note fairly wide confidence intervals for higher number of attacks. These arise because attacks are quite rare, so the sample sizes for 5, 6, 7 and 8 narrow attacks are  22, 17,  8  and  4 respectively. This might be also the reason why $p$-values are not too low (although still below the usual significance thresholds). In fact, power analysis shows that if the real activity difference for those groups equals to the mean for `narrow = 6`, that is, -80, the probabilities that this effect would be discovered by a single sample t-test for 6, 7, and 8 attacks are  0.737, 0.737, 0.309, and so tests for higher numbers of attacks are underpowered.
+
+
+
+
+We run single t-tests on different groups to estimate different means and we don't use t-test for hypothesis testing. To alleviate concerns about multiple testing and increased risk of type I error, we also performed an ANOVA tests, which strongly suggest non-random correlation between the numbers of attacks and activity change. Furthermore, 80 comparison rows in Tukey's Honest Significance Test (Tukey, 1949) have conservatively adjusted p-value below 0.05.
 
 
 
 
 
 
+``` r
+highAnova <- aov(activityDiff ~ as.factor(sumHighBefore), data = data)
+lowAnova <- aov(activityDiff ~ as.factor(sumLowBefore), data = data)
+lowOnlyAnova <- aov(activityDiff ~ as.factor(sumLowBefore - sumHighBefore),
+    data = data)
+
+library(descr, quietly = TRUE)
+library(pander, quietly = TRUE)
+library(papeR, quietly = TRUE)
+sh <- xtable(summary(highAnova))
+rownames(sh) <- c("narrow", "residuals")
+sh
+```
+
+
+
+|           | Df   | Sum Sq     | Mean Sq  | F value | Pr($>$F) |
+|-----------|------|------------|----------|---------|----------|
+| narrow    | 20   | 785495.95  | 39274.80 | 25.03   | 0.0000   |
+| residuals | 3652 | 5730212.39 | 1569.06  |         |          |
 
 
 

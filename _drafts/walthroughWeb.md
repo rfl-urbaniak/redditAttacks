@@ -611,7 +611,41 @@ power8
 
     ## [1] 0.3088534
 
+robabilities that this effect would be discovered by a single sample t-test for 6, 7, and 8 attacks are 0.737, 0.737, 0.309, and so tests for higher numbers of attacks are underpowered.
+
+We run single t-tests on different groups to estimate different means and we don't use t-test for hypothesis testing. To alleviate concerns about multiple testing and increased risk of type I error, we also performed an ANOVA tests, which strongly suggest non-random correlation between the numbers of attacks and activity change. Furthermore, 80 comparison rows in Tukey's Honest Significance Test (Tukey, 1949) have conservatively adjusted p-value below 0.05.
+
+``` r
+highAnova <- aov(activityDiff ~ as.factor(sumHighBefore), data = data)
+lowAnova <- aov(activityDiff ~ as.factor(sumLowBefore), data = data)
+lowOnlyAnova <- aov(activityDiff ~ as.factor(sumLowBefore - sumHighBefore),
+    data = data)
+
+library(descr, quietly = TRUE)
+library(pander, quietly = TRUE)
+library(papeR, quietly = TRUE)
+sh <- xtable(summary(highAnova))
+rownames(sh) <- c("narrow", "residuals")
+sh
+```
+
+    ## % latex table generated in R 3.6.3 by xtable 1.8-4 package
+    ## % Thu Jul 15 07:57:54 2021
+    ## \begin{table}[ht]
+    ## \centering
+    ## \begin{tabular}{lrrrrr}
+    ##   \hline
+    ##  & Df & Sum Sq & Mean Sq & F value & Pr($>$F) \\ 
+    ##   \hline
+    ## narrow & 20 & 785495.95 & 39274.80 & 25.03 & 0.0000 \\ 
+    ##   residuals & 3652 & 5730212.39 & 1569.06 &  &  \\ 
+    ##    \hline
+    ## \end{tabular}
+    ## \end{table}
+
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.
+
+Tukey, J. W. (1949). Comparing individual means in the analysis of variance. *Biometrics*, *5*(2), 99. <https://doi.org/10.2307/3001913>
 
 Valkenburg, P. M., Peter, J., & Schouten, A. P. (2006). Friend networking sites and their relationship to adolescents’ well-being and social self-esteem. *CyberPsychology & Behavior*, *9*(5), 584–590. <https://doi.org/10.1089/cpb.2006.9.584>
 

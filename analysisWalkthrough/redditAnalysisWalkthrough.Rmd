@@ -246,6 +246,8 @@ mykable(head(dataDisp)) %>% kable_styling(latex_options = "scale_down")
 \normalsize 
 
 
+
+
 \section{Exploration}
 
 
@@ -390,7 +392,7 @@ propPlotLowOnly <- ggplot(data, aes(x = sumLowBefore-sumHighBefore, y = activity
 
 \begin{figure}
 \begin{subfigure}[b]{0.75\textwidth}
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+```{r propPlotHigh,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
 propPlotHigh
 ```
 \end{subfigure}
@@ -1294,7 +1296,7 @@ InformativeBayesBar
 
 \normalsize
 
- The  near-vertical lines represent the density for 0 attacks, which goes high up --- plotting the whole range of $y$ axis would make the rest of the plot unintelligible. As the number of attacks grow, no matter which prior we start with, the posterior means move left (which agrees with the results we obtained with other methods) and the density plots become wider. This is partially because the groups become smaller as the number of attacks increases, and partially because the standard deviations between the groups are uneven (users who received more attacks seem to display more uneven behavior).
+ The  near-vertical lines represent the density for 0 attacks, which goes high up --- plotting the whole range of $y$ axis would make the rest of the plot unintelligible. As the number of attacks grow, no matter which prior we start with, the posterior means move left (which agrees with the results we obtained with other methods) and the density plots become wider. This is partially because the groups become smaller as the number of attacks increases, and partially because the standard deviations between the groups are uneven (users who received more attacks seem to display more uneven behavior -- this is one of the reasons we decided to look at groups by numbers of attacks, instead of trying to fit a regressions line).
 
 
 \begin{figure}[!ht]

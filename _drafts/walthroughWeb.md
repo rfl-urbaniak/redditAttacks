@@ -968,6 +968,19 @@ InformativeBayesBar <- ggplot(InformativeBayesTable) + geom_bar(aes(x = attacks,
 
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/InformativeBayesBar-1.png" width="100%" style="display: block; margin: auto;" />
 
+``` r
+sds <- c(sd(sh0), sd(sh1), sd(sh2), sd(sh3), sd(sh4), sd(sh5),
+    sd(sh6), sd(sh7), sd(sh8))
+attacks <- 0:8
+
+ggplot() + geom_bar(aes(x = attacks, y = round(sds, 2)), stat = "identity",
+    fill = "skyblue", alpha = 0.5) + th + xlab("narrow attacks") +
+    ylab("standard deviation of activity change") + scale_x_continuous(breaks = 0:8,
+    labels = 0:8)
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/sds-1.png" width="100%" style="display: block; margin: auto;" />
+
 Kruschke, J. (2015). *Doing Bayesian data analysis; a tutorial with R, JAGS, and Stan*.
 
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.

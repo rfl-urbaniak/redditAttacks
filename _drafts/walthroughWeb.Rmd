@@ -929,3 +929,12 @@ BayesianInvormativeDensities
 ```{r InformativeBayesBar,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
 InformativeBayesBar 
 ```
+
+
+```{r sds,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+sds <- c(sd(sh0),sd(sh1),sd(sh2),sd(sh3),sd(sh4),sd(sh5),sd(sh6),sd(sh7),sd(sh8))
+attacks <- 0:8
+
+ggplot()+ geom_bar(aes(x=attacks,y=round(sds,2)), stat="identity", fill = "skyblue", alpha= 0.5)+
+th+xlab("narrow attacks")+ylab("standard deviation of activity change")+scale_x_continuous(breaks = 0:8, labels = 0:8)
+```

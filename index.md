@@ -1198,8 +1198,21 @@ InformativeBayesBar <- ggplot(InformativeBayesTable) + geom_bar(aes(x = attacks,
 
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/InformativeBayesBar-1.png" width="100%" style="display: block; margin: auto;" />
 
+ The  near-vertical lines represent the density for 0 attacks, which goes high up --- plotting the whole range of $y$ axis would make the rest of the plot unintelligible. As the number of attacks grow, no matter which prior we start with, the posterior means move left (which agrees with the results we obtained with other methods) and the density plots become wider. This is partially because the groups become smaller as the number of attacks increases, and partially because the standard deviations between the groups are uneven (users who received more attacks seem to display more uneven behavior -- this is one of the reasons we decided to look at groups by numbers of attacks, instead of trying to fit a regressions line).
 
 
+ ``` r
+ sds <- c(sd(sh0), sd(sh1), sd(sh2), sd(sh3), sd(sh4), sd(sh5),
+     sd(sh6), sd(sh7), sd(sh8))
+ attacks <- 0:8
+
+ ggplot() + geom_bar(aes(x = attacks, y = round(sds, 2)), stat = "identity",
+     fill = "skyblue", alpha = 0.5) + th + xlab("narrow attacks") +
+     ylab("standard deviation of activity change") + scale_x_continuous(breaks = 0:8,
+     labels = 0:8)
+ ```
+
+ <img src="https://rfl-urbaniak.github.io/redditAttacks/images/sds-1.png" width="100%" style="display: block; margin: auto;" />
 
 
 

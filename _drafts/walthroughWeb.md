@@ -271,6 +271,62 @@ lowOnlyPlotZoomed
 
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/lowOnlyPlotZoomed-1.png" width="100%" style="display: block; margin: auto;" />
 
+``` r
+rescale <- function(diff, act) {
+    diff/act
+}
+data$activityScore <- rescale(data$activityDiff, data$activityBefore)
+
+propPlotHigh <- ggplot(data, aes(x = sumHighBefore, y = activityScore)) +
+    geom_jitter(size = 0.8, alpha = 0.3) + geom_smooth(method = "lm",
+    color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
+    th + xlab("narrow attacks before") + ylab("proportional activity change") +
+    labs(title = "Impact of narrow attacks on proportional activity",
+        subtitle = "n=3673") + scale_y_continuous(limits = c(-1,
+    10)) + geom_hline(yintercept = 0, col = "red", size = 0.2,
+    lty = 3) + scale_x_continuous(breaks = 1:15, limits = c(-1,
+    10)) + geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)
+
+propPlotLow <- ggplot(data, aes(x = sumLowBefore, y = activityScore)) +
+    geom_jitter(size = 0.8, alpha = 0.3) + geom_smooth(method = "lm",
+    color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
+    th + xlab("wide attacks before") + ylab("proportional activity change") +
+    labs(title = "Impact of wide attacks on proportional activity",
+        subtitle = "n=3673") + scale_y_continuous(limits = c(-1,
+    10)) + geom_hline(yintercept = 0, col = "red", size = 0.2,
+    lty = 3) + scale_x_continuous(breaks = 1:15, limits = c(-1,
+    10)) + geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)
+
+
+propPlotLowOnly <- ggplot(data, aes(x = sumLowBefore - sumHighBefore,
+    y = activityScore)) + geom_jitter(size = 0.8, alpha = 0.3) +
+    geom_smooth(method = "lm", color = "skyblue", fill = "skyblue",
+        size = 0.7, alpha = 0.8) + th + xlab("wide only attacks before") +
+    ylab("proportional activity change") + labs(title = "Impact of wide only attacks on proportional activity",
+    subtitle = "n=3673") + scale_y_continuous(limits = c(-1,
+    10)) + geom_hline(yintercept = 0, col = "red", size = 0.2,
+    lty = 3) + scale_x_continuous(breaks = 1:15, limits = c(-1,
+    10)) + geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)
+```
+
+``` r
+propPlotHigh
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/propPlotHigh-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+propPlotLow
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/propPlotLow-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+propPlotLowOnly
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/propPlotLowOnly-1.png" width="100%" style="display: block; margin: auto;" />
+
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.
 
 Valkenburg, P. M., Peter, J., & Schouten, A. P. (2006). Friend networking sites and their relationship to adolescents’ well-being and social self-esteem. *CyberPsychology & Behavior*, *9*(5), 584–590. <https://doi.org/10.1089/cpb.2006.9.584>

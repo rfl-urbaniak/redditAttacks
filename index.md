@@ -374,6 +374,70 @@ The above visualises the  activity change in terms of weekly counts. However, ar
 We zoom in to densely populated areas of the plot for `activityScore`} as a function of the three types of attacks in Figure \ref{fig:propActivity}. The impact is still negative, more so for `narrow`} attacks, and less so for other types. Note that for mathematical reasons the score minimum is -1 (user activity cannot drop more than 100\%), and so the graph looks  assymetric around the horizontal line.
 
 
+``` r
+rescale <- function(diff, act) {
+    diff/act
+}
+data$activityScore <- rescale(data$activityDiff, data$activityBefore)
+
+propPlotHigh <- ggplot(data, aes(x = sumHighBefore, y = activityScore)) +
+    geom_jitter(size = 0.8, alpha = 0.3) + geom_smooth(method = "lm",
+    color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
+    th + xlab("narrow attacks before") + ylab("proportional activity change") +
+    labs(title = "Impact of narrow attacks on proportional activity",
+        subtitle = "n=3673") + scale_y_continuous(limits = c(-1,
+    10)) + geom_hline(yintercept = 0, col = "red", size = 0.2,
+    lty = 3) + scale_x_continuous(breaks = 1:15, limits = c(-1,
+    10)) + geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)
+
+propPlotLow <- ggplot(data, aes(x = sumLowBefore, y = activityScore)) +
+    geom_jitter(size = 0.8, alpha = 0.3) + geom_smooth(method = "lm",
+    color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
+    th + xlab("wide attacks before") + ylab("proportional activity change") +
+    labs(title = "Impact of wide attacks on proportional activity",
+        subtitle = "n=3673") + scale_y_continuous(limits = c(-1,
+    10)) + geom_hline(yintercept = 0, col = "red", size = 0.2,
+    lty = 3) + scale_x_continuous(breaks = 1:15, limits = c(-1,
+    10)) + geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)
+
+
+propPlotLowOnly <- ggplot(data, aes(x = sumLowBefore - sumHighBefore,
+    y = activityScore)) + geom_jitter(size = 0.8, alpha = 0.3) +
+    geom_smooth(method = "lm", color = "skyblue", fill = "skyblue",
+        size = 0.7, alpha = 0.8) + th + xlab("wide only attacks before") +
+    ylab("proportional activity change") + labs(title = "Impact of wide only attacks on proportional activity",
+    subtitle = "n=3673") + scale_y_continuous(limits = c(-1,
+    10)) + geom_hline(yintercept = 0, col = "red", size = 0.2,
+    lty = 3) + scale_x_continuous(breaks = 1:15, limits = c(-1,
+    10)) + geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)
+```
+
+``` r
+propPlotHigh
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/propPlotHigh-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+propPlotLow
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/propPlotLow-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+propPlotLowOnly
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/propPlotLowOnly-1.png" width="100%" style="display: block; margin: auto;" />
+
+
+
+
+
+
+
+
+
 
 
 

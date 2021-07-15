@@ -177,10 +177,11 @@ thursdayClean <- thursdayClean[!grepl("[deleted]", thursdayClean$receiver,
     data <- read.csv("../datasets/quittingFinalAnon.csv")[, -1]
     ```
 
-    | Group                        | n                       |
-    |------------------------------|-------------------------|
-    | Rtreatment                   | 935                     |
-    | Streatment                   | 921                     |
+
+| Group                        | n                       |
+|------------------------------|-------------------------|
+| Rtreatment                   | 935                     |
+| Streatment                   | 921                     |
 
 
 
@@ -189,11 +190,11 @@ thursdayClean <- thursdayClean[!grepl("[deleted]", thursdayClean$receiver,
 
 
 
-  | user                  | sumLowBefore          | sumHighBefore         | sumPlBefore           | sumPhBefore           | activityBefore          | activityAfter          | activityDiff            | group                          | treatment             |
-  |-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-------------------------|------------------------|-------------------------|--------------------------------|-----------------------|
-  | 2                     | 5                     | 4                     | 0                     | 0                     | 106                     | 80                     | -26                     | Rtreatment                     | 1                     |
-  | 4                     | 6                     | 4                     | 0                     | 0                     | 180                     | 92                     | -88                     | Rtreatment                     | 1                     |
-  | 6                     | 2                     | 0                     | 0                     | 0                     | 124                     | 104                    | -20                     | Rtreatment                     | 1                     |
+| user                  | sumLowBefore          | sumHighBefore         | sumPlBefore           | sumPhBefore           | activityBefore          | activityAfter          | activityDiff            | group                          | treatment             |
+|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-------------------------|------------------------|-------------------------|--------------------------------|-----------------------|
+| 2                     | 5                     | 4                     | 0                     | 0                     | 106                     | 80                     | -26                     | Rtreatment                     | 1                     |
+| 4                     | 6                     | 4                     | 0                     | 0                     | 180                     | 92                     | -88                     | Rtreatment                     | 1                     |
+| 6                     | 2                     | 0                     | 0                     | 0                     | 124                     | 104                    | -20                     | Rtreatment                     | 1                     |
 
 
 

@@ -1032,6 +1032,27 @@ ggplot() + geom_line(aes(x = 1:length(conv), y = conv), alpha = 0.7) +
 
 
 
+We can collapse the plot, ignoring time, with default \textsf{BESTmcmc} features and obtain the following plot:
+
+``` r
+plot(mc3w)
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/collapsed-1.png" width="100%" style="display: block; margin: auto;" />
+
+
+
+The histogram illustrates the distribution of the outcome. HDI with limits is displayed at the bottom, and the information in green represents the  proportion of the sample that is below 0.
+
+`Rhat` is a convergence measure, if the process goes well it should be around 1, and `n.eff` is the effective sample size - which is often lower than the actual full sample because of autocorrelation (in simulations next guess for a parameter depends to some extent on what the previous guess was, and the calculation of `n.eff` corrects for this).
+
+
+
+Visual inspection of Figure reveals that the most visited locations (potential mean activity drops) center around slightly less than minus twenty. In fact, the mean of those visited potential means is -24.476 (although this does not have to be the mean of the sample, which in our case is -25.6065574; rather it is the result of a compromise between the data and the prior). The median is very close. The new elements are HDIlo and HDIup, the limits of the *Highest Density Inverval*: the range of values that are most credible and cover 95% of the distribution. The Values within the 95% HDI are more credible than values outside the HDI, and the values inside it have a total probability of $95\%$. Crucially, these can be interpreted as posterior probabilities of various mean candidates being the population means based on the data, which makes HDI much unlike standard confidence intervals.
+
+
+
+
 
 
 

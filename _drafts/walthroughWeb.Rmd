@@ -799,3 +799,133 @@ Visual inspection of Figure \ref{fig:mw3plot} reveals that the most visited loca
 the mean of those visited potential  means is -24.476 (although this does not have to be the mean of the sample, which in our case is 
 `r  mean(sh3)`; rather it is the result of a compromise between the data and the prior). The median is very close. The new elements are HDIlo and HDIup, the limits of the \emph{Highest Density Inverval}: the range of values that are most credible and cover 95\% of the distribution. The Values within the 95% HDI are more credible than values outside the HDI, and the values inside it have a total probability of 95\%. Crucially, these can be interpreted as posterior probabilities of various mean candidates being the population means based on the data, which makes HDI much unlike standard confidence intervals. 
 
+
+
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+#prepare data and plot densities
+bayesianWideDF <- data.frame(a0 = mc0w$mu,a1 = mc1w$mu, a2 =mc2w$mu,a3 = mc3w$mu, 
+              a4 = mc4w$mu, a5 = mc5w$mu, a6 = mc6w$mu, a7 = mc7w$mu,a8 = mc8w$mu)
+bayesianWideDF$prior <- rnorm(nrow(bayesianWideDF), mean = 0, sd = 50)
+BayesianWideDFLong <- gather(bayesianWideDF)
+BayesianWideDFLong$key <- as.factor(BayesianWideDFLong$key)
+BayesianWideDensities <- ggplot(BayesianWideDFLong, aes(x=value, group = key,
+                         color = key, fill = key))+
+  geom_density(alpha=0.2)+th+xlab("activity change")+scale_fill_discrete(name = "group",
+  labels = c("0 attacks", "1 attack", "2 attacks", "3 attacks", "4 attacks", "5 attacks",
+             "6 attacks","7 attacks", "8 attacks",  "prior")) + 
+  guides(color = FALSE, size = FALSE)+ylim(c(0,0.11))+xlim(c(-90,60))+
+  labs(title = "Impact of data on wide prior", 
+  subtitle="narrow attacks vs. activity change")
+
+#extract means and HDI limits from the mcmc objects
+wideMeans <- numeric(9)
+wideLow <- numeric(9)
+wideHigh <- numeric(9)
+for (i in 1:9){
+wideMeans[i] <-  eval(parse(text = paste("summary(mc",i-1,"w)[1]",sep="")))
+wideLow[i] <- eval(parse(text = paste("summary(mc",i-1,"w)[21]",sep="")))
+wideHigh[i] <- eval(parse(text = paste("summary(mc",i-1,"w)[26]",sep="")))
+}
+
+#order the data and make the barplot  
+wideBayesTable <- round(data.frame(attacks = 0:8, wideLow, wideMeans,wideHigh),3)
+wideBayesBar <- ggplot(wideBayesTable)+ geom_bar(aes(x=attacks,y=wideMeans), 
+                                        stat="identity", fill = "skyblue", alpha= 0.5)+
+  geom_errorbar( aes(x=attacks, ymin=wideLow, ymax=wideHigh), 
+                 width=0.4, colour="seashell3",
+  alpha=0.9, size=0.3)+th+xlab("narrow attacks")+ylab("activity change")+
+  geom_text(aes(x=attacks+0.24, y=wideMeans-3, label=round(wideMeans,1)), size = 3)+scale_x_continuous(labels = 0:8, breaks= 0:8)
+```
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+bayesianFittedDF <- data.frame(a0 = mc0f$mu,a1 = mc1f$mu, a2 =mc2f$mu,a3 = mc3f$mu, a4 = mc4f$mu, a5 = mc5f$mu, a6 = mc6f$mu, a7 = mc7f$mu,a8 = mc8f$mu)
+bayesianFittedDF$prior <- rnorm(nrow(bayesianFittedDF), mean = -1.11, sd = 7.5)
+BayesianFittedDFLong <- gather(bayesianFittedDF)
+BayesianFittedDFLong$key <- as.factor(BayesianFittedDFLong$key)
+BayesianFittedDensities <- ggplot(BayesianFittedDFLong, aes(x=value, group = key, color = key, fill = key))+
+  geom_density(alpha=0.2)+th+xlab("activity change")+scale_fill_discrete(name = "group",labels = c("0 attacks", "1 attack", "2 attacks", "3 attacks", 
+  "4 attacks", "5 attacks", "6 attacks","7 attacks", "8 attacks",  "prior")) + 
+  guides(color = FALSE, size = FALSE)+ylim(c(0,0.12))+xlim(c(-35,20))+
+  labs(title = "Impact of data on fitted prior", subtitle="narrow attacks vs. activity change")
+
+fittedMeans <- numeric(9)
+fittedLow <- numeric(9)
+fittedHigh <- numeric(9)
+
+for (i in 1:9){
+  fittedMeans[i] <-  eval(parse(text = paste("summary(mc",i-1,"f)[1]",sep="")))
+  fittedLow[i] <- eval(parse(text = paste("summary(mc",i-1,"f)[21]",sep="")))
+  fittedHigh[i] <- eval(parse(text = paste("summary(mc",i-1,"f)[26]",sep="")))
+}
+
+fittedBayesTable <- round(data.frame(attacks = 0:8, fittedLow, fittedMeans,fittedHigh),3)
+fittedBayesBar <- ggplot(fittedBayesTable)+ geom_bar(aes(x=attacks,y=fittedMeans), stat="identity", fill = "skyblue", alpha= 0.5)+
+  geom_errorbar( aes(x=attacks, ymin=fittedLow, ymax=fittedHigh), width=0.4, colour="seashell3", alpha=0.9, size=0.3)+th+xlab("narrow attacks")+ylab("activity change")+
+  geom_text(aes(x=attacks+0.25, y=fittedMeans-1,
+                label=round(fittedMeans,1)), size = 3)+scale_x_continuous(labels = 0:8, breaks= 0:8)
+
+
+#______________________________
+bayesianInformativeDF <- data.frame(a0 = mc0i$mu,a1 = mc1i$mu, a2 =mc2i$mu,a3 = mc3i$mu, a4 = mc4i$mu, a5 = mc5i$mu, a6 = mc6i$mu, a7 = mc7i$mu,a8 = mc8i$mu)
+bayesianInformativeDF$prior <- rnorm(nrow(bayesianInformativeDF), mean = -1.11, sd = 44.47)
+BayesianInformativeDFLong <- gather(bayesianInformativeDF)
+BayesianInformativeDFLong$key <- as.factor(BayesianInformativeDFLong$key)
+BayesianInvormativeDensities <- ggplot(BayesianInformativeDFLong, aes(x=value, group = key, color = key, fill = key))+geom_density(alpha=0.2)+th+xlab("activity change")+scale_fill_discrete(name = "group",labels = c("0 attacks", "1 attack", "2 attacks", "3 attacks", 
+                        "4 attacks", "5 attacks", "6 attacks","7 attacks", "8 attacks",  "prior")) + guides(color = FALSE, size = FALSE)+ylim(c(0,0.11))+xlim(c(-90,50))+labs(title = "Impact of data on Informative prior", subtitle="narrow attacks vs. activity change")
+
+
+InformativeMeans <- numeric(9)
+InformativeLow <- numeric(9)
+InformativeHigh <- numeric(9)
+
+for (i in 1:9){
+  InformativeMeans[i] <-  eval(parse(text = paste("summary(mc",i-1,"i)[1]",sep="")))
+  InformativeLow[i] <- eval(parse(text = paste("summary(mc",i-1,"i)[21]",sep="")))
+  InformativeHigh[i] <- eval(parse(text = paste("summary(mc",i-1,"i)[26]",sep="")))
+}
+
+InformativeBayesTable <- round(data.frame(attacks = 0:8, InformativeLow, InformativeMeans,InformativeHigh),3)
+
+InformativeBayesBar <- ggplot(InformativeBayesTable)+ geom_bar(aes(x=attacks,y=InformativeMeans), stat="identity", fill = "skyblue", alpha= 0.5)+
+  geom_errorbar( aes(x=attacks, ymin=InformativeLow, ymax=InformativeHigh), width=0.4, colour="seashell3", alpha=0.9, size=0.3)+th+xlab("narrow attacks")+ylab("activity change")+
+  geom_text(aes(x=attacks+0.25, y=InformativeMeans-3,
+                label=round(InformativeMeans,1)), size = 3)+scale_x_continuous(labels = 0:8, breaks= 0:8)
+```
+
+
+
+
+
+
+```{r BayesianWideDensities,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+BayesianWideDensities
+```
+
+
+
+```{r wideBayesBar,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+wideBayesBar
+```
+
+
+
+```{r BayesianFittedDensities,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+BayesianFittedDensities
+```
+
+
+```{r fittedBayesBar,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+fittedBayesBar
+```
+
+```{r BayesianInvormativeDensitie,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+BayesianInvormativeDensities
+```
+
+
+```{r InformativeBayesBar,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+InformativeBayesBar 
+```

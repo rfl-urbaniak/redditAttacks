@@ -103,7 +103,12 @@ thursdayClean <- thursdayClean[!grepl("[deleted]", thursdayClean$receiver,
 ``` r
 # note we load the data here
 data <- read.csv("../datasets/quittingFinalAnon.csv")[, -1]
+table(data$group)
 ```
+
+    ## 
+    ##   Rcontrol Rtreatment   Scontrol Streatment 
+    ##        875        935        942        921
 
 | Group      | n   |
 |------------|-----|

@@ -226,6 +226,7 @@ thursdayClean <- thursdayClean[!grepl("[deleted]", thursdayClean$receiver, fixed
 ```{r, echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 #note we load the data here
 data <- read.csv("../datasets/quittingFinalAnon.csv")[,-1]
+table(data$group)
 ```
 \normalsize
 

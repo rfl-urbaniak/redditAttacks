@@ -1246,6 +1246,186 @@ library(stats)
 
 
 
+Our first challenge was finding the right distribution for the outcome variable.
+
+``` r
+activityAfterTab <- table(factor(data$activityAfter, levels = 0:max(data$activityAfter)))
+activityAfterDf <- as.data.frame(activityAfterTab)
+activityAfterDf$Var1 <- as.integer(activityAfterDf$Var1)
+```
+
+``` r
+activityDistr <- ggplot(activityAfterDf, aes(x = Var1, y = Freq)) +
+    geom_bar(stat = "identity") + scale_x_continuous(breaks = seq(0,
+    1000, by = 50)) + th + labs(title = "Distribution of activityAfter") +
+    xlab("activityAfter") + ylab("count")
+
+activityDistrRestr <- ggplot(activityAfterDf, aes(x = Var1, y = Freq)) +
+    geom_bar(stat = "identity") + scale_x_continuous(breaks = seq(0,
+    100, by = 10), limits = c(0, 100)) + th + labs(title = "Distribution of activityAfter",
+    subtitle = "x restricted to 0-100") + xlab("activityAfter") +
+    ylab("count")
+```
+
+``` r
+activityDistr
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/activityDistr-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+activityDistrRestr
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/activityDistrRes-1.png" width="100%" style="display: block; margin: auto;" />
+
+
+
+
+One potential candidate was the Poisson distribution. We identified the Poisson distribution that best fits the data, used  its $\lambda$ parameter ($\approx 35.69$) to  perform a goodness-of-fit test (with $df=273$, $\chi^2 \approx \infty$ and $P(>\chi^2)\approx 0$), and compare visually the predicted values with the actual ones.
+
+
+``` r
+activityFitPois <- goodfit(activityAfterTab, type = "poisson")
+unlist(activityFitPois$par)
+summary(activityFitPois)
+```
+
+``` r
+activityFitPois <- goodfit(activityAfterTab, type = "poisson")
+poissonFitPlot <- ggplot(activityAfterDf, aes(x = Var1, y = Freq)) +
+    geom_bar(stat = "identity", alpha = 0.6) + scale_x_continuous(breaks = seq(0,
+    100, by = 10), limits = c(0, 100)) + th + labs(title = "activityAfter with fitted best Poisson model predictions",
+    subtitle = "x restricted to 0-100") + xlab("activityAfter") +
+    ylab("count") + geom_point(aes(x = Var1, y = activityFitPois$fitted),
+    colour = "darksalmon", size = 0.5, alpha = 0.5)
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/poissonFitPlot-1.png" width="100%" style="display: block; margin: auto;" />
+
+
+
+
+
+
+
+
+
+
+
+ There were at least two problems: zero-inflation and overspread. The former means that the model predicts much fewer zeros than there really are in the data, and the latter means that the model predicts fewer higher values than there are in the data. The best fitting $\lambda$ was fairly high and moved the highest values of Poisson too far to the right compared to where they were expected. Over-dispersion could be  handled by moving to a quasi-Poisson distribution, but this would not help us much with the zero counts.
+
+
+
+ ``` r
+ activityFitNbin <- goodfit(activityAfterTab, type = "nbinom")
+ summary(activityFitNbin)
+ ```
+
+     ##
+     ##   Goodness-of-fit test for nbinomial distribution
+     ##
+     ##                       X^2  df     P(> X^2)
+     ## Likelihood Ratio 647.9633 272 1.045879e-32
+
+ ``` r
+ activityFitNbin <- goodfit(activityAfterTab, type = "nbinom")
+ poissonNbinPlot2 <- ggplot(activityAfterDf, aes(x = Var1, y = Freq)) +
+     geom_bar(stat = "identity", alpha = 0.5) + scale_x_continuous(breaks = seq(0,
+     100, by = 10), limits = c(0, 100)) + th + labs(title = "activityAfter with fitted best negative binomial model predictions",
+     subtitle = "x restricted to 0-100") + xlab("activityAfter") +
+     ylab("count") + geom_point(aes(x = Var1, y = activityFitNbin$fitted),
+     colour = "darksalmon", size = 0.5, alpha = 0.8)
+ ```
+
+ ``` r
+ poissonNbinPlot2
+ ```
+
+ <img src="https://rfl-urbaniak.github.io/redditAttacks/images/poissonNbinPlot2-1.png" width="100%" style="display: block; margin: auto;" />
+
+
+
+
+
+ Another candidate distribution we considered was  negative binomial.
+  There  still were  problems with zeros although in the opposite direction though), the goodness-of-fit test resulted in $\chi^2 \approx 647$ and $P(>\chi^s)\approx 0$,  but the right side of the Figure \ref{fig:nbinperf} looks better. This suggested that improvements were still needed.
+
+ There are two well-known strategies to develop distributions for data with high zero counts: zero-inflated and hurdle models.  In a zero-inflated Poisson (ZIP) model (Lambert 1992) a distinction is made between   the structural zeros for which the output value  will always be 0, and the rest, sometimes giving random zeros. A  ZIP model is comprised of two components:
+
+
+
+-  A model for the binary event of membership in the class where 0 is necessary. Typically, this is logistic regression.
+-  A Poisson (or negative binomial) model for the remaining observed count, potentially including some zeros as well. Typically a log link is used to predict the mean.
+
+
+In hurdle models (proposed initially by Cragg (1971) and developed further by Mullahy (1986)) the idea  is that there may be some special  “hurdle” required to reach a positive count. The model  uses:
+
+- A logistic regression  submodel to distinguish counts of zero from larger counts, and
+-  Truncated Poisson (or negative binomial) regression for the positive counts  excluding the zero counts.
+
+
+
+We start with the full predictor sets.  We display rootograms (they have \emph{squared} frequencies on the $y$-axis to increase the visibility of lower counts) for the models.
+
+
+``` r
+data$sumLowOnlyBefore <- data$sumLowBefore - data$sumHighBefore
+
+fullModelZINbin <- zeroinfl(activityAfter ~ sumLowOnlyBefore +
+    sumHighBefore + sumPlBefore + sumPhBefore + activityBefore,
+    data = data, dist = "negbin")
+
+fullModelHNbin <- hurdle(activityAfter ~ sumLowOnlyBefore + sumHighBefore +
+    sumPlBefore + sumPhBefore + activityBefore, data = data,
+    dist = "negbin")
+
+fullModelZIpois <- zeroinfl(activityAfter ~ sumLowOnlyBefore +
+    sumHighBefore + sumPlBefore + sumPhBefore + activityBefore,
+    data = data, dist = "poisson")
+
+fullModelHpois <- hurdle(activityAfter ~ sumLowOnlyBefore + sumHighBefore +
+    sumPlBefore + sumPhBefore + activityBefore, data = data,
+    dist = "poisson")
+```
+
+``` r
+fullModelZINbinRoot <- countreg::rootogram(fullModelZINbin, max = 100,
+    main = "Zero-inflated negative binomial")
+
+fullModelHNbinRoot <- countreg::rootogram(fullModelHNbin, max = 100,
+    main = "Hurdle negative binomial")
+
+fullModelZIpoisRoot <- countreg::rootogram(fullModelZIpois, max = 100,
+    main = "Zero-inflated Poisson")
+
+fullModelHpoisRoot <- countreg::rootogram(fullModelHpois, max = 100,
+    main = "Hurdle Poisson")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/unnamed-chunk-40-1.png" width="100%" style="display: block; margin: auto;" /><img src="https://rfl-urbaniak.github.io/redditAttacks/images/unnamed-chunk-40-2.png" width="100%" style="display: block; margin: auto;" /><img src="https://rfl-urbaniak.github.io/redditAttacks/images/unnamed-chunk-40-3.png" width="100%" style="display: block; margin: auto;" /><img src="https://rfl-urbaniak.github.io/redditAttacks/images/unnamed-chunk-40-4.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+autoplot(fullModelZINbinRoot, alpha = 0.5) + th + ylab("Square root of couts") +
+    ggtitle("Zero-inflated negative binomial")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/fullModelZINbinRoot-1.png" width="100%" style="display: block; margin: auto;" />
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/fullModelHNbinRoot-1.png" width="100%" style="display: block; margin: auto;" />
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/fullModelZIpoisRoot-1.png" width="100%" style="display: block; margin: auto;" />
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/fullModelHpoisRoot-1.png" width="100%" style="display: block; margin: auto;" />
+
+
+
+
+
+
+
+
+
 
 
 

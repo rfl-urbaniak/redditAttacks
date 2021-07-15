@@ -973,3 +973,93 @@ activityDistr
 ```{r activityDistrRes,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
 activityDistrRestr
 ```
+
+
+
+```{r,echo=TRUE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
+activityFitPois <- goodfit(activityAfterTab, type = "poisson")
+unlist(activityFitPois$par)
+summary(activityFitPois)
+```
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
+activityFitPois <- goodfit(activityAfterTab, type = "poisson")
+poissonFitPlot <- ggplot(activityAfterDf, aes(x = Var1, y  = Freq))+ geom_bar( stat="identity", alpha=0.6)+
+  scale_x_continuous(breaks = seq(0,100, by = 10), 
+                     limits = c(0,100))+th+labs(title="activityAfter with fitted best Poisson model predictions", subtitle = "x restricted to 0-100")+xlab("activityAfter")+ylab("count")+geom_point(aes(x = Var1,y=activityFitPois$fitted), colour="darksalmon", size = 0.5, alpha = 0.5)
+```
+
+```{r poissonFitPlot,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
+poissonFitPlot
+```
+
+
+
+
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
+activityFitNbin <- goodfit(activityAfterTab, type = "nbinom")
+summary(activityFitNbin)
+```
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
+activityFitNbin <- goodfit(activityAfterTab, type = "nbinom")
+poissonNbinPlot2 <- ggplot(activityAfterDf, aes(x = Var1, y  = Freq))+ geom_bar( stat="identity", alpha = 0.5)+scale_x_continuous(breaks = seq(0,100, by = 10), limits = c(0,100))+th+labs(title="activityAfter with fitted best negative binomial model predictions", subtitle = "x restricted to 0-100")+xlab("activityAfter")+ylab("count")+geom_point(aes(x = Var1,y=activityFitNbin$fitted), colour="darksalmon", size = 0.5, alpha = 0.8)
+```
+
+```{r poissonNbinPlot2,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE,message=FALSE}
+poissonNbinPlot2
+```
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE,warning=FALSE}
+data$sumLowOnlyBefore <- data$sumLowBefore - data$sumHighBefore
+
+fullModelZINbin <-zeroinfl(activityAfter~sumLowOnlyBefore+
+    sumHighBefore+sumPlBefore+ sumPhBefore+ activityBefore,
+    data = data, dist = "negbin") 
+
+fullModelHNbin <- hurdle(activityAfter~sumLowOnlyBefore+
+  sumHighBefore+sumPlBefore+ sumPhBefore+ activityBefore,
+  data= data, dist = "negbin") 
+
+fullModelZIpois <-zeroinfl(activityAfter~sumLowOnlyBefore+
+  sumHighBefore+sumPlBefore+ sumPhBefore+ activityBefore,
+  data = data, dist = "poisson") 
+
+fullModelHpois <- hurdle(activityAfter~sumLowOnlyBefore+
+  sumHighBefore+sumPlBefore+ sumPhBefore+ activityBefore, 
+  data = data, dist = "poisson")
+```
+
+
+
+```{r,echo=TRUE,include =TRUE, eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+fullModelZINbinRoot <- countreg::rootogram(fullModelZINbin,
+          max=100, main="Zero-inflated negative binomial")
+
+fullModelHNbinRoot <- countreg::rootogram(fullModelHNbin, max=100, main="Hurdle negative binomial")
+
+fullModelZIpoisRoot <- countreg::rootogram(fullModelZIpois, max=100, main="Zero-inflated Poisson")
+
+fullModelHpoisRoot <- countreg::rootogram(fullModelHpois, max=100, main="Hurdle Poisson")
+```
+
+
+```{r fullModelZINbinRoot,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+autoplot(fullModelZINbinRoot, alpha = 0.5)+th+ylab("Square root of couts")+ggtitle("Zero-inflated negative binomial")
+```
+
+```{r fullModelHNbinRoot,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+autoplot(fullModelHNbinRoot, alpha = 0.5)+th+ylab("Square root of couts")+ggtitle("Hurdle negative binomial")
+```
+
+```{r fullModelZIpoisRoot,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+autoplot(fullModelZIpoisRoot, alpha = 0.5)+th+ylab("Square root of couts")+ggtitle("Zero-inflated Poisson")
+```
+
+```{r fullModelHpoisRoot,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+autoplot(fullModelHpoisRoot, alpha = 0.5)+th+ylab("Square root of couts")+ggtitle("Hurdle Poisson")
+```

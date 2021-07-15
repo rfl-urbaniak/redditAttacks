@@ -1021,6 +1021,100 @@ activityDistrRestr
 
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/activityDistrRes-1.png" width="100%" style="display: block; margin: auto;" />
 
+``` r
+activityFitPois <- goodfit(activityAfterTab, type = "poisson")
+unlist(activityFitPois$par)
+summary(activityFitPois)
+```
+
+``` r
+activityFitPois <- goodfit(activityAfterTab, type = "poisson")
+poissonFitPlot <- ggplot(activityAfterDf, aes(x = Var1, y = Freq)) +
+    geom_bar(stat = "identity", alpha = 0.6) + scale_x_continuous(breaks = seq(0,
+    100, by = 10), limits = c(0, 100)) + th + labs(title = "activityAfter with fitted best Poisson model predictions",
+    subtitle = "x restricted to 0-100") + xlab("activityAfter") +
+    ylab("count") + geom_point(aes(x = Var1, y = activityFitPois$fitted),
+    colour = "darksalmon", size = 0.5, alpha = 0.5)
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/poissonFitPlot-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+activityFitNbin <- goodfit(activityAfterTab, type = "nbinom")
+summary(activityFitNbin)
+```
+
+    ## 
+    ##   Goodness-of-fit test for nbinomial distribution
+    ## 
+    ##                       X^2  df     P(> X^2)
+    ## Likelihood Ratio 647.9633 272 1.045879e-32
+
+``` r
+activityFitNbin <- goodfit(activityAfterTab, type = "nbinom")
+poissonNbinPlot2 <- ggplot(activityAfterDf, aes(x = Var1, y = Freq)) +
+    geom_bar(stat = "identity", alpha = 0.5) + scale_x_continuous(breaks = seq(0,
+    100, by = 10), limits = c(0, 100)) + th + labs(title = "activityAfter with fitted best negative binomial model predictions",
+    subtitle = "x restricted to 0-100") + xlab("activityAfter") +
+    ylab("count") + geom_point(aes(x = Var1, y = activityFitNbin$fitted),
+    colour = "darksalmon", size = 0.5, alpha = 0.8)
+```
+
+``` r
+poissonNbinPlot2
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/poissonNbinPlot2-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+data$sumLowOnlyBefore <- data$sumLowBefore - data$sumHighBefore
+
+fullModelZINbin <- zeroinfl(activityAfter ~ sumLowOnlyBefore +
+    sumHighBefore + sumPlBefore + sumPhBefore + activityBefore,
+    data = data, dist = "negbin")
+
+fullModelHNbin <- hurdle(activityAfter ~ sumLowOnlyBefore + sumHighBefore +
+    sumPlBefore + sumPhBefore + activityBefore, data = data,
+    dist = "negbin")
+
+fullModelZIpois <- zeroinfl(activityAfter ~ sumLowOnlyBefore +
+    sumHighBefore + sumPlBefore + sumPhBefore + activityBefore,
+    data = data, dist = "poisson")
+
+fullModelHpois <- hurdle(activityAfter ~ sumLowOnlyBefore + sumHighBefore +
+    sumPlBefore + sumPhBefore + activityBefore, data = data,
+    dist = "poisson")
+```
+
+``` r
+fullModelZINbinRoot <- countreg::rootogram(fullModelZINbin, max = 100,
+    main = "Zero-inflated negative binomial")
+
+fullModelHNbinRoot <- countreg::rootogram(fullModelHNbin, max = 100,
+    main = "Hurdle negative binomial")
+
+fullModelZIpoisRoot <- countreg::rootogram(fullModelZIpois, max = 100,
+    main = "Zero-inflated Poisson")
+
+fullModelHpoisRoot <- countreg::rootogram(fullModelHpois, max = 100,
+    main = "Hurdle Poisson")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/unnamed-chunk-40-1.png" width="100%" style="display: block; margin: auto;" /><img src="https://rfl-urbaniak.github.io/redditAttacks/images/unnamed-chunk-40-2.png" width="100%" style="display: block; margin: auto;" /><img src="https://rfl-urbaniak.github.io/redditAttacks/images/unnamed-chunk-40-3.png" width="100%" style="display: block; margin: auto;" /><img src="https://rfl-urbaniak.github.io/redditAttacks/images/unnamed-chunk-40-4.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+autoplot(fullModelZINbinRoot, alpha = 0.5) + th + ylab("Square root of couts") +
+    ggtitle("Zero-inflated negative binomial")
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/fullModelZINbinRoot-1.png" width="100%" style="display: block; margin: auto;" />
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/fullModelHNbinRoot-1.png" width="100%" style="display: block; margin: auto;" />
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/fullModelZIpoisRoot-1.png" width="100%" style="display: block; margin: auto;" />
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/fullModelHpoisRoot-1.png" width="100%" style="display: block; margin: auto;" />
+
 Kruschke, J. (2015). *Doing Bayesian data analysis; a tutorial with R, JAGS, and Stan*.
 
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.

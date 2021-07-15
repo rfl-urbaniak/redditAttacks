@@ -523,6 +523,94 @@ T-test based estimates for activity change divided by numbers of wide only attac
     ## highLo   50.773
     ## pLo       0.225
 
+``` r
+highTableBar
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/highTableBar-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+highTableBar6
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/highTableBar6-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+highTableBar3
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/highTableBar3-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+lowTableBar
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/lowTableBar-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+lowOnlyTableBar
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/lowOnlyTableBar-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+h6 <- data[data$sumHighBefore == 6, ]
+h7 <- data[data$sumHighBefore == 7, ]
+h8 <- data[data$sumHighBefore == 8, ]
+
+# power for 6 attacks
+a <- mean(data$activityDiff)
+s <- sd(h7$activityDiff)
+n <- 8
+error <- qt(0.975, df = n - 1) * s/sqrt(n)
+left <- a - error
+right <- a + error
+assumed <- a - 80
+tleft <- (left - assumed)/(s/sqrt(n))
+tright <- (right - assumed)/(s/sqrt(n))
+p <- pt(tright, df = n - 1) - pt(tleft, df = n - 1)
+power6 <- 1 - p
+power6
+```
+
+    ## [1] 0.7369795
+
+``` r
+# power for 7 attacks
+a <- mean(data$activityDiff)
+s <- sd(h7$activityDiff)
+n <- 8
+error <- qt(0.975, df = n - 1) * s/sqrt(n)
+left <- a - error
+right <- a + error
+assumed <- a - 80
+tleft <- (left - assumed)/(s/sqrt(n))
+tright <- (right - assumed)/(s/sqrt(n))
+p <- pt(tright, df = n - 1) - pt(tleft, df = n - 1)
+power7 <- 1 - p
+power7
+```
+
+    ## [1] 0.7369795
+
+``` r
+# power for 8 attacks
+a <- mean(data$activityDiff)
+s <- sd(h8$activityDiff)
+n <- 4
+error <- qt(0.975, df = n - 1) * s/sqrt(n)
+left <- a - error
+right <- a + error
+assumed <- a - 80
+tleft <- (left - assumed)/(s/sqrt(n))
+tright <- (right - assumed)/(s/sqrt(n))
+p <- pt(tright, df = n - 1) - pt(tleft, df = n - 1)
+power8 <- 1 - p
+power8
+```
+
+    ## [1] 0.3088534
+
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.
 
 Valkenburg, P. M., Peter, J., & Schouten, A. P. (2006). Friend networking sites and their relationship to adolescents’ well-being and social self-esteem. *CyberPsychology & Behavior*, *9*(5), 584–590. <https://doi.org/10.1089/cpb.2006.9.584>

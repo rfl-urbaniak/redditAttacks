@@ -549,3 +549,80 @@ lowOnlyTable
 
 
 
+
+```{r highTableBar,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+highTableBar
+```
+
+```{r highTableBar6,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+highTableBar6
+```
+
+
+```{r highTableBar3,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+highTableBar3
+```
+
+```{r lowTableBar,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+lowTableBar
+```
+
+
+```{r lowOnlyTableBar,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+lowOnlyTableBar
+```
+
+
+
+
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+h6 <- data[data$sumHighBefore == 6,]
+h7 <- data[data$sumHighBefore == 7,]
+h8 <- data[data$sumHighBefore == 8,]
+
+# power for 6 attacks
+a <- mean(data$activityDiff)
+s <- sd(h7$activityDiff)
+n <- 8
+error <- qt(0.975,df=n-1)*s/sqrt(n)
+left <- a-error
+right <- a+error
+assumed <- a - 80
+tleft <- (left-assumed)/(s/sqrt(n))
+tright <- (right-assumed)/(s/sqrt(n))
+p <- pt(tright,df=n-1)-pt(tleft,df=n-1)
+power6 <- 1-p
+power6
+
+# power for 7 attacks
+a <- mean(data$activityDiff)
+s <- sd(h7$activityDiff)
+n <- 8
+error <- qt(0.975,df=n-1)*s/sqrt(n)
+left <- a-error
+right <- a+error
+assumed <- a - 80
+tleft <- (left-assumed)/(s/sqrt(n))
+tright <- (right-assumed)/(s/sqrt(n))
+p <- pt(tright,df=n-1)-pt(tleft,df=n-1)
+power7 <-1-p
+power7
+
+# power for 8 attacks
+a <- mean(data$activityDiff)
+s <- sd(h8$activityDiff)
+n <- 4
+error <- qt(0.975,df=n-1)*s/sqrt(n)
+left <- a-error
+right <- a+error
+assumed <- a - 80
+tleft <- (left-assumed)/(s/sqrt(n))
+tright <- (right-assumed)/(s/sqrt(n))
+p <- pt(tright,df=n-1)-pt(tleft,df=n-1)
+power8 <- 1-p
+power8
+```
+
+

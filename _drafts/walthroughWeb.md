@@ -71,6 +71,15 @@ thursdayClean <- thursdayClean[!grepl("[deleted]", thursdayClean$receiver,
     fixed = TRUE), ]
 ```
 
+1.  This left us with 92,943 comments or posts by 75,516 users for and 89,585 comments by 72,801 users for . While we didn't directly track whether content was a post or a comment, we paid attention as to whether a piece of content was a reply to a post or not (the working assumption was that personal attacks on posts might have different impact than attacks on comments). Quite consistently, 46% of content were comments on posts on both days.
+
+2.  On these two days respectively, 1359 users (1.79%) received at least one attack, 35 of them received more than one (0.046%). 302 of users (0.39%) received at least one attack and 3 of them more than one on that day (0.003%). These numbers are estimates for a single day, and therefore if the chance of obtaining at least one attack in a day is 1.79%, assuming the binomial distribution, the estimated probability of obtaining at least one attack in a week is 11.9% in a week and 43% in a month.
+
+``` r
+100  * round(1-dbinom(0,7,prob = 1359/75516),3)` #week
+100 * round(1-dbinom(0,31,prob = 1359/75516),3)` #month
+```
+
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.
 
 Valkenburg, P. M., Peter, J., & Schouten, A. P. (2006). Friend networking sites and their relationship to adolescents’ well-being and social self-esteem. *CyberPsychology & Behavior*, *9*(5), 584–590. <https://doi.org/10.1089/cpb.2006.9.584>

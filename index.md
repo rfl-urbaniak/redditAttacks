@@ -1982,6 +1982,213 @@ ggplot(before, aes(x = attacks, y = estimatedm)) + geom_point() +
 
 
 
+We visually inspect the relation between the distance from the sample mean for `activityBefore` and the activity change between week 1 and week 2, grouped by the number of attacks received (for the cases for which we obtained significant results in the classical analysis).
+
+
+``` r
+h0 <- data[data$sumHighBefore == 0, ]
+h1 <- data[data$sumHighBefore == 1, ]
+h2 <- data[data$sumHighBefore == 2, ]
+h3 <- data[data$sumHighBefore == 3, ]
+h4 <- data[data$sumHighBefore == 4, ]
+
+distance <- function(x) {
+    x - mean(data$sumHighBefore)
+}
+
+library(gridExtra)
+grid.arrange(ggplot(h0, aes(x = distance(activityBefore), y = activityDiff)) +
+    geom_point(alpha = 0.3, size = 1, position = "jitter") +
+    geom_smooth(size = 0.5, alpha = 0.5) + th + xlab("distance from sample mean") +
+    ggtitle("0 narrow attacks") + ylab("activity change"), ggplot(h2,
+    aes(x = distance(activityBefore), y = activityDiff)) + geom_point(alpha = 0.3,
+    size = 1, position = "jitter") + geom_smooth(size = 0.5,
+    alpha = 0.5) + th + xlab("distance from sample mean") + ggtitle("2 narrow attacks") +
+    ylab("activity change"), ggplot(h3, aes(x = distance(activityBefore),
+    y = activityDiff)) + geom_point(alpha = 0.3, size = 1, position = "jitter") +
+    geom_smooth(size = 0.5, alpha = 0.5) + th + xlab("distance from sample mean") +
+    ggtitle("3 narrow attacks") + ylab("activity change"), ggplot(h4,
+    aes(x = distance(activityBefore), y = activityDiff)) + geom_point(alpha = 0.3,
+    size = 1, position = "jitter") + geom_smooth(size = 0.5,
+    alpha = 0.5) + th + xlab("distance from sample mean") + ggtitle("4 narrow attacks") +
+    ylab("activity change"))
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/regressionToMean-1.png" width="100%" style="display: block; margin: auto;" />
+
+
+First, in an inspection of the control group, the smoothing might suggest some correlation between the distance from the mean and the activity drop. However, the sharp cut-off at the bottom is there because one cannot drop their activity below the previous activity level. So users closer to the mean didn't even have the lower options available, and this restriction might be partially responsible for the smoothing line going downwards. Moreover, Spearman correlation between the distance from the mean and the activity change is -0.269, which is fairly weak. Pearson's *ρ* is not very different ( -0.255), but we need to be careful here, because the relation doesn't seem very linear (*p*-values for correlation tests are both &lt;0.001). If, however, we follow this line of reasoning, the distance from the mean would explain only *R*<sup>2</sup>= 0.065 of the variability in the activity change in the control group.
+
+
+The impression of regression to the mean disappears when we look at `activityScore`, that is, activity change in proportion to previous activity.
+
+``` r
+h0 <- data[data$sumHighBefore == 0, ]
+h1 <- data[data$sumHighBefore == 1, ]
+h2 <- data[data$sumHighBefore == 2, ]
+h3 <- data[data$sumHighBefore == 3, ]
+h4 <- data[data$sumHighBefore == 4, ]
+
+distance <- function(x) {
+    x - mean(data$sumHighBefore)
+}
+
+library(gridExtra)
+grid.arrange(ggplot(h0, aes(x = distance(activityBefore), y = activityScore)) +
+    geom_point(alpha = 0.3, size = 1, position = "jitter") +
+    geom_smooth(size = 0.5, alpha = 0.5) + th + xlab("distance from sample mean") +
+    ggtitle("0 narrow attacks") + ylab("proportional activity change"),
+    ggplot(h2, aes(x = distance(activityBefore), y = activityScore)) +
+        geom_point(alpha = 0.3, size = 1, position = "jitter") +
+        geom_smooth(size = 0.5, alpha = 0.5) + th + xlab("distance from sample mean") +
+        ggtitle("2 narrow attacks") + ylab("proportional activity change"),
+    ggplot(h3, aes(x = distance(activityBefore), y = activityScore)) +
+        geom_point(alpha = 0.3, size = 1, position = "jitter") +
+        geom_smooth(size = 0.5, alpha = 0.5) + th + xlab("distance from sample mean") +
+        ggtitle("3 narrow attacks") + ylab("proportional activity change"),
+    ggplot(h4, aes(x = distance(activityBefore), y = activityScore)) +
+        geom_point(alpha = 0.3, size = 1, position = "jitter") +
+        geom_smooth(size = 0.5, alpha = 0.5) + th + xlab("distance from sample mean") +
+        ggtitle("4 narrow attacks") + ylab("proportional activity change"))
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/regressionToMean2-1.png" width="100%" style="display: block; margin: auto;" />
+
+Plots for $>0$ attacks with gam smoothing does not suggest regression to the mean: it is not the case that attacked users with higher activity before indeed tend to have lower activity in the second week.
+
+
+
+Next, notice that restricting the dataset to users with similar activity before still results in uneven activity change between the groups. We focus focus on users with \textsf{activityBefore} restricted to the third quartile of the whole sample (44),  narrow attacks in $\{0,1,2,3, 4\} and estimate  their \textsf{activityScore} proportional drop.
+
+
+
+
+``` r
+iqr0 <- data[data$sumHighBefore == 0 & data$activityBefore <=
+    44, ]
+iqr1 <- data[data$sumHighBefore == 1 & data$activityBefore <=
+    44, ]
+iqr2 <- data[data$sumHighBefore == 2 & data$activityBefore <=
+    44, ]
+iqr3 <- data[data$sumHighBefore == 3 & data$activityBefore <=
+    44, ]
+iqr4 <- data[data$sumHighBefore == 4 & data$activityBefore <=
+    44, ]
+
+t.test(iqr0$activityScore)
+```
+
+    ##
+    ##  One Sample t-test
+    ##
+    ## data:  iqr0$activityScore
+    ## t = 1.2217, df = 2383, p-value = 0.2219
+    ## alternative hypothesis: true mean is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -0.03146482  0.13546981
+    ## sample estimates:
+    ##  mean of x
+    ## 0.05200249
+
+``` r
+t.test(iqr1$activityScore)
+```
+
+    ##
+    ##  One Sample t-test
+    ##
+    ## data:  iqr1$activityScore
+    ## t = 0.98047, df = 307, p-value = 0.3276
+    ## alternative hypothesis: true mean is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -0.1174912  0.3508613
+    ## sample estimates:
+    ## mean of x
+    ## 0.1166851
+
+``` r
+t.test(iqr2$activityScore)
+```
+
+    ##
+    ##  One Sample t-test
+    ##
+    ## data:  iqr2$activityScore
+    ## t = -0.42513, df = 48, p-value = 0.6726
+    ## alternative hypothesis: true mean is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -0.5275463  0.3433931
+    ## sample estimates:
+    ##  mean of x
+    ## -0.0920766
+
+``` r
+t.test(iqr3$activityScore)
+```
+
+    ##
+    ##  One Sample t-test
+    ##
+    ## data:  iqr3$activityScore
+    ## t = -2.4104, df = 12, p-value = 0.03289
+    ## alternative hypothesis: true mean is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -0.68256469 -0.03444387
+    ## sample estimates:
+    ##  mean of x
+    ## -0.3585043
+
+``` r
+t.test(iqr4$activityScore)
+```
+
+    ##
+    ##  One Sample t-test
+    ##
+    ## data:  iqr4$activityScore
+    ## t = -5.0454, df = 6, p-value = 0.002344
+    ## alternative hypothesis: true mean is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -1.049450 -0.363969
+    ## sample estimates:
+    ##  mean of x
+    ## -0.7067096
+
+
+
+
+
+
+The estimated means of proportional changes  are $0.05, 0.11, -0.09,-0.35, -0.7$ with decreasing p-values falling below .05 at the number of attacks $=3, 4$ and $p$-value 0.002 for four attacks (that is, 0.01 with Bonferroni correction for multiple testing), despite the group sizes for three and four attacks being fairly low (49 for two, 13 for three, 7 for four).  By the way, note that with this activity restriction, receiving one attack does not seem to have much impact on user's activity.
+
+
+
+
+
+Further, to adjust for regression to the mean, it is sometimes recommended to  use ANCOVA to correct for prior differences in pretest measurements. In our case, a statistically significant difference for different number of attacks received remains after correcting for differences  in activity before.
+
+
+
+
+``` r
+library(rstatix)
+data$fhigh <- as.factor(data$sumHighBefore)
+data %>%
+    anova_test(activityDiff ~ activityBefore + fhigh)
+```
+
+    ## ANOVA Table (type II tests)
+    ##
+    ##           Effect DFn  DFd       F         p p<.05   ges
+    ## 1 activityBefore   1 3651 577.220 1.53e-118     * 0.137
+    ## 2          fhigh  20 3651  10.214  1.57e-31     * 0.053
+
+
+
+
+
+    Finally, the model-theoretic analysis already corrects for activity before, and estimates the effect size of the other variables keeping activity before fixed at the mean level. So, regression to the mean, while it might play a small part, does not seem to explain the differences. However, the potential effects of regression to the mean have to be kept in mind in future observational studies and replication attempts.
+
 
 
 
@@ -1989,8 +2196,21 @@ ggplot(before, aes(x = attacks, y = estimatedm)) + geom_point() +
 
 ### References
 
+Akaike, H. (1974). A new look at the statistical model identification. *IEEE Transactions on Automatic Control*, *19*(6), 716–723. <https://doi.org/10.1109/TAC.1974.1100705>
+
+Kruschke, J. (2015). *Doing Bayesian data analysis; a tutorial with R, JAGS, and Stan*.
+
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.
 
+Tukey, J. W. (1949). Comparing individual means in the analysis of variance. *Biometrics*, *5*(2), 99. <https://doi.org/10.2307/3001913>
+
+Valkenburg, P. M., Peter, J., & Schouten, A. P. (2006). Friend networking sites and their relationship to adolescents’ well-being and social self-esteem. *CyberPsychology & Behavior*, *9*(5), 584–590. <https://doi.org/10.1089/cpb.2006.9.584>
+
+Wise, K., Hamman, B., & Thorson, K. (2006). Moderation, response rate, and message interactivity: Features of online communities and their effects on intent to participate. *Journal of Computer-Mediated Communication*, *12*(1), 24–41. <https://doi.org/10.1111/j.1083-6101.2006.00313.x>
+
 Wroczynski, M., & Leliwa, G. (2019). *System and method for detecting undesirable and potentially harmful online behavior*. Google Patents.
+
+Zong, W., Yang, J., & Bao, Z. (2019). Social network fatigue affecting continuance intention of social networking services. *Data Technologies and Applications*. <https://doi.org/10.1108/dta-06-2018-0054>
+
 
 [1] <https://www.samurailabs.ai/>, described in (Ptaszyński, Leliwa, Piech, & Smywiński-Pohl, 2018; Wroczynski & Leliwa, 2019).

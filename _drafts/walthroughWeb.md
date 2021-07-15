@@ -1581,6 +1581,175 @@ ggplot(before, aes(x = attacks, y = estimatedm)) + geom_point() +
 
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/mean2-1.png" width="100%" style="display: block; margin: auto;" />
 
+``` r
+h0 <- data[data$sumHighBefore == 0, ]
+h1 <- data[data$sumHighBefore == 1, ]
+h2 <- data[data$sumHighBefore == 2, ]
+h3 <- data[data$sumHighBefore == 3, ]
+h4 <- data[data$sumHighBefore == 4, ]
+
+distance <- function(x) {
+    x - mean(data$sumHighBefore)
+}
+
+library(gridExtra)
+grid.arrange(ggplot(h0, aes(x = distance(activityBefore), y = activityDiff)) +
+    geom_point(alpha = 0.3, size = 1, position = "jitter") +
+    geom_smooth(size = 0.5, alpha = 0.5) + th + xlab("distance from sample mean") +
+    ggtitle("0 narrow attacks") + ylab("activity change"), ggplot(h2,
+    aes(x = distance(activityBefore), y = activityDiff)) + geom_point(alpha = 0.3,
+    size = 1, position = "jitter") + geom_smooth(size = 0.5,
+    alpha = 0.5) + th + xlab("distance from sample mean") + ggtitle("2 narrow attacks") +
+    ylab("activity change"), ggplot(h3, aes(x = distance(activityBefore),
+    y = activityDiff)) + geom_point(alpha = 0.3, size = 1, position = "jitter") +
+    geom_smooth(size = 0.5, alpha = 0.5) + th + xlab("distance from sample mean") +
+    ggtitle("3 narrow attacks") + ylab("activity change"), ggplot(h4,
+    aes(x = distance(activityBefore), y = activityDiff)) + geom_point(alpha = 0.3,
+    size = 1, position = "jitter") + geom_smooth(size = 0.5,
+    alpha = 0.5) + th + xlab("distance from sample mean") + ggtitle("4 narrow attacks") +
+    ylab("activity change"))
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/regressionToMean-1.png" width="100%" style="display: block; margin: auto;" />
+
+First, in an inspection of the control group, the smoothing might suggest some correlation between the distance from the mean and the activity drop. However, the sharp cut-off at the bottom is there because one cannot drop their activity below the previous activity level. So users closer to the mean didn't even have the lower options available, and this restriction might be partially responsible for the smoothing line going downwards. Moreover, Spearman correlation between the distance from the mean and the activity change is -0.269, which is fairly weak. Pearson's *ρ* is not very different ( -0.255), but we need to be careful here, because the relation doesn't seem very linear (*p*-values for correlation tests are both &lt;0.001). If, however, we follow this line of reasoning, the distance from the mean would explain only *R*<sup>2</sup>= 0.065 of the variability in the activity change in the control group.
+
+``` r
+h0 <- data[data$sumHighBefore == 0, ]
+h1 <- data[data$sumHighBefore == 1, ]
+h2 <- data[data$sumHighBefore == 2, ]
+h3 <- data[data$sumHighBefore == 3, ]
+h4 <- data[data$sumHighBefore == 4, ]
+
+distance <- function(x) {
+    x - mean(data$sumHighBefore)
+}
+
+library(gridExtra)
+grid.arrange(ggplot(h0, aes(x = distance(activityBefore), y = activityScore)) +
+    geom_point(alpha = 0.3, size = 1, position = "jitter") +
+    geom_smooth(size = 0.5, alpha = 0.5) + th + xlab("distance from sample mean") +
+    ggtitle("0 narrow attacks") + ylab("proportional activity change"),
+    ggplot(h2, aes(x = distance(activityBefore), y = activityScore)) +
+        geom_point(alpha = 0.3, size = 1, position = "jitter") +
+        geom_smooth(size = 0.5, alpha = 0.5) + th + xlab("distance from sample mean") +
+        ggtitle("2 narrow attacks") + ylab("proportional activity change"),
+    ggplot(h3, aes(x = distance(activityBefore), y = activityScore)) +
+        geom_point(alpha = 0.3, size = 1, position = "jitter") +
+        geom_smooth(size = 0.5, alpha = 0.5) + th + xlab("distance from sample mean") +
+        ggtitle("3 narrow attacks") + ylab("proportional activity change"),
+    ggplot(h4, aes(x = distance(activityBefore), y = activityScore)) +
+        geom_point(alpha = 0.3, size = 1, position = "jitter") +
+        geom_smooth(size = 0.5, alpha = 0.5) + th + xlab("distance from sample mean") +
+        ggtitle("4 narrow attacks") + ylab("proportional activity change"))
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/regressionToMean2-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+iqr0 <- data[data$sumHighBefore == 0 & data$activityBefore <=
+    44, ]
+iqr1 <- data[data$sumHighBefore == 1 & data$activityBefore <=
+    44, ]
+iqr2 <- data[data$sumHighBefore == 2 & data$activityBefore <=
+    44, ]
+iqr3 <- data[data$sumHighBefore == 3 & data$activityBefore <=
+    44, ]
+iqr4 <- data[data$sumHighBefore == 4 & data$activityBefore <=
+    44, ]
+
+t.test(iqr0$activityScore)
+```
+
+    ## 
+    ##  One Sample t-test
+    ## 
+    ## data:  iqr0$activityScore
+    ## t = 1.2217, df = 2383, p-value = 0.2219
+    ## alternative hypothesis: true mean is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -0.03146482  0.13546981
+    ## sample estimates:
+    ##  mean of x 
+    ## 0.05200249
+
+``` r
+t.test(iqr1$activityScore)
+```
+
+    ## 
+    ##  One Sample t-test
+    ## 
+    ## data:  iqr1$activityScore
+    ## t = 0.98047, df = 307, p-value = 0.3276
+    ## alternative hypothesis: true mean is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -0.1174912  0.3508613
+    ## sample estimates:
+    ## mean of x 
+    ## 0.1166851
+
+``` r
+t.test(iqr2$activityScore)
+```
+
+    ## 
+    ##  One Sample t-test
+    ## 
+    ## data:  iqr2$activityScore
+    ## t = -0.42513, df = 48, p-value = 0.6726
+    ## alternative hypothesis: true mean is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -0.5275463  0.3433931
+    ## sample estimates:
+    ##  mean of x 
+    ## -0.0920766
+
+``` r
+t.test(iqr3$activityScore)
+```
+
+    ## 
+    ##  One Sample t-test
+    ## 
+    ## data:  iqr3$activityScore
+    ## t = -2.4104, df = 12, p-value = 0.03289
+    ## alternative hypothesis: true mean is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -0.68256469 -0.03444387
+    ## sample estimates:
+    ##  mean of x 
+    ## -0.3585043
+
+``` r
+t.test(iqr4$activityScore)
+```
+
+    ## 
+    ##  One Sample t-test
+    ## 
+    ## data:  iqr4$activityScore
+    ## t = -5.0454, df = 6, p-value = 0.002344
+    ## alternative hypothesis: true mean is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -1.049450 -0.363969
+    ## sample estimates:
+    ##  mean of x 
+    ## -0.7067096
+
+``` r
+library(rstatix)
+data$fhigh <- as.factor(data$sumHighBefore)
+data %>%
+    anova_test(activityDiff ~ activityBefore + fhigh)
+```
+
+    ## ANOVA Table (type II tests)
+    ## 
+    ##           Effect DFn  DFd       F         p p<.05   ges
+    ## 1 activityBefore   1 3651 577.220 1.53e-118     * 0.137
+    ## 2          fhigh  20 3651  10.214  1.57e-31     * 0.053
+
 Akaike, H. (1974). A new look at the statistical model identification. *IEEE Transactions on Automatic Control*, *19*(6), 716–723. <https://doi.org/10.1109/TAC.1974.1100705>
 
 Kruschke, J. (2015). *Doing Bayesian data analysis; a tutorial with R, JAGS, and Stan*.

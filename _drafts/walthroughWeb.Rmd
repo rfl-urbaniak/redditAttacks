@@ -1402,3 +1402,73 @@ after <- as.data.frame(t(highTablea))
 ggplot(before, aes(x = attacks, y = estimatedm))+geom_point()+ geom_errorbar(aes(ymin=CIlow, ymax=CIhigh), width=.2,size=0.2,                                                                         position=position_dodge(0.05))+th+xlab("narrow attacks")+ylab("mean activity")+geom_line(data = after, aes(x = attacks, y = estimatedm), color = "skyblue")+geom_errorbar(data = after, aes(ymin=CIlow, ymax=CIhigh), width=.3,size=0.2,color = "skyblue",  position=position_dodge(0.05))
 ```
 
+
+```{r regressionToMean,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+h0 <- data[data$sumHighBefore == 0,]
+h1 <- data[data$sumHighBefore == 1,]
+h2 <- data[data$sumHighBefore == 2,]
+h3 <- data[data$sumHighBefore == 3,]
+h4 <- data[data$sumHighBefore == 4,]
+
+distance <- function(x) { x - mean(data$sumHighBefore)}
+
+library(gridExtra)
+grid.arrange(ggplot(h0, aes(x = distance(activityBefore),y = activityDiff))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
+)+ggtitle("0 narrow attacks")+ylab("activity change"),
+ggplot(h2, aes(x = distance(activityBefore),y = activityDiff))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
+)+ggtitle("2 narrow attacks")+ylab("activity change"),
+ggplot(h3, aes(x = distance(activityBefore),y = activityDiff))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
+)+ggtitle("3 narrow attacks")+ylab("activity change"),
+ggplot(h4, aes(x = distance(activityBefore),y = activityDiff))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
+)+ggtitle("4 narrow attacks")+ylab("activity change"))
+```
+
+
+First, in an inspection of the control group, the smoothing might suggest some correlation between the distance from the mean and the activity drop. However,  the sharp cut-off at the bottom  is there because one cannot drop their activity below the previous activity level. So users closer to the mean didn't even have the lower options available, and this restriction might be partially responsible for the smoothing line going downwards. Moreover, Spearman correlation between the distance from the mean and the activity change is `r round(cor(h0$activityBefore,h0$activityDiff, method = "spearman"),3)`, which is fairly weak. Pearson's $\rho$ is not very different (
+`r round(cor(h0$activityBefore,h0$activityDiff),3)`), but we need to be careful here, because the relation doesn't seem very linear ($p$-values for correlation tests are both $<0.001$). If, however, we follow this line of reasoning,  the distance from the mean would explain only $R^2 =$ 
+`r round(cor(h0$activityBefore,h0$activityDiff)^2,3)` of the variability in the activity change in the control group.
+
+
+```{r regressionToMean2,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+h0 <- data[data$sumHighBefore == 0,]
+h1 <- data[data$sumHighBefore == 1,]
+h2 <- data[data$sumHighBefore == 2,]
+h3 <- data[data$sumHighBefore == 3,]
+h4 <- data[data$sumHighBefore == 4,]
+
+distance <- function(x) { x - mean(data$sumHighBefore)}
+
+library(gridExtra)
+grid.arrange(ggplot(h0, aes(x = distance(activityBefore),y = activityScore))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
+)+ggtitle("0 narrow attacks")+ylab("proportional activity change"),
+ggplot(h2, aes(x = distance(activityBefore),y = activityScore))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
+)+ggtitle("2 narrow attacks")+ylab("proportional activity change"),
+ggplot(h3, aes(x = distance(activityBefore),y = activityScore))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
+)+ggtitle("3 narrow attacks")+ylab("proportional activity change"),
+ggplot(h4, aes(x = distance(activityBefore),y = activityScore))+geom_point(alpha=0.3,size=1, position = "jitter")+geom_smooth(size=0.5, alpha = 0.5)+th+xlab("distance from sample mean"
+)+ggtitle("4 narrow attacks")+ylab("proportional activity change"))
+```
+
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+iqr0 <- data[data$sumHighBefore == 0 & data$activityBefore <= 44,]
+iqr1 <- data[data$sumHighBefore == 1 & data$activityBefore <= 44,]
+iqr2 <- data[data$sumHighBefore == 2 & data$activityBefore <= 44,]
+iqr3 <- data[data$sumHighBefore == 3 & data$activityBefore <= 44,]
+iqr4 <- data[data$sumHighBefore == 4 & data$activityBefore <= 44,]
+
+t.test(iqr0$activityScore)
+t.test(iqr1$activityScore)
+t.test(iqr2$activityScore)
+t.test(iqr3$activityScore)
+t.test(iqr4$activityScore)
+```
+
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE, warning= FALSE}
+library(rstatix)
+data$fhigh <- as.factor(data$sumHighBefore)
+data %>% anova_test(activityDiff ~ activityBefore + fhigh)
+```

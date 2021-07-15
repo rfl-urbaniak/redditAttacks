@@ -938,3 +938,13 @@ attacks <- 0:8
 ggplot()+ geom_bar(aes(x=attacks,y=round(sds,2)), stat="identity", fill = "skyblue", alpha= 0.5)+
 th+xlab("narrow attacks")+ylab("standard deviation of activity change")+scale_x_continuous(breaks = 0:8, labels = 0:8)
 ```
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message=FALSE,warning=FALSE}
+library(MASS)
+library(vcd)
+library(lmtest)
+library(countreg)
+library(pscl)
+library(stats)
+```

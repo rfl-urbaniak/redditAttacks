@@ -20,3 +20,9 @@ xtable
 papeR
 HDInterval
 BEST
+MASS
+vcd
+zoo
+lmtest
+countreg
+pscl

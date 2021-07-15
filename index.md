@@ -985,7 +985,7 @@ print(mc3w)
 
 
 
-     The simulation, among other things, produces out a sample of 100002 simulated posterior distributions of the mean, \textsf{mu}. Below we briefly describe how the algorithm works.
+     The simulation, among other things, produces out a sample of 100002 simulated posterior distributions of the mean, $\mu$. Below we briefly describe how the algorithm works.
 
 - Potential parameter  candidates are "locations"  that can be visited, and as the algorithm "travels", it writes down the  visited ones.
 - The algorithm starts with a random candidate $\theta_1$ for a parameter, say, that the real mean activity change is 5. It writes down $\theta_1$ in the list of "places visited".
@@ -1032,7 +1032,7 @@ ggplot() + geom_line(aes(x = 1:length(conv), y = conv), alpha = 0.7) +
 
 
 
-We can collapse the plot, ignoring time, with default \textsf{BESTmcmc} features and obtain the following plot:
+We can collapse the plot, ignoring time, with default _BESTmcmc_ features and obtain the following plot:
 
 ``` r
 plot(mc3w)
@@ -1217,6 +1217,29 @@ InformativeBayesBar <- ggplot(InformativeBayesTable) + geom_bar(aes(x = attacks,
 
 
 
+
+### Model-theoretic analysis
+
+
+
+
+
+We analyzed the correlation between attacks received and activity change using classical and bayesian methods.  However, there is a number of  predictors we have not yet used. The impact of some of them, such as the number of attacks on *posts* written by an author, could provide further insight.  More importantly, some of them might be confounding variables. Crucially, since  previous activity seems to be a good predictor of future activity and  since high number of attacks received in the  `before` period correlates with high activity before, one might be concerned that whatever explaining the value of high attacks before does in our analysis should actually be attributed simply to activity
+
+
+
+To reach some clarity on such issues, we perform a regression analysis to see how the predictors in best fit models interact, and to use the model parameters to get some comparison of the impact they have. We build a number of potentially viable generalized linear regression models meant to predict `ctivityAfter` based on a selection of other variables, pick the best one(s) and analyze what they reveal about the  predictors involved.
+
+
+
+``` r
+library(MASS)
+library(vcd)
+library(lmtest)
+library(countreg)
+library(pscl)
+library(stats)
+```
 
 
 

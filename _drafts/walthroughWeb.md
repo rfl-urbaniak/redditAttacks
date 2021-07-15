@@ -981,6 +981,15 @@ ggplot() + geom_bar(aes(x = attacks, y = round(sds, 2)), stat = "identity",
 
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/sds-1.png" width="100%" style="display: block; margin: auto;" />
 
+``` r
+library(MASS)
+library(vcd)
+library(lmtest)
+library(countreg)
+library(pscl)
+library(stats)
+```
+
 Kruschke, J. (2015). *Doing Bayesian data analysis; a tutorial with R, JAGS, and Stan*.
 
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.

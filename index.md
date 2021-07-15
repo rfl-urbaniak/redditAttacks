@@ -1539,6 +1539,81 @@ autoplot(HNBactivityRoot, alpha = 0.5) + th + ylab("Square root of couts") +
 
 
 
+Here,  zero-inflated models under-predict low non-zero counts, while hurdle models are a bit better in this respect, so  we will focus on them. It is  more difficult to see any important difference between the two hurdle models. We compare them using likelihood ratio test.
+
+For each selection of variables, we first pick the value of parameters in the model that maximizes the probability density of the data given this choice of variables and these parameters (likelihood). We do this for two nested models, then we  take the log of the ratio of these, and we get a measure of how well, comparatively, they fit the data. Moreover,  multiplying this ratio by -2, we obtain  a statistic that has a $\chi^2$ distribution, which  can be  further used to r calculate the p-value for the null hypothesis that the added variables make no difference.
+
+
+Log-likelihood test results in $\chi^2 \approx 20.28$, with $P(>\chi^2)\approx 0.009$.
+Wald's test is somewhat similar (ableit more generally applicable). It also indicates that the additional variables are significant ($\chi^2 \approx 24.71$ with $P(>\chi^2)\approx 0.0017$),   which suggests that  variables other than previous activity  are also significant.
+
+Finally, Akaike Information Criterion (Akaike, 1974) provides an estimator of out-of-sample prediction error and penalizes more complex models. As long as we evaluate models with respect to the same data, the ones with lower Akaike score should be chosen. Even with penalty for the additional variables, the full model receives better score (although the difference is not very large, 29,081 vs. 29,085).
+
+
+
+First, we can do this in a step-wise manner:
+
+
+``` r
+library(lmtest)
+likHNBactivity <- logLik(HNBactivity)
+likHNBfull <- logLik(HNBfull)
+(teststat <- -2 * (as.numeric(likHNBactivity) - as.numeric(likHNBfull)))
+```
+
+    ## [1] 20.28267
+
+``` r
+df <- 13 - 5
+(p.val <- pchisq(teststat, df = df, lower.tail = FALSE))
+```
+
+    ## [1] 0.009317915
+
+
+The same result can be achieved more quickly using the following lines:
+
+
+
+``` r
+lrtest(HNBactivity, HNBfull)
+```
+
+    ## Likelihood ratio test
+    ##
+    ## Model 1: activityAfter ~ activityBefore
+    ## Model 2: activityAfter ~ .
+    ##   #Df LogLik Df  Chisq Pr(>Chisq)
+    ## 1   5 -14538
+    ## 2  13 -14528  8 20.283   0.009318 **
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+``` r
+waldtest(HNBactivity, HNBfull)
+```
+
+    ## Wald test
+    ##
+    ## Model 1: activityAfter ~ activityBefore
+    ## Model 2: activityAfter ~ .
+    ##   Res.Df Df  Chisq Pr(>Chisq)
+    ## 1   3668
+    ## 2   3660  8 24.714   0.001738 **
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+``` r
+AIC(HNBactivity)
+```
+
+    ## [1] 29085.67
+
+``` r
+AIC(HNBfull)
+```
+
+    ## [1] 29081.39
 
 
 

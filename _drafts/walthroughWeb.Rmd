@@ -1156,3 +1156,37 @@ autoplot(ZNBactivityRoot, alpha = 0.5)+th+ylab("Square root of couts")+ggtitle("
 autoplot(HNBactivityRoot, alpha = 0.5)+th+ylab("Square root of couts")+ggtitle("Hurdle negative binomial (activity only)")
 ```
 
+
+Finally, Akaike Information Criterion [@Akaike1974model] provides an  estimator of out-of-sample prediction error and penalizes more complex models. As long as we evaluate models with respect to the same data, the ones with lower Akaike score should be chosen.  Even with penalty for the additional variables, the full model receives better score (although the difference is not very large, 29,081 vs. 29,085).
+
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+library(lmtest)
+likHNBactivity <- logLik(HNBactivity)
+likHNBfull <- logLik(HNBfull)
+(teststat <- -2 * (as.numeric(likHNBactivity)-as.numeric(likHNBfull)))
+df <- 13 - 5
+(p.val <- pchisq(teststat, df = df, lower.tail = FALSE))
+```
+
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+lrtest(HNBactivity,HNBfull)
+```
+
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+waldtest(HNBactivity,HNBfull)
+```
+
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+AIC(HNBactivity)
+AIC(HNBfull)
+```
+
+

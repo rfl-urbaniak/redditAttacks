@@ -1233,6 +1233,66 @@ autoplot(HNBactivityRoot, alpha = 0.5) + th + ylab("Square root of couts") +
 
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/HNBactivityRoot-1.png" width="100%" style="display: block; margin: auto;" />
 
+Finally, Akaike Information Criterion (Akaike, 1974) provides an estimator of out-of-sample prediction error and penalizes more complex models. As long as we evaluate models with respect to the same data, the ones with lower Akaike score should be chosen. Even with penalty for the additional variables, the full model receives better score (although the difference is not very large, 29,081 vs. 29,085).
+
+``` r
+library(lmtest)
+likHNBactivity <- logLik(HNBactivity)
+likHNBfull <- logLik(HNBfull)
+(teststat <- -2 * (as.numeric(likHNBactivity) - as.numeric(likHNBfull)))
+```
+
+    ## [1] 20.28267
+
+``` r
+df <- 13 - 5
+(p.val <- pchisq(teststat, df = df, lower.tail = FALSE))
+```
+
+    ## [1] 0.009317915
+
+``` r
+lrtest(HNBactivity, HNBfull)
+```
+
+    ## Likelihood ratio test
+    ## 
+    ## Model 1: activityAfter ~ activityBefore
+    ## Model 2: activityAfter ~ .
+    ##   #Df LogLik Df  Chisq Pr(>Chisq)   
+    ## 1   5 -14538                        
+    ## 2  13 -14528  8 20.283   0.009318 **
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+``` r
+waldtest(HNBactivity, HNBfull)
+```
+
+    ## Wald test
+    ## 
+    ## Model 1: activityAfter ~ activityBefore
+    ## Model 2: activityAfter ~ .
+    ##   Res.Df Df  Chisq Pr(>Chisq)   
+    ## 1   3668                        
+    ## 2   3660  8 24.714   0.001738 **
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+``` r
+AIC(HNBactivity)
+```
+
+    ## [1] 29085.67
+
+``` r
+AIC(HNBfull)
+```
+
+    ## [1] 29081.39
+
+Akaike, H. (1974). A new look at the statistical model identification. *IEEE Transactions on Automatic Control*, *19*(6), 716–723. <https://doi.org/10.1109/TAC.1974.1100705>
+
 Kruschke, J. (2015). *Doing Bayesian data analysis; a tutorial with R, JAGS, and Stan*.
 
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.

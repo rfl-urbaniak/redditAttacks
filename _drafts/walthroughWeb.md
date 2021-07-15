@@ -327,6 +327,202 @@ propPlotLowOnly
 
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/propPlotLowOnly-1.png" width="100%" style="display: block; margin: auto;" />
 
+``` r
+counts <- t(table(data$sumHighBefore))
+counts <- rbind(counts, counts)
+counts[1, ] <- as.numeric(colnames(counts))
+colnames(counts) <- NULL
+rownames(counts) <- c("no. of attacks", "count")
+counts
+```
+
+    ##                [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
+    ## no. of attacks    0    1    2    3    4    5    6    7    8     9    10    11
+    ## count          2831  530  147   61   35   22   17    8    4     3     2     2
+    ##                [,13] [,14] [,15] [,16] [,17] [,18] [,19] [,20] [,21]
+    ## no. of attacks    12    13    14    16    17    19    25    26    27
+    ## count              1     1     1     3     1     1     1     1     1
+
+``` r
+attacks <- 0:8
+max <- max(attacks)
+low <- numeric(max + 1)
+high <- numeric(max + 1)
+m <- numeric(max + 1)
+p <- numeric(max + 1)
+t <- list()
+
+for (attacks in attacks) {
+    t[[attacks + 1]] <- t.test(data[data$sumHighBefore == attacks,
+        ]$activityDiff)
+
+    low[attacks + 1] <- t[[attacks + 1]]$conf.int[1]
+    high[attacks + 1] <- t[[attacks + 1]]$conf.int[2]
+    m[attacks + 1] <- t[[attacks + 1]]$estimate
+    p[attacks + 1] <- t[[attacks + 1]]$p.value
+}
+highTable <- as.data.frame(round(rbind(0:8, low, m, high, p),
+    3))
+rownames(highTable) <- c("attacks", "CIlow", "estimated m", "CIhigh",
+    "p-value")
+```
+
+``` r
+highTableLong <- round(data.frame(attacks = 0:8, low, m, high,
+    p), 3)
+
+highTableBar <- ggplot(highTableLong) + geom_bar(aes(x = attacks,
+    y = m), stat = "identity", fill = "skyblue", alpha = 0.5) +
+    geom_errorbar(aes(x = attacks, ymin = low, ymax = high),
+        width = 0.4, colour = "seashell3", alpha = 0.9, size = 0.3) +
+    th + xlab("narrow attacks") + ylab("mean activity change") +
+    geom_text(aes(x = attacks, y = low - 20, label = p), size = 2) +
+    labs(title = "Mean impact of narrow attacks on  weekly activity",
+        subtitle = "with 95% confidence intervals and p-values") +
+    scale_x_continuous(labels = 0:8, breaks = 0:8)
+
+highTableBar6 <- ggplot(highTableLong[highTableLong$attacks <
+    6, ]) + geom_bar(aes(x = attacks, y = m), stat = "identity",
+    fill = "skyblue", alpha = 0.5) + geom_errorbar(aes(x = attacks,
+    ymin = low, ymax = high), width = 0.4, colour = "seashell3",
+    alpha = 0.9, size = 0.3) + th + xlab("narrow attacks") +
+    ylab("mean activity change") + geom_text(aes(x = attacks,
+    y = low - 20, label = p), size = 2) + labs(title = "Mean impact of narrow attacks <6 on  weekly activity",
+    subtitle = "with 95% confidence intervals and p-values") +
+    scale_x_continuous(labels = 0:5, breaks = 0:5)
+
+highTableBar3 <- ggplot(highTableLong[highTableLong$attacks <
+    3, ]) + geom_bar(aes(x = attacks, y = m), stat = "identity",
+    fill = "skyblue", alpha = 0.5) + geom_errorbar(aes(x = attacks,
+    ymin = low, ymax = high), width = 0.4, colour = "seashell3",
+    alpha = 0.9, size = 0.3) + th + xlab("narrow attacks") +
+    ylab("mean activity change") + geom_text(aes(x = attacks,
+    y = low - 5, label = p), size = 2) + labs(title = "Mean impact of narrow attacks <3 on  weekly activity",
+    subtitle = "with 95% confidence intervals and p-values") +
+    scale_x_continuous(labels = 0:2, breaks = 0:2)
+```
+
+``` r
+attacks <- 0:8
+max <- max(attacks)
+lowL <- numeric(max + 1)
+highL <- numeric(max + 1)
+mL <- numeric(max + 1)
+pL <- numeric(max + 1)
+tL <- list()
+
+for (attacks in attacks) {
+    tL[[attacks + 1]] <- t.test(data[data$sumLowBefore == attacks,
+        ]$activityDiff)
+
+    lowL[attacks + 1] <- t[[attacks + 1]]$conf.int[1]
+    highL[attacks + 1] <- t[[attacks + 1]]$conf.int[2]
+    mL[attacks + 1] <- t[[attacks + 1]]$estimate
+    pL[attacks + 1] <- t[[attacks + 1]]$p.value
+}
+lowTable <- as.data.frame(round(rbind(0:8, lowL, mL, highL, pL),
+    3))
+rownames(lowTable) <- c("attacks", "CIlow", "estimated m", "CIhigh",
+    "p-value")
+
+
+attacks <- 0:8
+max <- max(attacks)
+lowLo <- numeric(max + 1)
+highLo <- numeric(max + 1)
+mLo <- numeric(max + 1)
+pLo <- numeric(max + 1)
+tLo <- list()
+
+for (attacks in attacks) {
+    tLo[[attacks + 1]] <- t.test(data[data$sumLowBefore - data$sumHighBefore ==
+        attacks, ]$activityDiff)
+
+    lowLo[attacks + 1] <- t[[attacks + 1]]$conf.int[1]
+    highLo[attacks + 1] <- t[[attacks + 1]]$conf.int[2]
+    mLo[attacks + 1] <- t[[attacks + 1]]$estimate
+    pLo[attacks + 1] <- t[[attacks + 1]]$p.value
+}
+lowOnlyTable <- as.data.frame(round(rbind(0:8, lowLo, mLo, highLo,
+    pLo), 3))
+rownames(lowTable) <- c("attacks", "CIlow", "estimated m", "CIhigh",
+    "p-value")
+```
+
+``` r
+lowTableLong <- round(data.frame(attacks = 0:8, lowL, mL, highL,
+    pL), 3)
+
+lowTableBar <- ggplot(lowTableLong) + geom_bar(aes(x = attacks,
+    y = m), stat = "identity", fill = "skyblue", alpha = 0.5) +
+    geom_errorbar(aes(x = attacks, ymin = low, ymax = high),
+        width = 0.4, colour = "seashell3", alpha = 0.9, size = 0.3) +
+    th + xlab("wide attacks") + ylab("mean activity change") +
+    geom_text(aes(x = attacks, y = low - 20, label = round(p,
+        3)), size = 2) + labs(title = "Mean impact of wide attacks on  weekly activity",
+    subtitle = "with 95% confidence intervals and p-values") +
+    scale_x_continuous(labels = 0:8, breaks = 0:8)
+
+
+lowOnlyTableLong <- round(data.frame(attacks = 0:8, lowLo, mLo,
+    highLo, pLo), 3)
+
+lowOnlyTableBar <- ggplot(lowOnlyTableLong) + geom_bar(aes(x = attacks,
+    y = m), stat = "identity", fill = "skyblue", alpha = 0.5) +
+    geom_errorbar(aes(x = attacks, ymin = low, ymax = high),
+        width = 0.4, colour = "seashell3", alpha = 0.9, size = 0.3) +
+    th + xlab("wide only attacks") + ylab("mean activity change") +
+    geom_text(aes(x = attacks, y = low - 20, label = round(p,
+        3)), size = 2) + labs(title = "Mean impact of wide only attacks on  weekly activity",
+    subtitle = "with 95% confidence intervals and p-values") +
+    scale_x_continuous(labels = 0:8, breaks = 0:8)
+```
+
+T-test based estimates for activity change divided by numbers of narrow attacks received:
+
+    ##                 V1      V2      V3      V4      V5       V6       V7       V8
+    ## attacks      0.000   1.000   2.000   3.000   4.000    5.000    6.000    7.000
+    ## CIlow       -3.154 -12.658 -23.390 -45.991 -94.861 -108.030 -169.527 -108.555
+    ## estimated m -2.140  -8.251 -12.646 -25.607 -59.400  -60.864  -80.882  -46.125
+    ## CIhigh      -1.125  -3.844  -1.902  -5.222 -23.939  -13.697    7.762   16.305
+    ## p-value      0.000   0.000   0.021   0.015   0.002    0.014    0.071    0.124
+    ##                   V9
+    ## attacks        8.000
+    ## CIlow       -144.273
+    ## estimated m  -46.750
+    ## CIhigh        50.773
+    ## p-value        0.225
+
+T-test based estimates for activity change divided by numbers of wide attacks received:
+
+    ##                 V1      V2      V3      V4      V5       V6       V7       V8
+    ## attacks      0.000   1.000   2.000   3.000   4.000    5.000    6.000    7.000
+    ## CIlow       -3.154 -12.658 -23.390 -45.991 -94.861 -108.030 -169.527 -108.555
+    ## estimated m -2.140  -8.251 -12.646 -25.607 -59.400  -60.864  -80.882  -46.125
+    ## CIhigh      -1.125  -3.844  -1.902  -5.222 -23.939  -13.697    7.762   16.305
+    ## p-value      0.000   0.000   0.021   0.015   0.002    0.014    0.071    0.124
+    ##                   V9
+    ## attacks        8.000
+    ## CIlow       -144.273
+    ## estimated m  -46.750
+    ## CIhigh        50.773
+    ## p-value        0.225
+
+T-test based estimates for activity change divided by numbers of wide only attacks received:
+
+    ##            V1      V2      V3      V4      V5       V6       V7       V8
+    ##         0.000   1.000   2.000   3.000   4.000    5.000    6.000    7.000
+    ## lowLo  -3.154 -12.658 -23.390 -45.991 -94.861 -108.030 -169.527 -108.555
+    ## mLo    -2.140  -8.251 -12.646 -25.607 -59.400  -60.864  -80.882  -46.125
+    ## highLo -1.125  -3.844  -1.902  -5.222 -23.939  -13.697    7.762   16.305
+    ## pLo     0.000   0.000   0.021   0.015   0.002    0.014    0.071    0.124
+    ##              V9
+    ##           8.000
+    ## lowLo  -144.273
+    ## mLo     -46.750
+    ## highLo   50.773
+    ## pLo       0.225
+
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.
 
 Valkenburg, P. M., Peter, J., & Schouten, A. P. (2006). Friend networking sites and their relationship to adolescents’ well-being and social self-esteem. *CyberPsychology & Behavior*, *9*(5), 584–590. <https://doi.org/10.1089/cpb.2006.9.584>

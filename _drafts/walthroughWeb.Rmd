@@ -396,3 +396,156 @@ propPlotLow
 ```{r propPlotLowOnly,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
 propPlotLowOnly
 ```
+
+
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message= FALSE, warning= FALSE}
+counts <- t(table(data$sumHighBefore)) 
+counts <- rbind(counts,counts)
+counts[1,] <- as.numeric(colnames(counts))
+colnames(counts) <- NULL
+rownames(counts) <-  c("no. of attacks", "count")
+counts
+```
+
+
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message= FALSE, warning= FALSE}
+attacks <- 0:8 
+max <- max(attacks)
+low <- numeric(max+1)
+high <- numeric(max+1)
+m <- numeric(max+1)
+p <- numeric(max+1)
+t <- list()
+
+for(attacks in attacks){
+t[[attacks+1]] <- t.test(data[data$sumHighBefore == attacks,]$activityDiff)
+
+low[attacks+1] <- t[[attacks+1]]$conf.int[1]
+high[attacks+1] <- t[[attacks+1]]$conf.int[2]
+m[attacks+1] <- t[[attacks+1]]$estimate
+p[attacks+1] <- t[[attacks+1]]$p.value
+}
+highTable<-as.data.frame(round(rbind(0:8,low, m, high, p),3))
+rownames(highTable) <- c("attacks","CIlow","estimated m", "CIhigh", "p-value")
+```
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+highTableLong <- round(data.frame(attacks = 0:8, low, m, high, p),3)
+
+highTableBar <- ggplot(highTableLong)+ geom_bar(aes(x=attacks,y=m), stat="identity", fill = "skyblue", alpha= 0.5)+
+  geom_errorbar( aes(x=attacks, ymin=low, ymax=high), width=0.4, colour="seashell3", alpha=0.9, size=0.3)+th+xlab("narrow attacks")+ylab("mean activity change")+
+  geom_text(aes(x=attacks, y=low-20,
+                label=p), size = 2)+labs(title = "Mean impact of narrow attacks on  weekly activity", subtitle = "with 95% confidence intervals and p-values")+
+  scale_x_continuous(labels = 0:8, breaks= 0:8)
+
+highTableBar6 <- ggplot(highTableLong[highTableLong$attacks < 6 ,])+ 
+  geom_bar(aes(x=attacks,y=m), stat="identity", fill = "skyblue", alpha= 0.5)+
+  geom_errorbar( aes(x=attacks, ymin=low, ymax=high), width=0.4, colour="seashell3", alpha=0.9, size=0.3)+th+xlab("narrow attacks")+ylab("mean activity change")+
+  geom_text(aes(x=attacks, y=low-20,label=p), size = 2)+
+      labs(title = "Mean impact of narrow attacks <6 on  weekly activity",
+       subtitle = "with 95% confidence intervals and p-values")+
+  scale_x_continuous(labels = 0:5, breaks= 0:5)
+
+highTableBar3 <- ggplot(highTableLong[highTableLong$attacks < 3 ,])+ geom_bar(aes(x=attacks,y=m), stat="identity", fill = "skyblue", alpha= 0.5)+
+  geom_errorbar( aes(x=attacks, ymin=low, ymax=high), width=0.4, colour="seashell3", alpha=0.9, size=0.3)+th+xlab("narrow attacks")+ylab("mean activity change")+
+  geom_text(aes(x=attacks, y=low-5, label=p), size = 2)+
+    labs(title = "Mean impact of narrow attacks <3 on  weekly activity", subtitle = "with 95% confidence intervals and p-values")+scale_x_continuous(labels = 0:2, breaks= 0:2)
+```
+
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message= FALSE, warning= FALSE}
+attacks <- 0:8
+max <- max(attacks)
+lowL <- numeric(max+1)
+highL <- numeric(max+1)
+mL <- numeric(max+1)
+pL <- numeric(max+1)
+tL <- list()
+
+for(attacks in attacks){
+tL[[attacks+1]] <- t.test(data[data$sumLowBefore == attacks,]$activityDiff)
+
+lowL[attacks+1] <- t[[attacks+1]]$conf.int[1]
+highL[attacks+1] <- t[[attacks+1]]$conf.int[2]
+mL[attacks+1] <- t[[attacks+1]]$estimate
+pL[attacks+1] <- t[[attacks+1]]$p.value
+}
+lowTable<-as.data.frame(round(rbind(0:8,lowL, mL, highL, pL),3))
+rownames(lowTable) <- c("attacks","CIlow","estimated m", "CIhigh", "p-value")
+
+
+attacks <- 0:8
+max <- max(attacks)
+lowLo <- numeric(max+1)
+highLo <- numeric(max+1)
+mLo <- numeric(max+1)
+pLo <- numeric(max+1)
+tLo <- list()
+
+for(attacks in attacks){
+tLo[[attacks+1]] <- t.test(data[data$sumLowBefore -
+                data$sumHighBefore == attacks,]$activityDiff)
+
+lowLo[attacks+1] <- t[[attacks+1]]$conf.int[1]
+highLo[attacks+1] <- t[[attacks+1]]$conf.int[2]
+mLo[attacks+1] <- t[[attacks+1]]$estimate
+pLo[attacks+1] <- t[[attacks+1]]$p.value
+}
+lowOnlyTable<-as.data.frame(round(rbind(0:8,lowLo, mLo, highLo, pLo),3))
+rownames(lowTable) <- c("attacks","CIlow","estimated m", "CIhigh", "p-value")
+
+```
+
+
+
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+lowTableLong <- round(data.frame(attacks = 0:8, lowL, mL, highL, pL),3)
+
+lowTableBar <- ggplot(lowTableLong)+ geom_bar(aes(x=attacks,y=m), stat="identity", fill = "skyblue", alpha= 0.5)+
+  geom_errorbar( aes(x=attacks, ymin=low, ymax=high), width=0.4, colour="seashell3", alpha=0.9, size=0.3)+th+xlab("wide attacks")+ylab("mean activity change")+
+  geom_text(aes(x=attacks, y=low-20,
+                label=round(p,3)), size = 2)+labs(title = "Mean impact of wide attacks on  weekly activity", subtitle = "with 95% confidence intervals and p-values")+scale_x_continuous(labels = 0:8, breaks= 0:8)
+
+
+lowOnlyTableLong <- round(data.frame(attacks = 0:8, lowLo, mLo, highLo, pLo),3)
+
+lowOnlyTableBar <- ggplot(lowOnlyTableLong)+ geom_bar(aes(x=attacks,y=m), stat="identity", fill = "skyblue", alpha= 0.5)+
+  geom_errorbar( aes(x=attacks, ymin=low, ymax=high), width=0.4, colour="seashell3", alpha=0.9, size=0.3)+th+xlab("wide only attacks")+ylab("mean activity change")+
+  geom_text(aes(x=attacks, y=low-20,
+                label=round(p,3)), size = 2)+labs(title = "Mean impact of wide only attacks on  weekly activity", subtitle = "with 95% confidence intervals and p-values")+scale_x_continuous(labels = 0:8, breaks= 0:8)
+```
+
+
+
+
+T-test based estimates for activity change divided by numbers of narrow attacks received:
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+highTable
+```
+
+
+
+T-test based estimates for activity change divided by numbers of wide attacks received:
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+lowTable
+```
+
+
+T-test based estimates for activity change divided by numbers of wide only attacks  received:
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+lowOnlyTable
+```
+
+
+

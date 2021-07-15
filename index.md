@@ -186,20 +186,20 @@ dataDisp <- data[, c(1, 77:85)]
 head(dataDisp)
 ```
 
-  ##   user sumLowBefore sumHighBefore sumPlBefore sumPhBefore activityBefore
-  ## 111 0   1   0  2
-  ## 225 4   0   0106
-  ## 332 1   0   0 29
-  ## 446 4   0   0180
-  ## 555 2   0   0116
-  ## 662 0   0   0124
-  ##   activityAfter activityDiff  group treatment
-  ## 1 0   -2 Rtreatment 1
-  ## 280  -26 Rtreatment 1
-  ## 3312 Rtreatment 1
-  ## 492  -88 Rtreatment 1
-  ## 595  -21 Rtreatment 1
-  ## 6   104  -20 Rtreatment 1
+    ##   user sumLowBefore sumHighBefore sumPlBefore sumPhBefore activityBefore
+    ## 1    1            1             0           1           0              2
+    ## 2    2            5             4           0           0            106
+    ## 3    3            2             1           0           0             29
+    ## 4    4            6             4           0           0            180
+    ## 5    5            5             2           0           0            116
+    ## 6    6            2             0           0           0            124
+    ##   activityAfter activityDiff      group treatment
+    ## 1             0           -2 Rtreatment         1
+    ## 2            80          -26 Rtreatment         1
+    ## 3            31            2 Rtreatment         1
+    ## 4            92          -88 Rtreatment         1
+    ## 5            95          -21 Rtreatment         1
+    ## 6           104          -20 Rtreatment         1
 
 
 -  `user` contains anonymous user numbers.
@@ -2186,7 +2186,7 @@ data %>%
 
 
 
-    Finally, the model-theoretic analysis already corrects for activity before, and estimates the effect size of the other variables keeping activity before fixed at the mean level. So, regression to the mean, while it might play a small part, does not seem to explain the differences. However, the potential effects of regression to the mean have to be kept in mind in future observational studies and replication attempts.
+Finally, the model-theoretic analysis already corrects for activity before, and estimates the effect size of the other variables keeping activity before fixed at the mean level. So, regression to the mean, while it might play a small part, does not seem to explain the differences. However, the potential effects of regression to the mean have to be kept in mind in future observational studies and replication attempts.
 
 
 

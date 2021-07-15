@@ -1640,7 +1640,8 @@ Here,  zero-inflated models under-predict low non-zero counts, while hurdle mode
  
  
 Log-likelihood test results in $\chi^2 \approx 20.28$, with $P(>\chi^2)\approx 0.009$. 
-Wald's test is somewhat similar (ableit more generally applicable). It also indicates that the additional variables are significant ($\chi^2 \approx 24.71$ with $P(>\chi^2)\approx 0.0017$),   which suggests that  variables other than previous activity  are also significant. 
+Wald's test is somewhat similar (ableit more generally applicable). It also indicates that the additional variables are significant ($\chi^2 \approx 24.71$ with $P(>\chi^2)\approx 0.0017$),   which suggests that  variables other than previous activity  are also significant.
+
 Finally, Akaike Information Criterion [@Akaike1974model] provides an  estimator of out-of-sample prediction error and penalizes more complex models. As long as we evaluate models with respect to the same data, the ones with lower Akaike score should be chosen.  Even with penalty for the additional variables, the full model receives better score (although the difference is not very large, 29,081 vs. 29,085).
 
  

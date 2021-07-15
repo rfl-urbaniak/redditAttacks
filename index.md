@@ -32,7 +32,7 @@ _Remark_. In what follows, we sometimes display key pieces of code and explain w
 
 ### Resources
 
- Github folder with all the files is available [here](https://github.com/rfl-urbaniak/redditAttacks). The [datasets subfolder](https://github.com/rfl-urbaniak/redditAttacks/tree/main/datasets) includes the dataset (quittingFinalAnon.csv) and the bayesian chains resulting from the bayesian analysis.
+ Github folder with all the files is available [here](https://github.com/rfl-urbaniak/redditAttacks). The [datasets subfolder](https://github.com/rfl-urbaniak/redditAttacks/tree/main/datasets) includes the dataset (quittingFinalAnon.csv) and the bayesian chains resulting from the bayesian analysis. A pdf file with this walkthrough is available [here](https://rfl-urbaniak.github.io/redditAttacks/analysisWalkthrough/redditAnalysisWalkthrough.pdf) and its R markdown source file is [here](https://rfl-urbaniak.github.io/redditAttacks/analysisWalkthrough/redditAnalysisWalkthrough.Rmd).
 
 
 

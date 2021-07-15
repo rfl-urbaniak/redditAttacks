@@ -130,21 +130,21 @@ Because of the preponderance of personal attacks online, we could use the real-l
 
 4. In some cases, content had been  deleted by the user or removed by Reddit  --- in such cases the dataset only contained information that some content had been  posted but was later removed; since we could not access the content  of such posts or comments and evaluate them for personal attacks, we also excluded them from the study.
 
- Again, this was a fairly straightforward use of grepl:
+     Again, this was a fairly straightforward use of grepl:
 
 
 
 
- ``` r
- thursdayClean <- thursdayClean[!grepl("none", thursdayClean$receiver,
-     fixed = TRUE), ]
- thursdayClean <- thursdayClean[!grepl("None", thursdayClean$receiver,
-     fixed = TRUE), ]
- thursdayClean <- thursdayClean[!grepl("<MISSING>", thursdayClean$receiver,
-     fixed = TRUE), ]
- thursdayClean <- thursdayClean[!grepl("[deleted]", thursdayClean$receiver,
-     fixed = TRUE), ]
- ```
+     ``` r
+     thursdayClean <- thursdayClean[!grepl("none", thursdayClean$receiver,
+         fixed = TRUE), ]
+     thursdayClean <- thursdayClean[!grepl("None", thursdayClean$receiver,
+         fixed = TRUE), ]
+     thursdayClean <- thursdayClean[!grepl("<MISSING>", thursdayClean$receiver,
+         fixed = TRUE), ]
+     thursdayClean <- thursdayClean[!grepl("[deleted]", thursdayClean$receiver,
+         fixed = TRUE), ]
+     ```
 
 
  5. This left us with  92,943 comments or posts by 75,516 users  for \textsf{R} and 89,585 comments by 72,801 users  for \textsf{S}. While we didn't directly track whether content was a post or a comment, we paid attention as to whether a piece of content was a reply to a post or not (the working assumption was that personal attacks on posts might have different impact than attacks on comments). Quite consistently, 46\% of content were comments on posts on both days.

@@ -3,7 +3,7 @@ layout: page
 title: blah
 output:
   github_document:
-    pandoc_args:  --webtex
+    pandoc_args:  --mathjax
   #  md_document:
 #    variant: markdown_github
 
@@ -231,11 +231,6 @@ table(data$group)
 \normalsize
 
 
-| Group                        | n                       |
-|------------------------------|-------------------------|
-| Rtreatment                   | 935                     |
-| Streatment                   | 921                     |
-
 
 
 A few first lines of the resulting anonymized dataset from which we removed separate day counts. Note that in the code "low" corresponds to "wide" (for "low precision") and "high" to "narrow" attacks (for "high precision"). The variables are: (low attacks, high attacks, low  attacks on posts, how  attacks on posts, authored content posted) and retained summary columns.
@@ -263,6 +258,27 @@ dataDisp <- data[,c(1,77:85)]
 head(dataDisp)
 ```
 \normalsize 
+
+
+
+
+
+
+First, we visually explore our dataset by looking at the relationship between the number of received attacks vs. the activity change counted as the difference of weekly counts of posts or comments authored  in the second (\textsf{after}) and in the first  week (\textsf{before}). We do this for \textsf{narrow} attacks (Fig. \ref{fig:highPlots}), \textsf{wide} attacks (Fig. \ref{fig:lowPlots}), where a weaker, but still negative impact, can be observed, and  then we   take a look at the impact of those attacks which were recognized as \textsf{wide only} (Fig. \ref{fig:lowOnlyPlots}). The distinction between wide and narrow pertains only to the choice of attack recognition algorithm and does not directly translate into how offensive an attack was, except that \textsf{wide} attacks also include third-person ones.  Here, the direction of impact is less clear: while the tendency is negative for low numbers of attacks, non-linear smoothing suggests that  higher numbers mostly third-person personal attacks seem positively correlated with activity change. This might suggest that while being attacked has negative impact on a user's activity, having your post "supported" by other users' third-person attacks has a more motivating effect. We will look at this issue in a later section, when we analyze the dataset using regression.
+
+
+
+The visualisations in Figure \ref{fig:highPlots} should be understood as follows. Each point is a user. The $x$-axis represents a number of attacks they received in the \textsf{before} period (so that, for instance, users with 0 wide attacks are the members of the control group), and  the $y$-axis represents the difference between their activity count \textsf{before} and \textsf{after}. We can see that most of the users received 0 attacks before (these are our control group members), with the rest of the group receiving 1, 2, 3, etc. attacks in the \textsf{before} period with decreasing frequency. The blue line represents linear regression suggesting negative correlation. The gray line is constructed using generalized additive mode (gam) smoothing, which is  a fairly standard smoothing method for large datasets (it is more sensitive to local tendencies and yet avoids overfitting). The parameters of the gam model (including the level of smoothing) are chosen by their predictive accuracy.\footnote{See  the documentation of \textsf{gam} of the \textsf{mgcv} packages for details: \url{https://www.rdocumentation.org/packages/mgcv/versions/1.8-33/topics/gam}.}  Shades indicate the 95\% confidence level interval for predictions from the linear model.   
+
+
+
+
+
+
+
+
+
+
 
 
 

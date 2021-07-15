@@ -140,7 +140,6 @@ Because of the preponderance of personal attacks online, we could use the real-l
 
 
  6.  On these two  days respectively,  1359 R users ($1.79\%$) received at least one narrow attack, 35 of them received more than one ($0.046\%$). 302 of S users ($0.39\%$) received at least one narrow attack and 3 of them more than one narrow on that day ($0.003\%$). These numbers  are estimates for a single day, and therefore if the chance of obtaining at least one narrow attack in a day is $1.79\%$, assuming the binomial distribution, the estimated probability of obtaining at least one narrow attack in a week is 11.9\% in a week and 43\% in a month.
-
     ``` r
     100  * round(1-dbinom(0,7,prob = 1359/75516),3)` #week
     100 * round(1-dbinom(0,31,prob = 1359/75516),3)` #month

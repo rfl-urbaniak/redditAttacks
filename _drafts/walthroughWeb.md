@@ -144,6 +144,40 @@ First, we visually explore our dataset by looking at the relationship between th
 
 The visualisations in Figure should be understood as follows. Each point is a user. The *x*-axis represents a number of attacks they received in the period (so that, for instance, users with 0 wide attacks are the members of the control group), and the *y*-axis represents the difference between their activity count and . We can see that most of the users received 0 attacks before (these are our control group members), with the rest of the group receiving 1, 2, 3, etc. attacks in the period with decreasing frequency. The blue line represents linear regression suggesting negative correlation. The gray line is constructed using generalized additive mode (gam) smoothing, which is a fairly standard smoothing method for large datasets (it is more sensitive to local tendencies and yet avoids overfitting). The parameters of the gam model (including the level of smoothing) are chosen by their predictive accuracy. Shades indicate the 95% confidence level interval for predictions from the linear model.
 
+``` r
+library(ggthemes)
+th <- theme_tufte()
+highPlot <- ggplot(data, aes(x = sumHighBefore, y = activityDiff)) +
+    geom_jitter(size = 0.8, alpha = 0.3) + geom_smooth(method = "lm",
+    color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
+    scale_x_continuous(breaks = 0:max(data$sumHighBefore), limits = c(-1,
+        max(data$sumHighBefore))) + ylim(c(-300, 300)) + geom_smooth(color = "grey",
+    size = 0.4, lty = 2, alpha = 0.2) + xlab("narrow attacks before") +
+    ylab("activity change after") + labs(title = "Impact of narrow attacks on activity",
+    subtitle = "weekly counts, n=3673") + geom_segment(aes(x = -1,
+    y = -100, xend = 9, yend = -100), lty = 3, size = 0.1, color = "gray71",
+    alpha = 0.2) + geom_segment(aes(x = -1, y = 100, xend = 9,
+    yend = 100), lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+    geom_segment(aes(x = -1, y = -100, xend = -1, yend = 100),
+        lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+    geom_segment(aes(x = 9, y = -100, xend = 9, yend = 100),
+        lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+    th
+
+
+highPlotZoomed <- ggplot(data, aes(x = sumHighBefore, y = activityDiff)) +
+    geom_jitter(size = 1, alpha = 0.2) + geom_smooth(method = "lm",
+    color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
+    th + scale_x_continuous(breaks = 0:max(data$sumHighBefore),
+    limits = c(-1, 9)) + ylim(c(-100, 100)) + geom_smooth(color = "grey",
+    size = 0.4, lty = 2, alpha = 0.2) + xlab("narrow attacks before") +
+    ylab("activity change after") + labs(title = "Impact of narrow attacks on activity",
+    subtitle = "weekly counts, zoomed in") + geom_hline(yintercept = 0,
+    col = "red", size = 0.2, lty = 3)
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/highPlot-1.png" width="100%" style="display: block; margin: auto;" />
+
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.
 
 Valkenburg, P. M., Peter, J., & Schouten, A. P. (2006). Friend networking sites and their relationship to adolescents’ well-being and social self-esteem. *CyberPsychology & Behavior*, *9*(5), 584–590. <https://doi.org/10.1089/cpb.2006.9.584>

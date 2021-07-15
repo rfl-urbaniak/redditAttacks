@@ -272,7 +272,34 @@ The visualisations in Figure \ref{fig:highPlots} should be understood as follows
 
 
 
+\footnotesize
 
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300}
+library(ggthemes)
+th <- theme_tufte()
+highPlot <- ggplot(data, aes(x = sumHighBefore, y = activityDiff))+geom_jitter(size=0.8, alpha = 0.3)+
+  geom_smooth(method = "lm",color = "skyblue", fill= "skyblue", 
+              size = 0.7, alpha = 0.8)+
+  scale_x_continuous(breaks = 0:max(data$sumHighBefore),
+  limits = c(-1,max(data$sumHighBefore)))+ylim(c(-300,300))+
+  geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)+   xlab("narrow attacks before")+ ylab("activity change after")+
+labs(title = "Impact of narrow attacks on activity", subtitle = "weekly counts, n=3673")+
+  geom_segment(aes(x = -1, y = -100, xend = 9, yend = -100), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+ 
+  geom_segment(aes(x = -1, y = 100, xend = 9, yend = 100), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+
+  geom_segment(aes(x = -1, y = -100, xend = -1, yend = 100), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+ 
+  geom_segment(aes(x = 9, y = -100, xend = 9, yend = 100), lty = 3, size = 0.1, color = "gray71", alpha = 0.2)+th
+
+
+highPlotZoomed <- 
+ggplot(data, aes(x = sumHighBefore, y = activityDiff))+geom_jitter(size=1, alpha = 0.2)+geom_smooth(method = "lm",color = "skyblue", fill= "skyblue", size = 0.7, alpha = 0.8)+th+scale_x_continuous(breaks = 0:max(data$sumHighBefore),limits = c(-1,9))+ylim(c(-100,100))+geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)+ xlab("narrow attacks before")+ ylab("activity change after")+labs(title = "Impact of narrow attacks on activity", subtitle = "weekly counts, zoomed in")+geom_hline(yintercept = 0, col = "red", size = 0.2, lty = 3)
+```
+\normalsize
+
+
+
+```{r highPlot,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+highPlot
+```
 
 
 

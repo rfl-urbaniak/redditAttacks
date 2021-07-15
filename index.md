@@ -895,10 +895,6 @@ priorWide
 
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/priorWide-1.png" width="100%" style="display: block; margin: auto;" />
 
-
-
-
-
 ``` r
 priorFit <- ggplot(data = data.frame(x = c(-100, 100)), aes(x)) +
     stat_function(fun = dnorm, args = list(mean = -1.11, sd = 7.5)) +
@@ -933,6 +929,10 @@ priorFitted
 ```
 
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/priorFitted-1.png" width="100%" style="display: block; margin: auto;" />
+
+
+
+
 
 
 

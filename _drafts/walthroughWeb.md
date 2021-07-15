@@ -728,6 +728,41 @@ priorWide
 
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/priorWide-1.png" width="100%" style="display: block; margin: auto;" />
 
+``` r
+priorFit <- ggplot(data = data.frame(x = c(-100, 100)), aes(x)) +
+    stat_function(fun = dnorm, args = list(mean = -1.11, sd = 7.5)) +
+    ylab("") + scale_y_continuous(breaks = NULL) + th + xlab("expected activity change") +
+    labs(title = "Fitted prior, zoomed in", subtitle = "Normal prior with m = 0, sd = 10, empirical distribution in gray") +
+    geom_density(data = data, aes(x = activityDiff), col = "grey",
+        alpha = 0.6) + xlim(c(-80, 80))
+priorFit
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/priorFit-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+priorInformative <- ggplot(data = data.frame(x = c(-200, 200)),
+    aes(x)) + stat_function(fun = dnorm, args = list(mean = -1.11,
+    sd = 44.47)) + ylab("") + scale_y_continuous(breaks = NULL) +
+    th + xlab("expected activity change") + labs(title = "Informative prior",
+    subtitle = "Normal prior with m = -1.11 and sd = 44.47")
+priorInformative
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/priorInformative-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+priorFitted <- ggplot(data = data.frame(x = c(-100, 100)), aes(x)) +
+    stat_function(fun = dnorm, args = list(mean = -1.11, sd = 7.5)) +
+    ylab("") + scale_y_continuous(breaks = NULL) + th + xlab("expected activity change") +
+    labs(title = "Fitted prior", subtitle = "Normal prior with m = 0, sd = 10, empirical distribution in gray") +
+    geom_density(data = data, aes(x = activityDiff), col = "grey",
+        alpha = 0.6) + xlim(c(-200, 200))
+priorFitted
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/priorFitted-1.png" width="100%" style="display: block; margin: auto;" />
+
 Kruschke, J. (2015). *Doing Bayesian data analysis; a tutorial with R, JAGS, and Stan*.
 
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.

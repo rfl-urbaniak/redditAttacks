@@ -706,4 +706,31 @@ priorWide <- ggplot(data = data.frame(x = c(-200, 200)), aes(x)) +
 priorWide
 ```
 
+```{r priorFit,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+priorFit <- ggplot(data = data.frame(x = c(-100, 100)), aes(x)) +
+  stat_function(fun = dnorm, args = list(mean = -1.11, sd = 7.5)) + ylab("") +
+  scale_y_continuous(breaks = NULL)+th+xlab("expected activity change")+
+  labs(title = "Fitted prior, zoomed in", subtitle ="Normal prior with m = 0, sd = 10, empirical distribution in gray")+
+  geom_density(data = data, aes(x=activityDiff), col = "grey", alpha = 0.6)+xlim(c(-80,80))
+priorFit
+```
 
+
+
+```{r priorInformative,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+priorInformative <- ggplot(data = data.frame(x = c(-200, 200)), aes(x)) +
+  stat_function(fun = dnorm, args = list(mean = -1.11, sd = 44.47)) + ylab("") +
+  scale_y_continuous(breaks = NULL)+th+xlab("expected activity change")+
+  labs(title = "Informative prior", subtitle ="Normal prior with m = -1.11 and sd = 44.47")
+priorInformative
+```
+
+
+```{r priorFitted,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+priorFitted <- ggplot(data = data.frame(x = c(-100, 100)), aes(x)) +
+  stat_function(fun = dnorm, args = list(mean = -1.11, sd = 7.5)) + ylab("") +
+  scale_y_continuous(breaks = NULL)+th+xlab("expected activity change")+
+  labs(title = "Fitted prior", subtitle ="Normal prior with m = 0, sd = 10, empirical distribution in gray")+
+  geom_density(data = data, aes(x=activityDiff), col = "grey", alpha = 0.6)+xlim(c(-200,200))
+priorFitted
+```

@@ -1291,6 +1291,47 @@ AIC(HNBfull)
 
     ## [1] 29081.39
 
+``` r
+HNBfull
+```
+
+    ## 
+    ## Call:
+    ## hurdle(formula = activityAfter ~ ., data = dataModeling, dist = "negbin")
+    ## 
+    ## Count model coefficients (truncated negbin with log link):
+    ##      (Intercept)  sumLowOnlyBefore     sumHighBefore       sumPlBefore  
+    ##         2.534167         -0.009021         -0.007607          0.015150  
+    ##      sumPhBefore    activityBefore  
+    ##        -0.139336          0.015018  
+    ## Theta = 0.7734 
+    ## 
+    ## Zero hurdle model coefficients (binomial with logit link):
+    ##      (Intercept)  sumLowOnlyBefore     sumHighBefore       sumPlBefore  
+    ##         0.490741         -0.009813         -0.111728         -0.104510  
+    ##      sumPhBefore    activityBefore  
+    ##         0.144576          0.080384
+
+``` r
+expCoef <- as.data.frame(round((exp(coef((HNBfull)))), 3))
+colnames(expCoef) <- c("Odds ratios")
+expCoef
+```
+
+    ##                        Odds ratios
+    ## count_(Intercept)           12.606
+    ## count_sumLowOnlyBefore       0.991
+    ## count_sumHighBefore          0.992
+    ## count_sumPlBefore            1.015
+    ## count_sumPhBefore            0.870
+    ## count_activityBefore         1.015
+    ## zero_(Intercept)             1.634
+    ## zero_sumLowOnlyBefore        0.990
+    ## zero_sumHighBefore           0.894
+    ## zero_sumPlBefore             0.901
+    ## zero_sumPhBefore             1.156
+    ## zero_activityBefore          1.084
+
 Akaike, H. (1974). A new look at the statistical model identification. *IEEE Transactions on Automatic Control*, *19*(6), 716–723. <https://doi.org/10.1109/TAC.1974.1100705>
 
 Kruschke, J. (2015). *Doing Bayesian data analysis; a tutorial with R, JAGS, and Stan*.

@@ -1183,10 +1183,19 @@ waldtest(HNBactivity,HNBfull)
 ```
 
 
-
 ```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
 AIC(HNBactivity)
 AIC(HNBfull)
 ```
 
 
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", message=FALSE, warning = FALSE}
+HNBfull
+```
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+expCoef <- as.data.frame(round((exp(coef((HNBfull)))),3))
+colnames(expCoef) <- c("Odds ratios")
+expCoef
+```

@@ -1616,12 +1616,62 @@ AIC(HNBfull)
     ## [1] 29081.39
 
 
+Next, we inspect the HNB model and interpret the result.
+
+
+
+``` r
+HNBfull
+```
+
+    ##
+    ## Call:
+    ## hurdle(formula = activityAfter ~ ., data = dataModeling, dist = "negbin")
+    ##
+    ## Count model coefficients (truncated negbin with log link):
+    ##      (Intercept)  sumLowOnlyBefore     sumHighBefore       sumPlBefore
+    ##         2.534167         -0.009021         -0.007607          0.015150
+    ##      sumPhBefore    activityBefore
+    ##        -0.139336          0.015018
+    ## Theta = 0.7734
+    ##
+    ## Zero hurdle model coefficients (binomial with logit link):
+    ##      (Intercept)  sumLowOnlyBefore     sumHighBefore       sumPlBefore
+    ##         0.490741         -0.009813         -0.111728         -0.104510
+    ##      sumPhBefore    activityBefore
+    ##         0.144576          0.080384
+
+
+
+
+    The output is split into two submodels: one for predicting zeros, one for the counts. It could be suggested to ignore those variables whose coefficients are not  statistically significant, but given the already discussed reasons to include these variables, we are not going to do this (in fact, attaching too much value to statistical significance thresholds can be pernicious, and also misleading if the predictors are correlated, as attacks on posts and attacks on comments may well be). Moreover, the results of step-wise elimination from the full model are sensitive to the ordering in which we consider variables, and there is no principled reason to prefer any of the orderings. Instead, interpreting  $p$-values we apply the following advice: the closer it is to 1, the more skeptical we should be about the judgment the model makes about its role.\footnote{See the excellent book titled \emph{The Cult of Statistical Significance: How the Standard Error Costs Us Jobs, Justice, and Lives} by Stephen T. Ziliak and Deirdre N. McCloskey.}
+    The coefficeints  are somewhat difficult to interpret because the models use log link function. Therefore  we first   exponentiate them to obtain odds ratios:
+
+    ``` r
+    expCoef <- as.data.frame(round((exp(coef((HNBfull)))), 3))
+    colnames(expCoef) <- c("Odds ratios")
+    expCoef
+    ```
+
+        ##                        Odds ratios
+        ## count_(Intercept)           12.606
+        ## count_sumLowOnlyBefore       0.991
+        ## count_sumHighBefore          0.992
+        ## count_sumPlBefore            1.015
+        ## count_sumPhBefore            0.870
+        ## count_activityBefore         1.015
+        ## zero_(Intercept)             1.634
+        ## zero_sumLowOnlyBefore        0.990
+        ## zero_sumHighBefore           0.894
+        ## zero_sumPlBefore             0.901
+        ## zero_sumPhBefore             1.156
+        ## zero_activityBefore          1.084
 
 
 
 
 
-
+        
 
 
 

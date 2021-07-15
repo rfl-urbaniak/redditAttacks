@@ -169,15 +169,15 @@ Again, this was a  straightforward use of grepl:
   16. In the end, and were aligned, centering around the selection day (day 8) and the studied group comprised 3673 users.
 
 
-    ``` r
-    # note we load the data here
-    data <- read.csv("../datasets/quittingFinalAnon.csv")[, -1]
-    table(data$group)
-    ```
+``` r
+# note we load the data here
+data <- read.csv("../datasets/quittingFinalAnon.csv")[, -1]
+table(data$group)
+```
 
-        ##
-        ##   Rcontrol Rtreatment   Scontrol Streatment
-        ##        875        935        942        921
+##
+##   Rcontrol Rtreatment   Scontrol Streatment
+##        875        935        942        921
 
 
 

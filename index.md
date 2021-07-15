@@ -365,6 +365,20 @@ lowOnlyPlotZoomed
 
 
 
+The above visualises the  activity change in terms of weekly counts. However, arguably, a change of -20 for a user who posts 500 times a week has different weight than for a user who posts 30 times. For this reason, we  also need to  look at changes in proportion, calculated by the following formula:
+
+\begin{align}
+\mathsf{activityScore} = & \frac{\mathsf{activityDifference}}{\mathsf{activityBefore}}
+\end{align}
+
+We zoom in to densely populated areas of the plot for `activityScore`} as a function of the three types of attacks in Figure \ref{fig:propActivity}. The impact is still negative, more so for `narrow`} attacks, and less so for other types. Note that for mathematical reasons the score minimum is -1 (user activity cannot drop more than 100\%), and so the graph looks  assymetric around the horizontal line.
+
+
+
+
+
+
+
 
 
 ### References

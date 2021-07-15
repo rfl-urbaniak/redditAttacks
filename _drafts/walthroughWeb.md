@@ -990,6 +990,37 @@ library(pscl)
 library(stats)
 ```
 
+``` r
+activityAfterTab <- table(factor(data$activityAfter, levels = 0:max(data$activityAfter)))
+activityAfterDf <- as.data.frame(activityAfterTab)
+activityAfterDf$Var1 <- as.integer(activityAfterDf$Var1)
+```
+
+``` r
+activityDistr <- ggplot(activityAfterDf, aes(x = Var1, y = Freq)) +
+    geom_bar(stat = "identity") + scale_x_continuous(breaks = seq(0,
+    1000, by = 50)) + th + labs(title = "Distribution of activityAfter") +
+    xlab("activityAfter") + ylab("count")
+
+activityDistrRestr <- ggplot(activityAfterDf, aes(x = Var1, y = Freq)) +
+    geom_bar(stat = "identity") + scale_x_continuous(breaks = seq(0,
+    100, by = 10), limits = c(0, 100)) + th + labs(title = "Distribution of activityAfter",
+    subtitle = "x restricted to 0-100") + xlab("activityAfter") +
+    ylab("count")
+```
+
+``` r
+activityDistr
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/activityDistr-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+activityDistrRestr
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/activityDistrRes-1.png" width="100%" style="display: block; margin: auto;" />
+
 Kruschke, J. (2015). *Doing Bayesian data analysis; a tutorial with R, JAGS, and Stan*.
 
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.

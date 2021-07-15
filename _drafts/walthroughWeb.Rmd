@@ -948,3 +948,28 @@ library(countreg)
 library(pscl)
 library(stats)
 ```
+
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+activityAfterTab <-table(factor(data$activityAfter,
+                levels = 0:max(data$activityAfter)))
+activityAfterDf <- as.data.frame(activityAfterTab)
+activityAfterDf$Var1 <- as.integer(activityAfterDf$Var1)
+```
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%"}
+activityDistr <- ggplot(activityAfterDf, aes(x = Var1, y  = Freq))+ geom_bar( stat="identity")+scale_x_continuous(breaks = seq(0,1000, by = 50))+th+labs(title="Distribution of activityAfter")+xlab("activityAfter")+ylab("count")
+
+activityDistrRestr <- ggplot(activityAfterDf, aes(x = Var1, y  = Freq))+ geom_bar( stat="identity")+scale_x_continuous(breaks = seq(0,100, by = 10), limits = c(0,100))+th+labs(title="Distribution of activityAfter", subtitle = "x restricted to 0-100")+xlab("activityAfter")+ylab("count")
+```
+
+
+```{r activityDistr,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+activityDistr
+```
+
+```{r activityDistrRes,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+activityDistrRestr
+```

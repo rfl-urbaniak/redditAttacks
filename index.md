@@ -468,7 +468,7 @@ counts
 
 
 
-We proceed as follows. We list 9  options of the number of attacks and initiate vectors to which we will save the confidence interval limits (`low`, `high`), the estimated mean and the `p`-value. We use the same approach to analyze  the other types of attacks.
+We proceed as follows. We list 9  options of the number of attacks and initiate vectors to which we will save the confidence interval limits (`low`, `high`), the estimated mean and the $p$-value. We use the same approach to analyze  the other types of attacks.
 
 
 ``` r
@@ -592,48 +592,48 @@ scale_x_continuous(labels = 0:8, breaks = 0:8)\
 
 T-test based estimates for activity change divided by numbers of narrow attacks received:
 
-## V1  V2  V3  V4  V5   V6   V7   V8
-## attacks  0.000   1.000   2.000   3.000   4.0005.0006.0007.000
-## CIlow   -3.154 -12.658 -23.390 -45.991 -94.861 -108.030 -169.527 -108.555
-## estimated m -2.140  -8.251 -12.646 -25.607 -59.400  -60.864  -80.882  -46.125
-## CIhigh  -1.125  -3.844  -1.902  -5.222 -23.939  -13.6977.762   16.305
-## p-value  0.000   0.000   0.021   0.015   0.0020.0140.0710.124
-##   V9
-## attacks8.000
-## CIlow   -144.273
-## estimated m  -46.750
-## CIhigh50.773
-## p-value0.225
+    ## V1  V2  V3  V4  V5   V6   V7   V8
+    ## attacks  0.000   1.000   2.000   3.000   4.0005.0006.0007.000
+    ## CIlow   -3.154 -12.658 -23.390 -45.991 -94.861 -108.030 -169.527 -108.555
+    ## estimated m -2.140  -8.251 -12.646 -25.607 -59.400  -60.864  -80.882  -46.125
+    ## CIhigh  -1.125  -3.844  -1.902  -5.222 -23.939  -13.6977.762   16.305
+    ## p-value  0.000   0.000   0.021   0.015   0.0020.0140.0710.124
+    ##   V9
+    ## attacks8.000
+    ## CIlow   -144.273
+    ## estimated m  -46.750
+    ## CIhigh50.773
+    ## p-value0.225
 
 T-test based estimates for activity change divided by numbers of wide attacks received:
 
-## V1  V2  V3  V4  V5   V6   V7   V8
-## attacks  0.000   1.000   2.000   3.000   4.0005.0006.0007.000
-## CIlow   -3.154 -12.658 -23.390 -45.991 -94.861 -108.030 -169.527 -108.555
-## estimated m -2.140  -8.251 -12.646 -25.607 -59.400  -60.864  -80.882  -46.125
-## CIhigh  -1.125  -3.844  -1.902  -5.222 -23.939  -13.6977.762   16.305
-## p-value  0.000   0.000   0.021   0.015   0.0020.0140.0710.124
-##   V9
-## attacks8.000
-## CIlow   -144.273
-## estimated m  -46.750
-## CIhigh50.773
-## p-value0.225
+    ## V1  V2  V3  V4  V5   V6   V7   V8
+    ## attacks  0.000   1.000   2.000   3.000   4.0005.0006.0007.000
+    ## CIlow   -3.154 -12.658 -23.390 -45.991 -94.861 -108.030 -169.527 -108.555
+    ## estimated m -2.140  -8.251 -12.646 -25.607 -59.400  -60.864  -80.882  -46.125
+    ## CIhigh  -1.125  -3.844  -1.902  -5.222 -23.939  -13.6977.762   16.305
+    ## p-value  0.000   0.000   0.021   0.015   0.0020.0140.0710.124
+    ##   V9
+    ## attacks8.000
+    ## CIlow   -144.273
+    ## estimated m  -46.750
+    ## CIhigh50.773
+    ## p-value0.225
 
 T-test based estimates for activity change divided by numbers of wide only attacks received:
 
-##V1  V2  V3  V4  V5   V6   V7   V8
-## 0.000   1.000   2.000   3.000   4.0005.0006.0007.000
-## lowLo  -3.154 -12.658 -23.390 -45.991 -94.861 -108.030 -169.527 -108.555
-## mLo-2.140  -8.251 -12.646 -25.607 -59.400  -60.864  -80.882  -46.125
-## highLo -1.125  -3.844  -1.902  -5.222 -23.939  -13.6977.762   16.305
-## pLo 0.000   0.000   0.021   0.015   0.0020.0140.0710.124
-##  V9
-##   8.000
-## lowLo  -144.273
-## mLo -46.750
-## highLo   50.773
-## pLo   0.225
+    ## V1  V2  V3  V4  V5   V6   V7   V8
+    ## 0.000   1.000   2.000   3.000   4.0005.0006.0007.000
+    ## lowLo  -3.154 -12.658 -23.390 -45.991 -94.861 -108.030 -169.527 -108.555
+    ## mLo-2.140  -8.251 -12.646 -25.607 -59.400  -60.864  -80.882  -46.125
+    ## highLo -1.125  -3.844  -1.902  -5.222 -23.939  -13.6977.762   16.305
+    ## pLo 0.000   0.000   0.021   0.015   0.0020.0140.0710.124
+    ##  V9
+    ##   8.000
+    ## lowLo  -144.273
+    ## mLo -46.750
+    ## highLo   50.773
+    ## pLo   0.225
 
 
 

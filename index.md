@@ -109,19 +109,18 @@ Because of the preponderance of personal attacks online, we could use the real-l
 
 3.  For each of these days, a random sample of 100,000 posts or comments have been drawn from all content posted on Reddit. Each of these datasets went through preliminary user-name based bots removal. This is a simple search for typical phrases included in user names, such as "Auto", "auto", "Bot", or "bot".
 
-  For instance, for our initial thursdayClean datased, this proceeds like this:
-
- ``` r
- thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$author, fixed = TRUE), ]
- thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$author, fixed = TRUE), ]
- thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$receiver, fixed = TRUE), ]
- thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$receiver,
-  fixed = TRUE), ]
- thursdayClean <- thursdayClean[!grepl("bot", thursdayClean$receiver,
-  fixed = TRUE), ]
- thursdayClean <- thursdayClean[!grepl("Bot", thursdayClean$receiver,
-  fixed = TRUE), ]
- ```
+    For instance, for our initial thursdayClean datased, this proceeds like this:
+    ``` r
+    thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$author, fixed = TRUE), ]
+    thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$author, fixed = TRUE), ]
+    thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$receiver, fixed = TRUE), ]
+    thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$receiver,
+    fixed = TRUE), ]
+    thursdayClean <- thursdayClean[!grepl("bot", thursdayClean$receiver,
+    fixed = TRUE), ]
+    thursdayClean <- thursdayClean[!grepl("Bot", thursdayClean$receiver,
+    fixed = TRUE), ]
+    ```
 
 
 
@@ -186,10 +185,10 @@ Again, this was a fairly straightforward use of grepl:
 
 
 
-  ``` r
-  dataDisp <- data[, c(1, 77:85)]
-  head(dataDisp)
-  ```
+``` r
+dataDisp <- data[, c(1, 77:85)]
+head(dataDisp)
+```
 
       ##   user sumLowBefore sumHighBefore sumPlBefore sumPhBefore activityBefore
       ## 1    1            1             0           1           0              2

@@ -685,3 +685,25 @@ distr
 ```{r sampDistr,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE,  dpi = 300, message = FALSE, warning = FALSE, fig.width= 6}
 sampDistr
 ```
+
+
+- $p$-values and confidence intervals are sensitive to undesirable factors, such as stopping intention in experiment design [@Kruschke2015].
+
+
+
+```{r,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",warning=FALSE, message=FALSE}
+library(BEST)
+priorsWide <- list(muM = 0, muSD = 50)
+priorsInformed <- list(muM = -1.11, muSD = 44.47)
+priorsFit <- list(muM = -1.11, muSD = 7.5)
+```
+
+
+```{r priorWide,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", dpi = 300, message = FALSE, warning = FALSE}
+priorWide <- ggplot(data = data.frame(x = c(-200, 200)), aes(x)) +
+  stat_function(fun = dnorm, args = list(mean = 0, sd = 50)) + ylab("") +
+  scale_y_continuous(breaks = NULL)+th+xlab("expected activity change")+labs(title = "Wide prior", subtitle ="Normal prior with m = 0, sd = 50")
+priorWide
+```
+
+

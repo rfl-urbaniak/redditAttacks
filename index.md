@@ -846,6 +846,75 @@ sampDistr
 
 
 
+There are, however, some reasons to be concerned with classical methods:
+
+
+- $p$-values and confidence intervals are hard to interpret intuitively. For instance, a 95\% confidence interval being $(x,y)$ does not mean that the true mean is within $(x,y)$ with probability $0.95$, and the estimated mean being $z$ with $p$-value $0.01$ does not  mean that the true
+population mean is $z$ with probability $0.99$.
+
+-   *p*-values and confidence intervals are sensitive to undesirable factors, such as stopping intention in experiment design (Kruschke, 2015).
+
+- Classical hypothesis tests require several assumptions to hold which sometimes do not hold in reality, and the choice of  significance thresholds is arbitrary.
+
+-  Crucially, probabilities reported in classical analysis are probabilities of the data on the assumption of the null hypothesis (e.g., that the true mean is 0), not the posterior probabilities of the true parameter values given the data. To obtain these, we used Bayesian analysis and studied the impact of skeptical prior probabilities on how the data  impacts the posterior distribution of the parameters at hand.
+
+
+
+
+### Bayesian estimation
+
+
+
+We used Markov Chain Monte Carlo methods (using the [Bayesian Estimation Supersedes the t-Test](https://www.rdocumentation.org/packages/BEST/versions/0.5.2)  package) to estimate the posterior probability distribution for mean changes in activity
+in different groups. Note you have to have JAGS installed on your computer to run the simulations, and be aware that
+ some of the computations are pretty demanding and will take time.
+We did this for  three different fairly skeptical normal prior distributions (which we call
+`wide, informed`, and `fit`), whose means and standard deviations are respectively $(0,50), (-1.11,44.47)$ and $(-1.11,7.5)$ (read on for an explanation why).
+
+
+
+``` r
+library(BEST)
+priorsWide <- list(muM = 0, muSD = 50)
+priorsInformed <- list(muM = -1.11, muSD = 44.47)
+priorsFit <- list(muM = -1.11, muSD = 7.5)
+```
+
+
+These are all normal distributions with different parameters. We follow the usual practice of presenting a Bayesian analysis with a range of options: the reader is to judge with prior seems most plausible to them, and then modify their beliefs according to the impact the data has on their prior convictions. The wide prior assumes that the most likely difference is 0, but the standard deviation is quite large, the informed prior takes the mean and standard deviation of the whole study group, whereas the fit prior follows fairly closely the actual empirical distribution of activity change values. All of them are fairly skeptical because they expect the change to be the same for every user, and they expect this change to be near 0.  We did not use  a completely uninformed uniform prior, because it is  not sufficiently skeptical, being more easily impacted by the data, and because it has some undesirable mathematical properties. See [Don’t Use Uniform Priors. They statistically don’t make sense](https://towardsdatascience.com/stop-using-uniform-priors-47473bdd0b8a) for an accessible explanation. Our priors look as follows  (note that the fitted prior looks similar when the $x$ scale is different to make the fitting more clearly visible; we also visualise the fitted prior in the same scale as the other priors).   Here's the visualisation code for the wide priors, code for the other priors is analogous.
+
+
+
+``` r
+priorWide <- ggplot(data = data.frame(x = c(-200, 200)), aes(x)) +
+    stat_function(fun = dnorm, args = list(mean = 0, sd = 50)) +
+    ylab("") + scale_y_continuous(breaks = NULL) + th + xlab("expected activity change") +
+    labs(title = "Wide prior", subtitle = "Normal prior with m = 0, sd = 50")
+priorWide
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/priorWide-1.png" width="100%" style="display: block; margin: auto;" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

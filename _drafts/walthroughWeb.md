@@ -709,6 +709,27 @@ sampDistr
 
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/sampDistr-1.png" style="display: block; margin: auto;" />
 
+-   *p*-values and confidence intervals are sensitive to undesirable factors, such as stopping intention in experiment design (Kruschke, 2015).
+
+``` r
+library(BEST)
+priorsWide <- list(muM = 0, muSD = 50)
+priorsInformed <- list(muM = -1.11, muSD = 44.47)
+priorsFit <- list(muM = -1.11, muSD = 7.5)
+```
+
+``` r
+priorWide <- ggplot(data = data.frame(x = c(-200, 200)), aes(x)) +
+    stat_function(fun = dnorm, args = list(mean = 0, sd = 50)) +
+    ylab("") + scale_y_continuous(breaks = NULL) + th + xlab("expected activity change") +
+    labs(title = "Wide prior", subtitle = "Normal prior with m = 0, sd = 50")
+priorWide
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/priorWide-1.png" width="100%" style="display: block; margin: auto;" />
+
+Kruschke, J. (2015). *Doing Bayesian data analysis; a tutorial with R, JAGS, and Stan*.
+
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.
 
 Tukey, J. W. (1949). Comparing individual means in the analysis of variance. *Biometrics*, *5*(2), 99. <https://doi.org/10.2307/3001913>

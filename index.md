@@ -1860,6 +1860,124 @@ One might have reasoned about our previous analyses as follows: attacks in the b
 
 ### Regression to the mean?
 
+Another problem plaguing observational studies is \textbf{regression to the mean}. If the probability of any particular message being attacked is fairly low, users who have received an attack are quite likely to have posted more content than the treatment group, and perhaps those who posted more content in the `before` period are more likely to post less in the `after` period. This concern might be elevated by the observation that activity before indeed increases with the number of attacks received and that the activity drop increases with `activity` before.
+
+
+
+``` r
+attacksb <- 0:8
+maxb <- max(attacks)
+lowb <- numeric(max + 1)
+highb <- numeric(max + 1)
+mb <- numeric(max + 1)
+pb <- numeric(max + 1)
+tb <- list()
+
+for (attacks in attacksb) {
+    t[[attacks + 1]] <- t.test(data[data$sumHighBefore == attacks,
+        ]$activityBefore)
+
+    lowb[attacks + 1] <- t[[attacks + 1]]$conf.int[1]
+    highb[attacks + 1] <- t[[attacks + 1]]$conf.int[2]
+    mb[attacks + 1] <- t[[attacks + 1]]$estimate
+    pb[attacks + 1] <- t[[attacks + 1]]$p.value
+}
+highTableb <- as.data.frame(round(rbind(0:8, lowb, mb, highb,
+    pb), 3))
+rownames(highTableb) <- c("attacks", "CIlow", "estimatedm", "CIhigh",
+    "p-value")
+
+before <- as.data.frame(t(highTableb))
+
+attacksa <- 0:8
+maxa <- max(attacksa)
+lowa <- numeric(max + 1)
+higha <- numeric(max + 1)
+ma <- numeric(max + 1)
+pa <- numeric(max + 1)
+ta <- list()
+for (attacks in attacksa) {
+    ta[[attacks + 1]] <- t.test(data[data$sumHighBefore == attacks,
+        ]$activityAfter)
+    lowa[attacks + 1] <- ta[[attacks + 1]]$conf.int[1]
+    higha[attacks + 1] <- ta[[attacks + 1]]$conf.int[2]
+    ma[attacks + 1] <- ta[[attacks + 1]]$estimate
+    pa[attacks + 1] <- ta[[attacks + 1]]$p.value
+}
+highTablea <- as.data.frame(round(rbind(0:8, lowa, ma, higha,
+    pa), 3))
+rownames(highTablea) <- c("attacks", "CIlow", "estimatedm", "CIhigh",
+    "p-value")
+after <- as.data.frame(t(highTablea))
+
+ggplot(before, aes(x = attacks, y = estimatedm)) + geom_point() +
+    geom_errorbar(aes(ymin = CIlow, ymax = CIhigh), width = 0.2,
+        size = 0.2, position = position_dodge(0.05)) + th + xlab("narrow attacks") +
+    ylab("mean activity") + geom_line(data = after, aes(x = attacks,
+    y = estimatedm), color = "skyblue") + geom_errorbar(data = after,
+    aes(ymin = CIlow, ymax = CIhigh), width = 0.3, size = 0.2,
+    color = "skyblue", position = position_dodge(0.05))
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/mean1-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+attacksb <- 0:8
+maxb <- max(attacks)
+lowb <- numeric(max + 1)
+highb <- numeric(max + 1)
+mb <- numeric(max + 1)
+pb <- numeric(max + 1)
+tb <- list()
+
+for (attacks in attacksb) {
+    t[[attacks + 1]] <- t.test(data[data$sumHighBefore == attacks,
+        ]$activityBefore)
+
+    lowb[attacks + 1] <- t[[attacks + 1]]$conf.int[1]
+    highb[attacks + 1] <- t[[attacks + 1]]$conf.int[2]
+    mb[attacks + 1] <- t[[attacks + 1]]$estimate
+    pb[attacks + 1] <- t[[attacks + 1]]$p.value
+}
+highTableb <- as.data.frame(round(rbind(0:8, lowb, mb, highb,
+    pb), 3))
+rownames(highTableb) <- c("attacks", "CIlow", "estimatedm", "CIhigh",
+    "p-value")
+
+before <- as.data.frame(t(highTableb))
+
+attacksa <- 0:8
+maxa <- max(attacksa)
+lowa <- numeric(max + 1)
+higha <- numeric(max + 1)
+ma <- numeric(max + 1)
+pa <- numeric(max + 1)
+ta <- list()
+for (attacks in attacksa) {
+    ta[[attacks + 1]] <- t.test(data[data$sumHighBefore == attacks,
+        ]$activityAfter)
+    lowa[attacks + 1] <- ta[[attacks + 1]]$conf.int[1]
+    higha[attacks + 1] <- ta[[attacks + 1]]$conf.int[2]
+    ma[attacks + 1] <- ta[[attacks + 1]]$estimate
+    pa[attacks + 1] <- ta[[attacks + 1]]$p.value
+}
+highTablea <- as.data.frame(round(rbind(0:8, lowa, ma, higha,
+    pa), 3))
+rownames(highTablea) <- c("attacks", "CIlow", "estimatedm", "CIhigh",
+    "p-value")
+after <- as.data.frame(t(highTablea))
+
+ggplot(before, aes(x = attacks, y = estimatedm)) + geom_point() +
+    geom_errorbar(aes(ymin = CIlow, ymax = CIhigh), width = 0.2,
+        size = 0.2, position = position_dodge(0.05)) + th + xlab("narrow attacks") +
+    ylab("mean activity") + geom_line(data = after, aes(x = attacks,
+    y = estimatedm), color = "skyblue") + geom_errorbar(data = after,
+    aes(ymin = CIlow, ymax = CIhigh), width = 0.3, size = 0.2,
+    color = "skyblue", position = position_dodge(0.05))
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/mean2-1.png" width="100%" style="display: block; margin: auto;" />
+
 
 
 

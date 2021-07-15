@@ -1467,6 +1467,120 @@ EffTablePosts
 
 One might have reasoned about our previous analyses as follows: attacks in the before period correlate with activity before, and it is activity before that is the real predictor of activity after. This could be supported by observing that the *p*-value for the hurdle model is really low for activity before. Pearson correlation coefficient for narrow attacks before and activity before is *r*(3671)≈ 0.437 and *r*(3671)≈ 0.332 for activity after. However, activity before is a much better correlate of activity after, *r*(3671)≈ 0.845 --- all correlations with *p*-value &lt;2.2*e* − 16, and regression analysis (inspect the effect plots) indicates that activity before and high attacks before actually go in the opposite directions.
 
+``` r
+attacksb <- 0:8
+maxb <- max(attacks)
+lowb <- numeric(max + 1)
+highb <- numeric(max + 1)
+mb <- numeric(max + 1)
+pb <- numeric(max + 1)
+tb <- list()
+
+for (attacks in attacksb) {
+    t[[attacks + 1]] <- t.test(data[data$sumHighBefore == attacks,
+        ]$activityBefore)
+
+    lowb[attacks + 1] <- t[[attacks + 1]]$conf.int[1]
+    highb[attacks + 1] <- t[[attacks + 1]]$conf.int[2]
+    mb[attacks + 1] <- t[[attacks + 1]]$estimate
+    pb[attacks + 1] <- t[[attacks + 1]]$p.value
+}
+highTableb <- as.data.frame(round(rbind(0:8, lowb, mb, highb,
+    pb), 3))
+rownames(highTableb) <- c("attacks", "CIlow", "estimatedm", "CIhigh",
+    "p-value")
+
+before <- as.data.frame(t(highTableb))
+
+attacksa <- 0:8
+maxa <- max(attacksa)
+lowa <- numeric(max + 1)
+higha <- numeric(max + 1)
+ma <- numeric(max + 1)
+pa <- numeric(max + 1)
+ta <- list()
+for (attacks in attacksa) {
+    ta[[attacks + 1]] <- t.test(data[data$sumHighBefore == attacks,
+        ]$activityAfter)
+    lowa[attacks + 1] <- ta[[attacks + 1]]$conf.int[1]
+    higha[attacks + 1] <- ta[[attacks + 1]]$conf.int[2]
+    ma[attacks + 1] <- ta[[attacks + 1]]$estimate
+    pa[attacks + 1] <- ta[[attacks + 1]]$p.value
+}
+highTablea <- as.data.frame(round(rbind(0:8, lowa, ma, higha,
+    pa), 3))
+rownames(highTablea) <- c("attacks", "CIlow", "estimatedm", "CIhigh",
+    "p-value")
+after <- as.data.frame(t(highTablea))
+
+ggplot(before, aes(x = attacks, y = estimatedm)) + geom_point() +
+    geom_errorbar(aes(ymin = CIlow, ymax = CIhigh), width = 0.2,
+        size = 0.2, position = position_dodge(0.05)) + th + xlab("narrow attacks") +
+    ylab("mean activity") + geom_line(data = after, aes(x = attacks,
+    y = estimatedm), color = "skyblue") + geom_errorbar(data = after,
+    aes(ymin = CIlow, ymax = CIhigh), width = 0.3, size = 0.2,
+    color = "skyblue", position = position_dodge(0.05))
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/mean1-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+attacksb <- 0:8
+maxb <- max(attacks)
+lowb <- numeric(max + 1)
+highb <- numeric(max + 1)
+mb <- numeric(max + 1)
+pb <- numeric(max + 1)
+tb <- list()
+
+for (attacks in attacksb) {
+    t[[attacks + 1]] <- t.test(data[data$sumHighBefore == attacks,
+        ]$activityBefore)
+
+    lowb[attacks + 1] <- t[[attacks + 1]]$conf.int[1]
+    highb[attacks + 1] <- t[[attacks + 1]]$conf.int[2]
+    mb[attacks + 1] <- t[[attacks + 1]]$estimate
+    pb[attacks + 1] <- t[[attacks + 1]]$p.value
+}
+highTableb <- as.data.frame(round(rbind(0:8, lowb, mb, highb,
+    pb), 3))
+rownames(highTableb) <- c("attacks", "CIlow", "estimatedm", "CIhigh",
+    "p-value")
+
+before <- as.data.frame(t(highTableb))
+
+attacksa <- 0:8
+maxa <- max(attacksa)
+lowa <- numeric(max + 1)
+higha <- numeric(max + 1)
+ma <- numeric(max + 1)
+pa <- numeric(max + 1)
+ta <- list()
+for (attacks in attacksa) {
+    ta[[attacks + 1]] <- t.test(data[data$sumHighBefore == attacks,
+        ]$activityAfter)
+    lowa[attacks + 1] <- ta[[attacks + 1]]$conf.int[1]
+    higha[attacks + 1] <- ta[[attacks + 1]]$conf.int[2]
+    ma[attacks + 1] <- ta[[attacks + 1]]$estimate
+    pa[attacks + 1] <- ta[[attacks + 1]]$p.value
+}
+highTablea <- as.data.frame(round(rbind(0:8, lowa, ma, higha,
+    pa), 3))
+rownames(highTablea) <- c("attacks", "CIlow", "estimatedm", "CIhigh",
+    "p-value")
+after <- as.data.frame(t(highTablea))
+
+ggplot(before, aes(x = attacks, y = estimatedm)) + geom_point() +
+    geom_errorbar(aes(ymin = CIlow, ymax = CIhigh), width = 0.2,
+        size = 0.2, position = position_dodge(0.05)) + th + xlab("narrow attacks") +
+    ylab("mean activity") + geom_line(data = after, aes(x = attacks,
+    y = estimatedm), color = "skyblue") + geom_errorbar(data = after,
+    aes(ymin = CIlow, ymax = CIhigh), width = 0.3, size = 0.2,
+    color = "skyblue", position = position_dodge(0.05))
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/mean2-1.png" width="100%" style="display: block; margin: auto;" />
+
 Akaike, H. (1974). A new look at the statistical model identification. *IEEE Transactions on Automatic Control*, *19*(6), 716–723. <https://doi.org/10.1109/TAC.1974.1100705>
 
 Kruschke, J. (2015). *Doing Bayesian data analysis; a tutorial with R, JAGS, and Stan*.

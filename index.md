@@ -128,6 +128,29 @@ thursdayClean <- thursdayClean[!grepl("Bot", thursdayClean$receiver,
 
 
 
+4. In some cases, content had been  deleted by the user or removed by Reddit  --- in such cases the dataset only contained information that some content had been  posted but was later removed; since we could not access the content  of such posts or comments and evaluate them for personal attacks, we also excluded them from the study.
+
+ Again, this was a fairly straightforward use of grepl:
+
+
+
+
+ ``` r
+ thursdayClean <- thursdayClean[!grepl("none", thursdayClean$receiver,
+     fixed = TRUE), ]
+ thursdayClean <- thursdayClean[!grepl("None", thursdayClean$receiver,
+     fixed = TRUE), ]
+ thursdayClean <- thursdayClean[!grepl("<MISSING>", thursdayClean$receiver,
+     fixed = TRUE), ]
+ thursdayClean <- thursdayClean[!grepl("[deleted]", thursdayClean$receiver,
+     fixed = TRUE), ]
+ ```
+
+
+
+
+
+
 
 
 

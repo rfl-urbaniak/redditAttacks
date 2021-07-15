@@ -56,6 +56,21 @@ thursdayClean <- thursdayClean[!grepl("Bot", thursdayClean$receiver,
     fixed = TRUE), ]
 ```
 
+1.  In some cases, content had been deleted by the user or removed by Reddit --- in such cases the dataset only contained information that some content had been posted but was later removed; since we could not access the content of such posts or comments and evaluate them for personal attacks, we also excluded them from the study.
+
+Again, this was a fairly straightforward use of grepl:
+
+``` r
+thursdayClean <- thursdayClean[!grepl("none", thursdayClean$receiver,
+    fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("None", thursdayClean$receiver,
+    fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("<MISSING>", thursdayClean$receiver,
+    fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("[deleted]", thursdayClean$receiver,
+    fixed = TRUE), ]
+```
+
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.
 
 Valkenburg, P. M., Peter, J., & Schouten, A. P. (2006). Friend networking sites and their relationship to adolescents’ well-being and social self-esteem. *CyberPsychology & Behavior*, *9*(5), 584–590. <https://doi.org/10.1089/cpb.2006.9.584>

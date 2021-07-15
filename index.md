@@ -5,8 +5,8 @@ toc: true
 #title:
 output:
   md_document:
-    variant: markdown_github
-    preserve_yaml: true
+variant: markdown_github
+preserve_yaml: true
 ---
 
 
@@ -34,8 +34,8 @@ _Remark_. In what follows, we sometimes display key pieces of code and explain w
 
 - Github folder with all the files is available [here](https://github.com/rfl-urbaniak/redditAttacks).
 
-    - The [datasets subfolder](https://github.com/rfl-urbaniak/redditAttacks/tree/main/datasets) includes the dataset (quittingFinalAnon.csv) and the bayesian chains resulting from the bayesian analysis.
-    -
+- The [datasets subfolder](https://github.com/rfl-urbaniak/redditAttacks/tree/main/datasets) includes the dataset (quittingFinalAnon.csv) and the bayesian chains resulting from the bayesian analysis.
+-
 
 
 
@@ -109,41 +109,41 @@ Because of the preponderance of personal attacks online, we could use the real-l
 
 3.  For each of these days, a random sample of 100,000 posts or comments have been drawn from all content posted on Reddit. Each of these datasets went through preliminary user-name based bots removal. This is a simple search for typical phrases included in user names, such as "Auto", "auto", "Bot", or "bot".
 
-    For instance, for our initial thursdayClean datased, this proceeds like this:
-    ``` r
-    thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$author, fixed = TRUE), ]
-    thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$author, fixed = TRUE), ]
-    thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$receiver, fixed = TRUE), ]
-    thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$receiver,
-    fixed = TRUE), ]
-    thursdayClean <- thursdayClean[!grepl("bot", thursdayClean$receiver,
-    fixed = TRUE), ]
-    thursdayClean <- thursdayClean[!grepl("Bot", thursdayClean$receiver,
-    fixed = TRUE), ]
-    ```
+For instance, for our initial thursdayClean datased, this proceeds like this:
+``` r
+thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$author, fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$author, fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$receiver, fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$receiver,
+fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("bot", thursdayClean$receiver,
+fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("Bot", thursdayClean$receiver,
+fixed = TRUE), ]
+```
 
 
 
 4. In some cases, content had been  deleted by the user or removed by Reddit  --- in such cases the dataset only contained information that some content had been  posted but was later removed; since we could not access the content  of such posts or comments and evaluate them for personal attacks, we also excluded them from the study.
 
-    Again, this was a  straightforward use of grepl:
-    ``` r
-    thursdayClean <- thursdayClean[!grepl("none", thursdayClean$receiver, fixed = TRUE), ]
-    thursdayClean <- thursdayClean[!grepl("None", thursdayClean$receiver, fixed = TRUE), ]
-    thursdayClean <- thursdayClean[!grepl("<MISSING>", thursdayClean$receiver,
-     fixed = TRUE), ]
-    thursdayClean <- thursdayClean[!grepl("[deleted]", thursdayClean$receiver,
-     fixed = TRUE), ]
-    ```
+Again, this was a  straightforward use of grepl:
+``` r
+thursdayClean <- thursdayClean[!grepl("none", thursdayClean$receiver, fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("None", thursdayClean$receiver, fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("<MISSING>", thursdayClean$receiver,
+ fixed = TRUE), ]
+thursdayClean <- thursdayClean[!grepl("[deleted]", thursdayClean$receiver,
+ fixed = TRUE), ]
+```
 
  5. This left us with  92,943 comments or posts by 75,516 users  for R and 89,585 comments by 72,801 users  for S. While we didn't directly track whether content was a post or a comment, we paid attention as to whether a piece of content was a reply to a post or not (the working assumption was that personal attacks on posts might have different impact than attacks on comments). Quite consistently, $46\%$ of content were comments on posts on both days.
 
 
  6.  On these two  days respectively,  1359 R users ($1.79\%$) received at least one narrow attack, 35 of them received more than one ($0.046\%$). 302 of S users ($0.39\%$) received at least one narrow attack and 3 of them more than one narrow on that day ($0.003\%$). These numbers  are estimates for a single day, and therefore if the chance of obtaining at least one narrow attack in a day is $1.79\%$, assuming the binomial distribution, the estimated probability of obtaining at least one narrow attack in a week is 11.9\% in a week and 43\% in a month.
-    ``` r
-    100  * round(1-dbinom(0,7,prob = 1359/75516),3)` #week
-    100 * round(1-dbinom(0,31,prob = 1359/75516),3)` #month
-    ```
+``` r
+100  * round(1-dbinom(0,7,prob = 1359/75516),3)` #week
+100 * round(1-dbinom(0,31,prob = 1359/75516),3)` #month
+```
 
 
 7.  To ensure a sufficient sample size, we decided not to draw a random sub-sample from the or class comprising 340 users, and included all of them in the Thursday treatment group (). Other users were randomly sampled from and added to , so that the group count was 1000.
@@ -173,9 +173,9 @@ data <- read.csv("../datasets/quittingFinalAnon.csv")[, -1]
 table(data$group)
 ```
 
-    ##
-    ##   Rcontrol Rtreatment   Scontrol Streatment
-    ##        875        935        942        921
+##
+##   Rcontrol Rtreatment   Scontrol Streatment
+##875935942921
 
 
 
@@ -188,20 +188,20 @@ dataDisp <- data[, c(1, 77:85)]
 head(dataDisp)
 ```
 
-      ##   user sumLowBefore sumHighBefore sumPlBefore sumPhBefore activityBefore
-      ## 1    1            1             0           1           0              2
-      ## 2    2            5             4           0           0            106
-      ## 3    3            2             1           0           0             29
-      ## 4    4            6             4           0           0            180
-      ## 5    5            5             2           0           0            116
-      ## 6    6            2             0           0           0            124
-      ##   activityAfter activityDiff      group treatment
-      ## 1             0           -2 Rtreatment         1
-      ## 2            80          -26 Rtreatment         1
-      ## 3            31            2 Rtreatment         1
-      ## 4            92          -88 Rtreatment         1
-      ## 5            95          -21 Rtreatment         1
-      ## 6           104          -20 Rtreatment         1
+  ##   user sumLowBefore sumHighBefore sumPlBefore sumPhBefore activityBefore
+  ## 111 0   1   0  2
+  ## 225 4   0   0106
+  ## 332 1   0   0 29
+  ## 446 4   0   0180
+  ## 555 2   0   0116
+  ## 662 0   0   0124
+  ##   activityAfter activityDiff  group treatment
+  ## 1 0   -2 Rtreatment 1
+  ## 280  -26 Rtreatment 1
+  ## 3312 Rtreatment 1
+  ## 492  -88 Rtreatment 1
+  ## 595  -21 Rtreatment 1
+  ## 6   104  -20 Rtreatment 1
 
 
 -  `user` contains anonymous user numbers.
@@ -231,32 +231,32 @@ The visualisations  should be understood as follows. Each point is a user. The $
 library(ggthemes)
 th <- theme_tufte()
 highPlot <- ggplot(data, aes(x = sumHighBefore, y = activityDiff)) +
-    geom_jitter(size = 0.8, alpha = 0.3) + geom_smooth(method = "lm",
-    color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
-    scale_x_continuous(breaks = 0:max(data$sumHighBefore), limits = c(-1,
-        max(data$sumHighBefore))) + ylim(c(-300, 300)) + geom_smooth(color = "grey",
-    size = 0.4, lty = 2, alpha = 0.2) + xlab("narrow attacks before") +
-    ylab("activity change after") + labs(title = "Impact of narrow attacks on activity",
-    subtitle = "weekly counts, n=3673") + geom_segment(aes(x = -1,
-    y = -100, xend = 9, yend = -100), lty = 3, size = 0.1, color = "gray71",
-    alpha = 0.2) + geom_segment(aes(x = -1, y = 100, xend = 9,
-    yend = 100), lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
-    geom_segment(aes(x = -1, y = -100, xend = -1, yend = 100),
-        lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
-    geom_segment(aes(x = 9, y = -100, xend = 9, yend = 100),
-        lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
-    th
+geom_jitter(size = 0.8, alpha = 0.3) + geom_smooth(method = "lm",
+color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
+scale_x_continuous(breaks = 0:max(data$sumHighBefore), limits = c(-1,
+max(data$sumHighBefore))) + ylim(c(-300, 300)) + geom_smooth(color = "grey",
+size = 0.4, lty = 2, alpha = 0.2) + xlab("narrow attacks before") +
+ylab("activity change after") + labs(title = "Impact of narrow attacks on activity",
+subtitle = "weekly counts, n=3673") + geom_segment(aes(x = -1,
+y = -100, xend = 9, yend = -100), lty = 3, size = 0.1, color = "gray71",
+alpha = 0.2) + geom_segment(aes(x = -1, y = 100, xend = 9,
+yend = 100), lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+geom_segment(aes(x = -1, y = -100, xend = -1, yend = 100),
+lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+geom_segment(aes(x = 9, y = -100, xend = 9, yend = 100),
+lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+th
 
 
 highPlotZoomed <- ggplot(data, aes(x = sumHighBefore, y = activityDiff)) +
-    geom_jitter(size = 1, alpha = 0.2) + geom_smooth(method = "lm",
-    color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
-    th + scale_x_continuous(breaks = 0:max(data$sumHighBefore),
-    limits = c(-1, 9)) + ylim(c(-100, 100)) + geom_smooth(color = "grey",
-    size = 0.4, lty = 2, alpha = 0.2) + xlab("narrow attacks before") +
-    ylab("activity change after") + labs(title = "Impact of narrow attacks on activity",
-    subtitle = "weekly counts, zoomed in") + geom_hline(yintercept = 0,
-    col = "red", size = 0.2, lty = 3)
+geom_jitter(size = 1, alpha = 0.2) + geom_smooth(method = "lm",
+color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
+th + scale_x_continuous(breaks = 0:max(data$sumHighBefore),
+limits = c(-1, 9)) + ylim(c(-100, 100)) + geom_smooth(color = "grey",
+size = 0.4, lty = 2, alpha = 0.2) + xlab("narrow attacks before") +
+ylab("activity change after") + labs(title = "Impact of narrow attacks on activity",
+subtitle = "weekly counts, zoomed in") + geom_hline(yintercept = 0,
+col = "red", size = 0.2, lty = 3)
 ```
 
 
@@ -278,32 +278,32 @@ highPlotZoomed
 
 ``` r
 lowPlot <- ggplot(data, aes(x = sumLowBefore, y = activityDiff)) +
-    geom_jitter(size = 0.8, alpha = 0.3) + geom_smooth(method = "lm",
-    color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
-    th + geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2) +
-    xlab("wide attacks before") + ylab("activity change after") +
-    labs(title = "Impact of wide attacks on activity", subtitle = "weekly counts, n=3673") +
-    geom_segment(aes(x = -1, y = -150, xend = 15, yend = -150),
-        lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
-    geom_segment(aes(x = -1, y = 150, xend = 15, yend = 150),
-        lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
-    geom_segment(aes(x = -1, y = -150, xend = -1, yend = 150),
-        lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
-    geom_segment(aes(x = 15, y = -150, xend = 15, yend = 150),
-        lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
-    xlim(c(-1, max(data$sumLowBefore)))
+geom_jitter(size = 0.8, alpha = 0.3) + geom_smooth(method = "lm",
+color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
+th + geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2) +
+xlab("wide attacks before") + ylab("activity change after") +
+labs(title = "Impact of wide attacks on activity", subtitle = "weekly counts, n=3673") +
+geom_segment(aes(x = -1, y = -150, xend = 15, yend = -150),
+lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+geom_segment(aes(x = -1, y = 150, xend = 15, yend = 150),
+lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+geom_segment(aes(x = -1, y = -150, xend = -1, yend = 150),
+lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+geom_segment(aes(x = 15, y = -150, xend = 15, yend = 150),
+lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+xlim(c(-1, max(data$sumLowBefore)))
 
 
 
 lowPlotZoomed <- ggplot(data, aes(x = sumLowBefore, y = activityDiff)) +
-    geom_jitter(size = 1, alpha = 0.2) + geom_smooth(method = "lm",
-    color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
-    th + scale_x_continuous(breaks = 0:max(data$sumLowBefore),
-    limits = c(-1, 15)) + ylim(c(-150, 150)) + geom_smooth(color = "grey",
-    size = 0.4, lty = 2, alpha = 0.2) + xlab("wide attacks before") +
-    ylab("activity change after") + labs(title = "Impact of wide attacks on activity",
-    subtitle = "weekly counts, zoomed in") + geom_hline(yintercept = 0,
-    col = "red", size = 0.2, lty = 3)
+geom_jitter(size = 1, alpha = 0.2) + geom_smooth(method = "lm",
+color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
+th + scale_x_continuous(breaks = 0:max(data$sumLowBefore),
+limits = c(-1, 15)) + ylim(c(-150, 150)) + geom_smooth(color = "grey",
+size = 0.4, lty = 2, alpha = 0.2) + xlab("wide attacks before") +
+ylab("activity change after") + labs(title = "Impact of wide attacks on activity",
+subtitle = "weekly counts, zoomed in") + geom_hline(yintercept = 0,
+col = "red", size = 0.2, lty = 3)
 ```
 
 ``` r
@@ -323,31 +323,31 @@ lowPlotZoomed
 
 ``` r
 lowOnlyPlot <- ggplot(data, aes(x = (sumLowBefore - sumHighBefore),
-    y = activityDiff)) + geom_jitter(size = 0.8, alpha = 0.3) +
-    geom_smooth(method = "lm", color = "skyblue", fill = "skyblue",
-        size = 0.7, alpha = 0.8) + th + geom_smooth(color = "grey",
-    size = 0.4, lty = 2, alpha = 0.2) + xlab("wide only attacks before") +
-    ylab("activity change after") + labs(title = "Impact of wide only attacks on activity",
-    subtitle = "weekly counts, n=3673") + geom_segment(aes(x = -1,
-    y = -150, xend = 15, yend = -150), lty = 3, size = 0.1, color = "gray71",
-    alpha = 0.2) + geom_segment(aes(x = -1, y = 150, xend = 15,
-    yend = 150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
-    geom_segment(aes(x = -1, y = -150, xend = -1, yend = 150),
-        lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
-    geom_segment(aes(x = 15, y = -150, xend = 15, yend = 150),
-        lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
-    xlim(c(-1, max(data$sumLowBefore)))
+y = activityDiff)) + geom_jitter(size = 0.8, alpha = 0.3) +
+geom_smooth(method = "lm", color = "skyblue", fill = "skyblue",
+size = 0.7, alpha = 0.8) + th + geom_smooth(color = "grey",
+size = 0.4, lty = 2, alpha = 0.2) + xlab("wide only attacks before") +
+ylab("activity change after") + labs(title = "Impact of wide only attacks on activity",
+subtitle = "weekly counts, n=3673") + geom_segment(aes(x = -1,
+y = -150, xend = 15, yend = -150), lty = 3, size = 0.1, color = "gray71",
+alpha = 0.2) + geom_segment(aes(x = -1, y = 150, xend = 15,
+yend = 150), lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+geom_segment(aes(x = -1, y = -150, xend = -1, yend = 150),
+lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+geom_segment(aes(x = 15, y = -150, xend = 15, yend = 150),
+lty = 3, size = 0.1, color = "gray71", alpha = 0.2) +
+xlim(c(-1, max(data$sumLowBefore)))
 
 
 lowOnlyPlotZoomed <- ggplot(data, aes(x = (sumLowBefore - sumHighBefore),
-    y = activityDiff)) + geom_jitter(size = 1, alpha = 0.2) +
-    geom_smooth(method = "lm", color = "skyblue", fill = "skyblue",
-        size = 0.7, alpha = 0.8) + th + scale_x_continuous(breaks = 0:max(data$sumLowBefore),
-    limits = c(-1, 15)) + ylim(c(-150, 150)) + geom_smooth(color = "grey",
-    size = 0.4, lty = 2, alpha = 0.2) + xlab("wide only attacks before") +
-    ylab("activity change after") + labs(title = "Impact of wide only attacks on activity",
-    subtitle = "weekly counts, zoomed in") + geom_hline(yintercept = 0,
-    col = "red", size = 0.2, lty = 3)
+y = activityDiff)) + geom_jitter(size = 1, alpha = 0.2) +
+geom_smooth(method = "lm", color = "skyblue", fill = "skyblue",
+size = 0.7, alpha = 0.8) + th + scale_x_continuous(breaks = 0:max(data$sumLowBefore),
+limits = c(-1, 15)) + ylim(c(-150, 150)) + geom_smooth(color = "grey",
+size = 0.4, lty = 2, alpha = 0.2) + xlab("wide only attacks before") +
+ylab("activity change after") + labs(title = "Impact of wide only attacks on activity",
+subtitle = "weekly counts, zoomed in") + geom_hline(yintercept = 0,
+col = "red", size = 0.2, lty = 3)
 ```
 
 ``` r
@@ -371,45 +371,45 @@ The above visualises the  activity change in terms of weekly counts. However, ar
 \mathsf{activityScore} = & \frac{\mathsf{activityDifference}}{\mathsf{activityBefore}}
 \end{align}
 
-We zoom in to densely populated areas of the plot for `activityScore`} as a function of the three types of attacks in Figure \ref{fig:propActivity}. The impact is still negative, more so for `narrow`} attacks, and less so for other types. Note that for mathematical reasons the score minimum is -1 (user activity cannot drop more than 100\%), and so the graph looks  assymetric around the horizontal line.
+We zoom in to densely populated areas of the plot for `activityScore` as a function of the three types of attacks. The impact is still negative, more so for `narrow` attacks, and less so for other types. Note that for mathematical reasons the score minimum is -1 (user activity cannot drop more than 100\%), and so the graph looks  assymetric around the horizontal line.
 
 
 ``` r
 rescale <- function(diff, act) {
-    diff/act
+diff/act
 }
 data$activityScore <- rescale(data$activityDiff, data$activityBefore)
 
 propPlotHigh <- ggplot(data, aes(x = sumHighBefore, y = activityScore)) +
-    geom_jitter(size = 0.8, alpha = 0.3) + geom_smooth(method = "lm",
-    color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
-    th + xlab("narrow attacks before") + ylab("proportional activity change") +
-    labs(title = "Impact of narrow attacks on proportional activity",
-        subtitle = "n=3673") + scale_y_continuous(limits = c(-1,
-    10)) + geom_hline(yintercept = 0, col = "red", size = 0.2,
-    lty = 3) + scale_x_continuous(breaks = 1:15, limits = c(-1,
-    10)) + geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)
+geom_jitter(size = 0.8, alpha = 0.3) + geom_smooth(method = "lm",
+color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
+th + xlab("narrow attacks before") + ylab("proportional activity change") +
+labs(title = "Impact of narrow attacks on proportional activity",
+subtitle = "n=3673") + scale_y_continuous(limits = c(-1,
+10)) + geom_hline(yintercept = 0, col = "red", size = 0.2,
+lty = 3) + scale_x_continuous(breaks = 1:15, limits = c(-1,
+10)) + geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)
 
 propPlotLow <- ggplot(data, aes(x = sumLowBefore, y = activityScore)) +
-    geom_jitter(size = 0.8, alpha = 0.3) + geom_smooth(method = "lm",
-    color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
-    th + xlab("wide attacks before") + ylab("proportional activity change") +
-    labs(title = "Impact of wide attacks on proportional activity",
-        subtitle = "n=3673") + scale_y_continuous(limits = c(-1,
-    10)) + geom_hline(yintercept = 0, col = "red", size = 0.2,
-    lty = 3) + scale_x_continuous(breaks = 1:15, limits = c(-1,
-    10)) + geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)
+geom_jitter(size = 0.8, alpha = 0.3) + geom_smooth(method = "lm",
+color = "skyblue", fill = "skyblue", size = 0.7, alpha = 0.8) +
+th + xlab("wide attacks before") + ylab("proportional activity change") +
+labs(title = "Impact of wide attacks on proportional activity",
+subtitle = "n=3673") + scale_y_continuous(limits = c(-1,
+10)) + geom_hline(yintercept = 0, col = "red", size = 0.2,
+lty = 3) + scale_x_continuous(breaks = 1:15, limits = c(-1,
+10)) + geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)
 
 
 propPlotLowOnly <- ggplot(data, aes(x = sumLowBefore - sumHighBefore,
-    y = activityScore)) + geom_jitter(size = 0.8, alpha = 0.3) +
-    geom_smooth(method = "lm", color = "skyblue", fill = "skyblue",
-        size = 0.7, alpha = 0.8) + th + xlab("wide only attacks before") +
-    ylab("proportional activity change") + labs(title = "Impact of wide only attacks on proportional activity",
-    subtitle = "n=3673") + scale_y_continuous(limits = c(-1,
-    10)) + geom_hline(yintercept = 0, col = "red", size = 0.2,
-    lty = 3) + scale_x_continuous(breaks = 1:15, limits = c(-1,
-    10)) + geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)
+y = activityScore)) + geom_jitter(size = 0.8, alpha = 0.3) +
+geom_smooth(method = "lm", color = "skyblue", fill = "skyblue",
+size = 0.7, alpha = 0.8) + th + xlab("wide only attacks before") +
+ylab("proportional activity change") + labs(title = "Impact of wide only attacks on proportional activity",
+subtitle = "n=3673") + scale_y_continuous(limits = c(-1,
+10)) + geom_hline(yintercept = 0, col = "red", size = 0.2,
+lty = 3) + scale_x_continuous(breaks = 1:15, limits = c(-1,
+10)) + geom_smooth(color = "grey", size = 0.4, lty = 2, alpha = 0.2)
 ```
 
 ``` r
@@ -458,198 +458,289 @@ rownames(counts) <- c("no. of attacks", "count")
 counts
 ```
 
-    ##                [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
-    ## no. of attacks    0    1    2    3    4    5    6    7    8     9    10    11
-    ## count          2831  530  147   61   35   22   17    8    4     3     2     2
-    ##                [,13] [,14] [,15] [,16] [,17] [,18] [,19] [,20] [,21]
-    ## no. of attacks    12    13    14    16    17    19    25    26    27
-    ## count              1     1     1     3     1     1     1     1     1
+##[,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
+## no. of attacks012345678 91011
+## count  2831  530  147   61   35   22   1784 3 2 2
+##[,13] [,14] [,15] [,16] [,17] [,18] [,19] [,20] [,21]
+## no. of attacks121314161719252627
+## count  1 1 1 3 1 1 1 1 1
 
 
 
 
-    We proceed as follows. We list 9  options of the number of attacks and initiate vectors to which we will save the confidence interval limits (`low`, `high`), the estimated mean and the `p`-value. We use the same approach to analyze  the other types of attacks.
+We proceed as follows. We list 9  options of the number of attacks and initiate vectors to which we will save the confidence interval limits (`low`, `high`), the estimated mean and the `p`-value. We use the same approach to analyze  the other types of attacks.
 
 
-    ``` r
-    attacks <- 0:8
-    max <- max(attacks)
-    low <- numeric(max + 1)
-    high <- numeric(max + 1)
-    m <- numeric(max + 1)
-    p <- numeric(max + 1)
-    t <- list()
-
-    for (attacks in attacks) {
-        t[[attacks + 1]] <- t.test(data[data$sumHighBefore == attacks,
-            ]$activityDiff)
-
-        low[attacks + 1] <- t[[attacks + 1]]$conf.int[1]
-        high[attacks + 1] <- t[[attacks + 1]]$conf.int[2]
-        m[attacks + 1] <- t[[attacks + 1]]$estimate
-        p[attacks + 1] <- t[[attacks + 1]]$p.value
-    }
-    highTable <- as.data.frame(round(rbind(0:8, low, m, high, p),
-        3))
-    rownames(highTable) <- c("attacks", "CIlow", "estimated m", "CIhigh",
-        "p-value")
-    ```
-
-    ``` r
-    highTableLong <- round(data.frame(attacks = 0:8, low, m, high,
-        p), 3)
-
-    highTableBar <- ggplot(highTableLong) + geom_bar(aes(x = attacks,
-        y = m), stat = "identity", fill = "skyblue", alpha = 0.5) +
-        geom_errorbar(aes(x = attacks, ymin = low, ymax = high),
-            width = 0.4, colour = "seashell3", alpha = 0.9, size = 0.3) +
-        th + xlab("narrow attacks") + ylab("mean activity change") +
-        geom_text(aes(x = attacks, y = low - 20, label = p), size = 2) +
-        labs(title = "Mean impact of narrow attacks on  weekly activity",
-            subtitle = "with 95% confidence intervals and p-values") +
-        scale_x_continuous(labels = 0:8, breaks = 0:8)
-
-    highTableBar6 <- ggplot(highTableLong[highTableLong$attacks <
-        6, ]) + geom_bar(aes(x = attacks, y = m), stat = "identity",
-        fill = "skyblue", alpha = 0.5) + geom_errorbar(aes(x = attacks,
-        ymin = low, ymax = high), width = 0.4, colour = "seashell3",
-        alpha = 0.9, size = 0.3) + th + xlab("narrow attacks") +
-        ylab("mean activity change") + geom_text(aes(x = attacks,
-        y = low - 20, label = p), size = 2) + labs(title = "Mean impact of narrow attacks <6 on  weekly activity",
-        subtitle = "with 95% confidence intervals and p-values") +
-        scale_x_continuous(labels = 0:5, breaks = 0:5)
-
-    highTableBar3 <- ggplot(highTableLong[highTableLong$attacks <
-        3, ]) + geom_bar(aes(x = attacks, y = m), stat = "identity",
-        fill = "skyblue", alpha = 0.5) + geom_errorbar(aes(x = attacks,
-        ymin = low, ymax = high), width = 0.4, colour = "seashell3",
-        alpha = 0.9, size = 0.3) + th + xlab("narrow attacks") +
-        ylab("mean activity change") + geom_text(aes(x = attacks,
-        y = low - 5, label = p), size = 2) + labs(title = "Mean impact of narrow attacks <3 on  weekly activity",
-        subtitle = "with 95% confidence intervals and p-values") +
-        scale_x_continuous(labels = 0:2, breaks = 0:2)
-    ```
-
-    ``` r
-    attacks <- 0:8
-    max <- max(attacks)
-    lowL <- numeric(max + 1)
-    highL <- numeric(max + 1)
-    mL <- numeric(max + 1)
-    pL <- numeric(max + 1)
-    tL <- list()
-
-    for (attacks in attacks) {
-        tL[[attacks + 1]] <- t.test(data[data$sumLowBefore == attacks,
-            ]$activityDiff)
-
-        lowL[attacks + 1] <- t[[attacks + 1]]$conf.int[1]
-        highL[attacks + 1] <- t[[attacks + 1]]$conf.int[2]
-        mL[attacks + 1] <- t[[attacks + 1]]$estimate
-        pL[attacks + 1] <- t[[attacks + 1]]$p.value
-    }
-    lowTable <- as.data.frame(round(rbind(0:8, lowL, mL, highL, pL),
-        3))
-    rownames(lowTable) <- c("attacks", "CIlow", "estimated m", "CIhigh",
-        "p-value")
+``` r
+attacks <- 0:8
+max <- max(attacks)
+low <- numeric(max + 1)
+high <- numeric(max + 1)
+m <- numeric(max + 1)
+p <- numeric(max + 1)
+t <- list()
+for (attacks in attacks) {
+t[[attacks + 1]] <- t.test(data[data$sumHighBefore == attacks,]$activityDiff)
+  low[attacks + 1] <- t[[attacks + 1]]$conf.int[1]
+  high[attacks + 1] <- t[[attacks + 1]]$conf.int[2]
+  m[attacks + 1] <- t[[attacks + 1]]$estimate
+  p[attacks + 1] <- t[[attacks + 1]]$p.value
+  }
+highTable <- as.data.frame(round(rbind(0:8, low, m, high, p),3))
+rownames(highTable) <- c("attacks", "CIlow", "estimated m", "CIhigh",
+"p-value")
+```
 
 
-    attacks <- 0:8
-    max <- max(attacks)
-    lowLo <- numeric(max + 1)
-    highLo <- numeric(max + 1)
-    mLo <- numeric(max + 1)
-    pLo <- numeric(max + 1)
-    tLo <- list()
+``` r
+highTableLong <- round(data.frame(attacks = 0:8, low, m, high,p), 3)
+highTableBar <- ggplot(highTableLong) + geom_bar(aes(x = attacks,
+  y = m), stat = "identity", fill = "skyblue", alpha = 0.5) +
+  geom_errorbar(aes(x = attacks, ymin = low, ymax = high),
+  width = 0.4, colour = "seashell3", alpha = 0.9, size = 0.3) +
+  th + xlab("narrow attacks") + ylab("mean activity change") +
+  geom_text(aes(x = attacks, y = low - 20, label = p), size = 2) +
+  labs(title = "Mean impact of narrow attacks on  weekly activity",
+  subtitle = "with 95% confidence intervals and p-values") +
+  scale_x_continuous(labels = 0:8, breaks = 0:8)
 
-    for (attacks in attacks) {
-        tLo[[attacks + 1]] <- t.test(data[data$sumLowBefore - data$sumHighBefore ==
-            attacks, ]$activityDiff)
+highTableBar6 <- ggplot(highTableLong[highTableLong$attacks <
+  6, ]) + geom_bar(aes(x = attacks, y = m), stat = "identity",
+  fill = "skyblue", alpha = 0.5) + geom_errorbar(aes(x = attacks,
+  ymin = low, ymax = high), width = 0.4, colour = "seashell3",
+  alpha = 0.9, size = 0.3) + th + xlab("narrow attacks") +
+  ylab("mean activity change") + geom_text(aes(x = attacks,
+  y = low - 20, label = p), size = 2) + labs(title = "Mean impact of narrow attacks <6 on  weekly activity",
+  subtitle = "with 95% confidence intervals and p-values") +
+  scale_x_continuous(labels = 0:5, breaks = 0:5)
 
-        lowLo[attacks + 1] <- t[[attacks + 1]]$conf.int[1]
-        highLo[attacks + 1] <- t[[attacks + 1]]$conf.int[2]
-        mLo[attacks + 1] <- t[[attacks + 1]]$estimate
-        pLo[attacks + 1] <- t[[attacks + 1]]$p.value
-    }
-    lowOnlyTable <- as.data.frame(round(rbind(0:8, lowLo, mLo, highLo,
-        pLo), 3))
-    rownames(lowTable) <- c("attacks", "CIlow", "estimated m", "CIhigh",
-        "p-value")
-    ```
+highTableBar3 <- ggplot(highTableLong[highTableLong$attacks <
+  3, ]) + geom_bar(aes(x = attacks, y = m), stat = "identity",
+  fill = "skyblue", alpha = 0.5) + geom_errorbar(aes(x = attacks,
+  ymin = low, ymax = high), width = 0.4, colour = "seashell3",
+  alpha = 0.9, size = 0.3) + th + xlab("narrow attacks") +
+  lab("mean activity change") + geom_text(aes(x = attacks,
+  y = low - 5, label = p), size = 2) + labs(title = "Mean impact of narrow attacks <3 on  weekly activity",
+  subtitle = "with 95% confidence intervals and p-values") +
+  scale_x_continuous(labels = 0:2, breaks = 0:2)
+```
 
-    ``` r
-    lowTableLong <- round(data.frame(attacks = 0:8, lowL, mL, highL,
-        pL), 3)
+``` r
+attacks <- 0:8
+max <- max(attacks)
+lowL <- numeric(max + 1)
+highL <- numeric(max + 1)
+mL <- numeric(max + 1)
+pL <- numeric(max + 1)
+tL <- list()
 
-    lowTableBar <- ggplot(lowTableLong) + geom_bar(aes(x = attacks,
-        y = m), stat = "identity", fill = "skyblue", alpha = 0.5) +
-        geom_errorbar(aes(x = attacks, ymin = low, ymax = high),
-            width = 0.4, colour = "seashell3", alpha = 0.9, size = 0.3) +
-        th + xlab("wide attacks") + ylab("mean activity change") +
-        geom_text(aes(x = attacks, y = low - 20, label = round(p,
-            3)), size = 2) + labs(title = "Mean impact of wide attacks on  weekly activity",
-        subtitle = "with 95% confidence intervals and p-values") +
-        scale_x_continuous(labels = 0:8, breaks = 0:8)
+for (attacks in attacks) {
+  tL[[attacks + 1]] <- t.test(data[data$sumLowBefore == attacks,]$activityDiff)
+
+  lowL[attacks + 1] <- t[[attacks + 1]]$conf.int[1]
+  highL[attacks + 1] <- t[[attacks + 1]]$conf.int[2]
+  mL[attacks + 1] <- t[[attacks + 1]]$estimate
+  pL[attacks + 1] <- t[[attacks + 1]]$p.value
+  }
+lowTable <- as.data.frame(round(rbind(0:8, lowL, mL, highL, pL),3))
+ownames(lowTable) <- c("attacks", "CIlow", "estimated m", "CIhigh","p-value")
+
+attacks <- 0:8
+max <- max(attacks)
+lowLo <- numeric(max + 1)
+highLo <- numeric(max + 1)
+mLo <- numeric(max + 1)
+pLo <- numeric(max + 1)
+tLo <- list()
+
+for (attacks in attacks) {
+tLo[[attacks + 1]] <- t.test(data[data$sumLowBefore - data$sumHighBefore == attacks, ]$activityDiff)
+lowLo[attacks + 1] <- t[[attacks + 1]]$conf.int[1]
+highLo[attacks + 1] <- t[[attacks + 1]]$conf.int[2]
+mLo[attacks + 1] <- t[[attacks + 1]]$estimate
+pLo[attacks + 1] <- t[[attacks + 1]]$p.value
+}
+
+lowOnlyTable <- as.data.frame(round(rbind(0:8, lowLo, mLo, highLo, pLo), 3))
+rownames(lowTable) <- c("attacks", "CIlow", "estimated m", "CIhigh",
+"p-value")
+```
+
+``` r
+lowTableLong <- round(data.frame(attacks = 0:8, lowL, mL, highL, pL), 3)
+lowTableBar <- ggplot(lowTableLong) + geom_bar(aes(x = attacks, y = m),
+stat = "identity", fill = "skyblue", alpha = 0.5) +
+geom_errorbar(aes(x = attacks, ymin = low, ymax = high),
+width = 0.4, colour = "seashell3", alpha = 0.9, size = 0.3) +
+th + xlab("wide attacks") + ylab("mean activity change") +
+geom_text(aes(x = attacks, y = low - 20, label = round(p,
+3)), size = 2) + labs(title = "Mean impact of wide attacks on  weekly activity",
+subtitle = "with 95% confidence intervals and p-values") +
+scale_x_continuous(labels = 0:8, breaks = 0:8)
+lowOnlyTableLong <- round(data.frame(attacks = 0:8, lowLo, mLo, highLo, pLo), 3)
+
+lowOnlyTableBar <- ggplot(lowOnlyTableLong) + geom_bar(aes(x = attacks,
+y = m), stat = "identity", fill = "skyblue", alpha = 0.5) +
+geom_errorbar(aes(x = attacks, ymin = low, ymax = high),
+width = 0.4, colour = "seashell3", alpha = 0.9, size = 0.3) +
+th + xlab("wide only attacks") + ylab("mean activity change") +
+geom_text(aes(x = attacks, y = low - 20, label = round(p,
+3)), size = 2) + labs(title = "Mean impact of wide only attacks on  weekly activity",
+subtitle = "with 95% confidence intervals and p-values") +
+scale_x_continuous(labels = 0:8, breaks = 0:8)\
+```
+
+T-test based estimates for activity change divided by numbers of narrow attacks received:
+
+## V1  V2  V3  V4  V5   V6   V7   V8
+## attacks  0.000   1.000   2.000   3.000   4.0005.0006.0007.000
+## CIlow   -3.154 -12.658 -23.390 -45.991 -94.861 -108.030 -169.527 -108.555
+## estimated m -2.140  -8.251 -12.646 -25.607 -59.400  -60.864  -80.882  -46.125
+## CIhigh  -1.125  -3.844  -1.902  -5.222 -23.939  -13.6977.762   16.305
+## p-value  0.000   0.000   0.021   0.015   0.0020.0140.0710.124
+##   V9
+## attacks8.000
+## CIlow   -144.273
+## estimated m  -46.750
+## CIhigh50.773
+## p-value0.225
+
+T-test based estimates for activity change divided by numbers of wide attacks received:
+
+## V1  V2  V3  V4  V5   V6   V7   V8
+## attacks  0.000   1.000   2.000   3.000   4.0005.0006.0007.000
+## CIlow   -3.154 -12.658 -23.390 -45.991 -94.861 -108.030 -169.527 -108.555
+## estimated m -2.140  -8.251 -12.646 -25.607 -59.400  -60.864  -80.882  -46.125
+## CIhigh  -1.125  -3.844  -1.902  -5.222 -23.939  -13.6977.762   16.305
+## p-value  0.000   0.000   0.021   0.015   0.0020.0140.0710.124
+##   V9
+## attacks8.000
+## CIlow   -144.273
+## estimated m  -46.750
+## CIhigh50.773
+## p-value0.225
+
+T-test based estimates for activity change divided by numbers of wide only attacks received:
+
+##V1  V2  V3  V4  V5   V6   V7   V8
+## 0.000   1.000   2.000   3.000   4.0005.0006.0007.000
+## lowLo  -3.154 -12.658 -23.390 -45.991 -94.861 -108.030 -169.527 -108.555
+## mLo-2.140  -8.251 -12.646 -25.607 -59.400  -60.864  -80.882  -46.125
+## highLo -1.125  -3.844  -1.902  -5.222 -23.939  -13.6977.762   16.305
+## pLo 0.000   0.000   0.021   0.015   0.0020.0140.0710.124
+##  V9
+##   8.000
+## lowLo  -144.273
+## mLo -46.750
+## highLo   50.773
+## pLo   0.225
 
 
-    lowOnlyTableLong <- round(data.frame(attacks = 0:8, lowLo, mLo,
-        highLo, pLo), 3)
 
-    lowOnlyTableBar <- ggplot(lowOnlyTableLong) + geom_bar(aes(x = attacks,
-        y = m), stat = "identity", fill = "skyblue", alpha = 0.5) +
-        geom_errorbar(aes(x = attacks, ymin = low, ymax = high),
-            width = 0.4, colour = "seashell3", alpha = 0.9, size = 0.3) +
-        th + xlab("wide only attacks") + ylab("mean activity change") +
-        geom_text(aes(x = attacks, y = low - 20, label = round(p,
-            3)), size = 2) + labs(title = "Mean impact of wide only attacks on  weekly activity",
-        subtitle = "with 95% confidence intervals and p-values") +
-        scale_x_continuous(labels = 0:8, breaks = 0:8)
-    ```
 
-    T-test based estimates for activity change divided by numbers of narrow attacks received:
 
-        ##                 V1      V2      V3      V4      V5       V6       V7       V8
-        ## attacks      0.000   1.000   2.000   3.000   4.000    5.000    6.000    7.000
-        ## CIlow       -3.154 -12.658 -23.390 -45.991 -94.861 -108.030 -169.527 -108.555
-        ## estimated m -2.140  -8.251 -12.646 -25.607 -59.400  -60.864  -80.882  -46.125
-        ## CIhigh      -1.125  -3.844  -1.902  -5.222 -23.939  -13.697    7.762   16.305
-        ## p-value      0.000   0.000   0.021   0.015   0.002    0.014    0.071    0.124
-        ##                   V9
-        ## attacks        8.000
-        ## CIlow       -144.273
-        ## estimated m  -46.750
-        ## CIhigh        50.773
-        ## p-value        0.225
+We represent this information in barplots. Two of them are restricted to different numbers of attacks for legibility. The printed values below bars represent $p$-values, not the estimated means.
 
-    T-test based estimates for activity change divided by numbers of wide attacks received:
 
-        ##                 V1      V2      V3      V4      V5       V6       V7       V8
-        ## attacks      0.000   1.000   2.000   3.000   4.000    5.000    6.000    7.000
-        ## CIlow       -3.154 -12.658 -23.390 -45.991 -94.861 -108.030 -169.527 -108.555
-        ## estimated m -2.140  -8.251 -12.646 -25.607 -59.400  -60.864  -80.882  -46.125
-        ## CIhigh      -1.125  -3.844  -1.902  -5.222 -23.939  -13.697    7.762   16.305
-        ## p-value      0.000   0.000   0.021   0.015   0.002    0.014    0.071    0.124
-        ##                   V9
-        ## attacks        8.000
-        ## CIlow       -144.273
-        ## estimated m  -46.750
-        ## CIhigh        50.773
-        ## p-value        0.225
 
-    T-test based estimates for activity change divided by numbers of wide only attacks received:
+``` r
+highTableBar
+```
 
-        ##            V1      V2      V3      V4      V5       V6       V7       V8
-        ##         0.000   1.000   2.000   3.000   4.000    5.000    6.000    7.000
-        ## lowLo  -3.154 -12.658 -23.390 -45.991 -94.861 -108.030 -169.527 -108.555
-        ## mLo    -2.140  -8.251 -12.646 -25.607 -59.400  -60.864  -80.882  -46.125
-        ## highLo -1.125  -3.844  -1.902  -5.222 -23.939  -13.697    7.762   16.305
-        ## pLo     0.000   0.000   0.021   0.015   0.002    0.014    0.071    0.124
-        ##              V9
-        ##           8.000
-        ## lowLo  -144.273
-        ## mLo     -46.750
-        ## highLo   50.773
-        ## pLo       0.225
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/highTableBar-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+highTableBar6
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/highTableBar6-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+highTableBar3
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/highTableBar3-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+lowTableBar
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/lowTableBar-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+lowOnlyTableBar
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/lowOnlyTableBar-1.png" width="100%" style="display: block; margin: auto;" />
+
+``` r
+h6 <- data[data$sumHighBefore == 6, ]
+h7 <- data[data$sumHighBefore == 7, ]
+h8 <- data[data$sumHighBefore == 8, ]
+
+# power for 6 attacks
+a <- mean(data$activityDiff)
+s <- sd(h7$activityDiff)
+n <- 8
+error <- qt(0.975, df = n - 1) * s/sqrt(n)
+left <- a - error
+right <- a + error
+assumed <- a - 80
+tleft <- (left - assumed)/(s/sqrt(n))
+tright <- (right - assumed)/(s/sqrt(n))
+p <- pt(tright, df = n - 1) - pt(tleft, df = n - 1)
+power6 <- 1 - p
+power6
+```
+
+## [1] 0.7369795
+
+``` r
+# power for 7 attacks
+a <- mean(data$activityDiff)
+s <- sd(h7$activityDiff)
+n <- 8
+error <- qt(0.975, df = n - 1) * s/sqrt(n)
+left <- a - error
+right <- a + error
+assumed <- a - 80
+tleft <- (left - assumed)/(s/sqrt(n))
+tright <- (right - assumed)/(s/sqrt(n))
+p <- pt(tright, df = n - 1) - pt(tleft, df = n - 1)
+power7 <- 1 - p
+power7
+```
+
+## [1] 0.7369795
+
+``` r
+# power for 8 attacks
+a <- mean(data$activityDiff)
+s <- sd(h8$activityDiff)
+n <- 4
+error <- qt(0.975, df = n - 1) * s/sqrt(n)
+left <- a - error
+right <- a + error
+assumed <- a - 80
+tleft <- (left - assumed)/(s/sqrt(n))
+tright <- (right - assumed)/(s/sqrt(n))
+p <- pt(tright, df = n - 1) - pt(tleft, df = n - 1)
+power8 <- 1 - p
+power8
+```
+
+## [1] 0.3088534
+
+
+
+
+
+
+
+
+
+
+
 
 
 

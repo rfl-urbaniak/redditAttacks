@@ -990,11 +990,11 @@ print(mc3w)
 - Potential parameter  candidates are "locations"  that can be visited, and as the algorithm "travels", it writes down the  visited ones.
 - The algorithm starts with a random candidate $\theta_1$ for a parameter, say, that the real mean activity change is 5. It writes down $\theta_1$ in the list of "places visited".
 - It calculates the probability (density) for the observations  on the assumption that $\theta_1$ indeed is the real mean activity change. This results in $p(D\vert \theta_1)$.
--  However, what is important is $p(\theta_1\vert D)$, the extent to which the data supports the claim that $\theta_1$ is the right parameter. This, by Bayes' Theorem, is related to $p(D\vert \theta_1)$ by means of equation \eqref{eq:bayes}:
+-  However, what is important is $p(\theta_1\vert D)$, the extent to which the data supports the claim that $\theta_1$ is the right parameter. This, by Bayes' Theorem, is related to $p(D\vert \theta_1)$ by means of  Bayes' theorem:
 \begin{align}\label{eq:bayes}
 p(\theta_1\vert D) & = \frac{p(D\vert \theta_1)p(\theta)}{p(D)}
 \end{align}
-- Now, $p(D)$ is notoriously difficult to calculate in many cases.\footnote{The general problem is that  for the continuous case we have $p(D) = \int d \theta p(D\vert \theta) p (\theta)$ and this integral can be analytically unsolvable.}
+- Now, $p(D)$ is notoriously difficult to calculate in many cases. The general problem is that  for the continuous case we have $p(D) = \int d \theta p(D\vert \theta) p (\theta)$ and this integral can be analytically unsolvable.
 However,  what the simulation needs is something proportional to the right-hand side above, and so what is used is simply $p(D\vert \theta_1)p(\theta)$: the likelihood times the prior. We call the result $p'(\theta_1)$.
 - Next, the algorithm considers another randomly drawn potential parameter $\theta_2$ in the neighborhood of $\theta_1$ and calculates $p'(\theta_2)$. If it is greater than $p'(\theta_1)$, it moves its location to $\theta_2$ with certainty, otherwise, it decides to move there with some non-extreme probability only (its value is a meta-parameter chosen to optimize the algorithm convergence).
 - Then it draws randomly another potential parameter in the neighborhood of wherever it ended up, and proceeds as before. This is done for a large number of steps.
@@ -1027,6 +1027,19 @@ ggplot() + geom_line(aes(x = 1:length(conv), y = conv), alpha = 0.7) +
 ```
 
 <img src="https://rfl-urbaniak.github.io/redditAttacks/images/chainDiagnostics-1.png" width="100%" style="display: block; margin: auto;" />
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

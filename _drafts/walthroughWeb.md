@@ -683,6 +683,32 @@ so
     ## \end{tabular}
     ## \end{table}
 
+``` r
+means <- numeric(10000)
+for (run in 1:10000) {
+    means[run] <- mean(sample(data[data$sumHighBefore == 2, ]$activityDiff,
+        30))
+}
+distr <- ggplot(data[data$sumHighBefore == 2, ], aes(x = activityDiff)) +
+    geom_histogram(bins = 100) + th + ggtitle("Distribution of activityDiff for narrow attacks before = 2")
+
+
+sampDistr <- ggplot() + geom_histogram(aes(x = means), bins = 100) +
+    th + ggtitle("Simulated sampling distribution for the same  with n=30 and 10 000 runs")
+```
+
+``` r
+distr
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/distr-1.png" style="display: block; margin: auto;" />
+
+``` r
+sampDistr
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/sampDistr-1.png" style="display: block; margin: auto;" />
+
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.
 
 Tukey, J. W. (1949). Comparing individual means in the analysis of variance. *Biometrics*, *5*(2), 99. <https://doi.org/10.2307/3001913>

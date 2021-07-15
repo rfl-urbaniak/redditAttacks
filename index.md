@@ -803,6 +803,54 @@ so
 
 
 
+
+We used t-tests, which one might think assumes normality, to estimate means  for distributions, which in fact  are not normal. However, what t-test assumes is the normality of the sampling distribution, and this condition is much easier to satisfy thanks to the central limit theorem.
+See for instance the following figure:
+
+``` r
+means <- numeric(10000)
+for (run in 1:10000) {
+    means[run] <- mean(sample(data[data$sumHighBefore == 2, ]$activityDiff,
+        30))
+}
+distr <- ggplot(data[data$sumHighBefore == 2, ], aes(x = activityDiff)) +
+    geom_histogram(bins = 100) + th + ggtitle("Distribution of activityDiff for narrow attacks before = 2")
+
+
+sampDistr <- ggplot() + geom_histogram(aes(x = means), bins = 100) +
+    th + ggtitle("Simulated sampling distribution for the same  with n=30 and 10 000 runs")
+```
+
+
+
+
+
+
+``` r
+distr
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/distr-1.png" style="display: block; margin: auto;" />
+
+``` r
+sampDistr
+```
+
+<img src="https://rfl-urbaniak.github.io/redditAttacks/images/sampDistr-1.png" style="display: block; margin: auto;" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### References
 
 Ptaszyński, M., Leliwa, G., Piech, M., & Smywiński-Pohl, A. (2018). Cyberbullying detection–technical report 2/2018, Department of Computer Science AGH, University of Science and Technology. *arXiv Preprint arXiv:1808.00926*.

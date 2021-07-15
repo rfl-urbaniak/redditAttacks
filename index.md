@@ -126,26 +126,25 @@ Because of the preponderance of personal attacks online, we could use the real-l
 
 4. In some cases, content had been  deleted by the user or removed by Reddit  --- in such cases the dataset only contained information that some content had been  posted but was later removed; since we could not access the content  of such posts or comments and evaluate them for personal attacks, we also excluded them from the study.
 
-Again, this was a  straightforward use of grepl:
-
- ``` r
- thursdayClean <- thursdayClean[!grepl("none", thursdayClean$receiver, fixed = TRUE), ]
- thursdayClean <- thursdayClean[!grepl("None", thursdayClean$receiver, fixed = TRUE), ]
- thursdayClean <- thursdayClean[!grepl("<MISSING>", thursdayClean$receiver,
-    fixed = TRUE), ]
- thursdayClean <- thursdayClean[!grepl("[deleted]", thursdayClean$receiver,
-    fixed = TRUE), ]
- ```
+    Again, this was a  straightforward use of grepl:
+    ``` r
+    thursdayClean <- thursdayClean[!grepl("none", thursdayClean$receiver, fixed = TRUE), ]
+    thursdayClean <- thursdayClean[!grepl("None", thursdayClean$receiver, fixed = TRUE), ]
+    thursdayClean <- thursdayClean[!grepl("<MISSING>", thursdayClean$receiver,
+     fixed = TRUE), ]
+    thursdayClean <- thursdayClean[!grepl("[deleted]", thursdayClean$receiver,
+     fixed = TRUE), ]
+    ```
 
  5. This left us with  92,943 comments or posts by 75,516 users  for R and 89,585 comments by 72,801 users  for S. While we didn't directly track whether content was a post or a comment, we paid attention as to whether a piece of content was a reply to a post or not (the working assumption was that personal attacks on posts might have different impact than attacks on comments). Quite consistently, 46\% of content were comments on posts on both days.
 
 
  6.  On these two  days respectively,  1359 R users ($1.79\%$) received at least one narrow attack, 35 of them received more than one ($0.046\%$). 302 of S users ($0.39\%$) received at least one narrow attack and 3 of them more than one narrow on that day ($0.003\%$). These numbers  are estimates for a single day, and therefore if the chance of obtaining at least one narrow attack in a day is $1.79\%$, assuming the binomial distribution, the estimated probability of obtaining at least one narrow attack in a week is 11.9\% in a week and 43\% in a month.
 
-  ``` r
-  100  * round(1-dbinom(0,7,prob = 1359/75516),3)` #week
-  100 * round(1-dbinom(0,31,prob = 1359/75516),3)` #month
-   ```
+    ``` r
+    100  * round(1-dbinom(0,7,prob = 1359/75516),3)` #week
+    100 * round(1-dbinom(0,31,prob = 1359/75516),3)` #month
+    ```
 
 
   7.  To ensure a sufficient sample size, we decided not to draw a random sub-sample from the or class comprising 340 users, and included all of them in the Thursday treatment group (). Other users were randomly sampled from and added to , so that the group count was 1000.
@@ -175,9 +174,9 @@ data <- read.csv("../datasets/quittingFinalAnon.csv")[, -1]
 table(data$group)
 ```
 
-##
-##   Rcontrol Rtreatment   Scontrol Streatment
-##        875        935        942        921
+    ##
+    ##   Rcontrol Rtreatment   Scontrol Streatment
+    ##        875        935        942        921
 
 
 

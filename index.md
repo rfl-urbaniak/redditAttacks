@@ -111,20 +111,20 @@ Because of the preponderance of personal attacks online, we could use the real-l
 
 For instance, for our initial thursdayClean datased, this proceeds like this:
 
-``` r
-thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$author,
-    fixed = TRUE), ]
-thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$author,
-    fixed = TRUE), ]
-thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$receiver,
-    fixed = TRUE), ]
-thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$receiver,
-    fixed = TRUE), ]
-thursdayClean <- thursdayClean[!grepl("bot", thursdayClean$receiver,
-    fixed = TRUE), ]
-thursdayClean <- thursdayClean[!grepl("Bot", thursdayClean$receiver,
-    fixed = TRUE), ]
-```
+        ``` r
+        thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$author,
+            fixed = TRUE), ]
+        thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$author,
+            fixed = TRUE), ]
+        thursdayClean <- thursdayClean[!grepl("Auto", thursdayClean$receiver,
+            fixed = TRUE), ]
+        thursdayClean <- thursdayClean[!grepl("auto", thursdayClean$receiver,
+            fixed = TRUE), ]
+        thursdayClean <- thursdayClean[!grepl("bot", thursdayClean$receiver,
+            fixed = TRUE), ]
+        thursdayClean <- thursdayClean[!grepl("Bot", thursdayClean$receiver,
+            fixed = TRUE), ]
+        ```
 
 
 

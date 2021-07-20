@@ -10,7 +10,7 @@ variant: markdown_github
 preserve_yaml: true
 ---
 
-
+  
 ### Description
 
 - Exploration of the effects of online personal attacks on victims' activity on social media (Reddit).

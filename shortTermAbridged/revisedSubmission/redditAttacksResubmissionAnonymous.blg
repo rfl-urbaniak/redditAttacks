@@ -1,0 +1,47 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: redditAttacksResubmissionAnonymous.aux
+The style file: cas-model2-names.bst
+Database file #1: attacks.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 77 entries,
+            2990 wiz_defined-function locations,
+            1278 strings with 24576 characters,
+and the built_in function-call counts, 51734 in all, are:
+= -- 4042
+> -- 2042
+< -- 44
++ -- 809
+- -- 708
+* -- 5697
+:= -- 7553
+add.period$ -- 277
+call.type$ -- 77
+change.case$ -- 620
+chr.to.int$ -- 77
+cite$ -- 77
+duplicate$ -- 3849
+empty$ -- 3719
+format.name$ -- 937
+if$ -- 9622
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 742
+newline$ -- 446
+num.names$ -- 308
+pop$ -- 1295
+preamble$ -- 1
+purify$ -- 544
+quote$ -- 0
+skip$ -- 1159
+stack$ -- 0
+substring$ -- 2085
+swap$ -- 2788
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 681
+warning$ -- 0
+while$ -- 334
+width$ -- 0
+write$ -- 1194

@@ -11,6 +11,18 @@ preserve_yaml: true
 ---
 
 
+
+### Resources
+
+- The actual research paper is available [here](https://www.sciencedirect.com/science/article/abs/pii/S0747563221002958).
+- Github folder with all the files is available [here](https://github.com/rfl-urbaniak/redditAttacks).
+- The [datasets subfolder](https://github.com/rfl-urbaniak/redditAttacks/tree/main/datasets) includes the dataset (quittingFinalAnon.csv) and the bayesian chains resulting from the bayesian analysis.
+- A pdf file with this walkthrough is available [here](https://rfl-urbaniak.github.io/redditAttacks/analysisWalkthrough/redditAnalysisWalkthrough.pdf) and its R markdown source file is [here](https://rfl-urbaniak.github.io/redditAttacks/analysisWalkthrough/redditAnalysisWalkthrough.Rmd).
+
+
+
+
+
 ### Description
 
 - Exploration of the effects of online personal attacks on victims' activity on social media (Reddit).
@@ -28,15 +40,6 @@ The results can be interpreted as an important signal to social media platforms 
 
 
 _Remark_. In what follows, we sometimes display key pieces of code and explain what it does. Some not too fascinating pieces of code are supressed, but the reader can look them up in the associated .Rmd file and compile their own version.
-
-
-
-### Resources
-
-- The actual research paper is available [here](https://www.sciencedirect.com/science/article/abs/pii/S0747563221002958).
-- Github folder with all the files is available [here](https://github.com/rfl-urbaniak/redditAttacks).
-- The [datasets subfolder](https://github.com/rfl-urbaniak/redditAttacks/tree/main/datasets) includes the dataset (quittingFinalAnon.csv) and the bayesian chains resulting from the bayesian analysis.
-- A pdf file with this walkthrough is available [here](https://rfl-urbaniak.github.io/redditAttacks/analysisWalkthrough/redditAnalysisWalkthrough.pdf) and its R markdown source file is [here](https://rfl-urbaniak.github.io/redditAttacks/analysisWalkthrough/redditAnalysisWalkthrough.Rmd).
 
 
 

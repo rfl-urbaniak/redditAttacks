@@ -4,6 +4,8 @@ The data analysis has been conducted in R from three perspectives: (1)~classical
 
 - The actual research paper is available [here](https://www.sciencedirect.com/science/article/abs/pii/S0747563221002958).
 
+- Online walkthrough is available [here](https://rfl-urbaniak.github.io/redditAttacks/).
+
 - Github folder with all the files is available [here](https://github.com/rfl-urbaniak/redditAttacks).
 
 - The [datasets subfolder](https://github.com/rfl-urbaniak/redditAttacks/tree/main/datasets) includes the dataset (quittingFinalAnon.csv) and the bayesian chains resulting from the bayesian analysis.
